@@ -4,16 +4,16 @@ const ap = new APlayer({
     autoplay: false,
     audio: [
 	{
-        name: "Champagne Ocean",
-        artist: 'Ehrling',
-        url: 'https://music.163.com/outchain/player?type=2&id=436147067&auto=1&height=66&bg=e8e8e8',
-        cover: 'http://p1.music.126.net/3OCOqJx8ABWtsZejHlfTew==/18784056649624787.jpg?param=130y130',
+        name: "Canon",
+        artist: '纯音乐',
+        url: 'http://win.web.ri01.sycdn.kuwo.cn/fc17772b87211fb9172a2fc718ac3e2a/5b604eec/resource/n2/79/49/1012854441.mp3',
+        cover: '、',
       },
-      {
-        name: "PDD洪荒之力",
-        artist: '徐梦圆',
-        url: 'http://up.mcyt.net/?down/39868.mp3',
-        cover: 'http://oeff2vktt.bkt.clouddn.com/image/84.jpg',
+	  {
+        name: "River Flows in You",
+        artist: 'Yiruma',
+        url: 'http://win.web.ri01.sycdn.kuwo.cn/cb174fd932039e87e49ec338888b1930/5b604d72/resource/n1/23/9/2555012133.mp3',
+        cover: 'http://p1.music.126.net/8ZRSyI0ZN_4ah8uzsNd1mA==/2324367581169008.jpg?param=130y130',
       },
       {
         name: '惊蛰',
