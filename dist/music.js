@@ -7,7 +7,7 @@ const ap = new APlayer({
         name: "Canon",
         artist: '纯音乐',
         url: 'http://win.web.ri01.sycdn.kuwo.cn/fc17772b87211fb9172a2fc718ac3e2a/5b604eec/resource/n2/79/49/1012854441.mp3',
-        cover: '、',
+        cover: 'http://p1.music.126.net/SwcB5KXJWg98cfEi_B8V9g==/2535473814084205.jpg?param=130y130',
       },
 	  {
         name: "River Flows in You",
