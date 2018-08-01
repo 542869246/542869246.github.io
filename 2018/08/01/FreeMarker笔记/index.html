@@ -34,6 +34,17 @@
 
 
 
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "b3c7d22e"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
 
 
 
@@ -75,7 +86,7 @@
 
 
 
-  <meta name="keywords" content="技巧," />
+  <meta name="keywords" content="java,FreeMarker,模板引擎," />
 
 
 
@@ -102,20 +113,20 @@
     }
 </style>
 
-<meta name="description" content="FreeMarker笔记FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html web 页面 和 代码自动生成工具来快速了解FreeMarker。简介FreeMarker是一款用java语言编写的模版引擎，它虽然不是web应用框架，但它很合适作为web应用框架的一个组件。 特点 ==轻量级==模版引擎，不需要S">
-<meta name="keywords" content="技巧">
+<meta name="description" content="FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html web 页面 和 代码自动生成工具来快速了解FreeMarker。简介FreeMarker是一款用java语言编写的模版引擎，它虽然不是web应用框架，但它很合适作为web应用框架的一个组件。">
+<meta name="keywords" content="java,FreeMarker,模板引擎">
 <meta property="og:type" content="article">
 <meta property="og:title" content="FreeMarker笔记">
 <meta property="og:url" content="https://542869246.github.io/2018/08/01/FreeMarker笔记/index.html">
 <meta property="og:site_name" content="周宇峰的博客">
-<meta property="og:description" content="FreeMarker笔记FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html web 页面 和 代码自动生成工具来快速了解FreeMarker。简介FreeMarker是一款用java语言编写的模版引擎，它虽然不是web应用框架，但它很合适作为web应用框架的一个组件。 特点 ==轻量级==模版引擎，不需要S">
+<meta property="og:description" content="FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html web 页面 和 代码自动生成工具来快速了解FreeMarker。简介FreeMarker是一款用java语言编写的模版引擎，它虽然不是web应用框架，但它很合适作为web应用框架的一个组件。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/7F3E305ECC7C4D43B3723E432DABD9F5?method=download&shareKey=871330817cb4fa023023ff95f9c3a3de">
 <meta property="og:image" content="https://note.youdao.com/yws/api/personal/file/65DD084F98E647AB86F1D08C5440559F?method=download&shareKey=78c42c5bd58a114675064cd0e0386924">
-<meta property="og:updated_time" content="2018-08-01T01:35:09.015Z">
+<meta property="og:updated_time" content="2018-08-01T13:44:33.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FreeMarker笔记">
-<meta name="twitter:description" content="FreeMarker笔记FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html web 页面 和 代码自动生成工具来快速了解FreeMarker。简介FreeMarker是一款用java语言编写的模版引擎，它虽然不是web应用框架，但它很合适作为web应用框架的一个组件。 特点 ==轻量级==模版引擎，不需要S">
+<meta name="twitter:description" content="FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html web 页面 和 代码自动生成工具来快速了解FreeMarker。简介FreeMarker是一款用java语言编写的模版引擎，它虽然不是web应用框架，但它很合适作为web应用框架的一个组件。">
 <meta name="twitter:image" content="https://note.youdao.com/yws/api/personal/file/7F3E305ECC7C4D43B3723E432DABD9F5?method=download&shareKey=871330817cb4fa023023ff95f9c3a3de">
 
 
@@ -139,7 +150,7 @@
       apiKey: '',
       indexName: '',
       hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没有找到与 ${query} 相关的内容","hits_stats":"${hits}条相关记录，共耗时${time} ms"}
     }
   };
 </script>
@@ -331,9 +342,47 @@
       
 
       
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
   
 </nav>
 
@@ -428,7 +477,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  4,386
+                  4,383 字
                 </span>
               
 
@@ -444,7 +493,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  19
+                  19 分钟
                 </span>
               
             </div>
@@ -465,7 +514,8 @@
       
 
       
-        <h1 id="FreeMarker笔记"><a href="#FreeMarker笔记" class="headerlink" title="FreeMarker笔记"></a>FreeMarker笔记</h1><h6 id="FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html-web-页面-和-代码自动生成工具来快速了解FreeMarker。"><a href="#FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html-web-页面-和-代码自动生成工具来快速了解FreeMarker。" class="headerlink" title="FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html web 页面 和 代码自动生成工具来快速了解FreeMarker。"></a>FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html web 页面 和 代码自动生成工具来快速了解FreeMarker。</h6><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>FreeMarker是一款用java语言编写的模版引擎，它虽然不是web应用框架，但它很合适作为web应用框架的一个组件。</p>
+        <h6 id="FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html-web-页面-和-代码自动生成工具来快速了解FreeMarker。"><a href="#FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html-web-页面-和-代码自动生成工具来快速了解FreeMarker。" class="headerlink" title="FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html web 页面 和 代码自动生成工具来快速了解FreeMarker。"></a>FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html web 页面 和 代码自动生成工具来快速了解FreeMarker。</h6><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>FreeMarker是一款用java语言编写的模版引擎，它虽然不是web应用框架，但它很合适作为web应用框架的一个组件。</p>
+<a id="more"></a>
 <h5 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h5><ol>
 <li>==轻量级==模版引擎，不需要Servlet环境就可以很轻松的嵌入到应用程序中</li>
 <li>能生成各种文本，如html，xml，java，等</li>
@@ -776,7 +826,11 @@ public class FreeMarkerDemo {
       
         <div class="post-tags">
           
-            <a href="/tags/技巧/" rel="tag"># 技巧</a>
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/FreeMarker/" rel="tag"># FreeMarker</a>
+          
+            <a href="/tags/模板引擎/" rel="tag"># 模板引擎</a>
           
         </div>
       
@@ -943,7 +997,7 @@ public class FreeMarkerDemo {
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 
               </div>
@@ -1017,7 +1071,7 @@ public class FreeMarkerDemo {
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#FreeMarker笔记"><span class="nav-number">1.</span> <span class="nav-text">FreeMarker笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html-web-页面-和-代码自动生成工具来快速了解FreeMarker。"><span class="nav-number">1.0.0.0.0.1.</span> <span class="nav-text">FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html web 页面 和 代码自动生成工具来快速了解FreeMarker。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.0.1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#特点"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">特点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FreeMarker-程序"><span class="nav-number">1.0.2.</span> <span class="nav-text">FreeMarker 程序</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#项目目录结构"><span class="nav-number">1.0.2.0.0.1.</span> <span class="nav-text">项目目录结构</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#eclipse安装freemarker插件"><span class="nav-number">1.0.2.0.0.2.</span> <span class="nav-text">eclipse安装freemarker插件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#maven依赖"><span class="nav-number">1.0.2.0.0.3.</span> <span class="nav-text">maven依赖</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法详解"><span class="nav-number">1.1.</span> <span class="nav-text">语法详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number">1.1.1.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#和java不同，FreeMarker不需要定义变量的类型，直接赋值即可。"><span class="nav-number">1.1.1.0.0.1.</span> <span class="nav-text">和java不同，FreeMarker不需要定义变量的类型，直接赋值即可。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#注释：-lt-–-abcd-–-gt"><span class="nav-number">1.1.1.0.0.2.</span> <span class="nav-text">注释：&lt;#– abcd –&gt;</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串操作"><span class="nav-number">1.1.2.</span> <span class="nav-text">字符串操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#声明变量和输出"><span class="nav-number">1.1.2.0.0.1.</span> <span class="nav-text">声明变量和输出:</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串连接："><span class="nav-number">1.1.2.0.1.</span> <span class="nav-text">字符串连接：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串截取："><span class="nav-number">1.1.2.0.2.</span> <span class="nav-text">字符串截取：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算数运算："><span class="nav-number">1.1.3.</span> <span class="nav-text">算数运算：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较运算符"><span class="nav-number">1.1.4.</span> <span class="nav-text">比较运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑运算符"><span class="nav-number">1.1.5.</span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内建函数"><span class="nav-number">1.1.6.</span> <span class="nav-text">内建函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串相关常用的内建函数："><span class="nav-number">1.1.6.0.1.</span> <span class="nav-text">字符串相关常用的内建函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#集合相关常用的内建函数："><span class="nav-number">1.1.6.0.2.</span> <span class="nav-text">集合相关常用的内建函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数字值相关常用的内建函数："><span class="nav-number">1.1.6.0.3.</span> <span class="nav-text">数字值相关常用的内建函数：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三元运算符"><span class="nav-number">1.1.7.</span> <span class="nav-text">三元运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空值处理运算符"><span class="nav-number">1.1.8.</span> <span class="nav-text">空值处理运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#FreeMarker提供两个运算符来避免空值"><span class="nav-number">1.1.8.0.0.1.</span> <span class="nav-text">FreeMarker提供两个运算符来避免空值</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用指令"><span class="nav-number">1.1.9.</span> <span class="nav-text">常用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if指令"><span class="nav-number">1.1.9.1.</span> <span class="nav-text">if指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#switch-case指令"><span class="nav-number">1.1.9.2.</span> <span class="nav-text">switch case指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list指令"><span class="nav-number">1.1.9.3.</span> <span class="nav-text">list指令</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#List指令还隐含了两个循环变量："><span class="nav-number">1.1.9.3.0.1.</span> <span class="nav-text">List指令还隐含了两个循环变量：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#对List进行排序"><span class="nav-number">1.1.9.3.0.2.</span> <span class="nav-text">对List进行排序</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用list指令遍历map"><span class="nav-number">1.1.9.3.1.</span> <span class="nav-text">使用list指令遍历map</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#include指令"><span class="nav-number">1.1.9.4.</span> <span class="nav-text">include指令</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#总结：出现这种情况，在-两个模版中都分别存在变量名都相同的变量的时候，include包含进来，会进行覆盖-，include只时候将其公共的静态文件进行包含，而里面不涉及到内部函数以及变量声明之类的，当涉及到这种问题，我们就要用import进行导入"><span class="nav-number">1.1.9.4.0.1.</span> <span class="nav-text">总结：出现这种情况，在==两个模版中都分别存在变量名都相同的变量的时候，include包含进来，会进行覆盖==，include只时候将其公共的静态文件进行包含，而里面不涉及到内部函数以及变量声明之类的，当涉及到这种问题，我们就要用import进行导入</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#import指令"><span class="nav-number">1.1.9.5.</span> <span class="nav-text">import指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#noparse指令"><span class="nav-number">1.1.9.6.</span> <span class="nav-text">noparse指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#assign指令"><span class="nav-number">1.1.9.7.</span> <span class="nav-text">assign指令</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#虽然assign指定了这种复杂变量值的用法-但是我们也不要滥用这种用法-如下例子"><span class="nav-number">1.1.9.7.0.1.</span> <span class="nav-text">虽然assign指定了这种复杂变量值的用法,但是我们也不要滥用这种用法,如下例子:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setting指令"><span class="nav-number">1.1.9.8.</span> <span class="nav-text">setting指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义指令-macro指令-宏"><span class="nav-number">1.1.9.9.</span> <span class="nav-text">自定义指令(macro指令)(宏)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#function指令-函数"><span class="nav-number">1.1.9.10.</span> <span class="nav-text">function指令(函数)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文章（特别鸣谢）："><span class="nav-number">1.1.10.</span> <span class="nav-text">参考文章（特别鸣谢）：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#源码地址："><span class="nav-number">1.1.10.1.</span> <span class="nav-text">源码地址：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#github-https-github-com-542869246-myfreemarker"><span class="nav-number">1.1.10.1.0.1.</span> <span class="nav-text">github: https://github.com/542869246/myfreemarker</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#码云-https-gitee-com-zyf542869246-myfreemarker"><span class="nav-number">1.1.10.1.0.2.</span> <span class="nav-text">码云: https://gitee.com/zyf542869246/myfreemarker</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Author-周宇峰"><span class="nav-number">1.1.10.1.0.3.</span> <span class="nav-text">Author:周宇峰</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Github-https-github-com-542869246"><span class="nav-number">1.1.10.1.0.4.</span> <span class="nav-text">Github:https://github.com/542869246</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#码云-https-gitee-com-zyf542869246"><span class="nav-number">1.1.10.1.0.5.</span> <span class="nav-text">码云:https://gitee.com/zyf542869246</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Time-2018-5-14-1-45-11"><span class="nav-number">1.1.10.1.0.6.</span> <span class="nav-text">Time:2018/5/14 1:45:11</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html-web-页面-和-代码自动生成工具来快速了解FreeMarker。"><span class="nav-number">1.</span> <span class="nav-text">FreeMarker是一个很值得去学习的模版引擎。它是基于模板文件生成其他文本的通用工具。本章内容通过如何使用FreeMarker生成Html web 页面 和 代码自动生成工具来快速了解FreeMarker。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number"></span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#特点"><span class="nav-number"></span> <span class="nav-text">特点</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#FreeMarker-程序"><span class="nav-number"></span> <span class="nav-text">FreeMarker 程序</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#项目目录结构"><span class="nav-number">1.</span> <span class="nav-text">项目目录结构</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#eclipse安装freemarker插件"><span class="nav-number">2.</span> <span class="nav-text">eclipse安装freemarker插件</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#maven依赖"><span class="nav-number">3.</span> <span class="nav-text">maven依赖</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语法详解"><span class="nav-number"></span> <span class="nav-text">语法详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据类型"><span class="nav-number"></span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#和java不同，FreeMarker不需要定义变量的类型，直接赋值即可。"><span class="nav-number">1.</span> <span class="nav-text">和java不同，FreeMarker不需要定义变量的类型，直接赋值即可。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#注释：-lt-–-abcd-–-gt"><span class="nav-number">2.</span> <span class="nav-text">注释：&lt;#– abcd –&gt;</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串操作"><span class="nav-number"></span> <span class="nav-text">字符串操作</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#声明变量和输出"><span class="nav-number">1.</span> <span class="nav-text">声明变量和输出:</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串连接："><span class="nav-number"></span> <span class="nav-text">字符串连接：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串截取："><span class="nav-number"></span> <span class="nav-text">字符串截取：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算数运算："><span class="nav-number"></span> <span class="nav-text">算数运算：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#比较运算符"><span class="nav-number"></span> <span class="nav-text">比较运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑运算符"><span class="nav-number"></span> <span class="nav-text">逻辑运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内建函数"><span class="nav-number"></span> <span class="nav-text">内建函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串相关常用的内建函数："><span class="nav-number"></span> <span class="nav-text">字符串相关常用的内建函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#集合相关常用的内建函数："><span class="nav-number"></span> <span class="nav-text">集合相关常用的内建函数：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数字值相关常用的内建函数："><span class="nav-number"></span> <span class="nav-text">数字值相关常用的内建函数：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三元运算符"><span class="nav-number"></span> <span class="nav-text">三元运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#空值处理运算符"><span class="nav-number"></span> <span class="nav-text">空值处理运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#FreeMarker提供两个运算符来避免空值"><span class="nav-number">1.</span> <span class="nav-text">FreeMarker提供两个运算符来避免空值</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常用指令"><span class="nav-number"></span> <span class="nav-text">常用指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if指令"><span class="nav-number"></span> <span class="nav-text">if指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#switch-case指令"><span class="nav-number"></span> <span class="nav-text">switch case指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#list指令"><span class="nav-number"></span> <span class="nav-text">list指令</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#List指令还隐含了两个循环变量："><span class="nav-number">1.</span> <span class="nav-text">List指令还隐含了两个循环变量：</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#对List进行排序"><span class="nav-number">2.</span> <span class="nav-text">对List进行排序</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用list指令遍历map"><span class="nav-number"></span> <span class="nav-text">使用list指令遍历map</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#include指令"><span class="nav-number"></span> <span class="nav-text">include指令</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#总结：出现这种情况，在-两个模版中都分别存在变量名都相同的变量的时候，include包含进来，会进行覆盖-，include只时候将其公共的静态文件进行包含，而里面不涉及到内部函数以及变量声明之类的，当涉及到这种问题，我们就要用import进行导入"><span class="nav-number">1.</span> <span class="nav-text">总结：出现这种情况，在==两个模版中都分别存在变量名都相同的变量的时候，include包含进来，会进行覆盖==，include只时候将其公共的静态文件进行包含，而里面不涉及到内部函数以及变量声明之类的，当涉及到这种问题，我们就要用import进行导入</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#import指令"><span class="nav-number"></span> <span class="nav-text">import指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#noparse指令"><span class="nav-number"></span> <span class="nav-text">noparse指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#assign指令"><span class="nav-number"></span> <span class="nav-text">assign指令</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#虽然assign指定了这种复杂变量值的用法-但是我们也不要滥用这种用法-如下例子"><span class="nav-number">1.</span> <span class="nav-text">虽然assign指定了这种复杂变量值的用法,但是我们也不要滥用这种用法,如下例子:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#setting指令"><span class="nav-number"></span> <span class="nav-text">setting指令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义指令-macro指令-宏"><span class="nav-number"></span> <span class="nav-text">自定义指令(macro指令)(宏)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#function指令-函数"><span class="nav-number"></span> <span class="nav-text">function指令(函数)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考文章（特别鸣谢）："><span class="nav-number"></span> <span class="nav-text">参考文章（特别鸣谢）：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#源码地址："><span class="nav-number"></span> <span class="nav-text">源码地址：</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#github-https-github-com-542869246-myfreemarker"><span class="nav-number">1.</span> <span class="nav-text">github: https://github.com/542869246/myfreemarker</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#码云-https-gitee-com-zyf542869246-myfreemarker"><span class="nav-number">2.</span> <span class="nav-text">码云: https://gitee.com/zyf542869246/myfreemarker</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Author-周宇峰"><span class="nav-number">3.</span> <span class="nav-text">Author:周宇峰</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Github-https-github-com-542869246"><span class="nav-number">4.</span> <span class="nav-text">Github:https://github.com/542869246</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#码云-https-gitee-com-zyf542869246"><span class="nav-number">5.</span> <span class="nav-text">码云:https://gitee.com/zyf542869246</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Time-2018-5-14-1-45-11"><span class="nav-number">6.</span> <span class="nav-text">Time:2018/5/14 1:45:11</span></a></li></ol></div>
             
 
           </div>
@@ -1251,6 +1305,19 @@ public class FreeMarkerDemo {
   
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
 
 
 
