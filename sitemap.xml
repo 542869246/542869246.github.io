@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://542869246.github.io/2018/08/01/FreeMarker%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://542869246.github.io/categories/index.html</loc>
     
-    <lastmod>2018-08-01T15:09:40.841Z</lastmod>
+    <lastmod>2018-08-02T02:02:27.606Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://542869246.github.io/tags/index.html</loc>
     
-    <lastmod>2018-08-01T15:01:37.147Z</lastmod>
+    <lastmod>2018-08-02T02:02:13.478Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://542869246.github.io/2018/08/01/FreeMarker%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2018-08-01T15:09:40.841Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>https://542869246.github.io/2018/07/30/My-New-Project/</loc>
     
     <lastmod>2018-08-01T14:58:41.898Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://542869246.github.io/categories/index.html</loc>
-    
-    <lastmod>2018-08-01T14:55:58.660Z</lastmod>
     
   </url>
   
