@@ -37,11 +37,24 @@ $(document).ready(function () {
       hitsPerPage: algoliaSettings.hits.per_page || 10,
       templates: {
         item: function (data) {
+		var excerpt_value = data._highlightResult.excerpt.value
+		var hot_word = data._highlightResult.excerpt.matchedWords
+		
+		if(hot_word.length>0){
+			excerpt_value = $(excerpt_value).text()
+			$(hot_word).each(function(i,item){
+				var reg= new RegExp(item, "ig");
+				excerpt_value = excerpt_value.replace(reg,"<font color=\"red\">"+item+"</font>")
+			})
+		}
           var link = data.permalink ? data.permalink : (CONFIG.root + data.path);
           return (
-            '<a href="' + link + '" class="algolia-hit-item-link">' +
+            '<a href="' + link + '" >标题：' +
               data._highlightResult.title.value +
-            '</a>'
+            '</a>'+
+			'<a href="' + link + '" style="text-decoration: none;"><p class="search-result" style="padding:5px 0;border-bottom:1px dashed #ccc">' +
+             excerpt_value +
+            '</p></a>'
           );
         },
         empty: function (data) {
