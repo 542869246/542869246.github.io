@@ -5,9 +5,9 @@
   <subtitle>卑鄙，是卑鄙者通行证，高尚，是高尚者墓志铭。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://542869246.github.io/"/>
+  <link href="https://yfzhou.coding.me/"/>
   <updated>2018-08-01T15:09:40.841Z</updated>
-  <id>https://542869246.github.io/</id>
+  <id>https://yfzhou.coding.me/</id>
   
   <author>
     <name>yufeng.Zhou</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>FreeMarker笔记</title>
-    <link href="https://542869246.github.io/2018/08/01/FreeMarker%E7%AC%94%E8%AE%B0/"/>
-    <id>https://542869246.github.io/2018/08/01/FreeMarker笔记/</id>
+    <link href="https://yfzhou.coding.me/2018/08/01/FreeMarker%E7%AC%94%E8%AE%B0/"/>
+    <id>https://yfzhou.coding.me/2018/08/01/FreeMarker笔记/</id>
     <published>2018-08-01T01:24:56.000Z</published>
     <updated>2018-08-01T15:09:40.841Z</updated>
     
@@ -31,21 +31,21 @@
     
     </summary>
     
-      <category term="java" scheme="https://542869246.github.io/categories/java/"/>
+      <category term="java" scheme="https://yfzhou.coding.me/categories/java/"/>
     
     
-      <category term="java" scheme="https://542869246.github.io/tags/java/"/>
+      <category term="java" scheme="https://yfzhou.coding.me/tags/java/"/>
     
-      <category term="FreeMarker" scheme="https://542869246.github.io/tags/FreeMarker/"/>
+      <category term="FreeMarker" scheme="https://yfzhou.coding.me/tags/FreeMarker/"/>
     
-      <category term="模板引擎" scheme="https://542869246.github.io/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/"/>
+      <category term="模板引擎" scheme="https://yfzhou.coding.me/tags/%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/"/>
     
   </entry>
   
   <entry>
     <title>My New Project</title>
-    <link href="https://542869246.github.io/2018/07/30/My-New-Project/"/>
-    <id>https://542869246.github.io/2018/07/30/My-New-Project/</id>
+    <link href="https://yfzhou.coding.me/2018/07/30/My-New-Project/"/>
+    <id>https://yfzhou.coding.me/2018/07/30/My-New-Project/</id>
     <published>2018-07-30T11:07:18.000Z</published>
     <updated>2018-08-01T14:58:41.898Z</updated>
     
@@ -57,17 +57,17 @@
     
     </summary>
     
-      <category term="其它" scheme="https://542869246.github.io/categories/%E5%85%B6%E5%AE%83/"/>
+      <category term="其它" scheme="https://yfzhou.coding.me/categories/%E5%85%B6%E5%AE%83/"/>
     
     
-      <category term="其它" scheme="https://542869246.github.io/tags/%E5%85%B6%E5%AE%83/"/>
+      <category term="其它" scheme="https://yfzhou.coding.me/tags/%E5%85%B6%E5%AE%83/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://542869246.github.io/2018/07/29/hello-world/"/>
-    <id>https://542869246.github.io/2018/07/29/hello-world/</id>
+    <link href="https://yfzhou.coding.me/2018/07/29/hello-world/"/>
+    <id>https://yfzhou.coding.me/2018/07/29/hello-world/</id>
     <published>2018-07-29T14:45:48.000Z</published>
     <updated>2018-08-01T14:58:46.859Z</updated>
     
@@ -79,10 +79,10 @@
     
     </summary>
     
-      <category term="其它" scheme="https://542869246.github.io/categories/%E5%85%B6%E5%AE%83/"/>
+      <category term="其它" scheme="https://yfzhou.coding.me/categories/%E5%85%B6%E5%AE%83/"/>
     
     
-      <category term="其它" scheme="https://542869246.github.io/tags/%E5%85%B6%E5%AE%83/"/>
+      <category term="其它" scheme="https://yfzhou.coding.me/tags/%E5%85%B6%E5%AE%83/"/>
     
   </entry>
   
