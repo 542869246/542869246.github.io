@@ -4,15 +4,21 @@ const ap = new APlayer({
     autoplay: false,
     audio: [
 	{
-        name: "Canon",
-        artist: '纯音乐',
-        url: 'http://win.web.ri01.sycdn.kuwo.cn/fc17772b87211fb9172a2fc718ac3e2a/5b604eec/resource/n2/79/49/1012854441.mp3',
-        cover: 'http://p1.music.126.net/SwcB5KXJWg98cfEi_B8V9g==/2535473814084205.jpg?param=130y130',
+        name: "canon in d",
+        artist: 'Brian Crain',
+        url: 'http://pd2tflnys.bkt.clouddn.com/Brian%20Crain%20-%20canon%20in%20d.mp3',
+        cover: 'http://p1.music.126.net/QGb9Vtyw7qHS00uEvPfM6g==/843325418547559.jpg?param=130y130',
+      },
+	  {
+        name: "Apologize",
+        artist: 'Martin Ermen',
+        url: 'http://pd2tflnys.bkt.clouddn.com/Martin%20Ermen%20-%20Apologize.mp3',
+        cover: 'http://p1.music.126.net/-_6mcI4VV5IKaiwhUAytbg==/1791104441647901.jpg?param=130y130',
       },
 	  {
         name: "River Flows in You",
         artist: 'Yiruma',
-        url: 'http://win.web.ri01.sycdn.kuwo.cn/cb174fd932039e87e49ec338888b1930/5b604d72/resource/n1/23/9/2555012133.mp3',
+        url: 'http://pd2tflnys.bkt.clouddn.com/Yiruma%20-%20River%20Flows%20in%20You.flac',
         cover: 'http://p1.music.126.net/8ZRSyI0ZN_4ah8uzsNd1mA==/2324367581169008.jpg?param=130y130',
       },
       {
