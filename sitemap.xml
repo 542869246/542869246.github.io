@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yfzhou.coding.me/2018/08/01/FreeMarker%E7%AC%94%E8%AE%B0/</loc>
+    
+    <lastmod>2018-08-07T09:25:49.751Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yfzhou.coding.me/about/index.html</loc>
     
     <lastmod>2018-08-06T14:31:17.601Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>https://yfzhou.coding.me/categories/index.html</loc>
     
     <lastmod>2018-08-06T12:43:54.879Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yfzhou.coding.me/2018/08/01/FreeMarker%E7%AC%94%E8%AE%B0/</loc>
-    
-    <lastmod>2018-08-01T15:09:40.841Z</lastmod>
     
   </url>
   
