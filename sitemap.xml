@@ -2,9 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yfzhou.coding.me/2018/08/07/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2%EF%BC%89/</loc>
+    
+    <lastmod>2018-08-07T13:56:18.288Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yfzhou.coding.me/2018/08/01/FreeMarker%E7%AC%94%E8%AE%B0/</loc>
     
-    <lastmod>2018-08-07T09:27:14.648Z</lastmod>
+    <lastmod>2018-08-07T12:03:59.187Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yfzhou.coding.me/2018/07/30/My-New-Project/</loc>
+    
+    <lastmod>2018-08-07T12:03:52.745Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://yfzhou.coding.me/2018/07/29/hello-world/</loc>
+    
+    <lastmod>2018-08-07T12:03:47.366Z</lastmod>
     
   </url>
   
@@ -26,20 +47,6 @@
     <loc>https://yfzhou.coding.me/categories/index.html</loc>
     
     <lastmod>2018-08-06T12:43:54.879Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yfzhou.coding.me/2018/07/29/hello-world/</loc>
-    
-    <lastmod>2018-08-01T14:58:46.859Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yfzhou.coding.me/2018/07/30/My-New-Project/</loc>
-    
-    <lastmod>2018-08-01T14:58:41.898Z</lastmod>
     
   </url>
   
