@@ -122,18 +122,26 @@
     }
 </style>
 
-<meta name="description" content="随便搓搓">
+<meta name="description" content="之前有访问过一些大佬的个人博客，里面有个在线联系功能，看着不错，所以也试着在自己的站点上接入了此功能。">
 <meta name="keywords" content="Hexo,Next">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo-Next搭建个人博客（集成DaoVoice在线联系功能）">
 <meta property="og:url" content="http://yfzhou.coding.me/2018/08/08/Hexo-Next搭建个人博客（集成DaoVoice在线联系功能）/index.html">
 <meta property="og:site_name" content="yufeng.Zhou&#39;s Blog">
-<meta property="og:description" content="随便搓搓">
+<meta property="og:description" content="之前有访问过一些大佬的个人博客，里面有个在线联系功能，看着不错，所以也试着在自己的站点上接入了此功能。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-08T00:58:17.832Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/01/21/pW5DRP.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/01/21/pW5yM8.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/01/21/pWIwmF.md.png">
+<meta property="og:image" content="http://pd2tflnys.bkt.clouddn.com/img/blog/daovoicedaovoice01.png">
+<meta property="og:image" content="http://pd2tflnys.bkt.clouddn.com/img/blog/daovoicedaovoice02.png?imageMogr2/auto-orient/thumbnail/!75p/interlace/1/blur/1x0/quality/75|imageslim">
+<meta property="og:image" content="http://pd2tflnys.bkt.clouddn.com/img/blog/daovoicedaovoice03.png?imageMogr2/auto-orient/thumbnail/!35p/interlace/1/blur/1x0/quality/75|imageslim">
+<meta property="og:image" content="http://pd2tflnys.bkt.clouddn.com/img/blog/daovoicedaovoice04.png?imageMogr2/auto-orient/thumbnail/!35p/interlace/1/blur/1x0/quality/75|imageslim">
+<meta property="og:updated_time" content="2018-08-08T04:38:11.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-Next搭建个人博客（集成DaoVoice在线联系功能）">
-<meta name="twitter:description" content="随便搓搓">
+<meta name="twitter:description" content="之前有访问过一些大佬的个人博客，里面有个在线联系功能，看着不错，所以也试着在自己的站点上接入了此功能。">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/01/21/pW5DRP.png">
 
 
 
@@ -471,7 +479,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0 字
+                  319 字
                 </span>
               
 
@@ -508,7 +516,23 @@
       
 
       
-        
+        <p>之前有访问过一些大佬的个人博客，里面有个在线联系功能，看着不错，所以也试着在自己的站点上接入了此功能。  </p>
+<a id="more"></a>
+<h1 id="注册"><a href="#注册" class="headerlink" title="注册"></a><a href="#注册" title="注册"></a>注册</h1><p>首先在<a href="http://www.daovoice.io/" target="_blank" rel="noopener">DaoVoice</a>注册个账号，点击-&gt;<a href="http://dashboard.daovoice.io/get-started?invite_code=b3c7d22e" target="_blank" rel="noopener">邀请码</a>是<code>b3c7d22e</code>。<br><a href="https://s1.ax1x.com/2018/01/21/pW5DRP.png" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/01/21/pW5DRP.png" alt="pW5DRP.png"></a></p>
+<p>完成后，会得到一个<code>app_id</code>，后面会用到：<br><a href="https://s1.ax1x.com/2018/01/21/pW5yM8.png" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/01/21/pW5yM8.png" alt="appid"></a></p>
+<h1 id="修改head-swig"><a href="#修改head-swig" class="headerlink" title="修改head.swig"></a><a href="#修改head-swig" title="修改head.swig"></a>修改head.swig</h1><p>修改<code>/themes/next/layout/_partials/head.swig</code>文件，添加内容如下：  </p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> theme.daovoice %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span></span><br><span class="line"><span class="xml">  (function(i,s,o,g,r,a,m)&#123;i["DaoVoiceObject"]=r;i[r]=i[r]||function()&#123;(i[r].q=i[r].q||[]).push(arguments)&#125;,i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)&#125;)(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")</span></span><br><span class="line"><span class="xml">  daovoice('init', &#123;</span></span><br><span class="line"><span class="xml">      app_id: "</span><span class="template-variable">&#123;&#123;theme.daovoice_app_id&#125;&#125;</span><span class="xml">"</span></span><br><span class="line"><span class="xml">    &#125;);</span></span><br><span class="line"><span class="xml">  daovoice('update');</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
+<p>位置贴图：<br><a href="https://imgchr.com/i/pWIwmF" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/01/21/pWIwmF.md.png" alt="pWIwmF.md.png"></a></p>
+<h1 id="主题配置文件"><a href="#主题配置文件" class="headerlink" title="主题配置文件"></a><a href="#主题配置文件" title="主题配置文件"></a>主题配置文件</h1><p>在<code>_config.yml</code>文件中添加内容：  </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Online contact </span></span><br><span class="line"><span class="attr">daovoice:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">daovoice_app_id:</span> <span class="string">这里输入前面获取的app_id</span></span><br></pre></td></tr></table></figure>
+<h1 id="聊天窗口配置"><a href="#聊天窗口配置" class="headerlink" title="聊天窗口配置"></a><a href="#聊天窗口配置" title="聊天窗口配置"></a>聊天窗口配置</h1><p>附上我的聊天窗口的颜色、位置等设置信息：<br><img src="http://pd2tflnys.bkt.clouddn.com/img/blog/daovoicedaovoice01.png" alt=""></p>
+<p>至此，网页的在线联系功能已经完成，重新<code>hexo d -g</code>上传GitHub后，页面上就能看到效果了。</p>
+<p>效果图：</p>
+<p><img src="http://pd2tflnys.bkt.clouddn.com/img/blog/daovoicedaovoice02.png?imageMogr2/auto-orient/thumbnail/!75p/interlace/1/blur/1x0/quality/75|imageslim" alt=""></p>
+<p>可以关注小程序接收回复消息，很方便</p>
+<p><img src="http://pd2tflnys.bkt.clouddn.com/img/blog/daovoicedaovoice03.png?imageMogr2/auto-orient/thumbnail/!35p/interlace/1/blur/1x0/quality/75|imageslim" alt=""><br><img src="http://pd2tflnys.bkt.clouddn.com/img/blog/daovoicedaovoice04.png?imageMogr2/auto-orient/thumbnail/!35p/interlace/1/blur/1x0/quality/75|imageslim" alt=""></p>
+<p>现在往右下角看看(～￣▽￣)～ ，欢迎撩我（滑稽）。</p>
+
       
     </div>
     
@@ -590,8 +614,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/08/08/Hexo-Next搭建个人博客（集成LeanCloud实现文章阅读次数统计功能）/" rel="prev" title="Hexo-Next搭建个人博客（集成LeanCloud实现文章阅读次数统计功能）">
-                Hexo-Next搭建个人博客（集成LeanCloud实现文章阅读次数统计功能） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/08/Hexo-Next搭建个人博客（添加统计访客量以及文章阅读量）/" rel="prev" title="Hexo-Next搭建个人博客（添加统计访客量以及文章阅读量）">
+                Hexo-Next搭建个人博客（添加统计访客量以及文章阅读量） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -687,8 +711,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -794,6 +827,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#注册"><span class="nav-number">1.</span> <span class="nav-text">注册</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改head-swig"><span class="nav-number">2.</span> <span class="nav-text">修改head.swig</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题配置文件"><span class="nav-number">3.</span> <span class="nav-text">主题配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#聊天窗口配置"><span class="nav-number">4.</span> <span class="nav-text">聊天窗口配置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -821,7 +870,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">8.9k</span>
+    <span title="Site words total count">11.3k</span>
   
 </div>
 <!--

@@ -122,18 +122,20 @@
     }
 </style>
 
-<meta name="description" content="随便搓搓">
+<meta name="description" content="由于众所周知的原因，多说评论和网易云跟帖先后都宣布关闭评论服务，一直没有找到好的替换方案。昨天无意看到韩国的Livere（来必力）评论，瞬间就喜欢上了~UI好看，加载时候的那个小幽灵也好可爱=w=而且是国外的，应该没那么容易关闭吧2333下面记录一下步骤~">
 <meta name="keywords" content="Hexo,Next">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo-Next搭建个人博客（集成LiveRe来必力文章评论功能）">
 <meta property="og:url" content="http://yfzhou.coding.me/2018/08/08/Hexo-Next搭建个人博客（集成LiveRe来必力文章评论功能）/index.html">
 <meta property="og:site_name" content="yufeng.Zhou&#39;s Blog">
-<meta property="og:description" content="随便搓搓">
+<meta property="og:description" content="由于众所周知的原因，多说评论和网易云跟帖先后都宣布关闭评论服务，一直没有找到好的替换方案。昨天无意看到韩国的Livere（来必力）评论，瞬间就喜欢上了~UI好看，加载时候的那个小幽灵也好可爱=w=而且是国外的，应该没那么容易关闭吧2333下面记录一下步骤~">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-08T00:58:23.481Z">
+<meta property="og:image" content="http://pd2tflnys.bkt.clouddn.com/img/blog/liveReliveRe01.png?imageView2/0/q/100|imageslim">
+<meta property="og:updated_time" content="2018-08-08T02:45:38.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-Next搭建个人博客（集成LiveRe来必力文章评论功能）">
-<meta name="twitter:description" content="随便搓搓">
+<meta name="twitter:description" content="由于众所周知的原因，多说评论和网易云跟帖先后都宣布关闭评论服务，一直没有找到好的替换方案。昨天无意看到韩国的Livere（来必力）评论，瞬间就喜欢上了~UI好看，加载时候的那个小幽灵也好可爱=w=而且是国外的，应该没那么容易关闭吧2333下面记录一下步骤~">
+<meta name="twitter:image" content="http://pd2tflnys.bkt.clouddn.com/img/blog/liveReliveRe01.png?imageView2/0/q/100|imageslim">
 
 
 
@@ -471,7 +473,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0 字
+                  460 字
                 </span>
               
 
@@ -487,7 +489,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -508,7 +510,35 @@
       
 
       
-        
+        <p>　　由于众所周知的原因，多说评论和网易云跟帖先后都宣布关闭评论服务，一直没有找到好的替换方案。昨天无意看到韩国的Livere（来必力）评论，瞬间就喜欢上了~UI好看，加载时候的那个小幽灵也好可爱=w=而且是国外的，应该没那么容易关闭吧2333下面记录一下步骤~  </p>
+<a id="more"></a>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a><a href="#准备" title="准备"></a>准备</h2><ol>
+<li>去<a href="https://livere.com/" target="_blank" rel="noopener">Livere官网</a>注册Livere账号。</li>
+<li>选择City版（免费），安装</li>
+<li>进入管理页面-&gt;代码管理-&gt;一般网站，复制data-uid</li>
+</ol>
+<h2 id="在Hexo中添加Livere"><a href="#在Hexo中添加Livere" class="headerlink" title="在Hexo中添加Livere"></a><a href="#在Hexo中添加Livere" title="在Hexo中添加Livere"></a>在Hexo中添加Livere</h2><p>以下基于主题Next，其他主题做法类似</p>
+<ol>
+<li>打开<code>博客根目录/themes/next/_config.yml</code></li>
+<li><p>将# Third Party Services Settings 栏目下其他评论系统如duoshuo、gentie、youyan、disqus用#注释掉，加入以下内容</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Livere评论系统</span></span><br><span class="line">    livere_uid: 上一步中你获取的<span class="class"><span class="keyword">data</span>-uid</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在博客根目录<code>/themes/layout/_scripts/third-party/comments/</code>目录中新建txt文件，重命名为livere.swig，编辑内容如下：</p>
+</li>
+</ol>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> not (theme.duoshuo and theme.duoshuo.shortname) and not theme.duoshuo_shortname and not theme.disqus_shortname and not theme.hypercomments_id and not theme.gentie_productKey %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  </span><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> theme.livere_uid %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span></span><br><span class="line"><span class="xml">      (function(d, s) &#123;</span></span><br><span class="line"><span class="xml">        var j, e = d.getElementsByTagName(s)[0];</span></span><br><span class="line"><span class="xml">        if (typeof LivereTower === 'function') &#123; return; &#125;</span></span><br><span class="line"><span class="xml">        j = d.createElement(s);</span></span><br><span class="line"><span class="xml">        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';</span></span><br><span class="line"><span class="xml">        j.async = true;</span></span><br><span class="line"><span class="xml">        e.parentNode.insertBefore(j, e);</span></span><br><span class="line"><span class="xml">      &#125;)(document, 'script');</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml">  </span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li><p>在<code>博客根目录/themes/layout/_scripts/third-party/comments.swig</code>文件中追加：</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">include</span></span> './comments/livere.swig' %&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在博客根目录<code>/themes/layout/_partials/comments.swig</code>文件中条件最后追加 LiveRe 插件是否引用的判断逻辑：</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">elseif</span> theme.livere_uid %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"lv-container"</span> <span class="attr">data-id</span>=<span class="string">"city"</span> <span class="attr">data-uid</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123; theme.livere_uid &#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>重新<code>hexo clean、hexo d -g</code>，然后就可以看到来必力评论啦~ </p>
+<p>ps:因为是国外的，评论加载有点慢。 </p>
+<h6 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h6><p><img src="http://pd2tflnys.bkt.clouddn.com/img/blog/liveReliveRe01.png?imageView2/0/q/100|imageslim" alt=""></p>
+
       
     </div>
     
@@ -687,8 +717,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -794,6 +833,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备"><span class="nav-number">1.</span> <span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在Hexo中添加Livere"><span class="nav-number">2.</span> <span class="nav-text">在Hexo中添加Livere</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#效果图"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">效果图</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -821,7 +876,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">8.9k</span>
+    <span title="Site words total count">11.3k</span>
   
 </div>
 <!--
