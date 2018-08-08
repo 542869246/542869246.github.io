@@ -1948,7 +1948,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f7f4ff;
+  background: #59670a;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2506,6 +2506,11 @@ pre .javascript .function {
   left: 0;
   z-index: 2080;
   background-color: rgba(0,0,0,0.3);
+}
+@media (max-width: 767px) {
+  .algolia-pop-overlay {
+    z-index: 1000;
+  }
 }
 .algolia-popup {
   overflow: hidden;
@@ -3334,6 +3339,7 @@ blockquote {
   box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
   border-radius: 10px 10px 10px 10px;
   opacity: 0.93;
+  z-index: 1;
 }
 @media (max-width: 991px) and (min-width: 768px) {
   .header-inner {
