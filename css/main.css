@@ -1948,7 +1948,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #60f7d4;
+  background: #f7f4ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3258,10 +3258,19 @@ pre .javascript .function {
   height: 100%;
 }
 body {
-  background-image: url("http://pd2tflnys.bkt.clouddn.com/img/blog/%E5%A4%8F%E5%A4%A9%E5%B9%B8%E7%A6%8F.jpg");
+  background-image: url("http://pd2tflnys.bkt.clouddn.com/img/blog/8-1FI0215K8.jpg");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 100% 100%;
+}
+.footer {
+  background-color: #fff;
+  opacity: 0.9;
+}
+.pagination {
+  background-color: #fff;
+  margin: 50px 0 40px;
+  border-radius: 6px;
 }
 .main-inner {
   background: #fff;
@@ -3338,6 +3347,9 @@ blockquote {
     position: relative;
     width: auto;
     border-radius: initial;
+  }
+  #live2dcanvas {
+    width: 100px;
   }
 }
 .sidebar-inner {
