@@ -130,7 +130,7 @@
 <meta property="og:site_name" content="yufeng.Zhou&#39;s Blog">
 <meta property="og:description" content="简介Hexo 是一个快速、简洁且高效的静态站点生成框架，它基于 Node.js 。 它有以下特点：    超快速度Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。    支持Markdown Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。    一键部署 只需一条指令即可部署到Github Pa">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-07T13:56:18.288Z">
+<meta property="og:updated_time" content="2018-08-08T02:05:03.685Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-Next搭建个人博客（安装与部署）">
 <meta name="twitter:description" content="简介Hexo 是一个快速、简洁且高效的静态站点生成框架，它基于 Node.js 。 它有以下特点：    超快速度Node.js 所带来的超快生成速度，让上百个页面在几秒内瞬间完成渲染。    支持Markdown Hexo 支持 GitHub Flavored Markdown 的所有功能，甚至可以整合 Octopress 的大多数插件。    一键部署 只需一条指令即可部署到Github Pa">
@@ -471,7 +471,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,676 字
+                  1,684 字
                 </span>
               
 
@@ -577,12 +577,9 @@
 <h2 id="简写命令"><a href="#简写命令" class="headerlink" title="简写命令"></a><a href="#简写命令" title="简写命令"></a>简写命令</h2><blockquote>
 <p>$ hexo new == hexo n<br>$ hexo generate == hexo g<br>$ hexo server == hexo s<br>$ hexo deploy == hexo d<br>$ hexo generate + $ hexo server == $ hexo s -g<br>$ hexo generate + $ hexo deploy == $ hexo d -g</p>
 </blockquote>
-<h2 id="常见问题1"><a href="#常见问题1" class="headerlink" title="常见问题1"></a><a href="#常见问题1" title="常见问题1"></a>常见问题1</h2><p>在 hexo 的配置和设置文件中，在冒号后面没留空格会导致出问题：<br>错误的设置：  </p>
-<p>author:yufeng.Zhou<br>email:<a href="mailto:18851200889@163.com" target="_blank" rel="noopener">18851200889@163.com</a><br>language:zh-CN  </p>
-<p>正确的设置：  </p>
-<p>author: yufeng.Zhou<br>email: <a href="mailto:18851200889@163.com" target="_blank" rel="noopener">18851200889@163.com</a><br>language: zh-CN  </p>
-<h2 id="常见问题2"><a href="#常见问题2" class="headerlink" title="常见问题2"></a><a href="#常见问题2" title="常见问题2"></a>常见问题2</h2><p>关于 Git 提交中用户名和 Email 的设置  </p>
-<p>git config –global user.name “Your name”<br>git config –global user.email “Your email”  </p>
+<h2 id="常见问题1"><a href="#常见问题1" class="headerlink" title="常见问题1"></a><a href="#常见问题1" title="常见问题1"></a>常见问题1</h2><p>在 hexo 的配置和设置文件中，在冒号后面没留空格会导致出问题：<br>错误的设置：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">author</span>:yufeng.Zhou</span><br><span class="line"><span class="attribute">email</span>:<span class="number">18851200889</span><span class="variable">@163</span>.com</span><br><span class="line"><span class="attribute">language</span>:zh-CN</span><br></pre></td></tr></table></figure></p>
+<p>正确的设置：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">author</span>: yufeng.Zhou</span><br><span class="line"><span class="attribute">email</span>: <span class="number">18851200889</span><span class="variable">@163</span>.com</span><br><span class="line"><span class="attribute">language</span>: zh-CN</span><br></pre></td></tr></table></figure></p>
+<h2 id="常见问题2"><a href="#常见问题2" class="headerlink" title="常见问题2"></a><a href="#常见问题2" title="常见问题2"></a>常见问题2</h2><p>关于 Git 提交中用户名和 Email 的设置<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"Your name"</span>  </span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"Your email"</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="常见问题3"><a href="#常见问题3" class="headerlink" title="常见问题3"></a><a href="#常见问题3" title="常见问题3"></a>常见问题3</h2><p>Hexo 中的图标使用的是 <a href="http://fontawesome.io/" target="_blank" rel="noopener">Font Awesome</a> ，所以，我们的博客已经自带了 Font Awesome 中的所有图标，基本可以满足我们的所有需求，我们可以去 Font Awesome 中查找我们想要使用的图标。<br><i class="fa fa-github"></i><code>&lt;i class=&quot;fa fa-github&quot;&gt;&lt;/i&gt;</code><br><i class="fa fa-github fa-lg"></i><code>&lt;i class=&quot;fa fa-github fa-lg&quot;&gt;&lt;/i&gt;</code><br><i class="fa fa-github fa-2x"></i><code>&lt;i class=&quot;fa fa-github fa-2x&quot;&gt;&lt;/i&gt;</code></p>
 
       
@@ -922,7 +919,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">8.8k</span>
+    <span title="Site words total count">8.9k</span>
   
 </div>
 <!--
