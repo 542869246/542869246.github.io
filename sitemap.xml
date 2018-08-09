@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yfzhou.coding.me/2018/08/08/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E9%9B%86%E6%88%90Algolia%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%EF%BC%89/</loc>
+    
+    <lastmod>2018-08-09T03:50:27.481Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yfzhou.coding.me/2018/08/08/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%BB%E9%A2%98%E5%86%85%E5%8A%A0%E5%85%A5%E5%8A%A8%E6%80%81%E8%83%8C%E6%99%AF%EF%BC%89/</loc>
     
     <lastmod>2018-08-08T09:19:19.690Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://yfzhou.coding.me/2018/08/01/FreeMarker%E7%AC%94%E8%AE%B0/</loc>
     
     <lastmod>2018-08-08T02:31:38.725Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yfzhou.coding.me/2018/08/08/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E9%9B%86%E6%88%90Algolia%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%EF%BC%89/</loc>
-    
-    <lastmod>2018-08-08T02:14:26.728Z</lastmod>
     
   </url>
   
