@@ -130,7 +130,7 @@
 <meta property="og:site_name" content="yufeng.Zhou&#39;s Blog">
 <meta property="og:description" content="记录工作中遇到的一些关于前端的破事。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-13T03:02:15.498Z">
+<meta property="og:updated_time" content="2018-08-13T03:05:06.688Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端杂记">
 <meta name="twitter:description" content="记录工作中遇到的一些关于前端的破事。">
@@ -470,7 +470,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  100 字
+                  162 字
                 </span>
               
 
@@ -510,8 +510,8 @@
         <p>记录工作中遇到的一些关于前端的破事。</p>
 <a id="more"></a>
 <ol>
-<li><p>验证身份证手机号</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> regIdNo = <span class="regexp">/(^\d&#123;15&#125;$)|(^\d&#123;18&#125;$)|(^\d&#123;17&#125;(\d|X|x)$)/</span>; </span><br><span class="line"><span class="keyword">let</span> regtel=<span class="regexp">/^[1][3,4,5,7,8][0-9]&#123;9&#125;$/</span>;</span><br><span class="line"><span class="keyword">if</span> (!regtel.test(<span class="string">'##############'</span>)) &#123;</span><br><span class="line">    alert(<span class="string">'手机号格式有误'</span>)</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(!regIdNo.test(<span class="string">'##############'</span>))&#123;  </span><br><span class="line"> 	alert(<span class="string">'身份证号填写有误'</span>)</span><br><span class="line"> 	<span class="keyword">return</span> <span class="literal">false</span>;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>正则验证</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> regIdNo = /(^\d&#123;<span class="number">15</span>&#125;$)|(^\d&#123;<span class="number">18</span>&#125;$)|(^\d&#123;<span class="number">17</span>&#125;(\d|X|x)$)/; </span><br><span class="line"><span class="keyword">let</span> regtel=/^[<span class="number">1</span>][<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>][<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">9</span>&#125;$/;</span><br><span class="line"><span class="keyword">let</span> reglicence = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]&#123;<span class="number">1</span>&#125;[A-Z]&#123;<span class="number">1</span>&#125;[A-Z<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">4</span>&#125;[A-Z<span class="number">0</span>-<span class="number">9</span>挂学警港澳]&#123;<span class="number">1</span>&#125;$/;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!regtel.test(<span class="string">'##############'</span>)) &#123;</span><br><span class="line">    alert(<span class="string">'手机号格式有误'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(!regIdNo.test(<span class="string">'##############'</span>))&#123;  </span><br><span class="line"> 	alert(<span class="string">'身份证号填写有误'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(!reglicence.test(<span class="string">'##########'</span>))&#123;</span><br><span class="line">	alert(<span class="string">'身份证号填写有误'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>集合快速去除（ES6）</p>
 <figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Array</span>.from(<span class="keyword">new</span> <span class="type">Set</span>(a))</span><br></pre></td></tr></table></figure>
@@ -831,7 +831,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">15.8k</span>
+    <span title="Site words total count">15.9k</span>
   
 </div>
 <!--
