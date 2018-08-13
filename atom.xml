@@ -60,11 +60,11 @@
     
       <category term="HTML" scheme="http://yfzhou.coding.me/tags/HTML/"/>
     
-      <category term="js" scheme="http://yfzhou.coding.me/tags/js/"/>
-    
       <category term="前端" scheme="http://yfzhou.coding.me/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="css" scheme="http://yfzhou.coding.me/tags/css/"/>
+    
+      <category term="js" scheme="http://yfzhou.coding.me/tags/js/"/>
     
   </entry>
   
@@ -261,26 +261,6 @@
     <summary type="html">
     
       &lt;p&gt;起因Swiftype现在收费了，也没有免费版本。Local Search搜索体验不好，微搜索Next官网上描述太少！所以选择Algolia。 注：Algolia搜索在版本&lt;strong&gt; 5.1.0 &lt;/strong&gt;中引入，要使用此功能请确保所使用的 NexT 版本在此之后&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Hexo" scheme="http://yfzhou.coding.me/categories/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="http://yfzhou.coding.me/tags/Hexo/"/>
-    
-      <category term="Next" scheme="http://yfzhou.coding.me/tags/Next/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo-Next搭建个人博客（常用配置）</title>
-    <link href="http://yfzhou.coding.me/2018/08/08/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E5%B8%B8%E7%94%A8%E9%85%8D%E7%BD%AE%EF%BC%89/"/>
-    <id>http://yfzhou.coding.me/2018/08/08/Hexo-Next搭建个人博客（常用配置）/</id>
-    <published>2018-08-08T00:52:04.000Z</published>
-    <updated>2018-08-08T08:35:50.954Z</updated>
-    
-    <summary type="html">
     
     </summary>
     
