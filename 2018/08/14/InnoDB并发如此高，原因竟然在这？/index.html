@@ -122,24 +122,25 @@
     }
 </style>
 
-<meta name="description" content="《InnoDB行锁，如何锁住一条不存在的记录？》埋了一个坑，没想到评论反响剧烈，大家都希望深挖下去。原计划写写InnoDB的锁结束这个case，既然呼声这么高，干脆全盘系统性的写写InnoDB的并发控制，锁，事务模型好了。">
+<meta name="description" content="此文摘自微信公众号【架构师之路】 微信扫一扫关注该公众号">
 <meta name="keywords" content="数据库,SQL,InnoDB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="InnoDB并发如此高，原因竟然在这？">
 <meta property="og:url" content="http://yfzhou.coding.me/2018/08/14/InnoDB并发如此高，原因竟然在这？/index.html">
 <meta property="og:site_name" content="yufeng.Zhou&#39;s Blog">
-<meta property="og:description" content="《InnoDB行锁，如何锁住一条不存在的记录？》埋了一个坑，没想到评论反响剧烈，大家都希望深挖下去。原计划写写InnoDB的锁结束这个case，既然呼声这么高，干脆全盘系统性的写写InnoDB的并发控制，锁，事务模型好了。">
+<meta property="og:description" content="此文摘自微信公众号【架构师之路】 微信扫一扫关注该公众号">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/YrezxckhYOxqYZaEWwXRwibTg8vNtNIPG7Hfiat5wx6D353IIxWmOKJawOcJ84QFu2WYicElTUeTsy9Am0MQZpcyg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/YrezxckhYOxqYZaEWwXRwibTg8vNtNIPGhicRJvTpNR0lzoZticJ8BLAWEAbMzC9pgZ0yYZ29IdWKekoqiaxuf6Neg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/YrezxckhYOxqYZaEWwXRwibTg8vNtNIPGLSOOJDKXmdHqkgdeXFibUI0bNhuQN0qb0E5BiaR00gwaS0IU7vzz0tSA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/YrezxckhYOxqYZaEWwXRwibTg8vNtNIPGMuEql2dsc2US7uwMaP9fBic9dPeod96CqwcaN6Qd75icNssicNHkaaMzw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/YrezxckhYOxqYZaEWwXRwibTg8vNtNIPGry9tyIxsGfql43eEhWoYHg6ibS1S4th1dMjj6JKTwt8XWnIt0iaS71jw/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:updated_time" content="2018-08-14T10:17:17.744Z">
+<meta property="og:image" content="https://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MjM5ODYxMDA5OQ==&mid=2651961431&idx=1&sn=4f46fbada3d99ca6cf74b305d06c1ac6&send_time=">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/222481745858779089.jpg">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/854310171767639185.jpg">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/76916220599096767.jpg">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/138982544617441980.jpg">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/319830267672366053.jpg">
+<meta property="og:updated_time" content="2018-08-15T02:46:30.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="InnoDB并发如此高，原因竟然在这？">
-<meta name="twitter:description" content="《InnoDB行锁，如何锁住一条不存在的记录？》埋了一个坑，没想到评论反响剧烈，大家都希望深挖下去。原计划写写InnoDB的锁结束这个case，既然呼声这么高，干脆全盘系统性的写写InnoDB的并发控制，锁，事务模型好了。">
-<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_png/YrezxckhYOxqYZaEWwXRwibTg8vNtNIPG7Hfiat5wx6D353IIxWmOKJawOcJ84QFu2WYicElTUeTsy9Am0MQZpcyg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1">
+<meta name="twitter:description" content="此文摘自微信公众号【架构师之路】 微信扫一扫关注该公众号">
+<meta name="twitter:image" content="https://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MjM5ODYxMDA5OQ==&mid=2651961431&idx=1&sn=4f46fbada3d99ca6cf74b305d06c1ac6&send_time=">
 
 
 
@@ -387,7 +388,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yufeng.Zhou">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://pd2tflnys.bkt.clouddn.com/img/blog/user_head_img.jpg">
+      <meta itemprop="image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -476,7 +477,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,332 字
+                  2,357 字
                 </span>
               
 
@@ -513,8 +514,10 @@
       
 
       
-        <p>《<a href="http://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&amp;mid=2651961431&amp;idx=1&amp;sn=4f46fbada3d99ca6cf74b305d06c1ac6&amp;chksm=bd2d0d8b8a5a849d8cb5a616c957abde7a6485cd2624372b84a5459eed081bd95429a09572f8&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">InnoDB行锁，如何锁住一条不存在的记录？</a>》埋了一个坑，没想到评论反响剧烈，大家都希望深挖下去。原计划写写InnoDB的锁结束这个case，既然呼声这么高，干脆全盘<strong>系统性</strong>的写写InnoDB的<strong>并发控制</strong>，<strong>锁</strong>，<strong>事务模型</strong>好了。</p>
-<a id="more"></a>
+        <p>此文摘自微信公众号【架构师之路】</p>
+<p>微信扫一扫<br>关注该公众号</p>
+<p><img src="https://mp.weixin.qq.com/mp/qrcode?scene=10000004&amp;size=102&amp;__biz=MjM5ODYxMDA5OQ==&amp;mid=2651961431&amp;idx=1&amp;sn=4f46fbada3d99ca6cf74b305d06c1ac6&amp;send_time=" alt=""><br><a id="more"></a></p>
+<p>《<a href="http://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&amp;mid=2651961431&amp;idx=1&amp;sn=4f46fbada3d99ca6cf74b305d06c1ac6&amp;chksm=bd2d0d8b8a5a849d8cb5a616c957abde7a6485cd2624372b84a5459eed081bd95429a09572f8&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">InnoDB行锁，如何锁住一条不存在的记录？</a>》埋了一个坑，没想到评论反响剧烈，大家都希望深挖下去。原计划写写InnoDB的锁结束这个case，既然呼声这么高，干脆全盘<strong>系统性</strong>的写写InnoDB的<strong>并发控制</strong>，<strong>锁</strong>，<strong>事务模型</strong>好了。</p>
 <p>体系相对宏大，一篇肯定写不完，容我娓娓道来，通俗地说清楚来龙去脉。</p>
 <p><strong>一、并发控制</strong></p>
 <p><strong>为啥要进行并发控制？</strong></p>
@@ -558,7 +561,7 @@
 <p>（1）写任务发生时，将数据克隆一份，以版本号区分；</p>
 <p>（2）写任务操作新克隆的数据，直至提交；</p>
 <p>（3）并发读任务可以继续读取旧版本的数据，不至于阻塞；</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/YrezxckhYOxqYZaEWwXRwibTg8vNtNIPG7Hfiat5wx6D353IIxWmOKJawOcJ84QFu2WYicElTUeTsy9Am0MQZpcyg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/222481745858779089.jpg" alt=""></p>
 <p>如上图：</p>
 <ol>
 <li><p>最开始数据的版本是V0；</p>
@@ -602,23 +605,23 @@
 <p>undo日志和回滚段和InnoDB的MVCC密切相关，这里举个例子展开说明一下。</p>
 <p><strong>栗子</strong>：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">t</span>(<span class="name">id</span> PK, name)<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
 <p>数据为：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>, shenjian</span><br><span class="line"><span class="number">2</span>, zhangsan</span><br><span class="line"><span class="number">3</span>, lisi</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/YrezxckhYOxqYZaEWwXRwibTg8vNtNIPGhicRJvTpNR0lzoZticJ8BLAWEAbMzC9pgZ0yYZ29IdWKekoqiaxuf6Neg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="">  </p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/854310171767639185.jpg" alt="">  </p>
 <p>此时没有事务未提交，故回滚段是空的。</p>
 <p>接着启动了一个事务：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">start</span> trx;</span><br><span class="line"><span class="keyword">delete</span> (<span class="number">1</span>, shenjian);</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">set</span>(<span class="number">3</span>, lisi) <span class="keyword">to</span> (<span class="number">3</span>, xxx);</span><br><span class="line"><span class="keyword">insert</span> (<span class="number">4</span>, wangwu);</span><br></pre></td></tr></table></figure></p>
 <p>并且事务处于未提交的状态。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/YrezxckhYOxqYZaEWwXRwibTg8vNtNIPGLSOOJDKXmdHqkgdeXFibUI0bNhuQN0qb0E5BiaR00gwaS0IU7vzz0tSA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/76916220599096767.jpg" alt=""></p>
 <p>可以看到：</p>
 <p>(1)被删除前的(1, shenjian)作为旧版本数据，进入了回滚段；</p>
 <p>(2)被修改前的(3, lisi)作为旧版本数据，进入了回滚段；</p>
 <p>(3)被插入的数据，PK(4)进入了回滚段；</p>
 <p>接下来，假如事务rollback，此时可以通过回滚段里的undo日志回滚。</p>
 <p><em>画外音：假设事务提交，回滚段里的undo日志可以删除。</em></p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/YrezxckhYOxqYZaEWwXRwibTg8vNtNIPGMuEql2dsc2US7uwMaP9fBic9dPeod96CqwcaN6Qd75icNssicNHkaaMzw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/138982544617441980.jpg" alt=""></p>
 <p>可以看到：</p>
 <p>(1)被删除的旧数据恢复了；</p>
 <p>(2)被修改的旧数据也恢复了；</p>
 <p>(3)被插入的数据，删除了；</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/YrezxckhYOxqYZaEWwXRwibTg8vNtNIPGry9tyIxsGfql43eEhWoYHg6ibS1S4th1dMjj6JKTwt8XWnIt0iaS71jw/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="">  </p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/319830267672366053.jpg" alt="">  </p>
 <p>事务回滚成功，一切如故。</p>
 <p><strong>四、InnoDB**</strong>是基于多版本并发控制的存储引擎**</p>
 <p>《<a href="http://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&amp;mid=2651961428&amp;idx=1&amp;sn=31a9eb967941d888fbd4bb2112e9602b&amp;chksm=bd2d0d888a5a849e7ebaa7756a8bc1b3d4e2f493f3a76383fc80f7e9ce7657e4ed2f6c01777d&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">大数据量，高并发量的互联网业务，一定要使用InnoDB</a>》提到，InnoDB是高并发互联网场景最为推荐的存储引擎，根本原因，就是其<strong>多版本并发控制</strong>（Multi Version Concurrency Control, MVCC）。行锁，并发，事务回滚等多种特性都和MVCC相关。</p>
@@ -675,14 +678,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="http://pd2tflnys.bkt.clouddn.com/img/blog/wechatpay.png?imageView2/0/q/100|imageslim" alt="yufeng.Zhou 微信支付"/>
+        <img id="wechat_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/wechatpay.png" alt="yufeng.Zhou 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="http://pd2tflnys.bkt.clouddn.com/img/blog/alipay.png?imageView2/0/q/100|imageslim" alt="yufeng.Zhou 支付宝"/>
+        <img id="alipay_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/alipay.png" alt="yufeng.Zhou 支付宝"/>
         <p>支付宝</p>
       </div>
     
@@ -838,7 +841,7 @@
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
               <img class="site-author-image" itemprop="image"
-                src="http://pd2tflnys.bkt.clouddn.com/img/blog/user_head_img.jpg"
+                src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg"
                 alt="yufeng.Zhou" />
             
               <p class="site-author-name" itemprop="name">yufeng.Zhou</p>
