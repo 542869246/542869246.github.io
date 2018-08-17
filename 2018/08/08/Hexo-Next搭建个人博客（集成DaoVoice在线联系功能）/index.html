@@ -854,8 +854,10 @@
     </main>
 
     <footer id="footer" class="footer">
+	
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div id='show2'></div>
+		<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-tint"></i>
   </span>
@@ -888,6 +890,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
 
 
 
@@ -896,6 +918,7 @@
 
 
         
+		
       </div>
     </footer>
 
@@ -1208,3 +1231,19 @@
 </html>
 <!--崩溃欺骗-->
 <script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+
+<script>
+window.onload = function() { 
+var show = document.getElementById("show2"); 
+setInterval(function() { 
+var time = new Date(); 
+// 程序计时的月从0开始取值后+1 
+var m = time.getMonth() + 1; 
+//根据自己博客的创建时间更改数值 
+var t = "周宇峰的博客已存活了"+(time.getFullYear()-2018) + "年" + (m-8) + "月" 
++ time.getDate() + "天 " + time.getHours() + "时" 
++ time.getMinutes() + "分" + time.getSeconds() + "秒"; 
+show.innerHTML = t; 
+}, 1000); 
+}; 
+</script>
