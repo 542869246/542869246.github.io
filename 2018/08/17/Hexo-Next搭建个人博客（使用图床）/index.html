@@ -122,26 +122,31 @@
     }
 </style>
 
-<meta name="description" content="之前有访问过一些大佬的个人博客，里面有个在线联系功能，看着不错，所以也试着在自己的站点上接入了此功能。">
+<meta name="description" content="图片作为互联网服务中最基础的资源之一，随着互联网基础服务越来越专业化，图片的存储、处理、分发也发展成了一项独立的基础服务。试想一下，如果每家互联网公司都要花费大量人力物力去做图片相关的技术研发，哪还有时间去做自己的业务。专业的事情还是要交给专业的人来做。">
 <meta name="keywords" content="Hexo,Next">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo-Next搭建个人博客（集成DaoVoice在线联系功能）">
-<meta property="og:url" content="http://yfzhou.coding.me/2018/08/08/Hexo-Next搭建个人博客（集成DaoVoice在线联系功能）/index.html">
+<meta property="og:title" content="Hexo-Next搭建个人博客（使用图床）">
+<meta property="og:url" content="http://yfzhou.coding.me/2018/08/17/Hexo-Next搭建个人博客（使用图床）/index.html">
 <meta property="og:site_name" content="yufeng.Zhou&#39;s Blog">
-<meta property="og:description" content="之前有访问过一些大佬的个人博客，里面有个在线联系功能，看着不错，所以也试着在自己的站点上接入了此功能。">
+<meta property="og:description" content="图片作为互联网服务中最基础的资源之一，随着互联网基础服务越来越专业化，图片的存储、处理、分发也发展成了一项独立的基础服务。试想一下，如果每家互联网公司都要花费大量人力物力去做图片相关的技术研发，哪还有时间去做自己的业务。专业的事情还是要交给专业的人来做。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://s1.ax1x.com/2018/01/21/pW5DRP.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/01/21/pW5yM8.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/01/21/pWIwmF.md.png">
-<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/daovoice01.png">
-<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/daovoice02.png?x-oss-process=style/w200">
-<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/daovoice03.png?x-oss-process=style/w200">
-<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/daovoice04.png?x-oss-process=style/w200">
-<meta property="og:updated_time" content="2018-08-15T03:45:20.198Z">
+<meta property="og:image" content="https://cdn.sspai.com/2017/08/21/7d56369618ca55b7788a1f2b2469e274.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://cdn.sspai.com/2017/08/21/a78e40318ea02f94a0b9e2ea19d8b10e.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://cdn.sspai.com/2017/08/21/2242e610efb14f6d63261547f3e90609.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://cdn.sspai.com/2017/08/21/9f1b5842c3ab1b8bc29e5fdbce49a972.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://cdn.sspai.com/2017/08/21/dea389e72df9a46289eaa24b3d88aee4.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://cdn.sspai.com/2017/08/21/5d4f0efa178487d54309f3da47d75e6e.jpeg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://cdn.sspai.com/2017/08/21/d916ed36a802e3e878e95d556bd64ef3.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://cdn.sspai.com/attachment/origin/2016/07/04/336030.png">
+<meta property="og:image" content="https://cdn.sspai.com/attachment/origin/2017/01/23/364951.png">
+<meta property="og:image" content="https://cdn.sspai.com/2017/08/21/a2229ac36e94260816e5423f5ceeba09.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:image" content="https://cdn.sspai.com/attachment/origin/2015/12/14/298954.png">
+<meta property="og:image" content="https://cdn.sspai.com/2017/08/21/ff144a6f126b6e608b93b5ba06013e14.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
+<meta property="og:updated_time" content="2018-08-17T03:16:43.770Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo-Next搭建个人博客（集成DaoVoice在线联系功能）">
-<meta name="twitter:description" content="之前有访问过一些大佬的个人博客，里面有个在线联系功能，看着不错，所以也试着在自己的站点上接入了此功能。">
-<meta name="twitter:image" content="https://s1.ax1x.com/2018/01/21/pW5DRP.png">
+<meta name="twitter:title" content="Hexo-Next搭建个人博客（使用图床）">
+<meta name="twitter:description" content="图片作为互联网服务中最基础的资源之一，随着互联网基础服务越来越专业化，图片的存储、处理、分发也发展成了一项独立的基础服务。试想一下，如果每家互联网公司都要花费大量人力物力去做图片相关的技术研发，哪还有时间去做自己的业务。专业的事情还是要交给专业的人来做。">
+<meta name="twitter:image" content="https://cdn.sspai.com/2017/08/21/7d56369618ca55b7788a1f2b2469e274.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1">
 
 
 
@@ -171,7 +176,7 @@
 
 
 
-  <link rel="canonical" href="http://yfzhou.coding.me/2018/08/08/Hexo-Next搭建个人博客（集成DaoVoice在线联系功能）/"/>
+  <link rel="canonical" href="http://yfzhou.coding.me/2018/08/17/Hexo-Next搭建个人博客（使用图床）/"/>
 
 
 
@@ -187,7 +192,7 @@
     })();
 </script>
 
-  <title>Hexo-Next搭建个人博客（集成DaoVoice在线联系功能） | yufeng.Zhou's Blog</title>
+  <title>Hexo-Next搭建个人博客（使用图床） | yufeng.Zhou's Blog</title>
   <style>
   .forkme{
  display: none;
@@ -384,7 +389,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yfzhou.coding.me/2018/08/08/Hexo-Next搭建个人博客（集成DaoVoice在线联系功能）/">
+    <link itemprop="mainEntityOfPage" href="http://yfzhou.coding.me/2018/08/17/Hexo-Next搭建个人博客（使用图床）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yufeng.Zhou">
@@ -401,7 +406,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo-Next搭建个人博客（集成DaoVoice在线联系功能）</h1>
+          <h1 class="post-title" itemprop="name headline">Hexo-Next搭建个人博客（使用图床）</h1>
         
 
         <div class="post-meta">
@@ -413,8 +418,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-08T08:56:39+08:00">
-                2018-08-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-17T11:07:26+08:00">
+                2018-08-17
               </time>
             
 
@@ -453,7 +458,7 @@
 
           
           
-             <span id="/2018/08/08/Hexo-Next搭建个人博客（集成DaoVoice在线联系功能）/" class="leancloud_visitors" data-flag-title="Hexo-Next搭建个人博客（集成DaoVoice在线联系功能）">
+             <span id="/2018/08/17/Hexo-Next搭建个人博客（使用图床）/" class="leancloud_visitors" data-flag-title="Hexo-Next搭建个人博客（使用图床）">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -478,7 +483,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  319 字
+                  2,544 字
                 </span>
               
 
@@ -494,7 +499,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  9 分钟
                 </span>
               
             </div>
@@ -515,22 +520,128 @@
       
 
       
-        <p>之前有访问过一些大佬的个人博客，里面有个在线联系功能，看着不错，所以也试着在自己的站点上接入了此功能。  </p>
-<a id="more"></a>
-<h1 id="注册"><a href="#注册" class="headerlink" title="注册"></a><a href="#注册" title="注册"></a>注册</h1><p>首先在<a href="http://www.daovoice.io/" target="_blank" rel="noopener">DaoVoice</a>注册个账号，点击-&gt;<a href="http://dashboard.daovoice.io/get-started?invite_code=b3c7d22e" target="_blank" rel="noopener">邀请码</a>是<code>b3c7d22e</code>。<br><a href="https://s1.ax1x.com/2018/01/21/pW5DRP.png" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/01/21/pW5DRP.png" alt="pW5DRP.png"></a></p>
-<p>完成后，会得到一个<code>app_id</code>，后面会用到：<br><a href="https://s1.ax1x.com/2018/01/21/pW5yM8.png" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/01/21/pW5yM8.png" alt="appid"></a></p>
-<h1 id="修改head-swig"><a href="#修改head-swig" class="headerlink" title="修改head.swig"></a><a href="#修改head-swig" title="修改head.swig"></a>修改head.swig</h1><p>修改<code>/themes/next/layout/_partials/head.swig</code>文件，添加内容如下：  </p>
-<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> theme.daovoice %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span></span><br><span class="line"><span class="xml">  (function(i,s,o,g,r,a,m)&#123;i["DaoVoiceObject"]=r;i[r]=i[r]||function()&#123;(i[r].q=i[r].q||[]).push(arguments)&#125;,i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)&#125;)(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")</span></span><br><span class="line"><span class="xml">  daovoice('init', &#123;</span></span><br><span class="line"><span class="xml">      app_id: "</span><span class="template-variable">&#123;&#123;theme.daovoice_app_id&#125;&#125;</span><span class="xml">"</span></span><br><span class="line"><span class="xml">    &#125;);</span></span><br><span class="line"><span class="xml">  daovoice('update');</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
-<p>位置贴图：<br><a href="https://imgchr.com/i/pWIwmF" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/01/21/pWIwmF.md.png" alt="pWIwmF.md.png"></a></p>
-<h1 id="主题配置文件"><a href="#主题配置文件" class="headerlink" title="主题配置文件"></a><a href="#主题配置文件" title="主题配置文件"></a>主题配置文件</h1><p>在<code>_config.yml</code>文件中添加内容：  </p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Online contact </span></span><br><span class="line"><span class="attr">daovoice:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">daovoice_app_id:</span> <span class="string">这里输入前面获取的app_id</span></span><br></pre></td></tr></table></figure>
-<h1 id="聊天窗口配置"><a href="#聊天窗口配置" class="headerlink" title="聊天窗口配置"></a><a href="#聊天窗口配置" title="聊天窗口配置"></a>聊天窗口配置</h1><p>附上我的聊天窗口的颜色、位置等设置信息：<br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/daovoice01.png" alt=""></p>
-<p>至此，网页的在线联系功能已经完成，重新<code>hexo d -g</code>上传GitHub后，页面上就能看到效果了。</p>
-<p>效果图：</p>
-<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/daovoice02.png?x-oss-process=style/w200" alt=""></p>
-<p>可以关注小程序接收回复消息，很方便</p>
-<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/daovoice03.png?x-oss-process=style/w200" alt=""><br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/daovoice04.png?x-oss-process=style/w200" alt=""></p>
-<p>现在往右下角看看(～￣▽￣)～ ，欢迎撩我（滑稽）。</p>
+        <p>图片作为互联网服务中最基础的资源之一，随着互联网基础服务越来越专业化，图片的存储、处理、分发也发展成了一项独立的基础服务。试想一下，如果每家互联网公司都要花费大量人力物力去做图片相关的技术研发，哪还有时间去做自己的业务。专业的事情还是要交给专业的人来做。<br><a id="more"></a></p>
+<p>图床，也就是专门提供存储图片的地方，我们只要通过图床提供的 API 接口，把图片上传上去，就可以通过外链访问了，根本不用操心图片是怎么存的，硬盘空间不够了，硬盘坏了，访问速度比较慢等等问题，这些图床都会帮我们搞定，他们会用各种技术帮我们做图片相关的优化和服务，比如多机互备、CDN 加速、图片处理、图片鉴黄、文本识别等等。</p>
+<p>当然，图床也是有缺点的，当所有人都把图片存在同一个图床上，万一有一天图床真挂了，那所有图片就都无法访问了，虽然这种情况的概率很低，但并不等于不会发生。我就经历过云服务商机房被雷劈，网站都挂掉的情况。支付宝光缆不也被挖断过吗？不过，对于我们个人用户来说，要求也没那么高，图床已经完全能满足我们的需求了。</p>
+<hr>
+<p>目前图床可以分为两种，一种是公共图床，一种是自建图床。公共图床也就是利用公共服务的图片上传接口，来提供图片外链的服务，比如新浪微博。自建图床，也就是利用各大云服务商提供的存储空间或者自己在 VPS 上使用开源软件来搭建图床，存储图片，生成外链提供访问，比如七牛、Lychee 开源自建图床方案。  </p>
+<h2 id="公共图床"><a href="#公共图床" class="headerlink" title="公共图床"></a>公共图床</h2><h3 id="微博图床"><a href="#微博图床" class="headerlink" title="微博图床"></a>微博图床</h3><p>由于微博本身就是面向公众提供服务，每个人发微博基本都得带上几张图片，以微博的体量，每天的新增图片数也不是个小数字。但是微博对于图片上传服务也没有接口说明文档，上传的接口还是在开发者们从微博产品里找出来的，可能微博只希望上传的图片仅仅用于微博产品本身吧。</p>
+<p>微博图床的特点是免费，没有容量限制，全网 CDN 加速，支持 HTTPS，到哪里都很快。但是免费的服务也有不足的地方，上传的图片会被转成 jpg，图片中可能加上了肉眼难以识别的水印，另外微博的图片鉴别服务也可能会随时删除你的图片。</p>
+<p>相关链接：</p>
+<ul>
+<li><p><a href="http://weibo.com/minipublish" target="_blank" rel="noopener">微博图床上传地址</a>：从这里直接上传图片比较麻烦，你可以使用下面介绍的一些图床工具，上传起来更方便。  </p>
+</li>
+<li><p><a href="http://picupload.service.weibo.com/interface/" target="_blank" rel="noopener">微博图床 API</a>：用浏览器当然是不能访问的，只提供图片上传。  </p>
+</li>
+</ul>
+<h3 id="Imgur-图床"><a href="#Imgur-图床" class="headerlink" title="Imgur 图床"></a>Imgur 图床</h3><p><img src="https://cdn.sspai.com/2017/08/21/7d56369618ca55b7788a1f2b2469e274.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt="Imgur API"></p>
+<p>Imgur API</p>
+<p><a href="https://imgur.com/" target="_blank" rel="noopener">Imgur</a> 是一家国外老牌的图片存储服务商，国外速度很快，口碑不错，支持 HTTPS。但是国内速度很不稳定，所以追求国内速度的同学慎用。</p>
+<p>相关链接：</p>
+<ul>
+<li><a href="https://apidocs.imgur.com/" target="_blank" rel="noopener">Imgur API</a>  </li>
+</ul>
+<h3 id="SM-MS-图床"><a href="#SM-MS-图床" class="headerlink" title="SM.MS 图床"></a>SM.MS 图床</h3><p><img src="https://cdn.sspai.com/2017/08/21/a78e40318ea02f94a0b9e2ea19d8b10e.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt="sm.ms 图床"></p>
+<p>sm.ms 图床</p>
+<p><a href="https://sm.ms/" target="_blank" rel="noopener">SM.MS</a> 是由 V2EX @<a href="https://www.v2ex.com/member/Showfom" target="_blank" rel="noopener">Showfom</a> 自建的，无外链限制，无流量限制的图床，支持 HTTPS，速度不错，已经运行两年多了。</p>
+<p>相关链接：</p>
+<ul>
+<li><a href="https://sm.ms/doc/" target="_blank" rel="noopener">sm.ms API</a>  </li>
+</ul>
+<p>其它公共图床还有很多，一搜一大把，不过大部分规模都比较小，要不就是国内访问速度不理想，使用前最好先了解一下。</p>
+<hr>
+<p>目前自建图床方案有两种，一种是利用云服务商提供的存储服务来作为图床，通过 API 来管理图片，另一种是在 VPS 上安装开源的图片或文件管理程序，只要能提供外链，基本都可以作为图床来用。</p>
+<h2 id="自建图床：云服务"><a href="#自建图床：云服务" class="headerlink" title="自建图床：云服务"></a>自建图床：云服务</h2><h3 id="七牛"><a href="#七牛" class="headerlink" title="七牛"></a>七牛</h3><p><img src="https://cdn.sspai.com/2017/08/21/2242e610efb14f6d63261547f3e90609.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt="七牛云"></p>
+<p>七牛云</p>
+<p><a href="https://portal.qiniu.com/signup?code=3lmd5t4axez4i" target="_blank" rel="noopener">七牛</a> 作为国内领先的云服务商，全网 CDN 加速，全国访问速度都不错，API 很详细，对开发者比较友好。免费用户提供 10GB 存储空间，国内和海外分别提供 10 GB 的 HTTP 免费流量，七牛的 HTTPS 流量是收费的，没有免费额度。此外，七牛还提供了针对图片的各种服务，包括图片裁剪，压缩，鉴黄等等衍生服务。如果你觉得图片尺寸太大，可以在外链后面添加参数，访问的时候七牛会自动根据你的参数对图片进行处理。</p>
+<p>目前我的图片都存在七牛上，使用 HTTPS 外链，每个月支出也就几块钱，就为了博客上那个小绿锁 😆。</p>
+<p>相关链接：</p>
+<ul>
+<li><p><a href="https://developer.qiniu.com/" target="_blank" rel="noopener">七牛云 API 文档</a>  </p>
+</li>
+<li><p><a href="https://www.qiniu.com/prices" target="_blank" rel="noopener">七牛价格</a>  </p>
+</li>
+</ul>
+<h3 id="又拍云"><a href="#又拍云" class="headerlink" title="又拍云"></a>又拍云</h3><p><img src="https://cdn.sspai.com/2017/08/21/9f1b5842c3ab1b8bc29e5fdbce49a972.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt="又拍云"></p>
+<p>又拍云</p>
+<p><a href="https://www.upyun.com/" target="_blank" rel="noopener">又拍云</a> 也算是国内比较有名的云服务商了，国内拥有 200+ 的自建 CDN 节点，国内速度也不错，API 很详细，不过对于普通用户没有免费额度，目前实行的是「按照用户每日实际消耗的 CDN 流量，实行 1:1 的存储空间费免费使用」。</p>
+<p>相关链接：</p>
+<ul>
+<li><p><a href="http://docs.upyun.com/guide/#api" target="_blank" rel="noopener">又拍云 API 文档</a>  </p>
+</li>
+<li><p><a href="https://www.upyun.com/pricing" target="_blank" rel="noopener">又拍云价格</a>  </p>
+</li>
+</ul>
+<h3 id="阿里云-OSS"><a href="#阿里云-OSS" class="headerlink" title="阿里云 OSS"></a>阿里云 OSS</h3><p><img src="https://cdn.sspai.com/2017/08/21/dea389e72df9a46289eaa24b3d88aee4.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt="阿里云 OSS"></p>
+<p>阿里云 OSS</p>
+<p><a href="https://www.aliyun.com/price/product#/oss/detail" target="_blank" rel="noopener">阿里云 OSS</a>（Object Storage Service），即阿里云对象存储服务，也可以作为图床，速度国内国外都不错，SDK 和 API 都很完善，收费也不算太贵，就是计费方案太复杂，目前费用包括：存储费用+流量费用+接口调用费用+数据处理，而且还分时段，地区，阶梯计费。可以选择包年包月和按量付费，具体价格和文档可以查看下面的官网介绍。</p>
+<p>相关链接：</p>
+<ul>
+<li><p><a href="https://promotion.aliyun.com/ntms/act/ossdoclist.html" target="_blank" rel="noopener">阿里云 OSS 文档</a>  </p>
+</li>
+<li><p><a href="https://www.aliyun.com/price/product#/oss/detail" target="_blank" rel="noopener">阿里云 OSS 价格</a>  </p>
+</li>
+</ul>
+<h2 id="自建图床：开源方案"><a href="#自建图床：开源方案" class="headerlink" title="自建图床：开源方案"></a>自建图床：开源方案</h2><p>如果你有 VPS，并且网络速度 OK 的话，自建图床也是一个不错的选择。</p>
+<h3 id="Lychee"><a href="#Lychee" class="headerlink" title="Lychee"></a>Lychee</h3><p><img src="https://cdn.sspai.com/2017/08/21/5d4f0efa178487d54309f3da47d75e6e.jpeg?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt="Lychee"></p>
+<p>Lychee</p>
+<p><a href="https://github.com/electerious/Lychee" target="_blank" rel="noopener">Lychee</a> 是一个开源免费的基于 PHP 的图片管理系统，支持 Docker 部署，可以直接当做图床来用，Lychee 还支持很多扩展。</p>
+<h3 id="树洞外链"><a href="#树洞外链" class="headerlink" title="树洞外链"></a>树洞外链</h3><p><img src="https://cdn.sspai.com/2017/08/21/d916ed36a802e3e878e95d556bd64ef3.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt="树洞外链"></p>
+<p>树洞外链</p>
+<p><a href="https://yun.aoaoao.me/" target="_blank" rel="noopener">树洞外链</a> 是一款免费开源的 PHP 外链网盘系统，界面简洁友好，支持七牛、本地、远程、阿里云OSS、又拍云五种储存方式，支持多用户系统，多上传方案策略。</p>
+<p>相关链接：</p>
+<ul>
+<li><a href="https://file.aoaoao.me/" target="_blank" rel="noopener">演示站点</a>  </li>
+</ul>
+<h2 id="上传工具"><a href="#上传工具" class="headerlink" title="上传工具"></a>上传工具</h2><p>对普通用户来说，直接使用图床 API 很麻烦，我们可以借助一些工具方便的上传图片，下面就根据 macOS、Windows、Web 分别推荐几款工具。</p>
+<h3 id="iPic"><a href="#iPic" class="headerlink" title="iPic"></a>iPic</h3><p><img src="https://cdn.sspai.com/attachment/origin/2016/07/04/336030.png" alt=""></p>
+<h4 id="iPic-1"><a href="#iPic-1" class="headerlink" title="iPic"></a>iPic</h4><p>Mac</p>
+<p><a href="https://sspai.com/app/iPic" target="_blank" rel="noopener">相关文章</a></p>
+<p>下载</p>
+<ul>
+<li><a href="https://itunes.apple.com/cn/app/ipic-tu-chuang-shen-qi/id1101244278?mt=12&amp;uo=4&amp;at=10lJSw&amp;ct=appcards" target="_blank" rel="noopener">Mac</a></li>
+</ul>
+<p><a href="https://itunes.apple.com/cn/app/id1101244278?ls=1&amp;mt=12" target="_blank" rel="noopener">iPic</a> 是 macOS 上口碑最好的图床工具，支持 微博图床、七牛、阿里云 OSS、又拍云、Imgur、Flickr 等常见图床，支持拖拽、快捷键、剪贴板上传，支持上传前压缩，上传完毕自动生成 Markdown 并拷贝到剪贴板。如果你想迁移图床，开发者 <a href="https://slarker.me/image-oss/toolinbox.net" target="_blank" rel="noopener">@jason</a> 还做了一款 <a href="https://toolinbox.net/iPic/iPicMover.html" target="_blank" rel="noopener">图床迁移工具 iPic Mover</a> 来帮助你。此外，简洁优雅的 Markdown 工具 <a href="https://typora.io/" target="_blank" rel="noopener">Typora</a>也内嵌了 iPic 的上传服务，如果你也使用 Typora 的话，能感觉到这俩工具简直是绝配。</p>
+<h3 id="MWeb"><a href="#MWeb" class="headerlink" title="MWeb"></a>MWeb</h3><p><img src="https://cdn.sspai.com/attachment/origin/2017/01/23/364951.png" alt=""></p>
+<h4 id="MWeb-1"><a href="#MWeb-1" class="headerlink" title="MWeb"></a>MWeb</h4><p>iOS</p>
+<p><a href="https://sspai.com/app/MWeb" target="_blank" rel="noopener">相关文章</a></p>
+<p>下载</p>
+<ul>
+<li><a href="https://itunes.apple.com/cn/app/mweb-pro-markdown-writing/id1183407767?mt=8&amp;uo=4&amp;at=10lJSw&amp;ct=appcards" target="_blank" rel="noopener">iOS 通用</a></li>
+<li><a href="https://itunes.apple.com/cn/app/mweb-zhuan-ye-demarkdown-xie/id954188948?mt=12&amp;uo=4&amp;at=10lJSw&amp;ct=appcards" target="_blank" rel="noopener">Mac</a></li>
+</ul>
+<p><img src="https://cdn.sspai.com/2017/08/21/a2229ac36e94260816e5423f5ceeba09.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt="MWeb 中的图床支持"></p>
+<p>MWeb 中的图床支持</p>
+<p>如果你只是码字的时候才用到图床，那可能 <a href="http://zh.mweb.im/" target="_blank" rel="noopener">MWeb</a> 也能满足你的需求，MWeb 支持七牛、imgur、Google Photos，还支持自定义图床，写作的时候只需要将图片拖进来，写作完成一键上传所有图片，也很方便。</p>
+<h3 id="Dropzone-3"><a href="#Dropzone-3" class="headerlink" title="Dropzone 3"></a>Dropzone 3</h3><p><img src="https://cdn.sspai.com/attachment/origin/2015/12/14/298954.png" alt=""></p>
+<h4 id="Dropzone-3-1"><a href="#Dropzone-3-1" class="headerlink" title="Dropzone 3"></a>Dropzone 3</h4><p>Mac</p>
+<p><a href="https://sspai.com/app/Dropzone 3" target="_blank" rel="noopener">相关文章</a></p>
+<p>下载</p>
+<ul>
+<li><a href="https://itunes.apple.com/cn/app/dropzone-3/id695406827?mt=12&amp;ign-mpt=uo%3D4&amp;uo=4&amp;at=10lJSw&amp;ct=appcards" target="_blank" rel="noopener">Mac</a></li>
+</ul>
+<p><a href="https://itunes.apple.com/us/app/dropzone-3/id695406827?mt=12" target="_blank" rel="noopener">Dropzone 3</a> 也可以通过 <a href="https://kyleduo.com/" target="_blank" rel="noopener">七牛插件</a> 来支持上传图片，和 MWeb 类似，具体教程可以看 <a href="https://blog.kyleduo.com/2017/02/27/qiniu-upload-for-dropzone/#more" target="_blank" rel="noopener">这里</a>。</p>
+<h3 id="MPic"><a href="#MPic" class="headerlink" title="MPic"></a>MPic</h3><p><img src="https://cdn.sspai.com/2017/08/21/ff144a6f126b6e608b93b5ba06013e14.png?imageView2/2/w/1120/q/90/interlace/1/ignore-error/1" alt="MPic"></p>
+<p>MPic</p>
+<p><a href="http://mpic.lzhaofu.cn/" target="_blank" rel="noopener">MPic</a> 目测是 Windows 上唯一的图床工具了，目前只支持七牛，把图片拖拽到软件窗口中就能上传。</p>
+<h3 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h3><p>使用 Web 技术开发的图床工具一抓一大把，大部分都基于七牛和微博图床 API，这里就介绍两个体验不错的吧：</p>
+<ul>
+<li><p><a href="http://yotuku.cn/" target="_blank" rel="noopener">极简图床</a>：默认公共图床使用 sm.ms、微博图床，可以自定义支持七牛，界面简洁美观，支持 <a href="https://chrome.google.com/webstore/detail/heebflcbemenefckkgfnnklbhdbdkagg" target="_blank" rel="noopener">Chrome 插件</a>，注册后还可以同步上传历史。  </p>
+</li>
+<li><p><a href="https://chrome.google.com/webstore/detail/%E6%96%B0%E6%B5%AA%E5%BE%AE%E5%8D%9A%E5%9B%BE%E5%BA%8A/fdfdnfpdplfbbnemmmoklbfjbhecpnhf/reviews" target="_blank" rel="noopener">微博图床 Chroem 扩展</a>：开源的图床工具，只支持微博图床，使用起来也很方便，可以批量上传，管理上传历史。  </p>
+</li>
+</ul>
+<h3 id="脚本"><a href="#脚本" class="headerlink" title="脚本"></a>脚本</h3><p>如果你对上面推荐的产品不满意，并且你会折腾的话，可以使用这个脚本来完成图片上传：<a href="https://github.com/tiann/markdown-img-upload" target="_blank" rel="noopener">Markdown 图片实用工具</a></p>
+<p>该脚本使用 Python 版的七牛 SDK 来实现上传功能，你可以按照相关介绍，搭配 Alfred 来快速完成图片上传。</p>
+<hr>
+<p>图床服务最重要的是稳定性，大厂的云服务也都比较有保障，大家只要考虑下价格和易用性就可以了。就我个人而言，我首先推荐七牛，它的价格比较厚道，免费用户也有一定额度，数据可以自己掌控，另外各大平台的图床工具也基本都支持，易用性很高。其次推荐微博图床，对于不是很重要的图片，都可以存到微博图床，毕竟流量存储都免费，速度也不错。至于图床工具，就看自己的喜好了，只要顺手就行。但是不论选择哪一个服务或者工具，我觉得首先要自己可以掌控数据。</p>
+<p>总之，适合自己的才是最好的。如果你还有其它好用的工具或者图床服务，欢迎留言给我，我会补充进来。</p>
+<hr>
+<p><a href="http://mpic.lzhaofu.cn/" target="_blank" rel="noopener">《图床神器》</a></p>
+<p><a href="https://pic.xiaojianjian.net/" target="_blank" rel="noopener">《小贱贱图床》</a></p>
+<p><a href="https://sm.ms/" target="_blank" rel="noopener">《SM.SMb》</a></p>
+<p><a href="https://sspai.com/post/40499" target="_blank" rel="noopener">《嗯，图片就交给它了》</a></p>
+<hr>
 
       
     </div>
@@ -603,8 +714,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/08/Hexo-Next搭建个人博客（集成LiveRe来必力文章评论功能）/" rel="next" title="Hexo-Next搭建个人博客（集成LiveRe来必力文章评论功能）">
-                <i class="fa fa-chevron-left"></i> Hexo-Next搭建个人博客（集成LiveRe来必力文章评论功能）
+              <a href="/2018/08/14/InnoDB并发如此高，原因竟然在这？/" rel="next" title="InnoDB并发如此高，原因竟然在这？">
+                <i class="fa fa-chevron-left"></i> InnoDB并发如此高，原因竟然在这？
               </a>
             
           </div>
@@ -612,10 +723,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/08/Hexo-Next搭建个人博客（添加统计访客量以及文章阅读量）/" rel="prev" title="Hexo-Next搭建个人博客（添加统计访客量以及文章阅读量）">
-                Hexo-Next搭建个人博客（添加统计访客量以及文章阅读量） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -835,7 +942,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#注册"><span class="nav-number">1.</span> <span class="nav-text">注册</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#修改head-swig"><span class="nav-number">2.</span> <span class="nav-text">修改head.swig</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主题配置文件"><span class="nav-number">3.</span> <span class="nav-text">主题配置文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#聊天窗口配置"><span class="nav-number">4.</span> <span class="nav-text">聊天窗口配置</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#公共图床"><span class="nav-number">1.</span> <span class="nav-text">公共图床</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#微博图床"><span class="nav-number">1.1.</span> <span class="nav-text">微博图床</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Imgur-图床"><span class="nav-number">1.2.</span> <span class="nav-text">Imgur 图床</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SM-MS-图床"><span class="nav-number">1.3.</span> <span class="nav-text">SM.MS 图床</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自建图床：云服务"><span class="nav-number">2.</span> <span class="nav-text">自建图床：云服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#七牛"><span class="nav-number">2.1.</span> <span class="nav-text">七牛</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#又拍云"><span class="nav-number">2.2.</span> <span class="nav-text">又拍云</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阿里云-OSS"><span class="nav-number">2.3.</span> <span class="nav-text">阿里云 OSS</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自建图床：开源方案"><span class="nav-number">3.</span> <span class="nav-text">自建图床：开源方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lychee"><span class="nav-number">3.1.</span> <span class="nav-text">Lychee</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#树洞外链"><span class="nav-number">3.2.</span> <span class="nav-text">树洞外链</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#上传工具"><span class="nav-number">4.</span> <span class="nav-text">上传工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#iPic"><span class="nav-number">4.1.</span> <span class="nav-text">iPic</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#iPic-1"><span class="nav-number">4.1.1.</span> <span class="nav-text">iPic</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MWeb"><span class="nav-number">4.2.</span> <span class="nav-text">MWeb</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#MWeb-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">MWeb</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dropzone-3"><span class="nav-number">4.3.</span> <span class="nav-text">Dropzone 3</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dropzone-3-1"><span class="nav-number">4.3.1.</span> <span class="nav-text">Dropzone 3</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MPic"><span class="nav-number">4.4.</span> <span class="nav-text">MPic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web"><span class="nav-number">4.5.</span> <span class="nav-text">Web</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#脚本"><span class="nav-number">4.6.</span> <span class="nav-text">脚本</span></a></li></ol></li></ol></div>
             
 
           </div>
