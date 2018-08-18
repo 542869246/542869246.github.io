@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="HTML,js,前端,css," />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -122,18 +122,18 @@
     }
 </style>
 
-<meta name="description" content="记录工作中遇到的一些关于前端的破事。">
-<meta name="keywords" content="HTML,js,前端,css">
+<meta name="description" content="定义： 在Python中对象的赋值其实就是对象的引用。当创建一个对象，把它赋值给另一个变量的时候，python并没有拷贝这个对象，只是拷贝了这个对象的引用而已。">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端杂记">
-<meta property="og:url" content="http://yfzhou.coding.me/2018/08/13/前端杂记/index.html">
+<meta property="og:title" content="Python中深拷贝与浅拷贝的区别">
+<meta property="og:url" content="http://yfzhou.coding.me/2018/08/18/Python中深拷贝与浅拷贝的区别/index.html">
 <meta property="og:site_name" content="yufeng.Zhou&#39;s Blog">
-<meta property="og:description" content="记录工作中遇到的一些关于前端的破事。">
+<meta property="og:description" content="定义： 在Python中对象的赋值其实就是对象的引用。当创建一个对象，把它赋值给另一个变量的时候，python并没有拷贝这个对象，只是拷贝了这个对象的引用而已。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-13T03:05:06.688Z">
+<meta property="og:updated_time" content="2018-08-18T10:50:31.352Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端杂记">
-<meta name="twitter:description" content="记录工作中遇到的一些关于前端的破事。">
+<meta name="twitter:title" content="Python中深拷贝与浅拷贝的区别">
+<meta name="twitter:description" content="定义： 在Python中对象的赋值其实就是对象的引用。当创建一个对象，把它赋值给另一个变量的时候，python并没有拷贝这个对象，只是拷贝了这个对象的引用而已。">
 
 
 
@@ -163,7 +163,7 @@
 
 
 
-  <link rel="canonical" href="http://yfzhou.coding.me/2018/08/13/前端杂记/"/>
+  <link rel="canonical" href="http://yfzhou.coding.me/2018/08/18/Python中深拷贝与浅拷贝的区别/"/>
 
 
 
@@ -179,7 +179,7 @@
     })();
 </script>
 
-  <title>前端杂记 | yufeng.Zhou's Blog</title>
+  <title>Python中深拷贝与浅拷贝的区别 | yufeng.Zhou's Blog</title>
   <style>
   .forkme{
  display: none;
@@ -376,7 +376,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yfzhou.coding.me/2018/08/13/前端杂记/">
+    <link itemprop="mainEntityOfPage" href="http://yfzhou.coding.me/2018/08/18/Python中深拷贝与浅拷贝的区别/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yufeng.Zhou">
@@ -393,7 +393,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">前端杂记</h1>
+          <h1 class="post-title" itemprop="name headline">Python中深拷贝与浅拷贝的区别</h1>
         
 
         <div class="post-meta">
@@ -405,8 +405,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-13T10:39:15+08:00">
-                2018-08-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-18T18:48:44+08:00">
+                2018-08-18
               </time>
             
 
@@ -428,8 +428,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -445,7 +445,7 @@
 
           
           
-             <span id="/2018/08/13/前端杂记/" class="leancloud_visitors" data-flag-title="前端杂记">
+             <span id="/2018/08/18/Python中深拷贝与浅拷贝的区别/" class="leancloud_visitors" data-flag-title="Python中深拷贝与浅拷贝的区别">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -470,7 +470,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  162 字
+                  952 字
                 </span>
               
 
@@ -486,7 +486,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  4 分钟
                 </span>
               
             </div>
@@ -507,17 +507,36 @@
       
 
       
-        <p>记录工作中遇到的一些关于前端的破事。</p>
+        <h3 id="定义："><a href="#定义：" class="headerlink" title="定义："></a>定义：</h3><blockquote>
+<p>在Python中对象的赋值其实就是对象的引用。当创建一个对象，把它赋值给另一个变量的时候，python并没有拷贝这个对象，只是拷贝了这个对象的引用而已。</p>
+</blockquote>
 <a id="more"></a>
-<ol>
-<li><p>正则验证</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> regIdNo = /(^\d&#123;<span class="number">15</span>&#125;$)|(^\d&#123;<span class="number">18</span>&#125;$)|(^\d&#123;<span class="number">17</span>&#125;(\d|X|x)$)/; </span><br><span class="line"><span class="keyword">let</span> regtel=/^[<span class="number">1</span>][<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">8</span>][<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">9</span>&#125;$/;</span><br><span class="line"><span class="keyword">let</span> reglicence = /^[京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领A-Z]&#123;<span class="number">1</span>&#125;[A-Z]&#123;<span class="number">1</span>&#125;[A-Z<span class="number">0</span>-<span class="number">9</span>]&#123;<span class="number">4</span>&#125;[A-Z<span class="number">0</span>-<span class="number">9</span>挂学警港澳]&#123;<span class="number">1</span>&#125;$/;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!regtel.test(<span class="string">'##############'</span>)) &#123;</span><br><span class="line">    alert(<span class="string">'手机号格式有误'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(!regIdNo.test(<span class="string">'##############'</span>))&#123;  </span><br><span class="line"> 	alert(<span class="string">'身份证号填写有误'</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(!reglicence.test(<span class="string">'##########'</span>))&#123;</span><br><span class="line">	alert(<span class="string">'身份证号填写有误'</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>集合快速去除（ES6）</p>
-<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Array</span>.from(<span class="keyword">new</span> <span class="type">Set</span>(a))</span><br></pre></td></tr></table></figure>
-</li>
-<li></li>
-</ol>
+<blockquote>
+<p>浅拷贝：拷贝了最外围的对象本身，内部的元素都只是拷贝了一个引用而已。也就是，把对象复制一遍，但是该对象中引用的其他对象我不复制</p>
+<p>深拷贝：外围和内部元素都进行了拷贝对象本身，而不是引用。也就是，把对象复制一遍，并且该对象中引用的其他对象我也复制。</p>
+</blockquote>
+<h3 id="几个术语的解释："><a href="#几个术语的解释：" class="headerlink" title="几个术语的解释："></a>几个术语的解释：</h3><blockquote>
+<p>1，变量：是一个系统表的元素，拥有指向对象的连接空间<br>2，对象：被分配的一块内存，存储其所代表的值<br>3，引用：是自动形成的从变量到对象的指针<br>4，注意：类型（int类型，long类型(python3已去除long类型，只剩下int类型的数据)）属于对象，不是变量<br>5，不可变对象：一旦创建就不可修改的对象，包括字符串、元组、数字<br>6，可变对象：可以修改的对象，包括列表、字典。</p>
+</blockquote>
+<h3 id="应用的范围："><a href="#应用的范围：" class="headerlink" title="应用的范围："></a>应用的范围：</h3><blockquote>
+<p>1，切片可以应用于：列表、元组、字符串，但不能应用于字典。<br>2，深浅拷贝，既可应用序列（列表、元组、字符串），也可应用字典。</p>
+</blockquote>
+<h3 id="深浅拷贝的作用："><a href="#深浅拷贝的作用：" class="headerlink" title="深浅拷贝的作用："></a>深浅拷贝的作用：</h3><blockquote>
+<p>1，减少内存的使用<br>2，以后在做数据的清洗、修改或者入库的时候，对原数据进行复制一份，以防数据修改之后，找不到原数据。</p>
+</blockquote>
+<h3 id="对于不可变对象的深浅拷贝："><a href="#对于不可变对象的深浅拷贝：" class="headerlink" title="对于不可变对象的深浅拷贝："></a>对于不可变对象的深浅拷贝：</h3><blockquote>
+<p>不可变对象类型，没有被拷贝的说法，即便是用深拷贝，查看id的话也是一样的，如果对其重新赋值，也只是新创建一个对象，替换掉旧的而已。</p>
+<p>一句话就是，不可变类型，不管是深拷贝还是浅拷贝，地址值和拷贝后的值都是一样的。</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">a=(1,2,3)</span><br><span class="line"><span class="builtin-name">print</span>(<span class="string">"=====第一种=号浅拷贝====="</span>)</span><br><span class="line"><span class="attribute">b</span>=a</span><br><span class="line"><span class="builtin-name">print</span>(a)</span><br><span class="line"><span class="builtin-name">print</span>(b)</span><br><span class="line"><span class="builtin-name">print</span>(id(a))</span><br><span class="line"><span class="builtin-name">print</span>(id(b))</span><br><span class="line"><span class="builtin-name">print</span>(<span class="string">"=====另一种copy浅拷贝==="</span>)</span><br><span class="line"><span class="attribute">b</span>=copy.copy(a)</span><br><span class="line"><span class="builtin-name">print</span>(a)</span><br><span class="line"><span class="builtin-name">print</span>(b)</span><br><span class="line"><span class="builtin-name">print</span>(id(a))</span><br><span class="line"><span class="builtin-name">print</span>(id(b))</span><br><span class="line"><span class="builtin-name">print</span>(<span class="string">"=====深拷贝====="</span>)</span><br><span class="line"><span class="attribute">b</span>=copy.deepcopy(a)</span><br><span class="line"><span class="builtin-name">print</span>(a)</span><br><span class="line"><span class="builtin-name">print</span>(b)</span><br><span class="line"><span class="builtin-name">print</span>(id(a))</span><br><span class="line"><span class="builtin-name">print</span>(id(b))</span><br><span class="line"><span class="comment"># 结果如下：</span></span><br><span class="line">=====浅拷贝=====</span><br><span class="line">(1, 2, 3)</span><br><span class="line">(1, 2, 3)</span><br><span class="line">2814522335952</span><br><span class="line">2814522335952</span><br><span class="line">=====另一种浅拷贝===</span><br><span class="line">(1, 2, 3)</span><br><span class="line">(1, 2, 3)</span><br><span class="line">2814522335952</span><br><span class="line">2814522335952</span><br><span class="line">=====深拷贝=====</span><br><span class="line">(1, 2, 3)</span><br><span class="line">(1, 2, 3)</span><br><span class="line">2814522335952</span><br><span class="line">2814522335952</span><br></pre></td></tr></table></figure>
+<h1 id="对于可变对象深浅拷贝"><a href="#对于可变对象深浅拷贝" class="headerlink" title="对于可变对象深浅拷贝:"></a>对于可变对象深浅拷贝:</h1><blockquote>
+<p>=浅拷贝：值相等，地址相等<br>copy浅拷贝：值相等，地址不相等<br>deepcopy深拷贝：值相等，地址不相等<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">a=[1,2,3]</span><br><span class="line"><span class="builtin-name">print</span>(<span class="string">"=====第一种=号浅拷贝====="</span>)</span><br><span class="line"><span class="attribute">b</span>=a</span><br><span class="line"><span class="builtin-name">print</span>(a)</span><br><span class="line"><span class="builtin-name">print</span>(b)</span><br><span class="line"><span class="builtin-name">print</span>(id(a))</span><br><span class="line"><span class="builtin-name">print</span>(id(b))</span><br><span class="line"><span class="builtin-name">print</span>(<span class="string">"=====另一种copy浅拷贝==="</span>)</span><br><span class="line"><span class="attribute">b</span>=copy.copy(a)</span><br><span class="line"><span class="builtin-name">print</span>(a)</span><br><span class="line"><span class="builtin-name">print</span>(b)</span><br><span class="line"><span class="builtin-name">print</span>(id(a))</span><br><span class="line"><span class="builtin-name">print</span>(id(b))</span><br><span class="line"><span class="builtin-name">print</span>(<span class="string">"=====深拷贝====="</span>)</span><br><span class="line"><span class="attribute">b</span>=copy.deepcopy(a)</span><br><span class="line"><span class="builtin-name">print</span>(a)</span><br><span class="line"><span class="builtin-name">print</span>(b)</span><br><span class="line"><span class="builtin-name">print</span>(id(a))</span><br><span class="line"><span class="builtin-name">print</span>(id(b))</span><br><span class="line"><span class="comment">#结果如下：</span></span><br><span class="line">=====浅拷贝=====</span><br><span class="line">[1, 2, 3]</span><br><span class="line">[1, 2, 3]</span><br><span class="line">2007696321544</span><br><span class="line">2007696321544</span><br><span class="line">=====另一种copy浅拷贝===</span><br><span class="line">[1, 2, 3]</span><br><span class="line">[1, 2, 3]</span><br><span class="line">2007696321544</span><br><span class="line">2007695909960</span><br><span class="line">=====深拷贝=====</span><br><span class="line">[1, 2, 3]</span><br><span class="line">[1, 2, 3]</span><br><span class="line">2007696321544</span><br><span class="line">2007696319560</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><blockquote>
+<p>1，深浅拷贝都是对源对象的复制，占用不同的内存空间。</p>
+<p>2，不可变类型的对象，对于深浅拷贝毫无影响，最终的地址值和值都是相等的。</p>
+<p>3，可变类型：<br>=浅拷贝： 值相等，地址相等<br>copy浅拷贝：值相等，地址不相等<br>deepcopy深拷贝：值相等，地址不相等</p>
+</blockquote>
 
       
     </div>
@@ -575,13 +594,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/HTML/" rel="tag"><i class="fa fa-tag"></i> HTML</a>
-          
-            <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
-          
-            <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
-          
-            <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
           
         </div>
       
@@ -594,8 +607,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/10/HTML5 file API加canvas实现图片前端JS压缩并上传/" rel="next" title="HTML5 file API加canvas实现图片前端JS压缩并上传">
-                <i class="fa fa-chevron-left"></i> HTML5 file API加canvas实现图片前端JS压缩并上传
+              <a href="/2018/08/17/Hexo-Next搭建个人博客（使用图床）/" rel="next" title="Hexo-Next搭建个人博客（使用图床）">
+                <i class="fa fa-chevron-left"></i> Hexo-Next搭建个人博客（使用图床）
               </a>
             
           </div>
@@ -603,10 +616,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/13/Hexo-Next搭建个人博客（添加网页标题崩溃欺骗搞怪特效）/" rel="prev" title="Hexo-Next搭建个人博客（添加网页标题崩溃欺骗搞怪特效）">
-                Hexo-Next搭建个人博客（添加网页标题崩溃欺骗搞怪特效） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -701,8 +710,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -807,6 +825,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#定义："><span class="nav-number">1.</span> <span class="nav-text">定义：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几个术语的解释："><span class="nav-number">2.</span> <span class="nav-text">几个术语的解释：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用的范围："><span class="nav-number">3.</span> <span class="nav-text">应用的范围：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深浅拷贝的作用："><span class="nav-number">4.</span> <span class="nav-text">深浅拷贝的作用：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对于不可变对象的深浅拷贝："><span class="nav-number">5.</span> <span class="nav-text">对于不可变对象的深浅拷贝：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对于可变对象深浅拷贝"><span class="nav-number"></span> <span class="nav-text">对于可变对象深浅拷贝:</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#总结："><span class="nav-number">1.</span> <span class="nav-text">总结：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
