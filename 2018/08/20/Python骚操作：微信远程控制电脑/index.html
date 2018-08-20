@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -122,16 +122,22 @@
     }
 </style>
 
-<meta name="description" content="随便搓搓">
-<meta property="og:type" content="website">
-<meta property="og:title" content="yufeng.Zhou&#39;s Blog">
-<meta property="og:url" content="http://yfzhou.coding.me/tags/HTML/index.html">
+<meta name="description" content="今天带给大家一个非常有意思的 python 程序，基于 itchat 实现微信控制电脑。你可以通过在微信发送命令，来拍摄当前电脑的使用者，然后图片会发送到你的微信上。甚至你可以发送命令来远程关闭电脑。">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python骚操作：微信远程控制电脑">
+<meta property="og:url" content="http://yfzhou.coding.me/2018/08/20/Python骚操作：微信远程控制电脑/index.html">
 <meta property="og:site_name" content="yufeng.Zhou&#39;s Blog">
-<meta property="og:description" content="随便搓搓">
+<meta property="og:description" content="今天带给大家一个非常有意思的 python 程序，基于 itchat 实现微信控制电脑。你可以通过在微信发送命令，来拍摄当前电脑的使用者，然后图片会发送到你的微信上。甚至你可以发送命令来远程关闭电脑。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/374660489816441329_%E7%9C%8B%E5%9B%BE%E7%8E%8B.jpg?x-oss-process=style/w200">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM%E6%88%AA%E5%9B%BE20180820122055.png?x-oss-process=style/w200">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/374660489816441329_%E7%9C%8B%E5%9B%BE%E7%8E%8B.jpg?x-oss-process=style/w200">
+<meta property="og:updated_time" content="2018-08-20T04:29:01.084Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="yufeng.Zhou&#39;s Blog">
-<meta name="twitter:description" content="随便搓搓">
+<meta name="twitter:title" content="Python骚操作：微信远程控制电脑">
+<meta name="twitter:description" content="今天带给大家一个非常有意思的 python 程序，基于 itchat 实现微信控制电脑。你可以通过在微信发送命令，来拍摄当前电脑的使用者，然后图片会发送到你的微信上。甚至你可以发送命令来远程关闭电脑。">
+<meta name="twitter:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/374660489816441329_%E7%9C%8B%E5%9B%BE%E7%8E%8B.jpg?x-oss-process=style/w200">
 
 
 
@@ -161,7 +167,7 @@
 
 
 
-  <link rel="canonical" href="http://yfzhou.coding.me/tags/HTML/"/>
+  <link rel="canonical" href="http://yfzhou.coding.me/2018/08/20/Python骚操作：微信远程控制电脑/"/>
 
 
 
@@ -177,7 +183,7 @@
     })();
 </script>
 
-  <title>标签: HTML | yufeng.Zhou's Blog</title>
+  <title>Python骚操作：微信远程控制电脑 | yufeng.Zhou's Blog</title>
   <style>
   .forkme{
  display: none;
@@ -209,7 +215,7 @@
   <div class="bg_content">
     <canvas id="canvas"></canvas>
   </div>
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -360,110 +366,311 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>HTML<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yfzhou.coding.me/2018/08/20/Python骚操作：微信远程控制电脑/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yufeng.Zhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yufeng.Zhou's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/08/13/前端杂记/" itemprop="url">
-              
-                <span itemprop="name">前端杂记</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Python骚操作：微信远程控制电脑</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-13T10:39:15+08:00"
-              content="2018-08-13" >
-          08-13
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-20T12:18:36+08:00">
+                2018-08-20
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/20/Python骚操作：微信远程控制电脑/" class="leancloud_visitors" data-flag-title="Python骚操作：微信远程控制电脑">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  949 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/10/HTML5 file API加canvas实现图片前端JS压缩并上传/" itemprop="url">
-              
-                <span itemprop="name">HTML5 file API加canvas实现图片前端JS压缩并上传</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-10T19:26:16+08:00"
-              content="2018-08-10" >
-          08-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/09/在HTML在线预览PDF、word、xls、ppt等文件/" itemprop="url">
-              
-                <span itemprop="name">在HTML在线预览PDF、word、xls、ppt等文件</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-09T19:04:48+08:00"
-              content="2018-08-09" >
-          08-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <p>今天带给大家一个非常有意思的 python 程序，基于 itchat 实现微信控制电脑。你可以通过在微信发送命令，来拍摄当前电脑的使用者，然后图片会发送到你的微信上。甚至你可以发送命令来远程关闭电脑。</p>
+<a id="more"></a>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/374660489816441329_%E7%9C%8B%E5%9B%BE%E7%8E%8B.jpg?x-oss-process=style/w200" alt=""></p>
+<p><strong>应用场景</strong></p>
+<p>你可爱又迷人的女朋友，在看到这篇教程之后，非常的开心。在你的电脑上部署了这个脚本，并且在你不知情的情况下，默默的登录上。随后跟你说我出去跟闺蜜逛街啦，今天就不陪你了。要记得不准吃鸡。</p>
+<p>你心想老子终于可以放松一天了！开心的吃鸡！口上说着：“好的！亲爱的玩得开心！”等着女朋友出门以后，你就开启了吃鸡模式，在绝地求生里大开杀戒。</p>
+<p>你的女朋友早已对你了如指掌，通过脚本，先让电脑截图留下现场证据，随后再打电话质问你是否在吃鸡，你如果撒谎就把电脑远程关机。</p>
+<p>最后你想了下不对我没有女朋友啊，随后你转头微笑地看着你的室友。</p>
+<p><strong>程序思路</strong></p>
+<p>此次程序使用的环境是 python3.7 + windows7，在运行程序之前请先确保你已经安装好了 opencv-python 和 matplotlib。通过 pip install 即可安装。</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> opencv-python</span><br><span class="line">pip <span class="keyword">install</span> matplotlib</span><br></pre></td></tr></table></figure>
+<p>程序主要是通过使用 itchat 库来登录到微信网页端，然后通过 itchat 来发送消息和接收消息。并通过 opencv 来调用电脑的摄像头，把当前使用电脑的用户拍照下来，发送到你的微信上。至于远程关机是通过调用 os 库，发送 cmd 命名即可实现。</p>
+<p><strong>程序源码</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itchat  </span><br><span class="line"><span class="keyword">import</span> os  </span><br><span class="line"><span class="keyword">import</span> time  </span><br><span class="line"><span class="keyword">import</span> cv2  </span><br><span class="line">  </span><br><span class="line">sendMsg = <span class="string">u"&#123;消息助手&#125;：暂时无法回复"</span>  </span><br><span class="line">usageMsg = <span class="string">u"使用方法：\\n1.运行CMD命令：cmd xxx (xxx为命令)\\n"</span> \  </span><br><span class="line">           <span class="string">u"-例如关机命令:\\ncmd shutdown -s -t 0 \\n"</span> \  </span><br><span class="line">           <span class="string">u"2.获取当前电脑用户：cap\\n3.启用消息助手(默认关闭)：ast\\n"</span> \  </span><br><span class="line">           <span class="string">u"4.关闭消息助手：astc"</span>  </span><br><span class="line">flag = <span class="number">0</span> <span class="comment">#消息助手开关  </span></span><br><span class="line">nowTime = time.localtime()  </span><br><span class="line">filename = str(nowTime.tm\_mday)+str(nowTime.tm\_hour)+str(nowTime.tm\_min)+str(nowTime.tm\_sec)+<span class="string">".txt"</span>  </span><br><span class="line">myfile = open(filename, <span class="string">'w'</span>)  </span><br><span class="line">  </span><br><span class="line"><span class="meta">@itchat.msg_register('Text')  </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">text_reply</span><span class="params">(msg)</span>:</span>  </span><br><span class="line">    <span class="keyword">global</span> flag  </span><br><span class="line">    message = msg\[<span class="string">'Text'</span>\]  </span><br><span class="line">    fromName = msg\[<span class="string">'FromUserName'</span>\]  </span><br><span class="line">    toName = msg\[<span class="string">'ToUserName'</span>\]  </span><br><span class="line">  </span><br><span class="line">    <span class="keyword">if</span> toName == <span class="string">"filehelper"</span>:  </span><br><span class="line">        <span class="keyword">if</span> message == <span class="string">"cap"</span>:  </span><br><span class="line">            cap = cv2.VideoCapture(<span class="number">0</span>)  </span><br><span class="line">            ret, img = cap.read()  </span><br><span class="line">            cv2.imwrite(<span class="string">"weixinTemp.jpg"</span>, img)  </span><br><span class="line">            itchat.send(<span class="string">'@img@%s'</span>%<span class="string">u'weixinTemp.jpg'</span>, <span class="string">'filehelper'</span>)  </span><br><span class="line">            cap.release()  </span><br><span class="line">        <span class="keyword">if</span> message\[<span class="number">0</span>:<span class="number">3</span>\] == <span class="string">"cmd"</span>:  </span><br><span class="line">            os.system(message.strip(message\[<span class="number">0</span>:<span class="number">4</span>\]))  </span><br><span class="line">        <span class="keyword">if</span> message == <span class="string">"ast"</span>:  </span><br><span class="line">            flag = <span class="number">1</span>  </span><br><span class="line">            itchat.send(<span class="string">"消息助手已开启"</span>, <span class="string">"filehelper"</span>)  </span><br><span class="line">        <span class="keyword">if</span> message == <span class="string">"astc"</span>:  </span><br><span class="line">            flag = <span class="number">0</span>  </span><br><span class="line">            itchat.send(<span class="string">"消息助手已关闭"</span>, <span class="string">"filehelper"</span>)  </span><br><span class="line">    <span class="keyword">elif</span> flag == <span class="number">1</span>:  </span><br><span class="line">        itchat.send(sendMsg, fromName)  </span><br><span class="line">        myfile.write(message)  </span><br><span class="line">        myfile.write(<span class="string">"\\n"</span>)  </span><br><span class="line">        myfile.flush()  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">if</span> \_\_name\_\_ == <span class="string">'\_\_main\_\_'</span>:  </span><br><span class="line">    itchat.auto_login()  </span><br><span class="line">    itchat.send(usageMsg, <span class="string">"filehelper"</span>)  </span><br><span class="line">    itchat.run()</span><br></pre></td></tr></table></figure>
+<p>程序并不复杂，定义了一些发送的消息，然后通过调用 itchat 和 cv2 相关库的操作，即可实现。关于 itchat 库的一些操作，可以去网上找相关的文档。</p>
+<p><strong><strong>使用教程</strong></strong></p>
+<p>获取源代码，然后在你的电脑上运行。随后会弹出一个微信网页登录的二维码。</p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM%E6%88%AA%E5%9B%BE20180820122055.png?x-oss-process=style/w200" alt=""></p>
+<p>使用你的手机微信扫描登录，等待一会儿，微信文件助手就会收到相应操作信息。</p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/374660489816441329_%E7%9C%8B%E5%9B%BE%E7%8E%8B.jpg?x-oss-process=style/w200" alt=""></p>
+<p>发送消息「cmd shutdown -s -t 0」即可让当前的电脑关闭。</p>
+<p>发送消息「cap」即可调用电脑摄像头拍摄当前用户，然后把图片发送到微信上。</p>
+<p>当然 cmd 命名还可以做更多有趣的事，大家可以自己去网上搜索下。</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/wechatpay.png" alt="yufeng.Zhou 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/alipay.png" alt="yufeng.Zhou 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+	
+	<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+	
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/18/Python中深拷贝与浅拷贝的区别/" rel="next" title="Python中深拷贝与浅拷贝的区别">
+                <i class="fa fa-chevron-left"></i> Python中深拷贝与浅拷贝的区别
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count" title="累计分享次数"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -471,6 +678,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODUyNC8xNTA1Mg=="></div>
+    </div>
+
+  
+  
+
 
         </div>
         
@@ -769,6 +985,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -797,6 +1017,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
