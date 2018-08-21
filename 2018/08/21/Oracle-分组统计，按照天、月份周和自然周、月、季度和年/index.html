@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="数据库,SQL,Oracle," />
+  <meta name="keywords" content="数据库,Oracle,SQL," />
 
 
 
@@ -122,13 +122,13 @@
     }
 </style>
 
-<meta name="description" content="做报表统计时会经常用到 周，月，季度，年进行分组统计，所以结合网络搜索推荐的sql，总结如下： 123456-- 按天统计select to_char(t.CREATED+15/24, &apos;YYYY-MM-DD&apos;) as 天,sum(1) as 数量from TB_EXT_TRADE tWHERE	t.TID LIKE &apos;SC%&apos; OR t.TID LIKE &apos;WSC%&apos;group by to_ch">
-<meta name="keywords" content="数据库,SQL,Oracle">
+<meta name="description" content="做报表统计时会经常用到 周，月，季度，年进行分组统计，所以结合网络搜索推荐的sql，总结如下">
+<meta name="keywords" content="数据库,Oracle,SQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Oracle 分组统计，按照天、月份周和自然周、月、季度和年">
 <meta property="og:url" content="http://yfzhou.coding.me/2018/08/21/Oracle-分组统计，按照天、月份周和自然周、月、季度和年/index.html">
 <meta property="og:site_name" content="yufeng.Zhou&#39;s Blog">
-<meta property="og:description" content="做报表统计时会经常用到 周，月，季度，年进行分组统计，所以结合网络搜索推荐的sql，总结如下： 123456-- 按天统计select to_char(t.CREATED+15/24, &apos;YYYY-MM-DD&apos;) as 天,sum(1) as 数量from TB_EXT_TRADE tWHERE	t.TID LIKE &apos;SC%&apos; OR t.TID LIKE &apos;WSC%&apos;group by to_ch">
+<meta property="og:description" content="做报表统计时会经常用到 周，月，季度，年进行分组统计，所以结合网络搜索推荐的sql，总结如下">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20160822152940276.jpg">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20160822153822139.jpg">
@@ -136,10 +136,10 @@
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20160822153206494.jpg">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20160822153233106.jpg">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20160822153258464.jpg">
-<meta property="og:updated_time" content="2018-08-21T11:07:06.580Z">
+<meta property="og:updated_time" content="2018-08-21T11:11:58.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Oracle 分组统计，按照天、月份周和自然周、月、季度和年">
-<meta name="twitter:description" content="做报表统计时会经常用到 周，月，季度，年进行分组统计，所以结合网络搜索推荐的sql，总结如下： 123456-- 按天统计select to_char(t.CREATED+15/24, &apos;YYYY-MM-DD&apos;) as 天,sum(1) as 数量from TB_EXT_TRADE tWHERE	t.TID LIKE &apos;SC%&apos; OR t.TID LIKE &apos;WSC%&apos;group by to_ch">
+<meta name="twitter:description" content="做报表统计时会经常用到 周，月，季度，年进行分组统计，所以结合网络搜索推荐的sql，总结如下">
 <meta name="twitter:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20160822152940276.jpg">
 
 
@@ -514,7 +514,8 @@
       
 
       
-        <p><strong>做报表统计时会经常用到 周，月，季度，年进行分组统计，所以结合网络搜索推荐的sql，总结如下：</strong></p>
+        <p>做报表统计时会经常用到 周，月，季度，年进行分组统计，所以结合网络搜索推荐的sql，总结如下</p>
+<a id="more"></a>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 按天统计</span></span><br><span class="line"><span class="keyword">select</span> to_char(t.CREATED+<span class="number">15</span>/<span class="number">24</span>, <span class="string">'YYYY-MM-DD'</span>) <span class="keyword">as</span> 天,<span class="keyword">sum</span>(<span class="number">1</span>) <span class="keyword">as</span> 数量</span><br><span class="line"><span class="keyword">from</span> TB_EXT_TRADE t</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	t.TID <span class="keyword">LIKE</span> <span class="string">'SC%'</span> <span class="keyword">OR</span> t.TID <span class="keyword">LIKE</span> <span class="string">'WSC%'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> to_char(t.CREATED+<span class="number">15</span>/<span class="number">24</span>, <span class="string">'YYYY-MM-DD'</span>) <span class="comment">--trunc(t.CREATED, 'DD')</span></span><br></pre></td></tr></table></figure>
 <p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20160822152940276.jpg" alt=""></p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 按自然周的日期统计 </span></span><br><span class="line"><span class="keyword">select</span> to_char(next_day(t.CREATED+<span class="number">15</span>/<span class="number">24</span> - <span class="number">7</span>,<span class="number">2</span>),<span class="string">'YYYY-MM-DD'</span>) <span class="keyword">AS</span> 周,<span class="keyword">sum</span>(<span class="number">1</span>) <span class="keyword">as</span> 数量</span><br><span class="line"><span class="keyword">from</span> TB_EXT_TRADE t</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	t.TID <span class="keyword">LIKE</span> <span class="string">'SC%'</span> <span class="keyword">OR</span> t.TID <span class="keyword">LIKE</span> <span class="string">'WSC%'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> to_char(next_day(t.CREATED+<span class="number">15</span>/<span class="number">24</span> - <span class="number">7</span>,<span class="number">2</span>),<span class="string">'YYYY-MM-DD'</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> 周;</span><br></pre></td></tr></table></figure>
@@ -586,9 +587,9 @@
           
             <a href="/tags/数据库/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
           
-            <a href="/tags/SQL/" rel="tag"><i class="fa fa-tag"></i> SQL</a>
-          
             <a href="/tags/Oracle/" rel="tag"><i class="fa fa-tag"></i> Oracle</a>
+          
+            <a href="/tags/SQL/" rel="tag"><i class="fa fa-tag"></i> SQL</a>
           
         </div>
       
