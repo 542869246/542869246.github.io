@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yfzhou.coding.me/"/>
-  <updated>2018-08-20T04:29:01.084Z</updated>
+  <updated>2018-08-21T00:38:57.491Z</updated>
   <id>http://yfzhou.coding.me/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Spring+Quartz的版本问题</title>
+    <link href="http://yfzhou.coding.me/2018/08/21/Spring-Quartz%E7%9A%84%E7%89%88%E6%9C%AC%E9%97%AE%E9%A2%98/"/>
+    <id>http://yfzhou.coding.me/2018/08/21/Spring-Quartz的版本问题/</id>
+    <published>2018-08-21T00:35:58.000Z</published>
+    <updated>2018-08-21T00:38:57.491Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java<span class="selector-class">.lang</span><span class="selector-class">.IncompatibleClassChangeError</span>: class org<span class="selector-class">.springframework</span><span class="selector-class">.scheduling</span><span class="selector-class">.quartz</span><span class="selector-class">.CronTriggerBean</span> has interface org<span class="selector-class">.quartz</span><span class="selector-class">.CronTrigger</span> as superclass</span><br></pre></td></tr></table></figure><a id="more"></a><p>原因是Spring 3.0版本中内置的Quartz版本是&lt;2.0的，在使用最新的Quartz包(&gt;2.0)之后，接口不兼容。</p><p>解决办法有三种：</p><p>1.降低Quartz版本，降到1.X去。</p><p>2.升级Spring版本到3.1+，根据Spring的建议，将原来的<strong>TriggerBean替换成</strong>TriggerFactoryBean，例如CronTriggerBean 就可以替换成 CronTriggerFactoryBean。替换之后问题解决。</p><p>3.如果不在xml配置文件中引用 Spring 3.0 是支持 Quartz2.2.1(目前最新版本)，直接在程序中调用即可。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;figure class=&quot;highlight stylus&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;Caused by: java&lt;span class=&quot;selector-class&quot;&gt;.lang&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.IncompatibleClassChangeError&lt;/span&gt;: class org&lt;span class=&quot;selector-class&quot;&gt;.springframework&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.scheduling&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.quartz&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.CronTriggerBean&lt;/span&gt; has interface org&lt;span class=&quot;selector-class&quot;&gt;.quartz&lt;/span&gt;&lt;span class=&quot;selector-class&quot;&gt;.CronTrigger&lt;/span&gt; as superclass&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="http://yfzhou.coding.me/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://yfzhou.coding.me/tags/Java/"/>
+    
+      <category term="Spring" scheme="http://yfzhou.coding.me/tags/Spring/"/>
+    
+      <category term="Quartz" scheme="http://yfzhou.coding.me/tags/Quartz/"/>
+    
+  </entry>
   
   <entry>
     <title>Python骚操作：微信远程控制电脑</title>
@@ -182,11 +208,11 @@
     
       <category term="HTML" scheme="http://yfzhou.coding.me/tags/HTML/"/>
     
+      <category term="js" scheme="http://yfzhou.coding.me/tags/js/"/>
+    
       <category term="前端" scheme="http://yfzhou.coding.me/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="css" scheme="http://yfzhou.coding.me/tags/css/"/>
-    
-      <category term="js" scheme="http://yfzhou.coding.me/tags/js/"/>
     
   </entry>
   
