@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yfzhou.coding.me/404.html</loc>
+    
+    <lastmod>2018-08-21T12:19:38.170Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yfzhou.coding.me/2018/08/13/java8-Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
     
     <lastmod>2018-08-21T12:15:48.415Z</lastmod>
@@ -180,13 +187,6 @@
     <loc>http://yfzhou.coding.me/categories/index.html</loc>
     
     <lastmod>2018-08-06T12:43:54.879Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yfzhou.coding.me/404.html</loc>
-    
-    <lastmod>2018-07-31T11:18:15.688Z</lastmod>
     
   </url>
   
