@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="HTML,js,前端,css," />
+  <meta name="keywords" content="HTML,前端,css,js," />
 
 
 
@@ -123,14 +123,14 @@
 </style>
 
 <meta name="description" content="记录工作中遇到的一些关于前端的破事。">
-<meta name="keywords" content="HTML,js,前端,css">
+<meta name="keywords" content="HTML,前端,css,js">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端杂记">
 <meta property="og:url" content="http://yfzhou.coding.me/2018/08/13/前端杂记/index.html">
 <meta property="og:site_name" content="yufeng.Zhou&#39;s Blog">
 <meta property="og:description" content="记录工作中遇到的一些关于前端的破事。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-13T03:05:06.688Z">
+<meta property="og:updated_time" content="2018-08-21T01:57:16.380Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端杂记">
 <meta name="twitter:description" content="记录工作中遇到的一些关于前端的破事。">
@@ -470,7 +470,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  162 字
+                  197 字
                 </span>
               
 
@@ -516,7 +516,9 @@
 <li><p>集合快速去除（ES6）</p>
 <figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Array</span>.from(<span class="keyword">new</span> <span class="type">Set</span>(a))</span><br></pre></td></tr></table></figure>
 </li>
-<li></li>
+<li><p>获取当前项目的路径</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">var</span> urlRootContext = (function () &#123;</span><br><span class="line">  <span class="selector-tag">var</span> strPath = window<span class="selector-class">.document</span><span class="selector-class">.location</span><span class="selector-class">.pathname</span></span><br><span class="line">  <span class="selector-tag">var</span> postPath = strPath.substring(<span class="number">0</span>, strPath.substr(<span class="number">1</span>).indexOf(<span class="string">'/'</span>) + <span class="number">1</span>)</span><br><span class="line">  return postPath</span><br><span class="line">&#125;)()</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 
       
@@ -577,11 +579,11 @@
           
             <a href="/tags/HTML/" rel="tag"><i class="fa fa-tag"></i> HTML</a>
           
-            <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
-          
             <a href="/tags/前端/" rel="tag"><i class="fa fa-tag"></i> 前端</a>
           
             <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
+          
+            <a href="/tags/js/" rel="tag"><i class="fa fa-tag"></i> js</a>
           
         </div>
       
@@ -721,7 +723,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -837,7 +839,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">24.4k</span>
+    <span title="Site words total count">26.0k</span>
   
 </div>
 <!--
