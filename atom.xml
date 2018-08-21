@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yfzhou.coding.me/"/>
-  <updated>2018-08-21T01:37:07.123Z</updated>
+  <updated>2018-08-21T11:07:06.580Z</updated>
   <id>http://yfzhou.coding.me/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Oracle 分组统计，按照天、月份周和自然周、月、季度和年</title>
+    <link href="http://yfzhou.coding.me/2018/08/21/Oracle-%E5%88%86%E7%BB%84%E7%BB%9F%E8%AE%A1%EF%BC%8C%E6%8C%89%E7%85%A7%E5%A4%A9%E3%80%81%E6%9C%88%E4%BB%BD%E5%91%A8%E5%92%8C%E8%87%AA%E7%84%B6%E5%91%A8%E3%80%81%E6%9C%88%E3%80%81%E5%AD%A3%E5%BA%A6%E5%92%8C%E5%B9%B4/"/>
+    <id>http://yfzhou.coding.me/2018/08/21/Oracle-分组统计，按照天、月份周和自然周、月、季度和年/</id>
+    <published>2018-08-21T10:11:20.000Z</published>
+    <updated>2018-08-21T11:07:06.580Z</updated>
+    
+    <content type="html"><![CDATA[<p><strong>做报表统计时会经常用到 周，月，季度，年进行分组统计，所以结合网络搜索推荐的sql，总结如下：</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 按天统计</span></span><br><span class="line"><span class="keyword">select</span> to_char(t.CREATED+<span class="number">15</span>/<span class="number">24</span>, <span class="string">'YYYY-MM-DD'</span>) <span class="keyword">as</span> 天,<span class="keyword">sum</span>(<span class="number">1</span>) <span class="keyword">as</span> 数量</span><br><span class="line"><span class="keyword">from</span> TB_EXT_TRADE t</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">t.TID <span class="keyword">LIKE</span> <span class="string">'SC%'</span> <span class="keyword">OR</span> t.TID <span class="keyword">LIKE</span> <span class="string">'WSC%'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> to_char(t.CREATED+<span class="number">15</span>/<span class="number">24</span>, <span class="string">'YYYY-MM-DD'</span>) <span class="comment">--trunc(t.CREATED, 'DD')</span></span><br></pre></td></tr></table></figure><p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20160822152940276.jpg" alt=""></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 按自然周的日期统计 </span></span><br><span class="line"><span class="keyword">select</span> to_char(next_day(t.CREATED+<span class="number">15</span>/<span class="number">24</span> - <span class="number">7</span>,<span class="number">2</span>),<span class="string">'YYYY-MM-DD'</span>) <span class="keyword">AS</span> 周,<span class="keyword">sum</span>(<span class="number">1</span>) <span class="keyword">as</span> 数量</span><br><span class="line"><span class="keyword">from</span> TB_EXT_TRADE t</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">t.TID <span class="keyword">LIKE</span> <span class="string">'SC%'</span> <span class="keyword">OR</span> t.TID <span class="keyword">LIKE</span> <span class="string">'WSC%'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> to_char(next_day(t.CREATED+<span class="number">15</span>/<span class="number">24</span> - <span class="number">7</span>,<span class="number">2</span>),<span class="string">'YYYY-MM-DD'</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> 周;</span><br></pre></td></tr></table></figure><p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20160822153822139.jpg" alt="">  </p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 按自然周统计 </span></span><br><span class="line"><span class="keyword">select</span> to_char(t.CREATED,<span class="string">'iw'</span>) <span class="keyword">AS</span> 周,<span class="keyword">sum</span>(<span class="number">1</span>) <span class="keyword">as</span> 数量</span><br><span class="line"><span class="keyword">from</span> TB_EXT_TRADE t</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">t.TID <span class="keyword">LIKE</span> <span class="string">'SC%'</span> <span class="keyword">OR</span> t.TID <span class="keyword">LIKE</span> <span class="string">'WSC%'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> to_char(t.CREATED,<span class="string">'iw'</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> 周;</span><br></pre></td></tr></table></figure><p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20160822153043617.jpg" alt=""></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 按自然月统计 </span></span><br><span class="line"><span class="keyword">select</span> to_char(t.CREATED,<span class="string">'YYYY-MM'</span>) <span class="keyword">as</span> 月份,<span class="keyword">sum</span>(<span class="number">1</span>) <span class="keyword">as</span> 数量</span><br><span class="line"><span class="keyword">from</span> TB_EXT_TRADE t</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">t.TID <span class="keyword">LIKE</span> <span class="string">'SC%'</span> <span class="keyword">OR</span> t.TID <span class="keyword">LIKE</span> <span class="string">'WSC%'</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span></span><br><span class="line">to_char(t.CREATED,<span class="string">'YYYY-MM'</span>) <span class="comment">-- to_char(t.CREATED+15/24,'yyyy-mm') 不大准确</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> 月份;</span><br></pre></td></tr></table></figure><p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20160822153206494.jpg" alt=""></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 按季统计 </span></span><br><span class="line"><span class="keyword">select</span> to_char(t.CREATED,<span class="string">'q'</span>) 季度,<span class="keyword">sum</span>(<span class="number">1</span>) <span class="keyword">as</span> 数量</span><br><span class="line"><span class="keyword">from</span> TB_EXT_TRADE t</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">t.TID <span class="keyword">LIKE</span> <span class="string">'SC%'</span> <span class="keyword">OR</span> t.TID <span class="keyword">LIKE</span> <span class="string">'WSC%'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> to_char(t.CREATED,<span class="string">'q'</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> 季度 <span class="keyword">NULLS</span>  <span class="keyword">LAST</span>;</span><br></pre></td></tr></table></figure><p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20160822153233106.jpg" alt=""></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--按年统计 </span></span><br><span class="line"><span class="keyword">select</span> to_char(t.CREATED,<span class="string">'yyyy'</span>) <span class="keyword">AS</span> 年度,<span class="keyword">sum</span>(<span class="number">1</span>) <span class="keyword">as</span> 数量</span><br><span class="line"><span class="keyword">from</span> TB_EXT_TRADE t</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">t.TID <span class="keyword">LIKE</span> <span class="string">'SC%'</span> <span class="keyword">OR</span> t.TID <span class="keyword">LIKE</span> <span class="string">'WSC%'</span></span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> to_char(t.CREATED,<span class="string">'yyyy'</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> 年度;</span><br></pre></td></tr></table></figure><p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20160822153258464.jpg" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;strong&gt;做报表统计时会经常用到 周，月，季度，年进行分组统计，所以结合网络搜索推荐的sql，总结如下：&lt;/strong&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;sp
+      
+    
+    </summary>
+    
+      <category term="数据库" scheme="http://yfzhou.coding.me/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    
+      <category term="数据库" scheme="http://yfzhou.coding.me/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+      <category term="SQL" scheme="http://yfzhou.coding.me/tags/SQL/"/>
+    
+      <category term="Oracle" scheme="http://yfzhou.coding.me/tags/Oracle/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring任务调度之Quartz</title>
@@ -235,11 +265,11 @@
     
       <category term="HTML" scheme="http://yfzhou.coding.me/tags/HTML/"/>
     
+      <category term="js" scheme="http://yfzhou.coding.me/tags/js/"/>
+    
       <category term="前端" scheme="http://yfzhou.coding.me/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="css" scheme="http://yfzhou.coding.me/tags/css/"/>
-    
-      <category term="js" scheme="http://yfzhou.coding.me/tags/js/"/>
     
   </entry>
   
