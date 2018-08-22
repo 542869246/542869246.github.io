@@ -1948,7 +1948,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fff;
+  background: #ffff32;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3282,6 +3282,9 @@ body {
   background: #fff;
   opacity: 0.93;
 }
+.container .main-inner {
+  width: 70%;
+}
 .post {
   opacity: 1;
   padding: 5px;
@@ -3342,18 +3345,54 @@ blockquote {
   opacity: 0.93;
   z-index: 1;
 }
+.header {
+  width: 70%;
+}
+.content-wrap {
+  width: calc(100% - 252px);
+  padding: initial;
+  background: initial;
+  box-shadow: initial;
+  border-radius: initial;
+}
+#live2dcanvas {
+  width: 250px;
+  right: 15px !important;
+}
 @media (max-width: 991px) and (min-width: 768px) {
+  .header {
+    width: auto;
+  }
   .header-inner {
     position: relative;
     width: auto;
     border-radius: initial;
   }
+  .container .main-inner {
+    width: auto;
+  }
+  .content-wrap {
+    width: 100%;
+    padding: 20px;
+    border-radius: initial;
+  }
 }
 @media (max-width: 767px) {
+  .header {
+    width: auto;
+  }
   .header-inner {
     position: relative;
     width: auto;
     border-radius: initial;
+  }
+  .content-wrap {
+    width: 100%;
+    padding: 20px;
+    border-radius: initial;
+  }
+  .container .main-inner {
+    width: auto;
   }
   #live2dcanvas {
     width: 100px;
@@ -3370,12 +3409,6 @@ blockquote {
 }
 #sidebar {
   border-radius: 0px 15px 0px 15px;
-}
-.content-wrap {
-  padding: initial;
-  background: initial;
-  box-shadow: initial;
-  border-radius: initial;
 }
 .post-block {
   margin-bottom: 12px;
