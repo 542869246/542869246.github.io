@@ -1948,7 +1948,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff32;
+  background: #dbff0e;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3354,6 +3354,7 @@ blockquote {
   background: initial;
   box-shadow: initial;
   border-radius: initial;
+  background-color: none;
 }
 #live2dcanvas {
   width: 250px;
@@ -3375,6 +3376,7 @@ blockquote {
     width: 100%;
     padding: 20px;
     border-radius: initial;
+    background-color: none;
   }
 }
 @media (max-width: 767px) {
@@ -3390,6 +3392,7 @@ blockquote {
     width: 100%;
     padding: 20px;
     border-radius: initial;
+    background-color: none;
   }
   .container .main-inner {
     width: auto;

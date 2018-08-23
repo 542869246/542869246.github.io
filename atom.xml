@@ -60,9 +60,9 @@
     
       <category term="数据库" scheme="http://yfzhou.coding.me/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
-      <category term="SQL" scheme="http://yfzhou.coding.me/tags/SQL/"/>
-    
       <category term="Oracle" scheme="http://yfzhou.coding.me/tags/Oracle/"/>
+    
+      <category term="SQL" scheme="http://yfzhou.coding.me/tags/SQL/"/>
     
   </entry>
   
@@ -285,11 +285,11 @@
     
       <category term="HTML" scheme="http://yfzhou.coding.me/tags/HTML/"/>
     
-      <category term="js" scheme="http://yfzhou.coding.me/tags/js/"/>
-    
       <category term="前端" scheme="http://yfzhou.coding.me/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="css" scheme="http://yfzhou.coding.me/tags/css/"/>
+    
+      <category term="js" scheme="http://yfzhou.coding.me/tags/js/"/>
     
   </entry>
   
