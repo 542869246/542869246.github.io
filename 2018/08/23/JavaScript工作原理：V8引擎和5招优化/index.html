@@ -135,9 +135,9 @@
 <meta property="og:image" content="https://image-static.segmentfault.com/338/869/3388694770-5ae29b3121882_articlex">
 <meta property="og:image" content="https://image-static.segmentfault.com/247/471/2474713203-5ae29c6d63386_articlex">
 <meta property="og:image" content="https://image-static.segmentfault.com/400/635/4006356827-5ae2c8a2f300d_articlex">
-<meta property="og:image" content="https://segmentfault.com/img/bV9zhe?w=800&h=600">
+<meta property="og:image" content="https://image-static.segmentfault.com/307/815/3078150790-5ae2caae22fb4_articlex">
 <meta property="og:image" content="https://image-static.segmentfault.com/295/050/2950506090-5ae2d1c0cf39e_articlex">
-<meta property="og:updated_time" content="2018-08-23T06:24:07.019Z">
+<meta property="og:updated_time" content="2018-08-23T06:39:54.332Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript工作原理：V8引擎和5招优化">
 <meta name="twitter:description" content="概述JavaScript引擎是执行JavaScript代码的程序或解释器。JavaScript引擎可以作为标准解释器或即时编译器来实现，该编译器以某种形式将JavaScript编译为字节码。">
@@ -563,7 +563,7 @@
 <p>那么它是怎样工作的？ V8维护一个对象类型的缓存，这些对象在最近的方法调用中作为参数传递，并使用这些信息来预测将来作为参数传递的对象的类型。如果V8能够对传递给方法的对象的类型做出很好的假设，那么它可以绕过确定如何访问对象属性的过程，而是使用以前查找存储的信息到对象的隐藏课程。</p>
 <p>那么隐藏类和内联缓存的概念如何相关？无论何时在特定对象上调用方法，V8引擎都必须执行对该对象的隐藏类的查找，以确定访问特定属性的偏移量。在相同隐藏类的两次成功调用之后，V8省略了隐藏类查找，并简单地将该属性的偏移量添加到对象指针本身。对于该方法的所有未来调用，V8引擎都假定隐藏的类没有更改，并使用从以前的查找存储的偏移量直接跳转到特定属性的内存地址。这大大提高了执行速度。</p>
 <p>内联缓存也是为什么相同类型的对象共享隐藏类非常重要的原因。如果您创建两个具有相同类型和不同隐藏类的对象（就像我们之前的示例中那样），V8将无法使用内联缓存，因为即使这两个对象的类型相同，它们对应的隐藏类为其属性分配不同的偏移量。</p>
-<p><img src="https://segmentfault.com/img/bV9zhe?w=800&amp;h=600" alt="v8_inline_cacahing" title="v8_inline_cacahing"></p>
+<p><img src="https://image-static.segmentfault.com/307/815/3078150790-5ae2caae22fb4_articlex" alt="v8_inline_cacahing" title="v8_inline_cacahing"></p>
 <h3 id="编译为机器码"><a href="#编译为机器码" class="headerlink" title="编译为机器码"></a>编译为机器码</h3><p>一旦Hydrogen图被优化，Crankshaft将其降低到称为Lithium的较低级表示。大部分的Lithium实施都是特定于架构的。寄存器分配发生在这个级别。</p>
 <p>最终，Lithium被编译成机器码。然后发生其他事情，称为OSR：堆栈替换。在我们开始编译和优化那些耗时较长的方法之前，我们可能会运行它。V8不会忘记它刚刚缓慢执行的内容，以再次优化版本开始。相反，它会转换我们拥有的所有上下文（堆栈，寄存器），以便我们可以在执行过程中切换到优化版本。这是一项非常复杂的任务，考虑到除了其他优化之外，V8最初还是将代码内联。 V8不是唯一能够做到的引擎。</p>
 <p>有一种叫做去最佳化的保护措施可以做出相反的转变，并在引擎的假设不再成立的情况下恢复到非优化的代码。</p>
