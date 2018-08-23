@@ -137,7 +137,7 @@
 <meta property="og:image" content="https://segmentfault.com/img/bV9zcZ?w=800&h=600">
 <meta property="og:image" content="https://segmentfault.com/img/bV9zhe?w=800&h=600">
 <meta property="og:image" content="https://segmentfault.com/img/bV9zo9?w=640&h=395">
-<meta property="og:updated_time" content="2018-08-23T06:02:15.780Z">
+<meta property="og:updated_time" content="2018-08-23T06:07:40.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript工作原理：V8引擎和5招优化">
 <meta name="twitter:description" content="概述JavaScript引擎是执行JavaScript代码的程序或解释器。JavaScript引擎可以作为标准解释器或即时编译器来实现，该编译器以某种形式将JavaScript编译为字节码。">
@@ -481,7 +481,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,286 字
+                  3,306 字
                 </span>
               
 
@@ -583,6 +583,8 @@
 <li>数组：避免稀疏数组，其中的键不是增量数字。稀疏数组中没有每个元素都是哈希表。这种阵列中的元素访问费用较高。另外，尽量避免预分配大型数组。随着你的成长，成长会更好。最后，不要删除数组中的元素。它使密钥稀疏。</li>
 <li>标记值：V8用32位来表示对象和数字。由于它的31位，它使用1个bit来知道它是一个对象（flag = 1）还是一个称为SMI（SMall Integer）的整数（flag = 0）。然后，如果数字值大于31位，V8会将该数字框起来，将其变成双精度值并创建一个新对象以将该数字放入其中。尝试尽可能使用31位有符号数字以避免将昂贵的装箱操作转换为JS对象。</li>
 </ul>
+<p><strong>此文摘自<a href="https://segmentfault.com/a/1190000014593649" target="_blank" rel="noopener">《JavaScript工作原理（二）：V8引擎和5招优化》</a></strong></p>
+<p><strong>作者：<a href="https://segmentfault.com/u/xupea" target="_blank" rel="noopener">xupea</a></strong></p>
 
       
     </div>
