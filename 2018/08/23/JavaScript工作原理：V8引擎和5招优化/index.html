@@ -131,13 +131,13 @@
 <meta property="og:description" content="概述JavaScript引擎是执行JavaScript代码的程序或解释器。JavaScript引擎可以作为标准解释器或即时编译器来实现，该编译器以某种形式将JavaScript编译为字节码。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://image-static.segmentfault.com/118/401/1184019299-599fa1648acc6_articlex">
-<meta property="og:image" content="https://segmentfault.com/img/bV9zsH?w=512&h=476">
-<meta property="og:image" content="https://segmentfault.com/img/bV9x52?w=800&h=600">
-<meta property="og:image" content="https://segmentfault.com/img/bV9x9a?w=800&h=600">
-<meta property="og:image" content="https://segmentfault.com/img/bV9zcZ?w=800&h=600">
+<meta property="og:image" content="https://image-static.segmentfault.com/912/896/912896149-5ae2d38d99b77_articlex">
+<meta property="og:image" content="https://image-static.segmentfault.com/338/869/3388694770-5ae29b3121882_articlex">
+<meta property="og:image" content="https://image-static.segmentfault.com/247/471/2474713203-5ae29c6d63386_articlex">
+<meta property="og:image" content="https://image-static.segmentfault.com/400/635/4006356827-5ae2c8a2f300d_articlex">
 <meta property="og:image" content="https://segmentfault.com/img/bV9zhe?w=800&h=600">
-<meta property="og:image" content="https://segmentfault.com/img/bV9zo9?w=640&h=395">
-<meta property="og:updated_time" content="2018-08-23T06:07:40.104Z">
+<meta property="og:image" content="https://image-static.segmentfault.com/295/050/2950506090-5ae2d1c0cf39e_articlex">
+<meta property="og:updated_time" content="2018-08-23T06:24:07.019Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript工作原理：V8引擎和5招优化">
 <meta name="twitter:description" content="概述JavaScript引擎是执行JavaScript代码的程序或解释器。JavaScript引擎可以作为标准解释器或即时编译器来实现，该编译器以某种形式将JavaScript编译为字节码。">
@@ -542,20 +542,20 @@
 <p>当您的代码运行一段时间后，Profiler线程已经收集了足够的数据以确定哪种方法应该进行优化。</p>
 <p>接下来，Crankshaft优化从另一个线程开始。它将JavaScript抽象语法树翻译为称为Hydrogen的高级静态单分配（SSA）表示，并尝试优化该hydrogen图。 大多数优化都是在这个级别完成的。</p>
 <h3 id="优化：内联"><a href="#优化：内联" class="headerlink" title="优化：内联"></a>优化：内联</h3><p>第一次优化是提前尽可能多地嵌入代码。 内联是将被调用函数的主体替换为调用网站（调用该函数的代码行）的过程。 这个简单的步骤可以让以下优化变得更有意义。</p>
-<p><img src="https://segmentfault.com/img/bV9zsH?w=512&amp;h=476" alt="v8_inling" title="v8_inling"></p>
+<p><img src="https://image-static.segmentfault.com/912/896/912896149-5ae2d38d99b77_articlex" alt="v8_inling" title="v8_inling"></p>
 <h3 id="优化：隐藏的类"><a href="#优化：隐藏的类" class="headerlink" title="优化：隐藏的类"></a>优化：隐藏的类</h3><p>JavaScript是一种基于原型的语言：没有类，对象的创建是通过克隆实现的。JavaScript也是一种动态编程语言，它意味着属性可以在实例化后轻松添加或从对象中移除。</p>
 <p>大多数JavaScript解释器使用字典式结构（基于哈希函数）来存储对象属性值在内存中的位置。这种结构使得检索JavaScript中的属性的值比在Java或C＃等非动态编程语言中的计算更昂贵。在Java中，所有对象属性都是在编译之前由固定的对象布局确定的，并且不能在运行时动态添加或删除（当然，C＃的动态类型是另一个主题）。因此，属性的值（或指向这些属性的指针）可以作为连续缓冲区存储在内存中，每个值之间都有一个固定偏移量。偏移量的长度可以根据属性类型轻松确定，但在运行时可以更改属性类型的JavaScript中不可行。</p>
 <p>由于使用字典查找内存中对象属性的位置效率非常低，因此V8使用不同的方法：隐藏类。隐藏类的工作方式与Java等语言中使用的固定对象布局（类）类似，除了它们是在运行时创建的。现在，让我们看看他们实际的样子：</p>
 <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span><span class="params">(x, y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.x = x;</span><br><span class="line">  <span class="keyword">this</span>.y = y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
 <p>当“new Point(1, 2)”被执行时， V8引擎会创建一个名为C0的隐藏类。</p>
-<p><img src="https://segmentfault.com/img/bV9x52?w=800&amp;h=600" alt="v8_hidden_class_c0" title="v8_hidden_class_c0"></p>
+<p><img src="https://image-static.segmentfault.com/338/869/3388694770-5ae29b3121882_articlex" alt="v8_hidden_class_c0" title="v8_hidden_class_c0"></p>
 <p>由于Point还未定义任何属性，因此“C0”为空。</p>
 <p>一旦执行了第一条语句“this.x = x”（在“Point”函数内部），V8将创建第二个隐藏类“C1”，它基于“C0”。“C1”描述了可以找到属性x的存储器中的位置（相对于对象指针）。在这种情况下，“x”存储在偏移量0处，这意味着在内存中将点对象视为连续缓冲区时，第一个偏移量将对应于属性“x”。 V8还将用“类别转换”更新“C0”，该类别转换指出如果将属性“x”添加到点对象，隐藏类应从“C0”切换到“C1”。 下面的点对象的隐藏类现在是“C1”。</p>
-<p><img src="https://segmentfault.com/img/bV9x9a?w=800&amp;h=600" alt="v8_hidden-class_c1" title="v8_hidden-class_c1"></p>
+<p><img src="https://image-static.segmentfault.com/247/471/2474713203-5ae29c6d63386_articlex" alt="v8_hidden-class_c1" title="v8_hidden-class_c1"></p>
 <p>每次将新属性添加到对象时，旧的隐藏类都会使用到新隐藏类的转换路径进行更新。隐藏类转换非常重要，因为它们允许隐藏类在以相同方式创建的对象之间共享。如果两个对象共享一个隐藏类并向它们添加了相同的属性，则转换将确保两个对象都接收到相同的新隐藏类以及随附的所有优化代码。</p>
 <p>当执行语句“this.y = y”（同样，在“this.x = x”语句之后的Point函数内部）时，将重复此过程。</p>
 <p>创建一个名为“C2”的新隐藏类，将类转换添加到“C1”，指出如果将属性“y”添加到Point对象（已包含属性“x”），则隐藏类应更改为 “C2”，点对象的隐藏类更新为“C2”。</p>
-<p><img src="https://segmentfault.com/img/bV9zcZ?w=800&amp;h=600" alt="v8_hidden-class_c2" title="v8_hidden-class_c2"></p>
+<p><img src="https://image-static.segmentfault.com/400/635/4006356827-5ae2c8a2f300d_articlex" alt="v8_hidden-class_c2" title="v8_hidden-class_c2"></p>
 <p>隐藏类转换取决于将属性添加到对象的顺序。 看看下面的代码片段：<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span></span>(x, y) &#123;</span><br><span class="line">  <span class="built_in">this</span>.x = x;</span><br><span class="line">  <span class="built_in">this</span>.y = y;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="type">Point</span>(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">p1.a = <span class="number">5</span>;</span><br><span class="line">p1.b = <span class="number">6</span>;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> <span class="type">Point</span>(<span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line">p2.b = <span class="number">7</span>;</span><br><span class="line">p2.a = <span class="number">8</span>;</span><br></pre></td></tr></table></figure></p>
 <p>现在，您可能认为对于p1和p2，将使用相同的隐藏类和转换。事实上却不是。对于“p1”，首先添加属性“a”，然后添加属性“b”。然而，对于“p2”，首先分配“b”，然后是“a”。 因此，由于不同的转换路径，“p1”和“p2”以不同的隐藏类结束。在这种情况下，以相同顺序初始化动态属性好得多，以便隐藏的类可以重用。</p>
 <p><strong>内联缓存</strong><br>V8利用另一种技术来优化称为内联缓存的动态类型化语言。内联缓存依赖于观察到对相同方法的重复调用倾向于发生在相同类型的对象上。在这里可以找到关于内联缓存的深入解释。</p>
@@ -573,7 +573,7 @@
 <p>您可以查看V8团队关于此主题的博客文章。</p>
 <p>自从V8.5版本问世以来，V8团队一直在努力跟上新的JavaScript语言特性，而V8团队已经不再使用V8版本的全代码和Crankshaft（自2010年以来服务于V8的技术）。这些功能需要进行优化。</p>
 <p>这意味着整体V8将有更简单和更可维护的架构。</p>
-<p><img src="https://segmentfault.com/img/bV9zo9?w=640&amp;h=395" alt="v8_benchmarks" title="v8_benchmarks"></p>
+<p><img src="https://image-static.segmentfault.com/295/050/2950506090-5ae2d1c0cf39e_articlex" alt="v8_benchmarks" title="v8_benchmarks"></p>
 <p>这些改进仅仅是一个开始。 新的Ignition和TurboFan管道为进一步优化铺平了道路，这将在未来几年提升JavaScript性能并缩小V8在Chrome和Node.js中的占用空间。</p>
 <p>最后，这里有一些关于如何编写优化的，更好的JavaScript的技巧和窍门。 您可以轻松地从上述内容中获取这些内容，但是，为了方便起见，以下是摘要：</p>
 <h3 id="如何编写优化的JavaScript"><a href="#如何编写优化的JavaScript" class="headerlink" title="如何编写优化的JavaScript"></a>如何编写优化的JavaScript</h3><ul>
