@@ -1948,7 +1948,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fffff1;
+  background: #4e1f1b;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3354,7 +3354,7 @@ blockquote {
   background: initial;
   box-shadow: initial;
   border-radius: initial;
-  background-color: none;
+  background-color: none !important;
 }
 #live2dcanvas {
   width: 250px;
