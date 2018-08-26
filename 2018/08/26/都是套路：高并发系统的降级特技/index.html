@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,Next," />
+  <meta name="keywords" content="高并发," />
 
 
 
@@ -122,26 +122,18 @@
     }
 </style>
 
-<meta name="description" content="起因Swiftype现在收费了，也没有免费版本。Local Search搜索体验不好，微搜索Next官网上描述太少！所以选择Algolia。 注：Algolia搜索在版本 5.1.0 中引入，要使用此功能请确保所使用的 NexT 版本在此之后">
-<meta name="keywords" content="Hexo,Next">
+<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在开发高并发系统时有三把利器用来保护系统：缓存、降级和限流。之前已经有一些文章介绍过缓存和限流了。本文将详细聊聊降级。">
+<meta name="keywords" content="高并发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo-Next搭建个人博客（集成Algolia站内搜索引擎）">
-<meta property="og:url" content="http://yfzhou.coding.me/2018/08/08/Hexo-Next搭建个人博客（集成Algolia站内搜索引擎）/index.html">
+<meta property="og:title" content="都是套路：高并发系统的降级特技">
+<meta property="og:url" content="http://yfzhou.coding.me/2018/08/26/都是套路：高并发系统的降级特技/index.html">
 <meta property="og:site_name" content="yufeng.Zhou&#39;s Blog">
-<meta property="og:description" content="起因Swiftype现在收费了，也没有免费版本。Local Search搜索体验不好，微搜索Next官网上描述太少！所以选择Algolia。 注：Algolia搜索在版本 5.1.0 中引入，要使用此功能请确保所使用的 NexT 版本在此之后">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在开发高并发系统时有三把利器用来保护系统：缓存、降级和限流。之前已经有一些文章介绍过缓存和限流了。本文将详细聊聊降级。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3899681-c00f0825ef763c9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
-<meta property="og:image" content="http://www.qingpingshan.com/uploads/allimg/180511/1440043942-0.png">
-<meta property="og:image" content="http://www.qingpingshan.com/uploads/allimg/180511/1440041313-1.png">
-<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/algolia02.png">
-<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/algolia01.png">
-<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/algolia04.png">
-<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/algolia03.png">
-<meta property="og:updated_time" content="2018-08-15T03:34:05.846Z">
+<meta property="og:updated_time" content="2018-08-26T13:12:33.923Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo-Next搭建个人博客（集成Algolia站内搜索引擎）">
-<meta name="twitter:description" content="起因Swiftype现在收费了，也没有免费版本。Local Search搜索体验不好，微搜索Next官网上描述太少！所以选择Algolia。 注：Algolia搜索在版本 5.1.0 中引入，要使用此功能请确保所使用的 NexT 版本在此之后">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/3899681-c00f0825ef763c9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
+<meta name="twitter:title" content="都是套路：高并发系统的降级特技">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在开发高并发系统时有三把利器用来保护系统：缓存、降级和限流。之前已经有一些文章介绍过缓存和限流了。本文将详细聊聊降级。">
 
 
 
@@ -171,7 +163,7 @@
 
 
 
-  <link rel="canonical" href="http://yfzhou.coding.me/2018/08/08/Hexo-Next搭建个人博客（集成Algolia站内搜索引擎）/"/>
+  <link rel="canonical" href="http://yfzhou.coding.me/2018/08/26/都是套路：高并发系统的降级特技/"/>
 
 
 
@@ -187,7 +179,7 @@
     })();
 </script>
 
-  <title>Hexo-Next搭建个人博客（集成Algolia站内搜索引擎） | yufeng.Zhou's Blog</title>
+  <title>都是套路：高并发系统的降级特技 | yufeng.Zhou's Blog</title>
   <style>
   .forkme{
  display: none;
@@ -387,7 +379,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yfzhou.coding.me/2018/08/08/Hexo-Next搭建个人博客（集成Algolia站内搜索引擎）/">
+    <link itemprop="mainEntityOfPage" href="http://yfzhou.coding.me/2018/08/26/都是套路：高并发系统的降级特技/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yufeng.Zhou">
@@ -404,7 +396,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo-Next搭建个人博客（集成Algolia站内搜索引擎）</h1>
+          <h1 class="post-title" itemprop="name headline">都是套路：高并发系统的降级特技</h1>
         
 
         <div class="post-meta">
@@ -416,8 +408,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-08T08:53:22+08:00">
-                2018-08-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-26T21:03:11+08:00">
+                2018-08-26
               </time>
             
 
@@ -439,8 +431,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/高并发/" itemprop="url" rel="index">
+                    <span itemprop="name">高并发</span>
                   </a>
                 </span>
 
@@ -456,7 +448,7 @@
 
           
           
-             <span id="/2018/08/08/Hexo-Next搭建个人博客（集成Algolia站内搜索引擎）/" class="leancloud_visitors" data-flag-title="Hexo-Next搭建个人博客（集成Algolia站内搜索引擎）">
+             <span id="/2018/08/26/都是套路：高并发系统的降级特技/" class="leancloud_visitors" data-flag-title="都是套路：高并发系统的降级特技">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -481,7 +473,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  677 字
+                  3,190 字
                 </span>
               
 
@@ -497,7 +489,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  11 分钟
                 </span>
               
             </div>
@@ -518,35 +510,100 @@
       
 
       
-        <p>起因Swiftype现在收费了，也没有免费版本。Local Search搜索体验不好，微搜索Next官网上描述太少！所以选择Algolia。 注：Algolia搜索在版本<strong> 5.1.0 </strong>中引入，要使用此功能请确保所使用的 NexT 版本在此之后</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;在开发高并发<a href="http://www.yunweipai.com/archives/8269.html" target="_blank" rel="noopener">系统</a>时有三把利器用来保护系统：缓存、降级和限流。之前已经有一些文章介绍过缓存和限流了。本文将详细聊聊降级。</p>
 <a id="more"></a>
-<h2 id="首先注册Algolia账户"><a href="#首先注册Algolia账户" class="headerlink" title="首先注册Algolia账户"></a>首先注册Algolia账户</h2><p><a href="https://link.juejin.im?target=https%3A%2F%2Fwww.algolia.com%2Fusers%2Fsign_in" target="_blank" rel="noopener">Algolia 登陆页面https://www.algolia.com/users/sign_in</a> ，可以使用 GitHub 或者 Google 账户直接登录，也可以注册一个新账户。我直接用谷歌账户登陆了，注册后的 14 天内拥有所有功能（包括收费类别的）。之后若未续费会自动降级为免费账户，免费账户 总共有 10,000 条记录，每月有 100,000 的可以操作数。</p>
-<p>注册完成后，创建一个新的 Index，这个 index name 之后会用到<br><img src="https://upload-images.jianshu.io/upload_images/3899681-c00f0825ef763c9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
-<p>Index 创建完成后，此时这个 Index 里未包含任何数据。 接下来需要安装 Hexo Algolia 扩展， 这个扩展的功能是搜集站点的内容并通过 API 发送给 Algolia。前往站点根目录，执行命令安装：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-algolia --save  <span class="comment"># 目前最新版本是1.2.5，下面的操作都是基于这个版本的文档</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="获取-Key，更新站点根目录配置"><a href="#获取-Key，更新站点根目录配置" class="headerlink" title="获取 Key，更新站点根目录配置"></a>获取 Key，更新站点根目录配置</h2><p><img src="http://www.qingpingshan.com/uploads/allimg/180511/1440043942-0.png" alt=""></p>
-<p>前往站点根目录打开_config.yml添加以下代码<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Algolia Search API Key</span></span><br><span class="line"><span class="attr">algolia:</span></span><br><span class="line"><span class="attr">  applicationID:</span> <span class="string">'你的Application ID'</span></span><br><span class="line"><span class="attr">  apiKey:</span> <span class="string">'你的Search-Only API Key'</span></span><br><span class="line"><span class="attr">  adminApiKey:</span> <span class="string">'你的Admin API Key'</span></span><br><span class="line"><span class="attr">  indexName:</span> <span class="string">'输入刚才创建index name'</span></span><br><span class="line"><span class="attr">  chunkSize:</span> <span class="number">5000</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="修改Algolia搜索ACL（访问控制列表）"><a href="#修改Algolia搜索ACL（访问控制列表）" class="headerlink" title="修改Algolia搜索ACL（访问控制列表）"></a>修改Algolia搜索ACL（访问控制列表）</h2><p><img src="http://www.qingpingshan.com/uploads/allimg/180511/1440041313-1.png" alt=""></p>
-<p>选中后保存。</p>
-<h2 id="操作完成后去你的博客跟路径执行命令"><a href="#操作完成后去你的博客跟路径执行命令" class="headerlink" title="操作完成后去你的博客跟路径执行命令"></a>操作完成后去你的博客跟路径执行命令</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">set</span> <span class="attribute">HEXO_ALGOLIA_INDEXING_KEY</span>=你的Search-Only API Key</span><br></pre></td></tr></table></figure>
-<p>查看是否设置成功如果没有值就设置失败<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo clean</span></span><br><span class="line"><span class="attribute">hexo algolia</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/algolia02.png" alt=""></p>
-<h2 id="成功后修改Next主题配置文件"><a href="#成功后修改Next主题配置文件" class="headerlink" title="成功后修改Next主题配置文件"></a>成功后修改Next主题配置文件</h2><p>更改Next主题配置文件，找到 Algolia Search 配置部分：<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Algolia Search</span></span><br><span class="line"><span class="symbol">algolia_search:</span></span><br><span class="line"><span class="symbol">  enable:</span> true</span><br><span class="line"><span class="symbol">  hits:</span></span><br><span class="line"><span class="symbol">    per_page:</span> <span class="number">10</span></span><br><span class="line"><span class="symbol">  labels:</span></span><br><span class="line"><span class="symbol">    input_placeholder:</span> 输入关键字</span><br><span class="line"><span class="symbol">    hits_empty:</span> <span class="string">"没有找到与 $&#123;query&#125; 相关的内容"</span></span><br><span class="line"><span class="symbol">    hits_stats:</span> <span class="string">"$&#123;hits&#125;条相关记录，共耗时$&#123;time&#125; ms"</span></span><br></pre></td></tr></table></figure></p>
-<p>将 enable 改为 true 即可，根据需要你可以调整 labels 中的文本。这个是我修改的文本。</p>
-<p>最终效果</p>
-<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/algolia01.png" alt=""></p>
-<h2 id="总结一下集成遇到的BUG"><a href="#总结一下集成遇到的BUG" class="headerlink" title="总结一下集成遇到的BUG"></a>总结一下集成遇到的BUG</h2><h6 id="Please-set-an-HEXO-ALGOLIA-INDEXING-KEY-environment-variable-to-enable-content-indexing"><a href="#Please-set-an-HEXO-ALGOLIA-INDEXING-KEY-environment-variable-to-enable-content-indexing" class="headerlink" title="Please set an HEXO_ALGOLIA_INDEXING_KEY environment variable to enable content indexing."></a>Please set an <code>HEXO_ALGOLIA_INDEXING_KEY</code> environment variable to enable content indexing.</h6><p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/algolia04.png" alt=""></p>
-<p>原因：Algolia Search API Key indexName 错了</p>
-<p>解决方案：看下之前新建index的名字</p>
-<h6 id="Not-enough-rights-to-update-an-object-near-line-1-column-1635"><a href="#Not-enough-rights-to-update-an-object-near-line-1-column-1635" class="headerlink" title="Not enough rights to update an object near line:1 column:1635"></a>Not enough rights to update an object near line:1 column:1635</h6><p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/algolia03.png" alt=""></p>
-<p>原因：没有修改Algolia搜索ACL（访问控制列表）</p>
-<p>解决方案： 按步骤3勾选上就可以</p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://www.jianshu.com/p/fa2354d61e37" title="hexo+next添加algolia搜索" target="_blank" rel="noopener">《hexo+next添加algolia搜索》</a></li>
+<p>当访问量剧增、服务出现问题（如响应时间慢或不响应）或非核心服务影响到核心流程的性能时，仍然需要保证服务还是可用的，即使是有损服务。</p>
+<p>系统可以根据一些关键数据进行自动降级，也可以配置开关实现人工降级。本文将介绍一些笔者在实际工作中遇到的或见到过的一些降级方案供大家参考。</p>
+<p>降级的最终目的是保证核心服务可用，即使是有损的。而且有些服务是无法降级的（如加入购物车、结算）。</p>
+<h2 id="降级预案"><a href="#降级预案" class="headerlink" title="降级预案"></a>降级预案</h2><p>在进行降级之前要对系统进行梳理，看看系统是不是可以丢卒保帅；从而梳理出哪些必须誓死保护，哪些可降级；比如可以参考日志级别设置预案：</p>
+<p><strong>一般：</strong>比如有些服务偶尔因为网络抖动或者服务正在上线而超时，可以自动降级；</p>
+<p><strong>警告：</strong>有些服务在一段时间内成功率有波动（如在95~100%之间），可以自动降级或人工降级，并发送告警；</p>
+<p><strong>错误：</strong>比如可用率低于90%，或者数据库连接池被打爆了，或者访问量突然猛增到系统能承受的最大阀值，此时可以根据情况自动降级或者人工降级；</p>
+<p><strong>严重错误：</strong>比如因为特殊原因数据错误了，此时需要紧急人工降级。</p>
+<h4 id="降级的类别"><a href="#降级的类别" class="headerlink" title="降级的类别"></a>降级的类别</h4><ul>
+<li>降级按照是否自动化可分为：自动开关降级和人工开关降级。</li>
+<li>降级按照功能可分为：读服务降级、写服务降级。</li>
+<li>降级按照处于的系统层次可分为：多级降级。</li>
 </ul>
-<h3 id="帮助文档"><a href="#帮助文档" class="headerlink" title="帮助文档"></a>帮助文档</h3><ul>
-<li><a href="https://www.npmjs.com/package/hexo-algolia" title="《hexo-algolia》" target="_blank" rel="noopener">《hexo-algolia》</a></li>
+<h3 id="降级的功能点"><a href="#降级的功能点" class="headerlink" title="降级的功能点"></a>降级的功能点</h3><p>降级的功能点主要从服务端链路考虑，即根据用户访问的服务调用链路来梳理哪里需要降级：</p>
+<p><strong>页面降级：</strong>在大促或者某些特殊情况下，某些页面占用了一些稀缺服务资源，在紧急情况下可以对其整个降级，以达到丢卒保帅；</p>
+<p><strong>页面片段降级：</strong>比如商品详情页中的商家部分因为数据错误了，此时需要对其进行降级；</p>
+<p><strong>页面异步请求降级：</strong>比如商品详情页上有推荐信息/配送至等异步加载的请求，如果这些信息响应慢或者后端服务有问题，可以进行降级；</p>
+<p><strong>服务功能降级：</strong>比如渲染商品详情页时需要调用一些不太重要的服务：相关分类、热销榜等，而这些服务在异常情况下直接不获取，即降级即可；</p>
+<p><strong>读降级：</strong>比如多级缓存模式，如果后端服务有问题，可以降级为只读缓存，这种方式适用于对读一致性要求不高的场景；</p>
+<p><strong>写降级：</strong>比如秒杀抢购，我们可以只进行Cache的更新，然后异步同步扣减库存到DB，保证最终一致性即可，此时可以将DB降级为Cache。</p>
+<p><strong>爬虫降级：</strong>在大促活动时，可以将爬虫流量导向静态页或者返回空数据从而降级保护后端稀缺资源。</p>
+<h2 id="降级策略"><a href="#降级策略" class="headerlink" title="降级策略"></a>降级策略</h2><h3 id="1、自动开关降级"><a href="#1、自动开关降级" class="headerlink" title="1、自动开关降级"></a>1、自动开关降级</h3><p>自动降级是根据系统负载、资源使用情况、SLA等指标进行降级。</p>
+<h4 id="超时降级"><a href="#超时降级" class="headerlink" title="超时降级"></a>超时降级</h4><p>当访问的数据库/http服务/远程调用响应慢或者长时间响应慢，且该服务不是核心服务的话可以在超时后自动降级；</p>
+<blockquote>
+<p>比如商品详情页上有推荐内容/评价，但是推荐内容/评价暂时不展示对用户购物流程不会产生很大的影响；</p>
+</blockquote>
+<p>对于这种服务是可以超时降级的。如果是调用别人的远程服务，和对方定义一个服务响应最大时间，如果超时了则自动降级。</p>
+<p>之前总结过一些的文章《使用httpclient必须知道的参数设置及代码写法、存在的风险》和《dbcp配置及jdbc超时设置总结》。在实际场景用一定主要配置好超时时间和超时重试次数和机制。</p>
+<h4 id="统计失败次数降级"><a href="#统计失败次数降级" class="headerlink" title="统计失败次数降级"></a>统计失败次数降级</h4><p>有时候依赖一些不稳定的API，比如调用外部机票服务，当失败调用次数达到一定阀值自动降级；然后通过异步线程去探测服务是否恢复了，则取消降级。</p>
+<h4 id="故障降级"><a href="#故障降级" class="headerlink" title="故障降级"></a>故障降级</h4><p>比如要调用的远程服务挂掉了（网络故障、DNS故障、http服务返回错误的状态码、rpc服务抛出异常），则可以直接降级。</p>
+<p><strong>降级后的处理方案有：</strong></p>
+<blockquote>
+<p>默认值（比如库存服务挂了，返回默认现货）</p>
+<p>兜底数据（比如广告挂了，返回提前准备好的一些静态页面）</p>
+<p>缓存（之前暂存的一些缓存数据）</p>
+</blockquote>
+<h4 id="限流降级"><a href="#限流降级" class="headerlink" title="限流降级"></a>限流降级</h4><p>当我们去秒杀或者抢购一些限购商品时，此时可能会因为访问量太大而导致系统崩溃，此时开发者会使用限流来进行限制访问量，当达到限流阀值，后续请求会被降级；</p>
+<p><strong>降级后的处理方案可以是：</strong></p>
+<blockquote>
+<p>排队页面（将用户导流到排队页面等一会重试）</p>
+<p>无货（直接告知用户没货了）</p>
+<p>错误页（如活动太火爆了，稍后重试）</p>
+</blockquote>
+<h3 id="2、人工开关降级"><a href="#2、人工开关降级" class="headerlink" title="2、人工开关降级"></a>2、人工开关降级</h3><blockquote>
+<ul>
+<li>在大促期间通过监控发现线上的一些服务存在问题，这个时候需要暂时将这些服务摘掉；</li>
+<li>还有有时候通过任务系统调用一些服务，但是服务依赖的数据库可能存在：网卡被打满了、挂掉了或者很多慢查询，此时需要暂停下任务系统让服务方进行处理；</li>
+<li>还有发现突然调用量太大，可能需要改变处理方式（比如同步转换为异步）；</li>
 </ul>
-<h2 id="更多教程可以来我yufeng-Zhou独立博客里面看到"><a href="#更多教程可以来我yufeng-Zhou独立博客里面看到" class="headerlink" title="更多教程可以来我yufeng.Zhou独立博客里面看到"></a>更多教程可以来我<a href="http://yfzhou.coding.me/">yufeng.Zhou</a>独立博客里面看到</h2><p><strong>转载请注明出处<a href="http://yfzhou.coding.me/">http://yfzhou.coding.me/</a></strong></p>
+</blockquote>
+<p>此时就可以<strong>使用开关来完成降级</strong>。</p>
+<p>开关可以存放到配置文件、存放到数据库、存放到Redis/ZooKeeper；如果不是存放在本地，可以定期同步开关数据（比如1秒同步一次）。然后通过判断某个KEY的值来决定是否降级。</p>
+<p>另外对于新开发的服务想上线进行灰度测试；但是不太确定该服务的逻辑是否正确，此时就需要设置开关，当新服务有问题可以通过开关切换回老服务。</p>
+<p>还有多机房服务，如果某个机房挂掉了，此时需要将一个机房的服务切到另一个机房，此时也可以通过开关完成切换。</p>
+<p>还有一些是因为功能问题需要暂时屏蔽掉某些功能，比如商品规格参数数据有问题，数据问题不能用回滚解决，此时需要开关控制降级。</p>
+<h3 id="3、读服务降级"><a href="#3、读服务降级" class="headerlink" title="3、读服务降级"></a>3、读服务降级</h3><p><strong>对于读服务降级一般采用的策略有：</strong></p>
+<blockquote>
+<p>暂时切换读（降级到读缓存、降级到走静态化）</p>
+<p>暂时屏蔽读（屏蔽读入口、屏蔽某个读服务）</p>
+</blockquote>
+<p>在《应用多级缓存模式支撑海量读服务》中曾经介绍过<strong>读服务</strong>，即：</p>
+<blockquote>
+<p>接入层缓存→应用层本地缓存→分布式缓存→RPC服务/DB</p>
+</blockquote>
+<p>我们会在接入层、应用层设置开关，当分布式缓存、RPC服务/DB有问题自动降级为不调用。当然这种情况适用于对读一致性要求不高的场景。</p>
+<p>页面降级、页面片段降级、页面异步请求降级都是读服务降级，目的是丢卒保帅（比如因为这些服务也要使用核心资源、或者占了带宽影响到核心服务）或者因数据问题暂时屏蔽。</p>
+<p>还有一种是页面静态化场景：</p>
+<p><strong>动态化降级为静态化：</strong>比如平时网站可以走动态化渲染商品详情页，但是到了大促来临之际可以将其切换为静态化来减少对核心资源的占用，而且可以提升性能；其他还有如列表页、首页、频道页都可以这么玩；可以通过一个程序定期的推送静态页到缓存或者生成到磁盘，出问题时直接切过去；</p>
+<p><strong>静态化降级为动态化：</strong>比如当使用静态化来实现商品详情页架构时，平时使用静态化来提供服务，但是因为特殊原因静态化页面有问题了，需要暂时切换回动态化来保证服务正确性。</p>
+<p>以上都保证出问题了有预案，用户还是可以使用网站，不影响用户购物。</p>
+<h3 id="4、写服务降级"><a href="#4、写服务降级" class="headerlink" title="4、写服务降级"></a>4、写服务降级</h3><p>写服务在大多数场景下是不可降级的，不过可以通过一些迂回战术来解决问题。比如将同步操作转换为异步操作，或者限制写的量/比例。</p>
+<p>比如扣减库存一般这样操作：</p>
+<h4 id="方案1："><a href="#方案1：" class="headerlink" title="方案1："></a>方案1：</h4><p>a、扣减DB库存；</p>
+<p>b、扣减成功后更新Redis中的库存；</p>
+<h4 id="方案2："><a href="#方案2：" class="headerlink" title="方案2："></a><strong>方案2：</strong></h4><p>a、扣减Redis库存；</p>
+<p>b、同步扣减DB库存，如果扣减失败则回滚Redis库存；</p>
+<p>前两种方案非常依赖DB，假设此时DB性能跟不上则扣减库存就会遇到问题；因此我们可以想到<strong>方案3：</strong></p>
+<p>a、扣减Redis库存：</p>
+<p>b、正常同步扣减DB库存，性能扛不住时降级为发送一条扣减DB库存的消息，然后异步进行DB库存扣减实现最终一致即可；</p>
+<p>这种方式发送扣减DB库存消息也可能成为瓶颈；这种情况我们可以考虑<strong>方案4：</strong></p>
+<p>a、扣减Redis库存；</p>
+<p>b、正常同步扣减DB库存，性能扛不住时降级为写扣减DB库存消息到本机，然后本机通过异步进行DB库存扣减来实现最终一致性。</p>
+<p>也就是说正常情况可以同步扣减库存，在性能扛不住时降级为异步；另外如果是秒杀场景可以直接降级为异步，从而保护系统。</p>
+<p>还有如下单操作可以在大促时暂时降级将下单数据写入Redis，然后等峰值过去了再同步回DB，当然也有更好的解决方案，但是更复杂，不是本文的重点。</p>
+<p>还有如用户评价，如果评价量太大，也可以把评价从同步写降级为异步写。当然也可以对评价按钮进行按比例开放（比如一些人的看不到评价操作按钮）。比如评价成功后会发一些奖励，在必要的时候降级同步到异步。</p>
+<h3 id="5、多级降级"><a href="#5、多级降级" class="headerlink" title="5、多级降级"></a>5、多级降级</h3><p>缓存是离用户最近越高效；而降级是离用户越近越能对系统保护的好。因为业务的复杂性导致越到后端QPS/TPS越低。</p>
+<p><strong>页面JS降级开关：</strong>主要控制页面功能的降级，在页面中通过JS脚本部署功能降级开关，在适当时机开启/关闭开关；</p>
+<p><strong>接入层降级开关</strong>：主要控制请求入口的降级，请求进入后会首先进入接入层，在接入层可以配置功能降级开关，可以根据实际情况进行自动/人工降级；</p>
+<p>这个可以参考《京东商品详情页服务闭环实践》，尤其在后端应用服务出问题时，通过接入层降级从而给应用服务有足够的时间恢复服务；</p>
+<p><strong>应用层降级开关：</strong>主要控制业务的降级，在应用中配置相应的功能开关，根据实际业务情况进行自动/人工降级。</p>
+<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>降级能保障系统在大促中活下来，而不是死去，达到丢卒保帅的作用。对用户提供有损服务，总比不服务要好。根据自己的场景设计相应的降级策略，保障系统在危机时刻能通过降级手段平稳度过。</p>
+<p><a href="https://blog.csdn.net/enweitech" target="_blank" rel="noopener">EnweiTech</a>原创作品。转载请注明出处<a href="https://blog.csdn.net/enweitech" target="_blank" rel="noopener">https://blog.csdn.net/enweitech</a></p>
 
       
     </div>
@@ -604,9 +661,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
-          
-            <a href="/tags/Next/" rel="tag"><i class="fa fa-tag"></i> Next</a>
+            <a href="/tags/高并发/" rel="tag"><i class="fa fa-tag"></i> 高并发</a>
           
         </div>
       
@@ -619,8 +674,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/07/Hexo-Next搭建个人博客（托管到Github和Coding）/" rel="next" title="Hexo-Next搭建个人博客（托管到Github和Coding）">
-                <i class="fa fa-chevron-left"></i> Hexo-Next搭建个人博客（托管到Github和Coding）
+              <a href="/2018/08/26/缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题/" rel="next" title="缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题">
+                <i class="fa fa-chevron-left"></i> 缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题
               </a>
             
           </div>
@@ -628,10 +683,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/08/Hexo-Next搭建个人博客（集成LiveRe来必力文章评论功能）/" rel="prev" title="Hexo-Next搭建个人博客（集成LiveRe来必力文章评论功能）">
-                Hexo-Next搭建个人博客（集成LiveRe来必力文章评论功能） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -851,7 +902,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#首先注册Algolia账户"><span class="nav-number">1.</span> <span class="nav-text">首先注册Algolia账户</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#获取-Key，更新站点根目录配置"><span class="nav-number">2.</span> <span class="nav-text">获取 Key，更新站点根目录配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改Algolia搜索ACL（访问控制列表）"><span class="nav-number">3.</span> <span class="nav-text">修改Algolia搜索ACL（访问控制列表）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作完成后去你的博客跟路径执行命令"><span class="nav-number">4.</span> <span class="nav-text">操作完成后去你的博客跟路径执行命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成功后修改Next主题配置文件"><span class="nav-number">5.</span> <span class="nav-text">成功后修改Next主题配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结一下集成遇到的BUG"><span class="nav-number">6.</span> <span class="nav-text">总结一下集成遇到的BUG</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Please-set-an-HEXO-ALGOLIA-INDEXING-KEY-environment-variable-to-enable-content-indexing"><span class="nav-number">6.0.0.0.1.</span> <span class="nav-text">Please set an HEXO_ALGOLIA_INDEXING_KEY environment variable to enable content indexing.</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Not-enough-rights-to-update-an-object-near-line-1-column-1635"><span class="nav-number">6.0.0.0.2.</span> <span class="nav-text">Not enough rights to update an object near line:1 column:1635</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">6.1.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#帮助文档"><span class="nav-number">6.2.</span> <span class="nav-text">帮助文档</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更多教程可以来我yufeng-Zhou独立博客里面看到"><span class="nav-number">7.</span> <span class="nav-text">更多教程可以来我yufeng.Zhou独立博客里面看到</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#降级预案"><span class="nav-number">1.</span> <span class="nav-text">降级预案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#降级的类别"><span class="nav-number">1.0.1.</span> <span class="nav-text">降级的类别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#降级的功能点"><span class="nav-number">1.1.</span> <span class="nav-text">降级的功能点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#降级策略"><span class="nav-number">2.</span> <span class="nav-text">降级策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、自动开关降级"><span class="nav-number">2.1.</span> <span class="nav-text">1、自动开关降级</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#超时降级"><span class="nav-number">2.1.1.</span> <span class="nav-text">超时降级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#统计失败次数降级"><span class="nav-number">2.1.2.</span> <span class="nav-text">统计失败次数降级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#故障降级"><span class="nav-number">2.1.3.</span> <span class="nav-text">故障降级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#限流降级"><span class="nav-number">2.1.4.</span> <span class="nav-text">限流降级</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、人工开关降级"><span class="nav-number">2.2.</span> <span class="nav-text">2、人工开关降级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、读服务降级"><span class="nav-number">2.3.</span> <span class="nav-text">3、读服务降级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、写服务降级"><span class="nav-number">2.4.</span> <span class="nav-text">4、写服务降级</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方案1："><span class="nav-number">2.4.1.</span> <span class="nav-text">方案1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方案2："><span class="nav-number">2.4.2.</span> <span class="nav-text">方案2：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、多级降级"><span class="nav-number">2.5.</span> <span class="nav-text">5、多级降级</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结："><span class="nav-number">3.</span> <span class="nav-text">总结：</span></a></li></ol></div>
             
 
           </div>
