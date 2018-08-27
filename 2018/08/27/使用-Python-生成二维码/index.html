@@ -95,7 +95,7 @@
 
 
 
-  <meta name="keywords" content="java,Lambda," />
+  <meta name="keywords" content="Python," />
 
 
 
@@ -122,18 +122,23 @@
     }
 </style>
 
-<meta name="description" content="Java8发布已经有一段时间了，这次发布的改动比较大，很多人将这次改动与Java5的升级相提并论。Java8其中一个很重要的新特性就是lambda表达式，允许我们将行为传到函数中。想想看，在Java8之前我们想要将行为传入函数，仅有的选择就是匿名内部类。Java8发布以后，lambda表达式将大量替代匿名内部类的使用，简化代码的同时，更突出了原来匿名内部类中最重要的那部分包含真正逻辑的代码。尤其是">
-<meta name="keywords" content="java,Lambda">
+<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;新时代，人们有人信新的追求，自然而然会有新发明的诞生。去年，在“一带一路”国际合作高峰论坛举行期间，20国青年投票选出中国的“新四大发明”：高铁、扫码支付、共享单车和网购。其中扫码支付指手机通过扫描二维码跳转到支付页面，再进行付款。这种新的支付方式，造就二维码满天飞的现象。那么让我们来扒一扒如何使用 Python 来生成二维码图片。">
+<meta name="keywords" content="Python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java8 Lambda表达式">
-<meta property="og:url" content="http://yfzhou.coding.me/2018/08/13/java8-Lambda表达式/index.html">
+<meta property="og:title" content="使用 Python 生成二维码">
+<meta property="og:url" content="http://yfzhou.coding.me/2018/08/27/使用-Python-生成二维码/index.html">
 <meta property="og:site_name" content="yufeng.Zhou&#39;s Blog">
-<meta property="og:description" content="Java8发布已经有一段时间了，这次发布的改动比较大，很多人将这次改动与Java5的升级相提并论。Java8其中一个很重要的新特性就是lambda表达式，允许我们将行为传到函数中。想想看，在Java8之前我们想要将行为传入函数，仅有的选择就是匿名内部类。Java8发布以后，lambda表达式将大量替代匿名内部类的使用，简化代码的同时，更突出了原来匿名内部类中最重要的那部分包含真正逻辑的代码。尤其是">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;新时代，人们有人信新的追求，自然而然会有新发明的诞生。去年，在“一带一路”国际合作高峰论坛举行期间，20国青年投票选出中国的“新四大发明”：高铁、扫码支付、共享单车和网购。其中扫码支付指手机通过扫描二维码跳转到支付页面，再进行付款。这种新的支付方式，造就二维码满天飞的现象。那么让我们来扒一扒如何使用 Python 来生成二维码图片。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-21T12:24:55.938Z">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/641.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/642.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/640.gif">
+<meta property="og:image" content="https://mp.weixin.qq.com/mp/qrcode?scene=10000005&size=102&__biz=MzAxMjUyNDQ5OA==&mid=2653557161&idx=1&sn=e6b0e7656e7e700e41a33a7142cf38b6&send_time=">
+<meta property="og:updated_time" content="2018-08-27T02:54:19.098Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java8 Lambda表达式">
-<meta name="twitter:description" content="Java8发布已经有一段时间了，这次发布的改动比较大，很多人将这次改动与Java5的升级相提并论。Java8其中一个很重要的新特性就是lambda表达式，允许我们将行为传到函数中。想想看，在Java8之前我们想要将行为传入函数，仅有的选择就是匿名内部类。Java8发布以后，lambda表达式将大量替代匿名内部类的使用，简化代码的同时，更突出了原来匿名内部类中最重要的那部分包含真正逻辑的代码。尤其是">
+<meta name="twitter:title" content="使用 Python 生成二维码">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;新时代，人们有人信新的追求，自然而然会有新发明的诞生。去年，在“一带一路”国际合作高峰论坛举行期间，20国青年投票选出中国的“新四大发明”：高铁、扫码支付、共享单车和网购。其中扫码支付指手机通过扫描二维码跳转到支付页面，再进行付款。这种新的支付方式，造就二维码满天飞的现象。那么让我们来扒一扒如何使用 Python 来生成二维码图片。">
+<meta name="twitter:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/641.webp">
 
 
 
@@ -163,7 +168,7 @@
 
 
 
-  <link rel="canonical" href="http://yfzhou.coding.me/2018/08/13/java8-Lambda表达式/"/>
+  <link rel="canonical" href="http://yfzhou.coding.me/2018/08/27/使用-Python-生成二维码/"/>
 
 
 
@@ -179,7 +184,7 @@
     })();
 </script>
 
-  <title>java8 Lambda表达式 | yufeng.Zhou's Blog</title>
+  <title>使用 Python 生成二维码 | yufeng.Zhou's Blog</title>
   <style>
   .forkme{
  display: none;
@@ -379,7 +384,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yfzhou.coding.me/2018/08/13/java8-Lambda表达式/">
+    <link itemprop="mainEntityOfPage" href="http://yfzhou.coding.me/2018/08/27/使用-Python-生成二维码/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yufeng.Zhou">
@@ -396,7 +401,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">java8 Lambda表达式</h1>
+          <h1 class="post-title" itemprop="name headline">使用 Python 生成二维码</h1>
         
 
         <div class="post-meta">
@@ -408,8 +413,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-13T20:10:58+08:00">
-                2018-08-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-27T10:22:03+08:00">
+                2018-08-27
               </time>
             
 
@@ -431,8 +436,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -448,7 +453,7 @@
 
           
           
-             <span id="/2018/08/13/java8-Lambda表达式/" class="leancloud_visitors" data-flag-title="java8 Lambda表达式">
+             <span id="/2018/08/27/使用-Python-生成二维码/" class="leancloud_visitors" data-flag-title="使用 Python 生成二维码">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -473,7 +478,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,463 字
+                  1,897 字
                 </span>
               
 
@@ -489,7 +494,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6 分钟
+                  7 分钟
                 </span>
               
             </div>
@@ -510,31 +515,83 @@
       
 
       
-        <p>Java8发布已经有一段时间了，这次发布的改动比较大，很多人将这次改动与Java5的升级相提并论。Java8其中一个很重要的新特性就是lambda表达式，允许我们将行为传到函数中。想想看，在Java8<br>之前我们想要将行为传入函数，仅有的选择就是匿名内部类。Java8发布以后，lambda表达式将大量替代匿名内部类的使用，简化代码的同时，更突出了原来匿名内部类中最重要的那部分包含真正逻辑的代码。尤其是对于做数据的同学来说，当习惯使用类似scala之类的函数式编程语言以后，体会将更加深刻。现在我们就来看看Java8中lambda表达式的一些常见写法。</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;新时代，人们有人信新的追求，自然而然会有新发明的诞生。去年，在“一带一路”国际合作高峰论坛举行期间，20国青年投票选出中国的“新四大发明”：高铁、扫码支付、共享单车和网购。其中扫码支付指手机通过扫描二维码跳转到支付页面，再进行付款。这种新的支付方式，造就二维码满天飞的现象。那么让我们来扒一扒如何使用 Python 来生成二维码图片。</p>
 <a id="more"></a>
-<h2 id="1-替代匿名内部类"><a href="#1-替代匿名内部类" class="headerlink" title="1.替代匿名内部类"></a>1.替代匿名内部类</h2><p>毫无疑问，lambda表达式用得最多的场合就是替代匿名内部类，而实现Runnable接口是匿名内部类的经典例子。lambda表达式的功能相当强大，用()-&gt;就可以代替整个匿名内部类！请看代码：</p>
-<p>如果使用匿名内部类：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">oldRunable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"The old runable now is using!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>而如果使用lambda表达式：<br><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public <span class="literal">void</span> runable() &#123;</span><br><span class="line">    <span class="keyword">new</span> Thread<span class="function"><span class="params">(() -&gt; System.out.println(<span class="string">"It's a lambda function!"</span>))</span>.<span class="title">start</span><span class="params">()</span>;</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure></p>
-<p>最后的输出：<br><figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">The old runable now <span class="keyword">is</span> <span class="keyword">using</span>!</span><br><span class="line">It<span class="comment">'s a lambda function!</span></span><br></pre></td></tr></table></figure></p>
-<p>是不是强大到可怕？是不是简单到可怕？是不是清晰明了重点突出到可怕？这就是lambda表达式的可怕之处，用极少的代码完成了之前一个类做的事情！</p>
-<h2 id="2-使用lambda表达式对集合进行迭代"><a href="#2-使用lambda表达式对集合进行迭代" class="headerlink" title="2.使用lambda表达式对集合进行迭代"></a>2.使用lambda表达式对集合进行迭代</h2><p>Java的集合类是日常开发中经常用到的，甚至说没有哪个java代码中没有使用到集合类。。。而对集合类最常见的操作就是进行迭代遍历了。请看对比：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> iterTest() &#123;</span><br><span class="line">    List&lt;String&gt; languages = Arrays.<span class="keyword">asList</span>(<span class="string">"java"</span>,<span class="string">"scala"</span>,<span class="string">"python"</span>);</span><br><span class="line">    <span class="comment">//before java8</span></span><br><span class="line">    <span class="keyword">for</span>(String <span class="keyword">each</span>:languages) &#123;</span><br><span class="line">        System.out.<span class="keyword">println</span>(<span class="keyword">each</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//after java8</span></span><br><span class="line">    languages.forEach(x -&gt; System.out.<span class="keyword">println</span>(x));</span><br><span class="line">    languages.forEach(System.out::<span class="keyword">println</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果熟悉scala的同学，肯定对forEach不陌生。它可以迭代集合中所有的对象，并且将lambda表达式带入其中。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">languages</span><span class="selector-class">.forEach</span>(<span class="selector-tag">System</span><span class="selector-class">.out</span><span class="selector-pseudo">::println)</span>;</span><br></pre></td></tr></table></figure></p>
-<p>这一行看起来有点像c++里面作用域解析的写法，在这里也是可以的。</p>
-<h2 id="3-用lambda表达式实现map"><a href="#3-用lambda表达式实现map" class="headerlink" title="3.用lambda表达式实现map"></a>3.用lambda表达式实现map</h2><p>一提到函数式编程，一提到lambda表达式，怎么能不提map。。。没错，java8肯定也是支持的。请看示例代码：<br><figure class="highlight llvm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">@Test</span></span><br><span class="line">public void mapTest() &#123;</span><br><span class="line">    List&lt;Double&gt; cost = Arrays.asList(<span class="number">10.0</span>, <span class="number">20.0</span>,<span class="number">30.0</span>)<span class="comment">;</span></span><br><span class="line"><span class="comment">    cost.stream().map(x -&gt; x + x*0.05).forEach(x -&gt; System.out.println(x));</span></span><br><span class="line"><span class="comment">&#125;</span></span><br></pre></td></tr></table></figure></p>
-<p>最后的输出结果：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10<span class="selector-class">.5</span></span><br><span class="line">21<span class="selector-class">.0</span></span><br><span class="line">31<span class="selector-class">.5</span></span><br></pre></td></tr></table></figure></p>
-<p>map函数可以说是函数式编程里最重要的一个方法了。map的作用是将一个对象变换为另外一个。在我们的例子中，就是通过map方法将cost增加了0,05倍的大小然后输出。</p>
-<h2 id="4-用lambda表达式实现map与reduce"><a href="#4-用lambda表达式实现map与reduce" class="headerlink" title="4.用lambda表达式实现map与reduce"></a>4.用lambda表达式实现map与reduce</h2><p>既然提到了map，又怎能不提到reduce。reduce与map一样，也是函数式编程里最重要的几个方法之一。。。map的作用是将一个对象变为另外一个，而reduce实现的则是将所有值合并为一个，请看：<br><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public <span class="literal">void</span> mapReduceTest() &#123;</span><br><span class="line">    List&lt;Double&gt; cost = Arrays.asList(<span class="number">10.0</span>, <span class="number">20.0</span>,<span class="number">30.0</span>);</span><br><span class="line">    double allCost = cost.stream<span class="function"><span class="params">()</span>.<span class="title">map</span><span class="params">(x -&gt; x+x*<span class="number">0.05</span>)</span>.<span class="title">reduce</span><span class="params">((sum,x) -&gt; sum + x)</span>.<span class="title">get</span><span class="params">()</span>;</span></span><br><span class="line"><span class="function">    <span class="title">System</span>.<span class="title">out</span>.<span class="title">println</span><span class="params">(allCost)</span>;</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure></p>
-<p>最终的结果为：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">63<span class="selector-class">.0</span></span><br></pre></td></tr></table></figure></p>
-<p>如果我们用for循环来做这件事情：<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> sumTest() &#123;</span><br><span class="line">    List&lt;<span class="keyword">Double</span>&gt; cost = Arrays.<span class="keyword">asList</span>(<span class="number">10.0</span>, <span class="number">20.0</span>,<span class="number">30.0</span>);</span><br><span class="line">    <span class="keyword">double</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">double</span> <span class="keyword">each</span>:cost) &#123;</span><br><span class="line">        <span class="keyword">each</span> += <span class="keyword">each</span> * <span class="number">0.05</span>;</span><br><span class="line">        sum += <span class="keyword">each</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.<span class="keyword">println</span>(sum);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>相信用map+reduce+lambda表达式的写法高出不止一个level。</p>
-<h2 id="5-filter操作"><a href="#5-filter操作" class="headerlink" title="5.filter操作"></a>5.filter操作</h2><p>filter也是我们经常使用的一个操作。在操作集合的时候，经常需要从原始的集合中过滤掉一部分元素。<br><figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> filterTest() &#123;</span><br><span class="line">    List&lt;<span class="keyword">Double</span>&gt; cost = Arrays.<span class="keyword">asList</span>(<span class="number">10.0</span>, <span class="number">20.0</span>,<span class="number">30.0</span>,<span class="number">40.0</span>);</span><br><span class="line">    List&lt;<span class="keyword">Double</span>&gt; filteredCost = cost.stream().filter(x -&gt; x &gt; <span class="number">25.0</span>).<span class="keyword">collect</span>(Collectors.<span class="keyword">toList</span>());</span><br><span class="line">    filteredCost.forEach(x -&gt; System.out.<span class="keyword">println</span>(x));</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>最后的结果：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">30<span class="selector-class">.0</span></span><br><span class="line">40<span class="selector-class">.0</span></span><br></pre></td></tr></table></figure></p>
-<p>将java写出了python或者scala的感觉有没有！是不是帅到爆！</p>
-<h2 id="6-与函数式接口Predicate配合"><a href="#6-与函数式接口Predicate配合" class="headerlink" title="6.与函数式接口Predicate配合"></a>6.与函数式接口Predicate配合</h2><p>除了在语言层面支持函数式编程风格，Java 8也添加了一个包，叫做 java.util.function。它包含了很多类，用来支持Java的函数式编程。其中一个便是Predicate，使用 java.util.function.Predicate 函数式接口以及lambda表达式，可以向API方法添加逻辑，用更少的代码支持更多的动态行为。Predicate接口非常适用于做过滤。<br><figure class="highlight processing"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> filterTest(List&lt;<span class="keyword">String</span>&gt; languages, Predicate&lt;<span class="keyword">String</span>&gt; condition) &#123;</span><br><span class="line">    languages.stream().<span class="built_in">filter</span>(x -&gt; condition.test(x)).forEach(x -&gt; System.out.<span class="built_in">println</span>(x + <span class="string">" "</span>));</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(<span class="keyword">String</span>[] args) &#123;</span><br><span class="line">    List&lt;<span class="keyword">String</span>&gt; languages = Arrays.asList(<span class="string">"Java"</span>,<span class="string">"Python"</span>,<span class="string">"scala"</span>,<span class="string">"Shell"</span>,<span class="string">"R"</span>);</span><br><span class="line">    System.out.<span class="built_in">println</span>(<span class="string">"Language starts with J: "</span>);</span><br><span class="line">    filterTest(languages,x -&gt; x.startsWith(<span class="string">"J"</span>));</span><br><span class="line">    System.out.<span class="built_in">println</span>(<span class="string">"Language ends with a: "</span>);</span><br><span class="line">    filterTest(languages,x -&gt; x.endsWith(<span class="string">"a"</span>));</span><br><span class="line">    System.out.<span class="built_in">println</span>(<span class="string">"All languages: "</span>);</span><br><span class="line">    filterTest(languages,x -&gt; <span class="keyword">true</span>);</span><br><span class="line">    System.out.<span class="built_in">println</span>(<span class="string">"No languages: "</span>);</span><br><span class="line">    filterTest(languages,x -&gt; <span class="keyword">false</span>);</span><br><span class="line">    System.out.<span class="built_in">println</span>(<span class="string">"Language length bigger three: "</span>);</span><br><span class="line">    filterTest(languages,x -&gt; x.length() &gt; <span class="number">4</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>最后的输出结果：</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Language starts with <span class="keyword">J: </span></span><br><span class="line"><span class="keyword">Java </span></span><br><span class="line"></span><br><span class="line">Language ends with a: </span><br><span class="line"><span class="keyword">Java </span></span><br><span class="line"><span class="keyword">scala </span></span><br><span class="line"></span><br><span class="line">All languages: </span><br><span class="line"><span class="keyword">Java </span></span><br><span class="line">Python </span><br><span class="line"><span class="keyword">scala </span></span><br><span class="line"><span class="keyword">Shell </span></span><br><span class="line">R </span><br><span class="line"></span><br><span class="line">No languages: </span><br><span class="line"></span><br><span class="line">Language length <span class="keyword">bigger </span>three: </span><br><span class="line">Python </span><br><span class="line"><span class="keyword">scala </span></span><br><span class="line"><span class="keyword">Shell</span></span><br></pre></td></tr></table></figure>
-<p>可以看到，Stream API的过滤方法也接受一个Predicate，这意味着可以将我们定制的 filter() 方法替换成写在里面的内联代码，这也是lambda表达式的魔力！</p>
-<h2 id="参考文档："><a href="#参考文档：" class="headerlink" title="参考文档："></a>参考文档：</h2><p>1.<a href="http://www.importnew.com/16436.html" target="_blank" rel="noopener">《Java8 lambda表达式10个示例》</a></p>
+<h3 id="1-二维码"><a href="#1-二维码" class="headerlink" title="1 二维码"></a>1 二维码</h3><p>二维码（2-dimensional bar code），是用某种特定的几何图形按一定规律在平面（二维方向上）分布的黑白相间的图形记录数据符号信息的。它能将数字、英文字母、汉字、日文字母、特殊符号(如空格，%，/ 等)、二进制等信息记录到一个正方形的图片中。</p>
+<p>因此，在转换的过程中，离不开编码压缩方式。在许多种类的二维条码中，常用的码制有：Data Matrix, Maxi Code, Aztec, QR Code, Vericode, PDF417, Ultracode, Code 49, Code 16K等。</p>
+<p>二维码在现实生活中的应用越来与普遍，归于功于 QR code 码制的流行。我们常说的二维码就是它。所以，二维码又被称为 QR code。</p>
+<p>QR code 是一种矩阵式二维条码（又称棋盘式二维条码）。它是在一个矩形空间通过黑、白像素在矩阵中的不同分布进行编码。在矩阵相应元素位置上，<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">用点（方点、圆点或其他形状）的出现表示二进制“1”，点的不出现表示二进制的“0”，点的排列组合确定了矩阵式二维条码所代表的意义</strong>。</p>
+<h3 id="2-二维码结构"><a href="#2-二维码结构" class="headerlink" title="2 二维码结构"></a>2 二维码结构</h3><p>我们的目的是要使用 Python 生成 QR 码，那我们需要先了解二维码(QR 码)的结构。根据标准（ISO/IEC 18004），我们可以了解到 QR 码结构如下：</p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/641.webp" alt=""></p>
+<p>图片来源网络</p>
+<p style="margin-top: 1.5em;margin-bottom: 1.5em;max-width: 100%;min-height: 1em;color: rgb(89, 89, 89);"><strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">1) 功能图形</strong><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">功能图形</strong>是不参与编码数据的区域。它包含<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">空白区</strong>、<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">位置探测图形</strong>、<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">位置探测图形分隔符</strong>、<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">定位图形</strong>、<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">校正图形</strong>五大模块。</p>
+
+<ul>
+<li>空白区</li>
+</ul>
+<p>空白区顾名思义就是要留空白。因此，这里不能有任何图样或标记。这样才能保证 QR 能被识别。</p>
+<ul>
+<li>位置探测图形</li>
+</ul>
+<p>这个有点类似中文的“回”字。在 QR 码中有个这样的标识，它分别的左上、右上和左下角。作用是协助扫描软件定位 QR 码并转换坐标系。我们在扫描二维码的时候，不管是竖着扫、横着扫、斜着扫都能识别出内容，主要是它的功劳。</p>
+<ul>
+<li>位置探测图形分隔符</li>
+</ul>
+<p>主要作用是区分功能图形和编码区域。</p>
+<ul>
+<li>定位图形</li>
+</ul>
+<p>它由黑白间隔的各自各自组成的线条。主要用于指示标识密度和确定坐标系。原因是 QR 码一种有 40 个版本，也就是说有 40 种尺寸。每种二维码的尺寸越大，扫描的距离就越远。</p>
+<ul>
+<li>校正图形</li>
+</ul>
+<p>只有 Version 2 及以上的QR码有校正标识。校正标识用于进一步校正坐标系。</p>
+<p style="margin-top: 1.5em;margin-bottom: 1.5em;max-width: 100%;min-height: 1em;color: rgb(89, 89, 89);"><strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">2) 编码区域</strong><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">编码区域是数据进行编码存储的区域。它由<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">格式信息</strong>、<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">版本信息</strong>、<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">数据和纠错码字</strong>三部分构成。</p>
+
+<ul>
+<li>格式信息</li>
+</ul>
+<p>所有尺寸的二维码都有该信息。它存放一些格式化数据的信息，例如容错级别、数据掩码，和额外的自身 BCH 容错码。</p>
+<ul>
+<li>版本信息</li>
+</ul>
+<p>版本信息是规定二维码的规格。前面讲到 QR 码一共有 40 种规格的矩阵（一般为黑白色），从21x21（版本1），到177x177（版本40），每一版本符号比前一版本 每边增加4个模块。</p>
+<ul>
+<li>数据和纠错码</li>
+</ul>
+<p>主要是存储实际数据以及用于纠错码字。</p>
+<h3 id="3-二维码的绘制过程"><a href="#3-二维码的绘制过程" class="headerlink" title="3 二维码的绘制过程"></a>3 二维码的绘制过程</h3><p>二维码已经是有一套国际标准，绘制二维码过程的严格按照标准来执行。这个过程是比较复杂，我自己也是看了大概，然后总结出大致绘制过程。如果你想深入了解绘制细节，可以阅读标准。</p>
+<p style="margin-top: 1.5em;margin-bottom: 1.5em;max-width: 100%;min-height: 1em;color: rgb(89, 89, 89);">二维码的绘制大概过程如下：<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">1）在二维码的左上角、左下角、右上角绘制<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">位置探测图形</strong>。位置探测图形一定是一个 7x7 的矩阵。<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">2）绘制<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">校正图形</strong>。校正图形一定是一个 5x5 的矩阵。<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">3）绘制两条连接三个<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">位置探测图形</strong>的<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">定位图形</strong>。<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">4）在上述图片的基础上，继续绘制<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">格式信息</strong>。<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">5）接着绘制<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">版本信息</strong>。<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">6）填充<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">数据码</strong>和<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">纠错码</strong>到二维码图中。<br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;">7）最后是绘制<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">蒙版图案</strong>。因为按照上述方式填充内容，可能会出现大面积的空白或黑块的情况，导致扫描识别会十分困难。所以需要对整个图像与蒙版进行蒙版操作(Masking)，蒙版操作即为异或 XOR 操作。在这一步，我们可以将数据排列成各种图片。</p>
+
+<h3 id="4-二维码的生成"><a href="#4-二维码的生成" class="headerlink" title="4 二维码的生成"></a>4 二维码的生成</h3><p>我们既然已经了解二维码原理，那么可以利用 Python 生成二维码。然而网络上高人比比皆是。已经有大神编写了 Python 生成二维码的第三方库，所以我们不需要重复造轮子, 使用现成的库即可。</p>
+<p style="margin-top: 1.5em;margin-bottom: 1.5em;max-width: 100%;min-height: 1em;color: rgb(89, 89, 89);">我就推荐两个库：<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">qrcode</strong>&nbsp;和&nbsp;<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">python-qrcode</strong>。</p>
+
+<ul>
+<li><strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">qrcode</strong></li>
+</ul>
+<p><strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">qrcode</strong> 运行在 Python 3 版本上，它可以玩出很多花样。例如能生成以下三种二维码图片：普通二维码、带图片的艺术二维码（黑白与彩色）、动态二维码（黑白与彩色）。它比较适合直接用于生成二维码图片的场景。</p>
+<p style="margin-top: 1.5em;margin-bottom: 1.5em;max-width: 100%;min-height: 1em;color: rgb(89, 89, 89);">安装 qrcode 库可以使用 pip 方式。但是该库依赖&nbsp;<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">pillow</strong>、<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">numpy</strong>&nbsp;和&nbsp;<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">imageio</strong>。因此，我们需要先安装依赖库，再安装 qrcode。最后的安装命令如下：</p>
+
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 逐一安装</span></span><br><span class="line">pip <span class="keyword">install</span> pillow</span><br><span class="line">pip <span class="keyword">install</span> numpy</span><br><span class="line">pip <span class="keyword">install</span> imageio</span><br><span class="line">pip <span class="keyword">install</span> myqr</span><br></pre></td></tr></table></figure>
+<p>该库生成带图片的艺术二维码算是一大亮点，具体用法如下:</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myqr <span class="string">https:</span><span class="comment">//github.com -p github.jpg -c</span></span><br></pre></td></tr></table></figure>
+<p>上述命令作用是将 github 主页写到彩色二维码中。  </p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/642.webp" alt=""></p>
+<p>该库还支持生成 gif 的彩色二维码图片，具体用法如下：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myqr http<span class="variable">s:</span>//github.<span class="keyword">com</span> -<span class="keyword">p</span> github.gif -<span class="keyword">c</span> -<span class="keyword">con</span> <span class="number">1.5</span> -bri <span class="number">1.6</span></span><br></pre></td></tr></table></figure></p>
+<p>效果图如下：  </p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/640.gif" alt=""></p>
+<p>最后补上该库的 Github 地址：<a href="https://github.com/sylnsfar/qrcode" target="_blank" rel="noopener">https://github.com/sylnsfar/qrcode</a></p>
+<ul>
+<li><strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">python-qrcode</strong></li>
+</ul>
+<p style="margin-top: 1.5em;margin-bottom: 1.5em;max-width: 100%;min-height: 1em;color: rgb(89, 89, 89);"><strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">python-qrcode</strong>&nbsp;相比&nbsp;<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">qrcode</strong>&nbsp;要稍微逊色一点。不过它也有自己的特色。它支持生成矢量图，而且比较适合在代码中生成二维码的场景。</p>
+
+<p>安装 python-qrcode 同样建议使用 pip 方式，安装命令如下：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> qrcode</span><br></pre></td></tr></table></figure></p>
+<p>在 Python 代码中，最简单的用法是这样。<br><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> qrcodeimg = qrcode.make('https://github.com')</span><br></pre></td></tr></table></figure></p>
+<p>它也支持自定义二维码的信息，具体用法如下：<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">import</span> qrcode</span><br><span class="line"><span class="attr">qr</span> = qrcode.QRCode(</span><br><span class="line">    <span class="attr">version=1,</span></span><br><span class="line">    <span class="attr">error_correction=qrcode.constants.ERROR_CORRECT_L,</span></span><br><span class="line">    <span class="attr">box_size=10,</span></span><br><span class="line">    <span class="attr">border=4,</span></span><br><span class="line">)</span><br><span class="line">qr.add_data('https://github.com')</span><br><span class="line">qr.make(<span class="attr">fit=True)</span></span><br><span class="line"></span><br><span class="line"><span class="attr">img</span> = qr.make_image(<span class="attr">fill_color="black",</span> <span class="attr">back_color="white")</span></span><br></pre></td></tr></table></figure></p>
+<p>如果你想深入了解该库，可以到 Github 仓库阅读相关的文档。<br>Github 地址是：<a href="https://github.com/lincolnloop/python-qrcode" target="_blank" rel="noopener">https://github.com/lincolnloop/python-qrcode</a></p>
+<p><br></p>
+<p><center><br>此文摘自微信公众号【Python中文社区】<br>微信扫一扫<br>关注该公众号<br></center><br><img src="https://mp.weixin.qq.com/mp/qrcode?scene=10000005&amp;size=102&amp;__biz=MzAxMjUyNDQ5OA==&amp;mid=2653557161&amp;idx=1&amp;sn=e6b0e7656e7e700e41a33a7142cf38b6&amp;send_time=" alt="Python中文社区"></p>
 
       
     </div>
@@ -592,9 +649,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
-          
-            <a href="/tags/Lambda/" rel="tag"><i class="fa fa-tag"></i> Lambda</a>
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
           
         </div>
       
@@ -607,8 +662,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/13/Hexo-Next搭建个人博客（添加网页标题崩溃欺骗搞怪特效）/" rel="next" title="Hexo-Next搭建个人博客（添加网页标题崩溃欺骗搞怪特效）">
-                <i class="fa fa-chevron-left"></i> Hexo-Next搭建个人博客（添加网页标题崩溃欺骗搞怪特效）
+              <a href="/2018/08/26/都是套路：高并发系统的降级特技/" rel="next" title="都是套路：高并发系统的降级特技">
+                <i class="fa fa-chevron-left"></i> 都是套路：高并发系统的降级特技
               </a>
             
           </div>
@@ -616,10 +671,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/14/InnoDB并发如此高，原因竟然在这？/" rel="prev" title="InnoDB并发如此高，原因竟然在这？">
-                InnoDB并发如此高，原因竟然在这？ <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -839,7 +890,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-替代匿名内部类"><span class="nav-number">1.</span> <span class="nav-text">1.替代匿名内部类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-使用lambda表达式对集合进行迭代"><span class="nav-number">2.</span> <span class="nav-text">2.使用lambda表达式对集合进行迭代</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-用lambda表达式实现map"><span class="nav-number">3.</span> <span class="nav-text">3.用lambda表达式实现map</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-用lambda表达式实现map与reduce"><span class="nav-number">4.</span> <span class="nav-text">4.用lambda表达式实现map与reduce</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-filter操作"><span class="nav-number">5.</span> <span class="nav-text">5.filter操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-与函数式接口Predicate配合"><span class="nav-number">6.</span> <span class="nav-text">6.与函数式接口Predicate配合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文档："><span class="nav-number">7.</span> <span class="nav-text">参考文档：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-二维码"><span class="nav-number">1.</span> <span class="nav-text">1 二维码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-二维码结构"><span class="nav-number">2.</span> <span class="nav-text">2 二维码结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-二维码的绘制过程"><span class="nav-number">3.</span> <span class="nav-text">3 二维码的绘制过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-二维码的生成"><span class="nav-number">4.</span> <span class="nav-text">4 二维码的生成</span></a></li></ol></div>
             
 
           </div>
