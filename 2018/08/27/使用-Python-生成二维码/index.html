@@ -130,15 +130,15 @@
 <meta property="og:site_name" content="yufeng.Zhou&#39;s Blog">
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;新时代，人们有人信新的追求，自然而然会有新发明的诞生。去年，在“一带一路”国际合作高峰论坛举行期间，20国青年投票选出中国的“新四大发明”：高铁、扫码支付、共享单车和网购。其中扫码支付指手机通过扫描二维码跳转到支付页面，再进行付款。这种新的支付方式，造就二维码满天飞的现象。那么让我们来扒一扒如何使用 Python 来生成二维码图片。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/641.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM截图20180827141504.png">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/642.webp">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/640.gif">
 <meta property="og:image" content="https://mp.weixin.qq.com/mp/qrcode?scene=10000005&size=102&__biz=MzAxMjUyNDQ5OA==&mid=2653557161&idx=1&sn=e6b0e7656e7e700e41a33a7142cf38b6&send_time=">
-<meta property="og:updated_time" content="2018-08-27T02:54:19.098Z">
+<meta property="og:updated_time" content="2018-08-27T06:16:52.875Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 Python 生成二维码">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;新时代，人们有人信新的追求，自然而然会有新发明的诞生。去年，在“一带一路”国际合作高峰论坛举行期间，20国青年投票选出中国的“新四大发明”：高铁、扫码支付、共享单车和网购。其中扫码支付指手机通过扫描二维码跳转到支付页面，再进行付款。这种新的支付方式，造就二维码满天飞的现象。那么让我们来扒一扒如何使用 Python 来生成二维码图片。">
-<meta name="twitter:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/641.webp">
+<meta name="twitter:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM截图20180827141504.png">
 
 
 
@@ -522,7 +522,7 @@
 <p>二维码在现实生活中的应用越来与普遍，归于功于 QR code 码制的流行。我们常说的二维码就是它。所以，二维码又被称为 QR code。</p>
 <p>QR code 是一种矩阵式二维条码（又称棋盘式二维条码）。它是在一个矩形空间通过黑、白像素在矩阵中的不同分布进行编码。在矩阵相应元素位置上，<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">用点（方点、圆点或其他形状）的出现表示二进制“1”，点的不出现表示二进制的“0”，点的排列组合确定了矩阵式二维条码所代表的意义</strong>。</p>
 <h3 id="2-二维码结构"><a href="#2-二维码结构" class="headerlink" title="2 二维码结构"></a>2 二维码结构</h3><p>我们的目的是要使用 Python 生成 QR 码，那我们需要先了解二维码(QR 码)的结构。根据标准（ISO/IEC 18004），我们可以了解到 QR 码结构如下：</p>
-<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/641.webp" alt=""></p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM截图20180827141504.png" alt=""></p>
 <p>图片来源网络</p>
 <p style="margin-top: 1.5em;margin-bottom: 1.5em;max-width: 100%;min-height: 1em;color: rgb(89, 89, 89);"><strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">1) 功能图形</strong><br style="max-width: 100%;box-sizing: border-box !important;overflow-wrap: break-word !important;"><strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">功能图形</strong>是不参与编码数据的区域。它包含<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">空白区</strong>、<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">位置探测图形</strong>、<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">位置探测图形分隔符</strong>、<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">定位图形</strong>、<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">校正图形</strong>五大模块。</p>
 
