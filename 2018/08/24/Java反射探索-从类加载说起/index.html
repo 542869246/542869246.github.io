@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+<meta name="baidu-site-verification" content="Cd4Lc5evwc" />
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "b3c7d22e"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="Cd4Lc5evwc" />
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java,反射,类加载," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yufeng.Zhou's Blog" type="application/atom+xml" />
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;摘要：本文主要讲了Java类加载的机制，这是学习反射的入门基础。">
+<meta name="keywords" content="java,反射,类加载">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java反射探索-----从类加载说起">
+<meta property="og:url" content="http://yfzhou.coding.me/2018/08/24/Java反射探索-从类加载说起/index.html">
+<meta property="og:site_name" content="yufeng.Zhou&#39;s Blog">
+<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;摘要：本文主要讲了Java类加载的机制，这是学习反射的入门基础。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021091611555">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021091656155">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021091837350">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021092000170">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021092344220">
+<meta property="og:updated_time" content="2018-08-24T09:05:20.004Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java反射探索-----从类加载说起">
+<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;摘要：本文主要讲了Java类加载的机制，这是学习反射的入门基础。">
+<meta name="twitter:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021091611555">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '5GWESN2MHV',
+      apiKey: '756045653a25072015750606fb533a33',
+      indexName: 'hexo blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没有找到与 ${query} 相关的内容","hits_stats":"${hits}条相关记录，共耗时${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yfzhou.coding.me/2018/08/24/Java反射探索-从类加载说起/"/>
+
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+  <title>Java反射探索-----从类加载说起 | yufeng.Zhou's Blog</title>
+  <style>
+  .forkme{
+ display: none;
+ }
+  @media (min-width: 768px) {
+ .forkme{
+ display: inline;
+ }
+  }
+  </style>
+  
+
+
+
+
+
+
+
+
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <div class="bg_content">
+    <canvas id="canvas"></canvas>
+  </div>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yufeng.Zhou's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">卑鄙，是卑鄙者通行证，高尚，是高尚者墓志铭。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+ </div>
+	  
+	  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+	  
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yfzhou.coding.me/2018/08/24/Java反射探索-从类加载说起/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yufeng.Zhou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yufeng.Zhou's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java反射探索-----从类加载说起</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-24T14:29:49+08:00">
+                2018-08-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/08/24/Java反射探索-从类加载说起/" class="leancloud_visitors" data-flag-title="Java反射探索-----从类加载说起">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,121 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;摘要：本文主要讲了Java类加载的机制，这是学习反射的入门基础。</p>
+<a id="more"></a>
+<h1 id="一、类加载"><a href="#一、类加载" class="headerlink" title="一、类加载"></a>一、类加载</h1><p><strong>JVM和类</strong>  </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;当我们调用Java命令运行某个Java程序时，该命令将会启动一条Java虚拟机进程，不管该Java程序有多么复杂，该程序启动了多少个线程，它们都处于该Java虚拟机进程里。正如前面介绍的，同一个JVM的所有线程、所有变量都处于同一个进程里，它们都使用该JVM进程的内存区。当系统出现以下几种情况时，JVM进程将被终止:  </p>
+<p>1、程序运行到最后正常结束。<br>2、程序运行到使用System.exit()或Runtime.getRuntime().exit()代码结束程序。<br>3、程序执行过程中遇到未捕获的异常或错误而结束。<br>3、程序所在平台强制结束了JVM进程。<br>从上面的介绍可以看出，当Java程序运行结束时，JVM进程结束，该进程在内存中状态将会丢失。</p>
+<p><strong>类的生命周期</strong></p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021091611555" alt=""></p>
+<p><strong>类的加载/类初始化</strong>  </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;当程序主动使用某个类时，如果该类还未被加载到内存中，系统会通过加载、连接、初始化三个步骤来对该类进行初始化，如果没有意外，JVM将会连续完成这三个步骤，所以有时也把这三个步骤统称为类加载或类初始化。</p>
+<p><strong>加载：查找并加载类的二进制数据</strong></p>
+<p>1、通过一个类的全限定名来获取定义此类的二进制字节流。<br>2、将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构。<br>3、在java堆中生成一个代表这个类的java.lang.Class对象，作为方法区这些数据的访问入口。</p>
+<p><span style="color:red"><strong>注意：将编译后的java类文件（也就是.class文件）中的二进制数据读入内存，并将其放在运行时数据区的方法区内，然后再堆区创建一个Java.lang.Class对象，用来封装类在方法区的数据结构。即加载后最终得到的是Class对象，并且更加值得注意的是：该Java.lang.Class对象是单实例的，无论这个类创建了多少个对象，他的Class对象时唯一的！</strong>  </span><br><strong>连接：</strong><br>&nbsp;&nbsp;&nbsp;&nbsp;1、验证：确保被加载的类的正确性<br>&nbsp;&nbsp;&nbsp;&nbsp;2、准备：为类的静态变量分配内存，并将其初始化为默认值<br>&nbsp;&nbsp;&nbsp;&nbsp;3、解析：把类中的符号引用转换为直接引用。<br><strong>初始化：为类的静态变量赋予正确的初始值。</strong></p>
+<p><strong><span style="color:red">注意：连接和初始化阶段，其实静态变量经过了两次赋值：第一次是静态变量类型的默认值；第二次是我们真正赋给静态变量的值。</span></strong></p>
+<p>我简单画了个图，其过程如下：</p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021091656155" alt="">  </p>
+<p><strong><span style="color:red">类加载指的是将类的class文件读入内存，并为之创建一个java.lang.Class对象，也就是说当程序中使用任何类时，系统都会为之建立一个java.lang.Class对象。事实上，每个类是一批具有相同特征的对象的抽象(或者说概念)，而系统中所有的类，它们实际上也是对象，它们都是java.lang.Class的实例。</span></strong>  </p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<strong>加载由类加载器完成，类加载器通常由JVM提供，这些类加载器也是我们前面所有程序运行的基础，JVM提供的这些类加载器通常被称为系统类加载器。除此之外，开发者可以通过继承ClassLoader基类来创建自己的类加载器。</strong>  </p>
+<p>通过使用不同的类加载器，可以从不同来源加载类的二进制数据，通常有如下几种来源:  </p>
+<p><strong> 1、从本地文件系统来加载class文件，这是绝大部分示例程序的类加载方式。  </strong><br><strong>  2、从JAR包中加载class文件，这种方式也是很常见的，前面介绍JDBC编程时用到的数据库驱动类就是放在JAR文件中，JVM可以从JAR文件中直接加载该class文件。  </strong><br><strong>  3、通过网络加载class文件。  </strong><br><strong>  4、把一个Java源文件动态编译、并执行加载。</strong>  </p>
+<p>类加载器通常无须等到“首次使用”该类时才加载该类，Java虚拟机规范允许系统预先加载某些类。</p>
+<p><strong>Java程序对类的使用方式  </strong><br><strong>  主动使用</strong><br>1、创建类的实例<br>2、方法某个类或接口的静态变量，或者对该静态变量赋值<br>3、调用类的静态方法<br>4、反射（如 Class.forName(“com.itzhai.Test”)）<br>5、初始化一个类的子类<br>6、Java虚拟机启动时被标明为启动类的类（Main Class）  </p>
+<p><strong>被动使用</strong><br>除了以上6中方式，其他对类的使用都是被动使用，都不会导致类的初始化。类的初始化时机正是java程序对类的首次主动使用，<br>所有的Java虚拟机实现必须在每个类或接口被Java程序“首次主动使用”时才初始化它们。</p>
+<p><strong>对象初始化</strong><br>在类被装载、连接和初始化，这个类就随时都可能使用了。对象实例化和初始化是就是对象生命的起始阶段的活动，在这里我们主要讨论对象的初始化工作的相关特点。<br>Java 编译器在编译每个类时都会为该类至少生成一个实例初始化方法–即”<init>()” 方法。此方法与源代码中的每个构造方法相对应，如果类没有明确地声明任何构造方法，编译器则为该类生成一个默认的无参构造方法，这个默认的构造器仅仅调用父类的无参构造器，与此同时也会生成一个与默认构造方法对应的 “<init>()” 方法.<br>通常来说，<init>() 方法内包括的代码内容大概为：调用另一个 <init>() 方法；对实例变量初始化；与其对应的构造方法内的代码。<br>如果构造方法是明确地从调用同一个类中的另一个构造方法开始，那它对应的 <init>() 方法体内包括的内容为：一个对本类的 <init>() 方法的调用；对应用构造方法内的所有字节码。<br>如果构造方法不是通过调用自身类的其它构造方法开始，并且该对象不是 Object 对象，那 <init>() 法内则包括的内容为：一个对父类 <init>() 方法的调用；对实例变量初始化方法的字节码；最后是对应构造子的方法体字节码。<br>如果这个类是 Object，那么它的 <init>() 方法则不包括对父类 <init>() 方法的调用。</init></init></init></init></init></init></init></init></init></init></p>
+<h1 id="二、Class-forName、实例对象-class-属性-、实例对象getClass-的区别"><a href="#二、Class-forName、实例对象-class-属性-、实例对象getClass-的区别" class="headerlink" title="二、Class.forName、实例对象.class(属性)、实例对象getClass()的区别"></a>二、Class.forName、实例对象.class(属性)、实例对象getClass()的区别</h1><p>1、相同点：<br>通过这几种方式，得到的都是Java.lang.Class对象（这个是上面讲到的类在加载时获得的最终产物）<br>例如：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lin;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 功能概要：</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * @author linbingwen</span></span><br><span class="line"><span class="comment"> * @since  2015年10月20日 </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> people &#123;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * @author linbingwen</span></span><br><span class="line"><span class="comment">	 * @since  2015年10月20日 </span></span><br><span class="line"><span class="comment">	 * @param args    </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="string">"..............使用不同的方式加载类..................."</span>);</span><br><span class="line">		System.out.<span class="keyword">println</span>(people.<span class="keyword">class</span>);<span class="comment">//通过类.class获得Class对象</span></span><br><span class="line">		people a = <span class="keyword">new</span> people();</span><br><span class="line">		System.out.<span class="keyword">println</span>(a.getClass());<span class="comment">//通过 实例名.getClass()获得Class对象</span></span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="keyword">Class</span>.forName(<span class="string">"com.lin.people"</span>));<span class="comment">//通过Class.forName(全路径)获得Class对象</span></span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="string">"..............使用不同的方式创建对象..................."</span>);</span><br><span class="line">		System.out.<span class="keyword">println</span>(a);<span class="comment">//使用不同的方式创建对象</span></span><br><span class="line">		System.out.<span class="keyword">println</span>(people.<span class="keyword">class</span>.newInstance());</span><br><span class="line">		System.out.<span class="keyword">println</span>(a.getClass().newInstance());</span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="keyword">Class</span>.forName(<span class="string">"com.lin.people"</span>).newInstance()); </span><br><span class="line"> </span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021091837350" alt=""></p>
+<p>从上面可以看到不同的方式加载类。其实这一过程只发生一次！</p>
+<p>2、区别：</p>
+<p>下面用一个实例来说说它们的区别</p>
+<p>如下新建一个类</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lin;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 功能概要：</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> linbingwen</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@since</span>  2015年10月20日 </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> &#123;</span></span><br><span class="line">	<span class="keyword">static</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">"生成了一只猫"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后开始使用：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lin;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 功能概要：</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * @author linbingwen</span></span><br><span class="line"><span class="comment"> * @since  2015年10月20日 </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> CatTest &#123;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * @author linbingwen</span></span><br><span class="line"><span class="comment">	 * @since  2015年10月20日 </span></span><br><span class="line"><span class="comment">	 * @param args    </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="string">"---------------Cat.class开始------------------"</span>);</span><br><span class="line">		System.out.<span class="keyword">println</span>(Cat.<span class="keyword">class</span>);<span class="comment">//通过类.class获得Class对象</span></span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="string">"---------------Cat.class结束------------------"</span>);</span><br><span class="line">		</span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="string">"---------------Class.forName开始------------------"</span>);</span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="keyword">Class</span>.forName(<span class="string">"com.lin.Cat"</span>));<span class="comment">//通过Class.forName(全路径)获得Class对象</span></span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="string">"---------------Class.forName结束------------------"</span>);</span><br><span class="line">		</span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="string">"---------------cat.getClass()开始------------------"</span>);</span><br><span class="line">		Cat cat = <span class="keyword">new</span> Cat();</span><br><span class="line">		System.out.<span class="keyword">println</span>(cat.getClass());<span class="comment">//通过Class.forName(全路径)获得Class对象</span></span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="string">"---------------cat.getClass()结束------------------"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出结果：</p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021092000170" alt=""></p>
+<p>如果，将Class.forName()去掉：</p>
+<p>如下：</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.lin;</span><br><span class="line"> </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 功能概要：</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * @author linbingwen</span></span><br><span class="line"><span class="comment"> * @since  2015年10月20日 </span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> CatTest &#123;</span><br><span class="line"> </span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * @author linbingwen</span></span><br><span class="line"><span class="comment">	 * @since  2015年10月20日 </span></span><br><span class="line"><span class="comment">	 * @param args    </span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> main(String[] args) <span class="keyword">throws</span> Exception&#123;</span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="string">"---------------Cat.class开始------------------"</span>);</span><br><span class="line">		System.out.<span class="keyword">println</span>(Cat.<span class="keyword">class</span>);<span class="comment">//通过类.class获得Class对象</span></span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="string">"---------------Cat.class结束------------------"</span>);</span><br><span class="line">		</span><br><span class="line"><span class="comment">//		System.out.println("---------------Class.forName开始------------------");</span></span><br><span class="line"><span class="comment">//		System.out.println(Class.forName("com.lin.Cat"));//通过Class.forName(全路径)获得Class对象</span></span><br><span class="line"><span class="comment">//		System.out.println("---------------Class.forName结束------------------");</span></span><br><span class="line">		</span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="string">"---------------cat.getClass()开始------------------"</span>);</span><br><span class="line">		Cat cat = <span class="keyword">new</span> Cat();</span><br><span class="line">		System.out.<span class="keyword">println</span>(cat.getClass());<span class="comment">//通过Class.forName(全路径)获得Class对象</span></span><br><span class="line">		System.out.<span class="keyword">println</span>(<span class="string">"---------------cat.getClass()结束------------------"</span>);</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果又变成：</p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021092344220" alt=""></p>
+<p>所以，可以得出以下结论：</p>
+<p>1)Class cl=Cat.class; <strong>JVM将使用类Cat的类装载器,将类A装入内存(前提是:类A还没有装入内存),不对类A做类的初始化工作.</strong>返回类A的Class的对象<br>2)Class cl=对象引用o.getClass();<strong>返回引用o运行时真正所指的对象(因为:儿子对象的引用可能会赋给父对象的引用变量中)所属的类的Class的对象 ,如果还没装载过，会进行装载。</strong><br>3)Class.forName(“类名”); <strong>装入类A,并做类的初始化(前提是:类A还没有装入内存)</strong>  </p>
+<h1 id="三、new和newInstance"><a href="#三、new和newInstance" class="headerlink" title="三、new和newInstance()"></a>三、new和newInstance()</h1><p>从JVM的角度看，我们使用关键字new创建一个类的时候，这个类可以没有被加载。但是使用Class对象的newInstance()方法的时候，就必须保证：</p>
+<p>1、这个类已经加载；</p>
+<p>2、这个类已经连接了。而完成上面两个步骤的正是Class的静态方法forName()所完成的，这个静态方法调用了启动类加载器，即加载 java API的那个加载器。   </p>
+<p>现在可以看出，Class对象的newInstance()（这种用法和Java中的工厂模式有着异曲同工之妙）实际上是把new这个方式分解为两步，即首先调用Class加载方法加载某个类，然后实例化。这样分步的好处是显而易见的。我们可以在调用class的静态加载方法forName时获得更好的灵活性，提供给了一种降耦的手段。 </p>
+<p>Class.forName().newInstance()和通过new得到对象的区别</p>
+<p>1、使用newInstance可以解耦。使用newInstance的前提是，类已加载并且这个类已连接，这是正是class的静态方法forName（）完成的工作。newInstance实际上是把new 这个方式分解为两步，即，首先调用class的加载方法加载某个类，然后实例化。  </p>
+<p>2、newInstance: 弱类型。低效率。只能调用无参构造。 new: 强类型。相对高效。能调用任何public构造。   </p>
+<p>3、newInstance()是实现IOC、反射、面对接口编程和依赖倒置等技术方法的必然选择，new只能实现具体类的实例化，不适合于接口编程。   </p>
+<p>4、 newInstance() 一般用于动态加载类。  </p>
+<p>5、Class.forName(“”).newInstance()返回的是object 。</p>
+<p>6、newInstance( )是一个方法，而new是一个关键字；</p>
+<p>注:一般在通用框架里面用的就是class.forName来加载类,然后再通过反射来调用其中的方法,譬如Tomcat源码里面,这样就避免了new关键字的耦合度,还有让不同的类加载器来加载不同的类,方便提高类之间的安全性和隔离性.</p>
+<p><a href="http://my.csdn.net/Evankaka" target="_blank" rel="noopener">林炳文Evankaka</a>原创作品。转载请注明出处<a href="http://blog.csdn.net/evankaka" target="_blank" rel="noopener">http://blog.csdn.net/evankaka</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/wechatpay.png" alt="yufeng.Zhou 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/alipay.png" alt="yufeng.Zhou 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+	
+	<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+	
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/反射/" rel="tag"><i class="fa fa-tag"></i> 反射</a>
+          
+            <a href="/tags/类加载/" rel="tag"><i class="fa fa-tag"></i> 类加载</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/23/Java多线程学习（吐血超详细总结）/" rel="next" title="Java多线程学习（吐血超详细总结）">
+                <i class="fa fa-chevron-left"></i> Java多线程学习（吐血超详细总结）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/24/Java反射探索研究/" rel="prev" title="Java反射探索研究">
+                Java反射探索研究 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count" title="累计分享次数"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODUyNC8xNTA1Mg=="></div>
+    </div>
+
+  
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg"
+                alt="yufeng.Zhou" />
+            
+              <p class="site-author-name" itemprop="name">yufeng.Zhou</p>
+              <p class="site-description motion-element" itemprop="description">随便搓搓</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/542869246" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/zyf542869246" target="_blank" title="Gitee">
+                      
+                        <i class="fa fa-fw fa-git"></i>Gitee</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ityouknow.com/spring-boot.html" title="spring-boot 纯洁的微笑" target="_blank">spring-boot 纯洁的微笑</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" title="Python教程 廖雪峰" target="_blank">Python教程 廖雪峰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、类加载"><span class="nav-number">1.</span> <span class="nav-text">一、类加载</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、Class-forName、实例对象-class-属性-、实例对象getClass-的区别"><span class="nav-number">2.</span> <span class="nav-text">二、Class.forName、实例对象.class(属性)、实例对象getClass()的区别</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、new和newInstance"><span class="nav-number">3.</span> <span class="nav-text">三、new和newInstance()</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+	
+      <div class="footer-inner">
+        <div id='show2'></div>
+		<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-tint"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yufeng.Zhou</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">69.5k</span>
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+		
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("4DkhRkq5CadWFisToA3zFrop-gzGzoHsz", "xihAA2ETGTdekJFloguCmmgq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+ 
+  
+  <!-- 右上角github关注-->
+  <div class="forkme">
+	<a href="https://github.com/542869246"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://pd2tflnys.bkt.clouddn.com/img/blog/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+  </div>
+ 
+  <!-- 音乐播放器-->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+  undefined
+   
+<!-- 代码块复制功能 -->
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!-- 背景图-->
+<script type="text/javascript" src="/js/src/dynamic_bg.js"></script
+ <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+ <!-- 页面点击汉字 -->
+<script type="text/javascript" src="/js/src/hanzi.js"></script>
+</html>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+
+<script>
+window.onload = function() { 
+var show = document.getElementById("show2"); 
+setInterval(function() { 
+var time = new Date(); 
+// 程序计时的月从0开始取值后+1 
+var m = time.getMonth() + 1; 
+//根据自己博客的创建时间更改数值 
+var t = "周宇峰的博客已存活了"+(time.getFullYear()-2018) + "年" + (m-8) + "月" 
++ time.getDate() + "天 " + time.getHours() + "时" 
++ time.getMinutes() + "分" + time.getSeconds() + "秒"; 
+show.innerHTML = t; 
+}, 1000); 
+}; 
+</script>
