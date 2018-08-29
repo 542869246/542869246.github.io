@@ -1,3 +1,4 @@
+https://yfzhou.coding.me/2018/08/29/Hexo-Next搭建个人博客（SEO优化）/
 https://yfzhou.coding.me/2018/08/27/Hexo-Next搭建个人博客（代码块复制功能）/
 https://yfzhou.coding.me/2018/08/27/Hexo-Next搭建个人博客（主题优化）/
 https://yfzhou.coding.me/2018/08/27/使用-Python-生成二维码/
