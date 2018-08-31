@@ -1985,7 +1985,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #f5ff7f;
+  background: #acdfff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3633,7 +3633,6 @@ h6 {
 .post-body a:hover {
   color: #a166ab;
   border-bottom: none;
-  text-decoration: underline;
 }
 ::selection {
   background-color: #fff159;
@@ -3665,12 +3664,10 @@ img#github-emoji {
 .post-body a {
   color: #5073b8;
   border-bottom: none;
-  text-decoration: underline;
 }
 .post-body a:hover {
   color: #a166ab;
   border-bottom: none;
-  text-decoration: underline;
 }
 .tag-cloud a {
   border-bottom: 1px solid #5073b8;
@@ -3706,6 +3703,7 @@ a.fancybox {
 }
 img.img-topic {
   width: 100%;
+  border-radius: 7px;
 }
 .posts-expand .post-body img {
   border: none;
@@ -3713,4 +3711,21 @@ img.img-topic {
 }
 .post-gallery .post-gallery-img img {
   padding: 3px;
+}
+.post-meta a {
+  color: #5073b8;
+  font-weight: bolder;
+}
+.post-meta a:hover {
+  color: #a166ab;
+  font-weight: bolder;
+}
+.post-footer .post-tags a:hover {
+  color: #a166ab;
+}
+.posts-footer .post-tags a {
+  color: #5073b8;
+}
+#posts article .post-body {
+  margin-top: -45px;
 }

@@ -161,13 +161,11 @@
     }
 </style>
 
-<meta name="description" content="一、前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;近乎所有与Java相关的面试都会问到缓存的问题，基础一点的会问到什么是“二八定律”、什么是“热数据和冷数据”，复杂一点的会问到缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题，这些看似不常见的概念，都与我们的缓存服务器相关，一般常用的缓存服务器有Redis、Memcached等，而笔者目前最常用的也只有Redis这一种。">
 <meta name="keywords" content="redis,线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="为什么说Redis是单线程的以及Redis为什么这么快！">
 <meta property="og:url" content="https://yfzhou.coding.me/2018/08/26/为什么说Redis是单线程的以及Redis为什么这么快！/index.html">
 <meta property="og:site_name" content="Felix">
-<meta property="og:description" content="一、前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;近乎所有与Java相关的面试都会问到缓存的问题，基础一点的会问到什么是“二八定律”、什么是“热数据和冷数据”，复杂一点的会问到缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题，这些看似不常见的概念，都与我们的缓存服务器相关，一般常用的缓存服务器有Redis、Memcached等，而笔者目前最常用的也只有Redis这一种。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20170307142145648.png">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20170307142210929.png">
@@ -175,10 +173,9 @@
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20180307162652293.png">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20180307172053108.png">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20180307172918264.png">
-<meta property="og:updated_time" content="2018-08-26T12:07:02.167Z">
+<meta property="og:updated_time" content="2018-08-31T08:34:19.953Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为什么说Redis是单线程的以及Redis为什么这么快！">
-<meta name="twitter:description" content="一、前言&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;近乎所有与Java相关的面试都会问到缓存的问题，基础一点的会问到什么是“二八定律”、什么是“热数据和冷数据”，复杂一点的会问到缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题，这些看似不常见的概念，都与我们的缓存服务器相关，一般常用的缓存服务器有Redis、Memcached等，而笔者目前最常用的也只有Redis这一种。">
 <meta name="twitter:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20170307142145648.png">
 
 
@@ -556,8 +553,8 @@
       
 
       
-        <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;近乎所有与Java相关的面试都会问到缓存的问题，基础一点的会问到什么是“二八定律”、什么是“热数据和冷数据”，复杂一点的会问到缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题，这些看似不常见的概念，都与我们的缓存服务器相关，一般常用的缓存服务器有Redis、Memcached等，而笔者目前最常用的也只有Redis这一种。</p>
-<a id="more"></a>
+        <p><span><span><br><a id="more"></a></span></span></p>
+<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;近乎所有与Java相关的面试都会问到缓存的问题，基础一点的会问到什么是“二八定律”、什么是“热数据和冷数据”，复杂一点的会问到缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题，这些看似不常见的概念，都与我们的缓存服务器相关，一般常用的缓存服务器有Redis、Memcached等，而笔者目前最常用的也只有Redis这一种。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;如果你在以前面试的时候还没有遇到过面试官问你《为什么说Redis是单线程的以及Redis为什么这么快！》，那么你看到这篇文章的时候，你应该觉得是一件很幸运的事情！如果你刚好是一位高逼格的面试官，你也可以拿这道题去面试对面“望穿秋水”般的小伙伴，测试一下他的掌握程度。</p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;好啦！步入正题！我们先探讨一下Redis是什么，Redis为什么这么快、然后在探讨一下为什么Redis是单线程的？</p>
 <h2 id="二、Redis简介"><a href="#二、Redis简介" class="headerlink" title="二、Redis简介"></a>二、Redis简介</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;Redis是一个开源的内存中的数据结构存储系统，它可以用作：<strong>数据库、缓存和消息中间件</strong>。</p>
