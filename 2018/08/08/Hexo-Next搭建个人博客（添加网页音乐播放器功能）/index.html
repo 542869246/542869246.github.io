@@ -161,19 +161,19 @@
     }
 </style>
 
-<meta name="description" content="为博客添加网页音乐播放器功能   效果图：">
+<meta name="description" content="为博客添加网页音乐播放器功能">
 <meta name="keywords" content="Hexo,Next">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo-Next搭建个人博客（添加网页音乐播放器功能）">
 <meta property="og:url" content="https://yfzhou.coding.me/2018/08/08/Hexo-Next搭建个人博客（添加网页音乐播放器功能）/index.html">
 <meta property="og:site_name" content="Felix">
-<meta property="og:description" content="为博客添加网页音乐播放器功能   效果图：">
+<meta property="og:description" content="为博客添加网页音乐播放器功能">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/music01.png">
-<meta property="og:updated_time" content="2018-08-15T03:51:04.598Z">
+<meta property="og:updated_time" content="2018-08-31T15:58:25.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-Next搭建个人博客（添加网页音乐播放器功能）">
-<meta name="twitter:description" content="为博客添加网页音乐播放器功能   效果图：">
+<meta name="twitter:description" content="为博客添加网页音乐播放器功能">
 <meta name="twitter:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/music01.png">
 
 
@@ -514,7 +514,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  472 字
+                  458 字
                 </span>
               
 
@@ -537,6 +537,10 @@
           
 
           
+              <div class="post-description">
+                  为博客添加网页音乐播放器功能
+              </div>
+          
 
         </div>
       </header>
@@ -551,9 +555,7 @@
       
 
       
-        <p>为博客添加网页音乐播放器功能  </p>
-<p>效果图：<br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/music01.png" alt=""></p>
-<a id="more"></a>
+        <p><span><br><a id="more"></a><br>效果图：<br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/music01.png" alt=""></span></p>
 <h1 id="download"><a href="#download" class="headerlink" title="download"></a><a href="#download" title="download"></a>download</h1><p>点击访问Aplayer源码：<a href="https://github.com/MoePlayer/APlayer" target="_blank" rel="noopener">GitHub Aplayer</a>。下载到本地，解压后将<code>dist</code>文件夹复制到<code>themes\next\source</code>文件夹下。</p>
 <h1 id="music-js"><a href="#music-js" class="headerlink" title="music.js"></a><a href="#music-js" title="music.js"></a>music.js</h1><p>新建<code>themes\next\source\dist\music.js</code>文件，添加内容：  </p>
 <figure class="highlight roboconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">const ap = new APlayer(&#123;</span><br><span class="line">    <span class="attribute">container</span>: document<span class="variable">.getElementById</span>('aplayer'),</span><br><span class="line">    fixed: true,</span><br><span class="line">    autoplay: false,</span><br><span class="line">    audio: [</span><br><span class="line">	&#123;</span><br><span class="line">        name: "canon in d",</span><br><span class="line">        artist: 'Brian Crain',</span><br><span class="line">        url: 'http://pd2tflnys<span class="variable">.bkt</span><span class="variable">.clouddn</span><span class="variable">.com</span>/Brian%20Crain%20-%20canon%20in%20d<span class="variable">.mp</span>3',</span><br><span class="line">        cover: 'http://p1<span class="variable">.music</span>.126<span class="variable">.net</span>/QGb9Vtyw7qHS00uEvPfM6g==/843325418547559<span class="variable">.jpg</span>?param=130y130',</span><br><span class="line">      &#125;,</span><br><span class="line">	  &#123;</span><br><span class="line">        name: "Apologize",</span><br><span class="line">        artist: 'Martin Ermen',</span><br><span class="line">        url: 'http://pd2tflnys<span class="variable">.bkt</span><span class="variable">.clouddn</span><span class="variable">.com</span>/Martin%20Ermen%20-%20Apologize<span class="variable">.mp</span>3',</span><br><span class="line">        cover: 'http://p1<span class="variable">.music</span>.126<span class="variable">.net</span>/-_6mcI4VV5IKaiwhUAytbg==/1791104441647901<span class="variable">.jpg</span>?param=130y130',</span><br><span class="line">      &#125;,</span><br><span class="line">	  &#123;</span><br><span class="line">        name: "River Flows in You",</span><br><span class="line">        artist: 'Yiruma',</span><br><span class="line">        url: 'http://pd2tflnys<span class="variable">.bkt</span><span class="variable">.clouddn</span><span class="variable">.com</span>/Yiruma%20-%20River%20Flows%20in%20You<span class="variable">.flac</span>',</span><br><span class="line">        cover: 'http://p1<span class="variable">.music</span>.126<span class="variable">.net</span>/8ZRSyI0ZN_4ah8uzsNd1mA==/2324367581169008<span class="variable">.jpg</span>?param=130y130',</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: '惊蛰',</span><br><span class="line">        artist: '音阙诗听/王梓钰',</span><br><span class="line">        url: 'http://www<span class="variable">.ytmp</span>3<span class="variable">.cn</span>/down/48755<span class="variable">.mp</span>3',</span><br><span class="line">        cover: 'http://p1<span class="variable">.music</span>.126<span class="variable">.net</span>/5MmXpaP9r88tNzExPGMI8Q==/109951163370350985<span class="variable">.jpg</span>?param=130y130',</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
@@ -914,7 +916,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">71.6k</span>
+    <span title="Site words total count">71.4k</span>
   
 </div>
 <!--

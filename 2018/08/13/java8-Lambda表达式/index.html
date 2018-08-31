@@ -161,18 +161,18 @@
     }
 </style>
 
-<meta name="description" content="Java8发布已经有一段时间了，这次发布的改动比较大，很多人将这次改动与Java5的升级相提并论。Java8其中一个很重要的新特性就是lambda表达式，允许我们将行为传到函数中。想想看，在Java8之前我们想要将行为传入函数，仅有的选择就是匿名内部类。Java8发布以后，lambda表达式将大量替代匿名内部类的使用，简化代码的同时，更突出了原来匿名内部类中最重要的那部分包含真正逻辑的代码。尤其是">
+<meta name="description" content="Java8发布已经有一段时间了，这次发布的改动比较大，很多人将这次改动与Java5的升级相提并论。Java8其中一个很重要的新特性就是lambda表达式，允许我们将行为传到函数中。">
 <meta name="keywords" content="java,Lambda">
 <meta property="og:type" content="article">
 <meta property="og:title" content="java8 Lambda表达式">
 <meta property="og:url" content="https://yfzhou.coding.me/2018/08/13/java8-Lambda表达式/index.html">
 <meta property="og:site_name" content="Felix">
-<meta property="og:description" content="Java8发布已经有一段时间了，这次发布的改动比较大，很多人将这次改动与Java5的升级相提并论。Java8其中一个很重要的新特性就是lambda表达式，允许我们将行为传到函数中。想想看，在Java8之前我们想要将行为传入函数，仅有的选择就是匿名内部类。Java8发布以后，lambda表达式将大量替代匿名内部类的使用，简化代码的同时，更突出了原来匿名内部类中最重要的那部分包含真正逻辑的代码。尤其是">
+<meta property="og:description" content="Java8发布已经有一段时间了，这次发布的改动比较大，很多人将这次改动与Java5的升级相提并论。Java8其中一个很重要的新特性就是lambda表达式，允许我们将行为传到函数中。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-21T12:24:55.938Z">
+<meta property="og:updated_time" content="2018-08-31T15:37:45.729Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java8 Lambda表达式">
-<meta name="twitter:description" content="Java8发布已经有一段时间了，这次发布的改动比较大，很多人将这次改动与Java5的升级相提并论。Java8其中一个很重要的新特性就是lambda表达式，允许我们将行为传到函数中。想想看，在Java8之前我们想要将行为传入函数，仅有的选择就是匿名内部类。Java8发布以后，lambda表达式将大量替代匿名内部类的使用，简化代码的同时，更突出了原来匿名内部类中最重要的那部分包含真正逻辑的代码。尤其是">
+<meta name="twitter:description" content="Java8发布已经有一段时间了，这次发布的改动比较大，很多人将这次改动与Java5的升级相提并论。Java8其中一个很重要的新特性就是lambda表达式，允许我们将行为传到函数中。">
 
 
 
@@ -535,6 +535,10 @@
           
 
           
+              <div class="post-description">
+                  Java8发布已经有一段时间了，这次发布的改动比较大，很多人将这次改动与Java5的升级相提并论。Java8其中一个很重要的新特性就是lambda表达式，允许我们将行为传到函数中。
+              </div>
+          
 
         </div>
       </header>
@@ -549,8 +553,8 @@
       
 
       
-        <p>Java8发布已经有一段时间了，这次发布的改动比较大，很多人将这次改动与Java5的升级相提并论。Java8其中一个很重要的新特性就是lambda表达式，允许我们将行为传到函数中。想想看，在Java8<br>之前我们想要将行为传入函数，仅有的选择就是匿名内部类。Java8发布以后，lambda表达式将大量替代匿名内部类的使用，简化代码的同时，更突出了原来匿名内部类中最重要的那部分包含真正逻辑的代码。尤其是对于做数据的同学来说，当习惯使用类似scala之类的函数式编程语言以后，体会将更加深刻。现在我们就来看看Java8中lambda表达式的一些常见写法。</p>
-<a id="more"></a>
+        <p><span><br><a id="more"></a></span></p>
+<p>Java8发布已经有一段时间了，这次发布的改动比较大，很多人将这次改动与Java5的升级相提并论。Java8其中一个很重要的新特性就是lambda表达式，允许我们将行为传到函数中。想想看，在Java8<br>之前我们想要将行为传入函数，仅有的选择就是匿名内部类。Java8发布以后，lambda表达式将大量替代匿名内部类的使用，简化代码的同时，更突出了原来匿名内部类中最重要的那部分包含真正逻辑的代码。尤其是对于做数据的同学来说，当习惯使用类似scala之类的函数式编程语言以后，体会将更加深刻。现在我们就来看看Java8中lambda表达式的一些常见写法。</p>
 <h2 id="1-替代匿名内部类"><a href="#1-替代匿名内部类" class="headerlink" title="1.替代匿名内部类"></a>1.替代匿名内部类</h2><p>毫无疑问，lambda表达式用得最多的场合就是替代匿名内部类，而实现Runnable接口是匿名内部类的经典例子。lambda表达式的功能相当强大，用()-&gt;就可以代替整个匿名内部类！请看代码：</p>
 <p>如果使用匿名内部类：<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">oldRunable</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="function"><span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            System.out.println(<span class="string">"The old runable now is using!"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>而如果使用lambda表达式：<br><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">public <span class="literal">void</span> runable() &#123;</span><br><span class="line">    <span class="keyword">new</span> Thread<span class="function"><span class="params">(() -&gt; System.out.println(<span class="string">"It's a lambda function!"</span>))</span>.<span class="title">start</span><span class="params">()</span>;</span></span><br><span class="line"><span class="function">&#125;</span></span><br></pre></td></tr></table></figure></p>
@@ -925,7 +929,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">71.6k</span>
+    <span title="Site words total count">71.4k</span>
   
 </div>
 <!--

@@ -169,7 +169,7 @@
 <meta property="og:site_name" content="Felix">
 <meta property="og:description" content="最近应工作需求html预览pdf和word，一些所涉功能知识记录一下,其他教程写得太老了，可能到如今已经不再适用。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-15T01:17:52.322Z">
+<meta property="og:updated_time" content="2018-08-31T15:46:35.659Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在HTML在线预览PDF、word、xls、ppt等文件">
 <meta name="twitter:description" content="最近应工作需求html预览pdf和word，一些所涉功能知识记录一下,其他教程写得太老了，可能到如今已经不再适用。">
@@ -512,7 +512,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  959 字
+                  916 字
                 </span>
               
 
@@ -535,6 +535,10 @@
           
 
           
+              <div class="post-description">
+                  最近应工作需求html预览pdf和word，一些所涉功能知识记录一下,其他教程写得太老了，可能到如今已经不再适用。
+              </div>
+          
 
         </div>
       </header>
@@ -549,8 +553,7 @@
       
 
       
-        <p>最近应工作需求html预览pdf和word，一些所涉功能知识记录一下,其他教程写得太老了，可能到如今已经不再适用。</p>
-<a id="more"></a>
+        <p><span><br><a id="more"></a></span></p>
 <h2 id="html实现pdf文件在线预览功能"><a href="#html实现pdf文件在线预览功能" class="headerlink" title="html实现pdf文件在线预览功能"></a>html实现pdf文件在线预览功能</h2><h3 id="方式一、-lt-a-gt-标签"><a href="#方式一、-lt-a-gt-标签" class="headerlink" title="方式一、&lt;a&gt;标签"></a>方式一、<code>&lt;a&gt;</code>标签</h3><p>pdf文件理论上可以在浏览器直接打开预览但是需要打开新页面。在仅仅是预览pdf文件且UI要求不高的情况下可以直接通过a标签href属性实现预览<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"文档地址"</span>&gt;</span>预览pdf<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="方式二、jquery-media-js"><a href="#方式二、jquery-media-js" class="headerlink" title="方式二、jquery.media.js"></a>方式二、jquery.media.js</h3><p>通过jquery插件<a href="https://link.jianshu.com?t=https%3A%2F%2Fgithub.com%2Fmalsup%2Fmedia%2Fblob%2Fmaster%2Fjquery.media.js" target="_blank" rel="noopener">jquery.media.js</a>实现</p>
 <p>这个插件可以实现pdf预览功能（包括其他各种<a href="https://link.jianshu.com?t=http%3A%2F%2Fwww.jb51.net%2Farticle%2F58724.htm" target="_blank" rel="noopener">媒体文件</a>）但是对word等类型的文件无能为力。</p>
@@ -563,9 +566,8 @@
 <h3 id="方式四、-lt-embed-gt-标签"><a href="#方式四、-lt-embed-gt-标签" class="headerlink" title="方式四、&lt;embed&gt;标签"></a>方式四、<code>&lt;embed&gt;</code>标签</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;embed <span class="attribute">src</span>=<span class="string">"previewUrl"</span> <span class="attribute">type</span>=<span class="string">"application/pdf"</span> <span class="attribute">width</span>=<span class="string">"100%"</span> <span class="attribute">height</span>=<span class="string">"100%"</span>&gt;</span><br></pre></td></tr></table></figure>
 <p>此标签h5特性中包含四个属性：高、宽、类型、预览文件src！<br>与<code>&lt;iframe&gt;&lt;/iframe&gt;</code>不同，这个标签是自闭合的的，也就是说如果浏览器不支持PDF的嵌入，那么这个标签的内容什么都看不到！</p>
 <h3 id="方式五、-lt-object-gt-标签"><a href="#方式五、-lt-object-gt-标签" class="headerlink" title="方式五、&lt;object&gt;标签"></a>方式五、<code>&lt;object&gt;</code>标签</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;object src=<span class="string">"previewUrl"</span> width=<span class="string">"100%"</span> height=<span class="string">"100%"</span>&gt;</span><br><span class="line">  This browser does <span class="keyword">not</span> support PDFs. </span><br><span class="line">  Please download <span class="keyword">the</span> PDF <span class="built_in">to</span> view <span class="keyword">it</span>: </span><br><span class="line">  &lt;<span class="keyword">a</span> href=<span class="string">"previewUrl"</span>&gt;Download PDF&lt;/<span class="keyword">a</span>&gt;</span><br><span class="line">&lt;/object&gt;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>除方式二以外其他都是直接通过标签将内容引入页面实现预览</p>
-</blockquote>
+<div class="note warning"><p>除方式二以外其他都是直接通过标签将内容引入页面实现预览</p></div>
+
 <h3 id="方式六、PDFObject"><a href="#方式六、PDFObject" class="headerlink" title="方式六、PDFObject"></a>方式六、PDFObject</h3><p>PDFObject实际上也是通过<code>&lt;embed&gt;</code>标签实现的直接上代码<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Show PDF<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">'pdfobject.min.js'</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">        <span class="selector-tag">html</span>,<span class="selector-tag">body</span>,<span class="selector-id">#pdf_viewer</span>&#123;</span></span><br><span class="line"><span class="undefined">            width: 100%;</span></span><br><span class="line"><span class="undefined">            height: 100%;</span></span><br><span class="line"><span class="undefined">            margin: 0;</span></span><br><span class="line"><span class="undefined">            padding: 0;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"pdf_viewer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    <span class="keyword">if</span>(PDFObject.supportsPDFs)&#123;</span></span><br><span class="line"><span class="actionscript">        <span class="comment">// PDF嵌入到网页</span></span></span><br><span class="line"><span class="actionscript">        PDFObject.embed(<span class="string">"index.pdf"</span>, <span class="string">"#pdf_viewer"</span> );</span></span><br><span class="line"><span class="actionscript">    &#125; <span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="actionscript">        location.href = <span class="string">"/canvas"</span>;</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>还可以通过以下代码进行判断是否支持PDFObject预览<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(PDFObject.supportsPDFs)&#123;</span><br><span class="line">   console.<span class="built_in">log</span>(<span class="string">"Yay, this browser supports inline PDFs."</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   console.<span class="built_in">log</span>(<span class="string">"Boo, inline PDFs are not supported by this browser"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h3 id="方式七、PDF-js"><a href="#方式七、PDF-js" class="headerlink" title="方式七、PDF.js"></a>方式七、PDF.js</h3><p>PDF.js可以实现在html下直接浏览pdf文档，是一款开源的pdf文档读取解析插件，非常强大，能将PDF文件渲染成Canvas。PDF.js主要包含两个库文件，一个pdf.js和一个pdf.worker.js，一个负责API解析，一个负责核心解析。</p>
@@ -935,7 +937,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">71.6k</span>
+    <span title="Site words total count">71.4k</span>
   
 </div>
 <!--

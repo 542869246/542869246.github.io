@@ -161,13 +161,13 @@
     }
 </style>
 
-<meta name="description" content="起因Swiftype现在收费了，也没有免费版本。Local Search搜索体验不好，微搜索Next官网上描述太少！所以选择Algolia。 注：Algolia搜索在版本 5.1.0 中引入，要使用此功能请确保所使用的 NexT 版本在此之后">
+<meta name="description" content="起因Swiftype现在收费了，也没有免费版本。Local Search搜索体验不好，微搜索Next官网上描述太少！所以选择Algolia。 注：Algolia搜索在版本5.1.0中引入，要使用此功能请确保所使用的 NexT 版本在此之后">
 <meta name="keywords" content="Hexo,Next">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo-Next搭建个人博客（集成Algolia站内搜索引擎）">
 <meta property="og:url" content="https://yfzhou.coding.me/2018/08/08/Hexo-Next搭建个人博客（集成Algolia站内搜索引擎）/index.html">
 <meta property="og:site_name" content="Felix">
-<meta property="og:description" content="起因Swiftype现在收费了，也没有免费版本。Local Search搜索体验不好，微搜索Next官网上描述太少！所以选择Algolia。 注：Algolia搜索在版本 5.1.0 中引入，要使用此功能请确保所使用的 NexT 版本在此之后">
+<meta property="og:description" content="起因Swiftype现在收费了，也没有免费版本。Local Search搜索体验不好，微搜索Next官网上描述太少！所以选择Algolia。 注：Algolia搜索在版本5.1.0中引入，要使用此功能请确保所使用的 NexT 版本在此之后">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/3899681-c00f0825ef763c9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
 <meta property="og:image" content="http://www.qingpingshan.com/uploads/allimg/180511/1440043942-0.png">
@@ -176,10 +176,10 @@
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/algolia01.png">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/algolia04.png">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/algolia03.png">
-<meta property="og:updated_time" content="2018-08-15T03:34:05.846Z">
+<meta property="og:updated_time" content="2018-08-31T16:05:11.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-Next搭建个人博客（集成Algolia站内搜索引擎）">
-<meta name="twitter:description" content="起因Swiftype现在收费了，也没有免费版本。Local Search搜索体验不好，微搜索Next官网上描述太少！所以选择Algolia。 注：Algolia搜索在版本 5.1.0 中引入，要使用此功能请确保所使用的 NexT 版本在此之后">
+<meta name="twitter:description" content="起因Swiftype现在收费了，也没有免费版本。Local Search搜索体验不好，微搜索Next官网上描述太少！所以选择Algolia。 注：Algolia搜索在版本5.1.0中引入，要使用此功能请确保所使用的 NexT 版本在此之后">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/3899681-c00f0825ef763c9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700">
 
 
@@ -543,6 +543,10 @@
           
 
           
+              <div class="post-description">
+                  起因Swiftype现在收费了，也没有免费版本。Local Search搜索体验不好，微搜索Next官网上描述太少！所以选择Algolia。 注：Algolia搜索在版本5.1.0中引入，要使用此功能请确保所使用的 NexT 版本在此之后
+              </div>
+          
 
         </div>
       </header>
@@ -557,8 +561,7 @@
       
 
       
-        <p>起因Swiftype现在收费了，也没有免费版本。Local Search搜索体验不好，微搜索Next官网上描述太少！所以选择Algolia。 注：Algolia搜索在版本<strong> 5.1.0 </strong>中引入，要使用此功能请确保所使用的 NexT 版本在此之后</p>
-<a id="more"></a>
+        <p><span><br><a id="more"></a><br>起因Swiftype现在收费了，也没有免费版本。Local Search搜索体验不好，微搜索Next官网上描述太少！所以选择Algolia。 注：Algolia搜索在版本<strong> 5.1.0 </strong>中引入，要使用此功能请确保所使用的 NexT 版本在此之后</span></p>
 <h2 id="首先注册Algolia账户"><a href="#首先注册Algolia账户" class="headerlink" title="首先注册Algolia账户"></a>首先注册Algolia账户</h2><p><a href="https://link.juejin.im?target=https%3A%2F%2Fwww.algolia.com%2Fusers%2Fsign_in" target="_blank" rel="noopener">Algolia 登陆页面https://www.algolia.com/users/sign_in</a> ，可以使用 GitHub 或者 Google 账户直接登录，也可以注册一个新账户。我直接用谷歌账户登陆了，注册后的 14 天内拥有所有功能（包括收费类别的）。之后若未续费会自动降级为免费账户，免费账户 总共有 10,000 条记录，每月有 100,000 的可以操作数。</p>
 <p>注册完成后，创建一个新的 Index，这个 index name 之后会用到<br><img src="https://upload-images.jianshu.io/upload_images/3899681-c00f0825ef763c9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
 <p>Index 创建完成后，此时这个 Index 里未包含任何数据。 接下来需要安装 Hexo Algolia 扩展， 这个扩展的功能是搜集站点的内容并通过 API 发送给 Algolia。前往站点根目录，执行命令安装：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-algolia --save  <span class="comment"># 目前最新版本是1.2.5，下面的操作都是基于这个版本的文档</span></span><br></pre></td></tr></table></figure></p>
@@ -937,7 +940,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">71.6k</span>
+    <span title="Site words total count">71.4k</span>
   
 </div>
 <!--

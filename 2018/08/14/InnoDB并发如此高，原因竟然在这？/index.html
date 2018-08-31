@@ -161,13 +161,11 @@
     }
 </style>
 
-<meta name="description" content="此文摘自微信公众号【架构师之路】 微信扫一扫关注该公众号">
 <meta name="keywords" content="数据库,SQL,InnoDB">
 <meta property="og:type" content="article">
 <meta property="og:title" content="InnoDB并发如此高，原因竟然在这？">
 <meta property="og:url" content="https://yfzhou.coding.me/2018/08/14/InnoDB并发如此高，原因竟然在这？/index.html">
 <meta property="og:site_name" content="Felix">
-<meta property="og:description" content="此文摘自微信公众号【架构师之路】 微信扫一扫关注该公众号">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MjM5ODYxMDA5OQ==&mid=2651961431&idx=1&sn=4f46fbada3d99ca6cf74b305d06c1ac6&send_time=">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/222481745858779089.jpg">
@@ -175,10 +173,9 @@
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/76916220599096767.jpg">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/138982544617441980.jpg">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/319830267672366053.jpg">
-<meta property="og:updated_time" content="2018-08-15T13:50:38.879Z">
+<meta property="og:updated_time" content="2018-08-31T14:58:57.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="InnoDB并发如此高，原因竟然在这？">
-<meta name="twitter:description" content="此文摘自微信公众号【架构师之路】 微信扫一扫关注该公众号">
 <meta name="twitter:image" content="https://mp.weixin.qq.com/mp/qrcode?scene=10000004&size=102&__biz=MjM5ODYxMDA5OQ==&mid=2651961431&idx=1&sn=4f46fbada3d99ca6cf74b305d06c1ac6&send_time=">
 
 
@@ -556,9 +553,9 @@
       
 
       
-        <p>此文摘自微信公众号【架构师之路】</p>
+        <p><span></span><br><a id="more"></a><br>此文摘自微信公众号【架构师之路】</p>
 <p>微信扫一扫<br>关注该公众号</p>
-<p><img src="https://mp.weixin.qq.com/mp/qrcode?scene=10000004&amp;size=102&amp;__biz=MjM5ODYxMDA5OQ==&amp;mid=2651961431&amp;idx=1&amp;sn=4f46fbada3d99ca6cf74b305d06c1ac6&amp;send_time=" alt=""><br><a id="more"></a></p>
+<p><img src="https://mp.weixin.qq.com/mp/qrcode?scene=10000004&amp;size=102&amp;__biz=MjM5ODYxMDA5OQ==&amp;mid=2651961431&amp;idx=1&amp;sn=4f46fbada3d99ca6cf74b305d06c1ac6&amp;send_time=" alt=""></p>
 <p>《<a href="http://mp.weixin.qq.com/s?__biz=MjM5ODYxMDA5OQ==&amp;mid=2651961431&amp;idx=1&amp;sn=4f46fbada3d99ca6cf74b305d06c1ac6&amp;chksm=bd2d0d8b8a5a849d8cb5a616c957abde7a6485cd2624372b84a5459eed081bd95429a09572f8&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">InnoDB行锁，如何锁住一条不存在的记录？</a>》埋了一个坑，没想到评论反响剧烈，大家都希望深挖下去。原计划写写InnoDB的锁结束这个case，既然呼声这么高，干脆全盘<strong>系统性</strong>的写写InnoDB的<strong>并发控制</strong>，<strong>锁</strong>，<strong>事务模型</strong>好了。</p>
 <p>体系相对宏大，一篇肯定写不完，容我娓娓道来，通俗地说清楚来龙去脉。</p>
 <p><strong>一、并发控制</strong></p>
@@ -1028,7 +1025,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">71.6k</span>
+    <span title="Site words total count">71.4k</span>
   
 </div>
 <!--

@@ -161,18 +161,15 @@
     }
 </style>
 
-<meta name="description" content="SQL执行效率总结">
 <meta name="keywords" content="数据库,SQL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL执行效率总结">
 <meta property="og:url" content="https://yfzhou.coding.me/2018/08/22/SQL执行效率总结/index.html">
 <meta property="og:site_name" content="Felix">
-<meta property="og:description" content="SQL执行效率总结">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-22T03:48:56.506Z">
+<meta property="og:updated_time" content="2018-08-31T14:44:41.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQL执行效率总结">
-<meta name="twitter:description" content="SQL执行效率总结">
 
 
 
@@ -512,7 +509,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  7,139 字
+                  7,132 字
                 </span>
               
 
@@ -549,8 +546,7 @@
       
 
       
-        <p>SQL执行效率总结</p>
-<a id="more"></a>
+        <p><span></span><br><a id="more"></a></p>
 <p>1.关于SQL查询效率，100w数据，查询只要1秒，与您分享:</p>
 <p>机器情况 p4: 2.4 内存: 1 G os: windows 2003 数据库: ms sql server 2000 目的: 查询性能测试,比较两种查询的性能</p>
 <p>SQL查询效率 step by step</p>
@@ -595,10 +591,9 @@
 <p>27.与临时表一样，游标并不是不可使用。对小型数据集使用 FAST_FORWARD 游标通常要优于其他逐行处理方法，尤其是在必须引用几个表才能获得所需的数据时。在结果集中包括“合计”的例程通常要比使用游标执行的速度快。如果开发时 间允许，基于游标的方法和基于集的方法都可以尝试一下，看哪一种方法的效果更好。</p>
 <p>28.在所有的存储过程和触发器的开始处设置 SET NOCOUNT ON ，在结束时设置 SET NOCOUNT OFF 。无需在执行存储过程和触发器的每个语句后向客户端发送 DONE_IN_PROC 消息。</p>
 <p>29.尽量避免大事务操作，提高系统并发能力。</p>
-<p>30.尽量避免向客户端返回大数据量，若数据量过大，应该考虑相应需求是否合理 </p>
-<blockquote>
-<p>1、避免将字段设为“允许为空”<br>2、数据表设计要规范<br>3、深入分析数据操作所要对数据库进行的操作<br>4、尽量不要使用临时表<br>5、多多使用事务<br>6、尽量不要使用游标<br>7、避免死锁<br>8、要注意读写锁的使用<br>9、不要打开大的数据集<br>10、不要使用服务器端游标<br>11、在程序编码时使用大数据量的数据库<br>12、不要给“性别”列创建索引<br>13、注意超时问题<br>14、不要使用Select *<br>15、在细节表中插入纪录时，不要在主表执行Select MAX(ID)<br>16、尽量不要使用TEXT数据类型<br>17、使用参数查询<br>18、不要使用Insert导入大批的数据<br>19、学会分析查询<br>20、使用参照完整性<br>21、用INNER JOIN 和LEFT JOIN代替Where </p>
-</blockquote>
+<p>30.尽量避免向客户端返回大数据量，若数据量过大，应该考虑相应需求是否合理</p>
+<div class="note info no-icon"><p>1、避免将字段设为“允许为空”<br>2、数据表设计要规范<br>3、深入分析数据操作所要对数据库进行的操作<br>4、尽量不要使用临时表<br>5、多多使用事务<br>6、尽量不要使用游标<br>7、避免死锁<br>8、要注意读写锁的使用<br>9、不要打开大的数据集<br>10、不要使用服务器端游标<br>11、在程序编码时使用大数据量的数据库<br>12、不要给“性别”列创建索引<br>13、注意超时问题<br>14、不要使用Select *<br>15、在细节表中插入纪录时，不要在主表执行Select MAX(ID)<br>16、尽量不要使用TEXT数据类型<br>17、使用参数查询<br>18、不要使用Insert导入大批的数据<br>19、学会分析查询<br>20、使用参照完整性<br>21、用INNER JOIN 和LEFT JOIN代替Where </p></div>
+
 <h3 id="提高SQL查询效率（要点与技巧）："><a href="#提高SQL查询效率（要点与技巧）：" class="headerlink" title="提高SQL查询效率（要点与技巧）："></a>提高SQL查询效率（要点与技巧）：</h3><h4 id="技巧一"><a href="#技巧一" class="headerlink" title="技巧一"></a>技巧一</h4><p>问题类型：ACCESS数据库字段中含有日文片假名或其它不明字符时查询会提示内存溢出。 解决方法：修改查询语句 <code>sql=&quot;select * from tablename where column like &#39;%&quot;&amp;word&amp;&quot;%&#39;&quot; 改为 sql=&quot;select * from tablename&quot; rs.filter = &quot; column like &#39;%&quot;&amp;word&amp;&quot;%&#39;&quot;</code> </p>
 <h4 id="技巧二"><a href="#技巧二" class="headerlink" title="技巧二"></a>技巧二</h4><p>问题类型：如何用简易的办法实现类似百度的多关键词查询（多关键词用空格或其它符号间隔）。 解决方法：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//用空格分割查询字符串 </span><br><span class="line">ck=split(word," ")</span><br><span class="line">//得到分割后的数量 </span><br><span class="line">sck=UBound(ck) </span><br><span class="line">sql="<span class="keyword">select</span> * tablename <span class="keyword">where</span><span class="string">" 在一个字段中查询 For i = 0 To sck SQL = SQL &amp; tempJoinWord &amp; "</span>(<span class="string">" &amp; _ "</span><span class="keyword">column</span> <span class="keyword">like</span> <span class="string">'"&amp;ck(i)&amp;"%'</span>)<span class="string">" tempJoinWord = "</span> <span class="keyword">and</span> <span class="string">" Next 在二个字段中同时查询 For i = 0 To sck SQL = SQL &amp; tempJoinWord &amp; "</span>(<span class="string">" &amp; _ "</span><span class="keyword">column</span> <span class="keyword">like</span> <span class="string">'"&amp;ck(i)&amp;"%'</span> <span class="keyword">or</span> <span class="string">" &amp; _ "</span>column1 <span class="keyword">like</span> <span class="string">'"&amp;ck(i)&amp;"%'</span>)<span class="string">" tempJoinWord = "</span> <span class="keyword">and</span> <span class="string">" Next</span></span><br></pre></td></tr></table></figure></p>
 <h4 id="技巧三"><a href="#技巧三" class="headerlink" title="技巧三"></a>技巧三</h4><p>大大提高查询效率的几种技巧</p>
@@ -998,7 +993,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">71.6k</span>
+    <span title="Site words total count">71.4k</span>
   
 </div>
 <!--

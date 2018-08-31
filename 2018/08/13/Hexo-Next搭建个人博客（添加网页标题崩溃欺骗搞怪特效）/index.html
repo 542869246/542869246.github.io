@@ -169,7 +169,7 @@
 <meta property="og:site_name" content="Felix">
 <meta property="og:description" content="给网页title添加一些搞怪特效">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-13T11:25:17.715Z">
+<meta property="og:updated_time" content="2018-08-31T15:40:12.169Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-Next搭建个人博客（添加网页标题崩溃欺骗搞怪特效）">
 <meta name="twitter:description" content="给网页title添加一些搞怪特效">
@@ -512,7 +512,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  140 字
+                  128 字
                 </span>
               
 
@@ -535,6 +535,10 @@
           
 
           
+              <div class="post-description">
+                  给网页title添加一些搞怪特效
+              </div>
+          
 
         </div>
       </header>
@@ -549,8 +553,7 @@
       
 
       
-        <p>给网页title添加一些搞怪特效  </p>
-<a id="more"></a>
+        <p><span></span><br><a id="more"></a></p>
 <h1 id="crash-cheat-js"><a href="#crash-cheat-js" class="headerlink" title="crash_cheat.js"></a><a href="#crash-cheat-js" title="crash_cheat.js"></a>crash_cheat.js</h1><p>在<code>next\source\js\src</code>文件夹下创建<code>crash_cheat.js</code>，添加代码：  </p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--崩溃欺骗--&gt;</span><br><span class="line"><span class="keyword">var</span> OriginTitle = <span class="built_in">document</span>.title;</span><br><span class="line"><span class="keyword">var</span> titleTime;</span><br><span class="line"><span class="built_in">document</span>.addEventListener(<span class="string">'visibilitychange'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">document</span>.hidden) &#123;</span><br><span class="line">        $(<span class="string">'[rel="icon"]'</span>).attr(<span class="string">'href'</span>, <span class="string">"/img/TEP.ico"</span>);</span><br><span class="line">        <span class="built_in">document</span>.title = <span class="string">'╭(°A°`)╮ 页面崩溃啦 ~'</span>;</span><br><span class="line">        clearTimeout(titleTime);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        $(<span class="string">'[rel="icon"]'</span>).attr(<span class="string">'href'</span>, <span class="string">"/favicon.ico"</span>);</span><br><span class="line">        <span class="built_in">document</span>.title = <span class="string">'(ฅ&gt;ω&lt;*ฅ) 噫又好了~'</span> + OriginTitle;</span><br><span class="line">        titleTime = setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">            <span class="built_in">document</span>.title = OriginTitle;</span><br><span class="line">        &#125;, <span class="number">2000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a><a href="#引用" title="引用"></a>引用</h1><p>在<code>next\layout\_layout.swig</code>文件中，添加引用（注：在swig末尾添加）：  </p>
@@ -905,7 +908,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">71.6k</span>
+    <span title="Site words total count">71.4k</span>
   
 </div>
 <!--

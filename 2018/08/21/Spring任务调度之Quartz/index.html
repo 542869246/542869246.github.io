@@ -161,18 +161,18 @@
     }
 </style>
 
-<meta name="description" content="Quartz是OpenSymphony开源组织在Job scheduling领域又一个开源项目，是完全由java开发的一个开源的任务日程管理系统，“任务进度管理器”就是一个在预先确定（被纳入日程）的时间到达时，负责执行（或者通知）其他软件组件的系统。Quartz用一个小Java库发布文件（.jar文件），这个库文件包含了所有Quartz核心功能。这些功能的主要接口(API)是Scheduler接口">
+<meta name="description" content="Quartz是OpenSymphony开源组织在Job scheduling领域又一个开源项目，是完全由java开发的一个开源的任务日程管理系统，“任务进度管理器”就是一个在预先确定（被纳入日程）的时间到达时，负责执行（或者通知）其他软件组件的系统。">
 <meta name="keywords" content="java,Spring,Quartz">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring任务调度之Quartz">
 <meta property="og:url" content="https://yfzhou.coding.me/2018/08/21/Spring任务调度之Quartz/index.html">
 <meta property="og:site_name" content="Felix">
-<meta property="og:description" content="Quartz是OpenSymphony开源组织在Job scheduling领域又一个开源项目，是完全由java开发的一个开源的任务日程管理系统，“任务进度管理器”就是一个在预先确定（被纳入日程）的时间到达时，负责执行（或者通知）其他软件组件的系统。Quartz用一个小Java库发布文件（.jar文件），这个库文件包含了所有Quartz核心功能。这些功能的主要接口(API)是Scheduler接口">
+<meta property="og:description" content="Quartz是OpenSymphony开源组织在Job scheduling领域又一个开源项目，是完全由java开发的一个开源的任务日程管理系统，“任务进度管理器”就是一个在预先确定（被纳入日程）的时间到达时，负责执行（或者通知）其他软件组件的系统。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-21T12:25:06.960Z">
+<meta property="og:updated_time" content="2018-08-31T14:51:15.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring任务调度之Quartz">
-<meta name="twitter:description" content="Quartz是OpenSymphony开源组织在Job scheduling领域又一个开源项目，是完全由java开发的一个开源的任务日程管理系统，“任务进度管理器”就是一个在预先确定（被纳入日程）的时间到达时，负责执行（或者通知）其他软件组件的系统。Quartz用一个小Java库发布文件（.jar文件），这个库文件包含了所有Quartz核心功能。这些功能的主要接口(API)是Scheduler接口">
+<meta name="twitter:description" content="Quartz是OpenSymphony开源组织在Job scheduling领域又一个开源项目，是完全由java开发的一个开源的任务日程管理系统，“任务进度管理器”就是一个在预先确定（被纳入日程）的时间到达时，负责执行（或者通知）其他软件组件的系统。">
 
 
 
@@ -549,9 +549,8 @@
       
 
       
-        <p><code>Quartz</code>是<code>OpenSymphony</code>开源组织在<code>Job scheduling</code>领域又一个开源项目，是完全由java开发的一个开源的任务日程管理系统，“任务进度管理器”就是一个在预先确定（被纳入日程）的时间到达时，负责执行（或者通知）其他软件组件的系统。<br><code>Quartz</code>用一个小Java库发布文件（.jar文件），这个库文件包含了所有Quartz核心功能。这些功能的主要接口(API)是<code>Scheduler</code>接口。它提供了简单的操作，例如：将任务纳入日程或者从日程中取消，开始/停止/暂停日程进度。 </p>
+        <p><code>Quartz</code>是<code>OpenSymphony</code>开源组织在<code>Job scheduling</code>领域又一个开源项目，是完全由java开发的一个开源的任务日程管理系统，“任务进度管理器”就是一个在预先确定（被纳入日程）的时间到达时，负责执行（或者通知）其他软件组件的系统。<br><a id="more"></a><br><code>Quartz</code>用一个小Java库发布文件（.jar文件），这个库文件包含了所有Quartz核心功能。这些功能的主要接口(API)是<code>Scheduler</code>接口。它提供了简单的操作，例如：将任务纳入日程或者从日程中取消，开始/停止/暂停日程进度。 </p>
 <hr>
-<a id="more"></a>
 <h4 id="一、Quartz作业类的继承方式来讲，可以分为两类："><a href="#一、Quartz作业类的继承方式来讲，可以分为两类：" class="headerlink" title="一、Quartz作业类的继承方式来讲，可以分为两类："></a>一、Quartz作业类的继承方式来讲，可以分为两类：</h4><ol>
 <li>作业类需要继承自特定的作业类基类，如Quartz中需要继承自<code>org.springframework.scheduling.quartz.QuartzJobBean</code>；<code>java.util.Time</code>r中需要继承自<code>java.util.TimerTask</code>。</li>
 <li>作业类即普通的java类，不需要继承自任何基类。</li>
@@ -568,9 +567,8 @@
 <hr>
 <h4 id="第一种，作业类继承自特定的基类：org-springframework-scheduling-quartz-QuartzJobBean"><a href="#第一种，作业类继承自特定的基类：org-springframework-scheduling-quartz-QuartzJobBean" class="headerlink" title="第一种，作业类继承自特定的基类：org.springframework.scheduling.quartz.QuartzJobBean"></a>第一种，作业类继承自特定的基类：org.springframework.scheduling.quartz.QuartzJobBean</h4><h5 id="第一步：定义作业类"><a href="#第一步：定义作业类" class="headerlink" title="第一步：定义作业类"></a>第一步：定义作业类</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> org.quartz.JobExecutionContext;  </span><br><span class="line"><span class="keyword">import</span> org.quartz.JobExecutionException;  </span><br><span class="line"><span class="keyword">import</span> org.springframework.scheduling.quartz.QuartzJobBean;  </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Job1</span> <span class="keyword">extends</span> <span class="title">QuartzJobBean</span> </span>&#123;  </span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">int</span> timeout;  </span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> i = <span class="number">0</span>;  </span><br><span class="line">  <span class="comment">//调度工厂实例化后，经过timeout时间开始执行调度  </span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setTimeout</span><span class="params">(<span class="keyword">int</span> timeout)</span> </span>&#123;  </span><br><span class="line">  <span class="keyword">this</span>.timeout = timeout;  </span><br><span class="line">  &#125;  </span><br><span class="line">  </span><br><span class="line">  <span class="comment">/** </span></span><br><span class="line"><span class="comment">  * 要调度的具体任务 </span></span><br><span class="line"><span class="comment">  */</span> </span><br><span class="line">  <span class="meta">@Override</span> </span><br><span class="line">  <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">executeInternal</span><span class="params">(JobExecutionContext context)</span>  </span></span><br><span class="line"><span class="function">  <span class="keyword">throws</span> JobExecutionException </span>&#123;  </span><br><span class="line">  System.out.println(<span class="string">"定时任务执行中…"</span>);  </span><br><span class="line">  &#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h5 id="第二步：spring配置文件中配置作业类JobDetailBean"><a href="#第二步：spring配置文件中配置作业类JobDetailBean" class="headerlink" title="第二步：spring配置文件中配置作业类JobDetailBean"></a>第二步：spring配置文件中配置作业类JobDetailBean</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean name=<span class="string">"job1"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"org.springframework.scheduling.quartz.JobDetailBean"</span>&gt;  </span><br><span class="line">&lt;property name=<span class="string">"jobClass"</span> value=<span class="string">"com.gy.Job1"</span> /&gt;  </span><br><span class="line">&lt;property name=<span class="string">"jobDataAsMap"</span>&gt;  </span><br><span class="line">  &lt;map&gt;  </span><br><span class="line">    &lt;entry key=<span class="string">"timeout"</span> value=<span class="string">"0"</span> /&gt;  </span><br><span class="line">  &lt;<span class="regexp">/map&gt;  </span></span><br><span class="line"><span class="regexp">&lt;/</span>property&gt;  </span><br><span class="line">&lt;<span class="regexp">/bean&gt;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>说明：org.springframework.scheduling.quartz.JobDetailBean有两个属性，jobClass属性即我们在java代码中定义的任务类，jobDataAsMap属性即该任务类中需要注入的属性值。</p>
-</blockquote>
+<div class="note info"><p>说明：org.springframework.scheduling.quartz.JobDetailBean有两个属性，jobClass属性即我们在java代码中定义的任务类，jobDataAsMap属性即该任务类中需要注入的属性值。</p></div>
+
 <h5 id="第三步：配置作业调度的触发方式（触发器）"><a href="#第三步：配置作业调度的触发方式（触发器）" class="headerlink" title="第三步：配置作业调度的触发方式（触发器）"></a>第三步：配置作业调度的触发方式（触发器）</h5><p>   Quartz的作业触发器有两种，分别是</p>
 <p>   <code>org.springframework.scheduling.quartz.SimpleTriggerBean</code></p>
 <p>   <code>org.springframework.scheduling.quartz.CronTriggerBean</code></p>
@@ -950,7 +948,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">71.6k</span>
+    <span title="Site words total count">71.4k</span>
   
 </div>
 <!--

@@ -169,7 +169,7 @@
 <meta property="og:site_name" content="Felix">
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在开发高并发系统时有三把利器用来保护系统：缓存、降级和限流。之前已经有一些文章介绍过缓存和限流了。本文将详细聊聊降级。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-31T08:27:48.261Z">
+<meta property="og:updated_time" content="2018-08-31T14:11:11.810Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="都是套路：高并发系统的降级特技">
 <meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在开发高并发系统时有三把利器用来保护系统：缓存、降级和限流。之前已经有一些文章介绍过缓存和限流了。本文将详细聊聊降级。">
@@ -512,7 +512,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  3,190 字
+                  3,193 字
                 </span>
               
 
@@ -574,47 +574,32 @@
 <p><strong>爬虫降级：</strong>在大促活动时，可以将爬虫流量导向静态页或者返回空数据从而降级保护后端稀缺资源。</p>
 <h2 id="降级策略"><a href="#降级策略" class="headerlink" title="降级策略"></a>降级策略</h2><h3 id="1、自动开关降级"><a href="#1、自动开关降级" class="headerlink" title="1、自动开关降级"></a>1、自动开关降级</h3><p>自动降级是根据系统负载、资源使用情况、SLA等指标进行降级。</p>
 <h4 id="超时降级"><a href="#超时降级" class="headerlink" title="超时降级"></a>超时降级</h4><p>当访问的数据库/http服务/远程调用响应慢或者长时间响应慢，且该服务不是核心服务的话可以在超时后自动降级；</p>
-<blockquote>
-<p>比如商品详情页上有推荐内容/评价，但是推荐内容/评价暂时不展示对用户购物流程不会产生很大的影响；</p>
-</blockquote>
+<div class="note info"><p>比如商品详情页上有推荐内容/评价，但是推荐内容/评价暂时不展示对用户购物流程不会产生很大的影响</p></div>
+
 <p>对于这种服务是可以超时降级的。如果是调用别人的远程服务，和对方定义一个服务响应最大时间，如果超时了则自动降级。</p>
 <p>之前总结过一些的文章《使用httpclient必须知道的参数设置及代码写法、存在的风险》和《dbcp配置及jdbc超时设置总结》。在实际场景用一定主要配置好超时时间和超时重试次数和机制。</p>
 <h4 id="统计失败次数降级"><a href="#统计失败次数降级" class="headerlink" title="统计失败次数降级"></a>统计失败次数降级</h4><p>有时候依赖一些不稳定的API，比如调用外部机票服务，当失败调用次数达到一定阀值自动降级；然后通过异步线程去探测服务是否恢复了，则取消降级。</p>
 <h4 id="故障降级"><a href="#故障降级" class="headerlink" title="故障降级"></a>故障降级</h4><p>比如要调用的远程服务挂掉了（网络故障、DNS故障、http服务返回错误的状态码、rpc服务抛出异常），则可以直接降级。</p>
 <p><strong>降级后的处理方案有：</strong></p>
-<blockquote>
-<p>默认值（比如库存服务挂了，返回默认现货）</p>
-<p>兜底数据（比如广告挂了，返回提前准备好的一些静态页面）</p>
-<p>缓存（之前暂存的一些缓存数据）</p>
-</blockquote>
+<div class="note info no-icon"><p>默认值（比如库存服务挂了，返回默认现货）<br>兜底数据（比如广告挂了，返回提前准备好的一些静态页面）<br>缓存（之前暂存的一些缓存数据）</p></div>
+
 <h4 id="限流降级"><a href="#限流降级" class="headerlink" title="限流降级"></a>限流降级</h4><p>当我们去秒杀或者抢购一些限购商品时，此时可能会因为访问量太大而导致系统崩溃，此时开发者会使用限流来进行限制访问量，当达到限流阀值，后续请求会被降级；</p>
 <p><strong>降级后的处理方案可以是：</strong></p>
-<blockquote>
-<p>排队页面（将用户导流到排队页面等一会重试）</p>
-<p>无货（直接告知用户没货了）</p>
-<p>错误页（如活动太火爆了，稍后重试）</p>
-</blockquote>
-<h3 id="2、人工开关降级"><a href="#2、人工开关降级" class="headerlink" title="2、人工开关降级"></a>2、人工开关降级</h3><blockquote>
-<ul>
-<li>在大促期间通过监控发现线上的一些服务存在问题，这个时候需要暂时将这些服务摘掉；</li>
-<li>还有有时候通过任务系统调用一些服务，但是服务依赖的数据库可能存在：网卡被打满了、挂掉了或者很多慢查询，此时需要暂停下任务系统让服务方进行处理；</li>
-<li>还有发现突然调用量太大，可能需要改变处理方式（比如同步转换为异步）；</li>
-</ul>
-</blockquote>
+<div class="note info no-icon"><p>排队页面（将用户导流到排队页面等一会重试）<br>无货（直接告知用户没货了）<br>错误页（如活动太火爆了，稍后重试）</p></div>
+
+<h3 id="2、人工开关降级"><a href="#2、人工开关降级" class="headerlink" title="2、人工开关降级"></a>2、人工开关降级</h3><div class="note info no-icon"><p>1. 在大促期间通过监控发现线上的一些服务存在问题，这个时候需要暂时将这些服务摘掉；<br>2. 还有有时候通过任务系统调用一些服务，但是服务依赖的数据库可能存在：网卡被打满了、挂掉了或者很多慢查询，此时需要暂停下任务系统让服务方进行处理；<br>3. 还有发现突然调用量太大，可能需要改变处理方式（比如同步转换为异步）；</p></div>
+
 <p>此时就可以<strong>使用开关来完成降级</strong>。</p>
 <p>开关可以存放到配置文件、存放到数据库、存放到Redis/ZooKeeper；如果不是存放在本地，可以定期同步开关数据（比如1秒同步一次）。然后通过判断某个KEY的值来决定是否降级。</p>
 <p>另外对于新开发的服务想上线进行灰度测试；但是不太确定该服务的逻辑是否正确，此时就需要设置开关，当新服务有问题可以通过开关切换回老服务。</p>
 <p>还有多机房服务，如果某个机房挂掉了，此时需要将一个机房的服务切到另一个机房，此时也可以通过开关完成切换。</p>
 <p>还有一些是因为功能问题需要暂时屏蔽掉某些功能，比如商品规格参数数据有问题，数据问题不能用回滚解决，此时需要开关控制降级。</p>
 <h3 id="3、读服务降级"><a href="#3、读服务降级" class="headerlink" title="3、读服务降级"></a>3、读服务降级</h3><p><strong>对于读服务降级一般采用的策略有：</strong></p>
-<blockquote>
-<p>暂时切换读（降级到读缓存、降级到走静态化）</p>
-<p>暂时屏蔽读（屏蔽读入口、屏蔽某个读服务）</p>
-</blockquote>
+<div class="note info no-icon"><p>暂时切换读（降级到读缓存、降级到走静态化）<br>暂时屏蔽读（屏蔽读入口、屏蔽某个读服务）</p></div>
+
 <p>在《应用多级缓存模式支撑海量读服务》中曾经介绍过<strong>读服务</strong>，即：</p>
-<blockquote>
-<p>接入层缓存→应用层本地缓存→分布式缓存→RPC服务/DB</p>
-</blockquote>
+<div class="note info no-icon"><p>接入层缓存→应用层本地缓存→分布式缓存→RPC服务/DB</p></div>
+
 <p>我们会在接入层、应用层设置开关，当分布式缓存、RPC服务/DB有问题自动降级为不调用。当然这种情况适用于对读一致性要求不高的场景。</p>
 <p>页面降级、页面片段降级、页面异步请求降级都是读服务降级，目的是丢卒保帅（比如因为这些服务也要使用核心资源、或者占了带宽影响到核心服务）或者因数据问题暂时屏蔽。</p>
 <p>还有一种是页面静态化场景：</p>
@@ -992,7 +977,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">71.6k</span>
+    <span title="Site words total count">71.4k</span>
   
 </div>
 <!--
