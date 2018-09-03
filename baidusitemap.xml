@@ -4,6 +4,51 @@
 
     
   <url>
+    <loc>https://yfzhou.coding.me/2018/09/03/Python%E7%9A%8422%E4%B8%AA%E7%BC%96%E7%A8%8B%E6%8A%80%E5%B7%A7%EF%BC%8CPick%E4%B8%80%E4%B8%8B%EF%BC%9F/</loc>
+    <lastmod>2018-09-03T09:16:47.641Z</lastmod>
+    <data>
+        <display>
+        <title>Python的22个编程技巧，Pick一下？</title>
+        <pubTime>2018-09-03T08:41:20.000Z</pubTime>
+        
+        <tag>Python</tag>
+         
+         
+           
+             
+              <breadCrumb title="Python" url="https://yfzhou.coding.me/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>https://yfzhou.coding.me/2018/08/24/Java%E5%8F%8D%E5%B0%84%E6%8E%A2%E7%B4%A2-%E4%BB%8E%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%AF%B4%E8%B5%B7/</loc>
+    <lastmod>2018-09-01T02:48:47.242Z</lastmod>
+    <data>
+        <display>
+        <title>Java反射探索-----从类加载说起</title>
+        <pubTime>2018-08-24T06:29:49.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>反射</tag>
+         
+        <tag>类加载</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="https://yfzhou.coding.me/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://yfzhou.coding.me/2018/08/01/FreeMarker%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2018-08-31T17:00:48.128Z</lastmod>
     <data>
@@ -614,30 +659,6 @@
 
     
   <url>
-    <loc>https://yfzhou.coding.me/2018/08/24/Java%E5%8F%8D%E5%B0%84%E6%8E%A2%E7%B4%A2-%E4%BB%8E%E7%B1%BB%E5%8A%A0%E8%BD%BD%E8%AF%B4%E8%B5%B7/</loc>
-    <lastmod>2018-08-31T08:40:31.621Z</lastmod>
-    <data>
-        <display>
-        <title>Java反射探索-----从类加载说起</title>
-        <pubTime>2018-08-24T06:29:49.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>反射</tag>
-         
-        <tag>类加载</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="https://yfzhou.coding.me/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://yfzhou.coding.me/2018/08/24/Java%E5%8F%8D%E5%B0%84%E6%8E%A2%E7%B4%A2%E7%A0%94%E7%A9%B6/</loc>
     <lastmod>2018-08-31T08:36:39.369Z</lastmod>
     <data>
@@ -814,7 +835,6 @@
     </data>
     </url>
 
-    
     
     
     

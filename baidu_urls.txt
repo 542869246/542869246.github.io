@@ -1,3 +1,4 @@
+https://yfzhou.coding.me/2018/09/03/Python的22个编程技巧，Pick一下？/
 https://yfzhou.coding.me/2018/08/29/Hexo-Next搭建个人博客（SEO优化）/
 https://yfzhou.coding.me/2018/08/27/Hexo-Next搭建个人博客（代码块复制功能）/
 https://yfzhou.coding.me/2018/08/27/Hexo-Next搭建个人博客（主题优化）/

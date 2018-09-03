@@ -161,23 +161,23 @@
     }
 </style>
 
-<meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;摘要：本文主要讲了Java类加载的机制，这是学习反射的入门基础。">
+<meta name="description" content="摘要：本文主要讲了Java类加载的机制，这是学习反射的入门基础。">
 <meta name="keywords" content="java,反射,类加载">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java反射探索-----从类加载说起">
 <meta property="og:url" content="https://yfzhou.coding.me/2018/08/24/Java反射探索-从类加载说起/index.html">
 <meta property="og:site_name" content="Felix">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;摘要：本文主要讲了Java类加载的机制，这是学习反射的入门基础。">
+<meta property="og:description" content="摘要：本文主要讲了Java类加载的机制，这是学习反射的入门基础。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021091611555">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021091656155">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021091837350">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021092000170">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021092344220">
-<meta property="og:updated_time" content="2018-08-31T08:40:31.621Z">
+<meta property="og:updated_time" content="2018-09-01T02:48:47.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java反射探索-----从类加载说起">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;摘要：本文主要讲了Java类加载的机制，这是学习反射的入门基础。">
+<meta name="twitter:description" content="摘要：本文主要讲了Java类加载的机制，这是学习反射的入门基础。">
 <meta name="twitter:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/20151021091611555">
 
 
@@ -541,6 +541,10 @@
           
 
           
+              <div class="post-description">
+                  摘要：本文主要讲了Java类加载的机制，这是学习反射的入门基础。
+              </div>
+          
 
         </div>
       </header>
@@ -555,8 +559,7 @@
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;摘要：本文主要讲了Java类加载的机制，这是学习反射的入门基础。</p>
-<a id="more"></a>
+        <p><span><br><a id="more"></a><br>&nbsp;&nbsp;&nbsp;&nbsp;摘要：本文主要讲了Java类加载的机制，这是学习反射的入门基础。</span></p>
 <h1 id="一、类加载"><a href="#一、类加载" class="headerlink" title="一、类加载"></a>一、类加载</h1><p><strong>JVM和类</strong>  </p>
 <p>&nbsp;&nbsp;&nbsp;&nbsp;当我们调用Java命令运行某个Java程序时，该命令将会启动一条Java虚拟机进程，不管该Java程序有多么复杂，该程序启动了多少个线程，它们都处于该Java虚拟机进程里。正如前面介绍的，同一个JVM的所有线程、所有变量都处于同一个进程里，它们都使用该JVM进程的内存区。当系统出现以下几种情况时，JVM进程将被终止:  </p>
 <p>1、程序运行到最后正常结束。<br>2、程序运行到使用System.exit()或Runtime.getRuntime().exit()代码结束程序。<br>3、程序执行过程中遇到未捕获的异常或错误而结束。<br>3、程序所在平台强制结束了JVM进程。<br>从上面的介绍可以看出，当Java程序运行结束时，JVM进程结束，该进程在内存中状态将会丢失。</p>
@@ -821,7 +824,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">37</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -964,7 +967,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">71.4k</span>
+    <span title="Site words total count">73.6k</span>
   
 </div>
 <!--
