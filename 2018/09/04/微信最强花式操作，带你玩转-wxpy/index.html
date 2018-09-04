@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+<!--<meta name="baidu-site-verification" content="Cd4Lc5evwc" />-->
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "b3c7d22e"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="Cd4Lc5evwc" />
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Felix" type="application/atom+xml" />
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="description" content="wxpy基于itchat，使用了 Web 微信的通讯协议，通过大量接口优化提升了模块的易用性，并进行丰富的功能扩展。实现了微信登录、收发消息、搜索好友、数据统计、微信公众号、微信好友、微信群基本信息获取等功能。">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微信最强花式操作，带你玩转 wxpy">
+<meta property="og:url" content="https://yfzhou.coding.me/2018/09/04/微信最强花式操作，带你玩转-wxpy/index.html">
+<meta property="og:site_name" content="Felix">
+<meta property="og:description" content="wxpy基于itchat，使用了 Web 微信的通讯协议，通过大量接口优化提升了模块的易用性，并进行丰富的功能扩展。实现了微信登录、收发消息、搜索好友、数据统计、微信公众号、微信好友、微信群基本信息获取等功能。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/IMG_9380_看图王.png">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/IMG_9381_看图王.png">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM截图20180904170507.png">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/IMG_9382_看图王.png">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/render_01.png">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/render_02.png">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/render_03.png">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/render_04.png">
+<meta property="og:updated_time" content="2018-09-04T09:46:28.058Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微信最强花式操作，带你玩转 wxpy">
+<meta name="twitter:description" content="wxpy基于itchat，使用了 Web 微信的通讯协议，通过大量接口优化提升了模块的易用性，并进行丰富的功能扩展。实现了微信登录、收发消息、搜索好友、数据统计、微信公众号、微信好友、微信群基本信息获取等功能。">
+<meta name="twitter:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/IMG_9380_看图王.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '5GWESN2MHV',
+      apiKey: '756045653a25072015750606fb533a33',
+      indexName: 'hexo blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没有找到与 ${query} 相关的内容","hits_stats":"${hits}条相关记录，共耗时${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://yfzhou.coding.me/2018/09/04/微信最强花式操作，带你玩转-wxpy/"/>
+
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+  <title>微信最强花式操作，带你玩转 wxpy | Felix</title>
+  <style>
+  .forkme{
+ display: none;
+ }
+  @media (min-width: 768px) {
+ .forkme{
+ display: inline;
+ }
+  }
+  </style>
+  
+
+
+
+
+
+
+
+
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <div class="bg_content">
+    <canvas id="canvas"></canvas>
+  </div>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Felix</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Viva La Vida</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+ </div>
+	  
+	  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+	  
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yfzhou.coding.me/2018/09/04/微信最强花式操作，带你玩转-wxpy/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="felix">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Felix">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">微信最强花式操作，带你玩转 wxpy</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-04T10:39:25+08:00">
+                2018-09-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/04/微信最强花式操作，带你玩转-wxpy/" class="leancloud_visitors" data-flag-title="微信最强花式操作，带你玩转 wxpy">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,550 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11 分钟
+                </span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">
+                  wxpy基于itchat，使用了 Web 微信的通讯协议，通过大量接口优化提升了模块的易用性，并进行丰富的功能扩展。实现了微信登录、收发消息、搜索好友、数据统计、微信公众号、微信好友、微信群基本信息获取等功能。
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><span></span></p>
+<a id="more"></a>
+<h2 id="一、wxpy基本介绍与安装"><a href="#一、wxpy基本介绍与安装" class="headerlink" title="一、wxpy基本介绍与安装"></a>一、wxpy基本介绍与安装</h2><h3 id="1-wxpy基本介绍"><a href="#1-wxpy基本介绍" class="headerlink" title="1.wxpy基本介绍"></a>1.wxpy基本介绍</h3><div class="note info"><p>wxpy基于itchat，使用了 Web 微信的通讯协议，通过大量接口优化提升了模块的易用性，并进行丰富的功能扩展。实现了微信登录、收发消息、搜索好友、数据统计、微信公众号、微信好友、微信群基本信息获取等功能。<br>可用来实现各种微信个人号的自动化操作。<br></p></div>
+
+<h3 id="2-wxpy安装"><a href="#2-wxpy安装" class="headerlink" title="2.wxpy安装"></a>2.wxpy安装</h3><p>方法一：直接安装<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> wxpy</span><br></pre></td></tr></table></figure></p>
+<p>方法二：豆瓣源安装（推荐）<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -<span class="selector-tag">i</span> https:<span class="comment">//pypi.douban.com/simple/  wxpy</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="二、实践出真知"><a href="#二、实践出真知" class="headerlink" title="二、实践出真知"></a>二、实践出真知</h2><h2 id="1-给自己的文件传输助手发消息"><a href="#1-给自己的文件传输助手发消息" class="headerlink" title="1.给自己的文件传输助手发消息"></a>1.给自己的文件传输助手发消息</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time    : 2018/9/4 10:46</span></span><br><span class="line"><span class="comment"># @Author  : yfzhou</span></span><br><span class="line"><span class="comment"># @Site    : </span></span><br><span class="line"><span class="comment"># @File    : demo1.py</span></span><br><span class="line"><span class="comment"># @Software: PyCharm</span></span><br><span class="line"><span class="comment"># Life is short, I use python.</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 给自己的文件传输助手发消息</span></span><br><span class="line"><span class="keyword">from</span> wxpy <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># 初始化一个机器人对象</span></span><br><span class="line">bot = Bot(cache_path=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 向文件传输助手发送消息</span></span><br><span class="line">bot.file_helper.send(<span class="string">"hello,I'm Felix!"</span>)</span><br></pre></td></tr></table></figure>
+<p><code>Bot</code>类基本参数介绍：<br><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cache_path –  </span><br><span class="line">    设置当前会话的缓存路径，并开启缓存功能；为 <span class="literal">None</span> (默认) 则不开启缓存功能。  </span><br><span class="line">    开启缓存后可在短时间内避免重复扫码，缓存失效时会重新要求登陆。  </span><br><span class="line">    设为 <span class="literal">True</span> 时，使用默认的缓存路径 ‘wxpy.pkl’。  </span><br><span class="line">qr_path – 保存二维码的路径  </span><br><span class="line">console_qr – 在终端中显示登陆二维码</span><br></pre></td></tr></table></figure></p>
+<p>运行后弹出一个二维码图片，用微信扫码登录即可，再回来看手机消息。  </p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/IMG_9380_看图王.png" alt=""></p>
+<div class="note warning"><p>特别提醒：_使用的微信账号不能为新注册的账号，不然会报错<code>KeyError: &#39;pass_ticket&#39;</code>。<br></p></div>
+
+<h4 id="2-给指定朋友发送消息"><a href="#2-给指定朋友发送消息" class="headerlink" title="2.给指定朋友发送消息"></a>2.给指定朋友发送消息</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time    : 2018/9/4 10:54</span></span><br><span class="line"><span class="comment"># @Author  : yfzhou</span></span><br><span class="line"><span class="comment"># @Site    : </span></span><br><span class="line"><span class="comment"># @File    : demo2.py</span></span><br><span class="line"><span class="comment"># @Software: PyCharm</span></span><br><span class="line"><span class="comment"># Life is short, I use python.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> wxpy <span class="keyword">import</span> *</span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 初始化一个机器人对象</span></span><br><span class="line"><span class="comment"># cache_path缓存路径，给定值为第一次登录生成的缓存文件路径</span></span><br><span class="line">bot = Bot(cache_path=<span class="string">"D:\PycharmProjects\pythonProcedure\com\zyf\weixin\wxpy.pkl"</span>)</span><br><span class="line"><span class="comment"># 查找朋友"极简XksA"</span></span><br><span class="line">my_friend = bot.friends().search(<span class="string">'张大饼'</span>)[<span class="number">0</span>]</span><br><span class="line"><span class="comment"># 发送消息</span></span><br><span class="line">my_friend.send(<span class="string">'Felix TURING RoBot test'</span>) </span><br><span class="line"><span class="string">'''  </span></span><br><span class="line"><span class="string">除此之外还有可以发送一下内容，自己动手尝试吧  </span></span><br><span class="line"><span class="string">发送图片  </span></span><br><span class="line"><span class="string">my\_friend.send\_image('hello.png')  </span></span><br><span class="line"><span class="string">发送视频  </span></span><br><span class="line"><span class="string">my\_friend.send\_video('hello.mp4')  </span></span><br><span class="line"><span class="string">发送文件  </span></span><br><span class="line"><span class="string">my\_friend.send\_file('hello.rar')  </span></span><br><span class="line"><span class="string">'''</span></span><br></pre></td></tr></table></figure>
+<p>运行结果：  </p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/IMG_9381_看图王.png" alt=""></p>
+<h4 id="3-群发消息（今早醒来突发奇想，给每人发个早安！）"><a href="#3-群发消息（今早醒来突发奇想，给每人发个早安！）" class="headerlink" title="3.群发消息（今早醒来突发奇想，给每人发个早安！）"></a>3.群发消息（今早醒来突发奇想，给每人发个早安！）</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="comment"># 初始化一个机器人对象</span></span><br><span class="line"><span class="comment"># cache_path为登录状态缓存路径，给定值为第一次登录生成的缓存文件路径</span></span><br><span class="line">bot = Bot(cache_path=<span class="string">"D:\PycharmProjects\pythonProcedure\com\zyf\weixin\wxpy.pkl"</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 群发消息（谨慎使用，哈哈哈）</span></span><br><span class="line">my_friends = bot.friends(update=<span class="keyword">False</span>)</span><br><span class="line">my_friends.pop(<span class="number">0</span>)   <span class="comment"># 去除列表第一个元素（自己）</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">120</span>): <span class="comment"># 时间限制2分钟内最多发120次（具体看wxpy官方文档异常处理）</span></span><br><span class="line">    friend = my_friends[i]</span><br><span class="line">    friend.send(<span class="string">'Good morning,the early bird catches the worm!(早上好，早起的鸟儿有虫吃！)'</span>)</span><br><span class="line">    time.sleep(<span class="number">2</span>)</span><br><span class="line">    friend.send(<span class="string">'不用回复，生活中一起加油！'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="4-获取自己的微信好友数、活跃微信群数、关注微信公众号数"><a href="#4-获取自己的微信好友数、活跃微信群数、关注微信公众号数" class="headerlink" title="4.获取自己的微信好友数、活跃微信群数、关注微信公众号数"></a>4.获取自己的微信好友数、活跃微信群数、关注微信公众号数</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取所有好友[返回列表包含Chats对象(你的所有好友，包括自己)]</span></span><br><span class="line">t0 = bot.friends(update=<span class="keyword">False</span>)</span><br><span class="line"><span class="comment"># 查看自己好友数(除开自己)</span></span><br><span class="line">print(<span class="string">"我的好友数："</span>+str(len(t0)<span class="number">-1</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取所有微信群[返回列表包含Groups对象]</span></span><br><span class="line">t1 = bot.groups(update=<span class="keyword">False</span>)</span><br><span class="line"><span class="comment"># 查看微信群数(活跃的)</span></span><br><span class="line">print(<span class="string">"我的微信群聊数："</span>+str(len(t1)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取所有关注的微信公众号[返回列表包含Chats对象]</span></span><br><span class="line">t2 = bot.mps(update=<span class="keyword">False</span>)</span><br><span class="line"><span class="comment"># 查看关注的微信公众号数</span></span><br><span class="line">print(<span class="string">"我关注的微信公众号数："</span>+str(len(t2)))</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 注：如果直接把t0、t1、t2打印出就是对应得名称(不同类型，自己可以试一下)</span><br><span class="line">我的好友数：<span class="number">102</span></span><br><span class="line">我的微信群聊数：<span class="number">5</span></span><br><span class="line">我关注的微信公众号数：<span class="number">64</span></span><br></pre></td></tr></table></figure>
+<h4 id="5-个人聊天机器人搭建（基于自己的）"><a href="#5-个人聊天机器人搭建（基于自己的）" class="headerlink" title="5.个人聊天机器人搭建（基于自己的）"></a>5.个人聊天机器人搭建（基于自己的）</h4><h5 id="（1）自己的聊天机器人"><a href="#（1）自己的聊天机器人" class="headerlink" title="（1）自己的聊天机器人"></a>（1）自己的聊天机器人</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查找聊天对象</span></span><br><span class="line">my_friend = bot.friends().search(<span class="string">'张大饼'</span>)[<span class="number">0</span>]</span><br><span class="line">my_friend.send(<span class="string">'Felix TURING RoBot test'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自动回复</span></span><br><span class="line"><span class="comment"># 如果想对所有好友实现机器人回复把参数 my_friend 改成 chats = [Friend]</span></span><br><span class="line"><span class="meta">@bot.register(my_friend)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_friednd_message</span><span class="params">(msg)</span>:</span></span><br><span class="line">    print(<span class="string">'[接收]'</span> + str(msg))</span><br><span class="line">    <span class="keyword">if</span> msg.type != <span class="string">'Text'</span>:   <span class="comment"># 除文字外其他消息回复内容</span></span><br><span class="line">        ret = <span class="string">'你给我看了什么！[拜托]'</span></span><br><span class="line">    <span class="keyword">elif</span> <span class="string">"你来自哪里"</span> <span class="keyword">in</span> str(msg):   <span class="comment"># 特定问题回答</span></span><br><span class="line">        ret = <span class="string">"我来自China"</span></span><br><span class="line">    <span class="keyword">else</span>:         <span class="comment"># 文字消息自动回答</span></span><br><span class="line">        ret = <span class="string">'我爱你'</span></span><br><span class="line">    print(<span class="string">'[发送]'</span> + str(ret))</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line"><span class="comment"># 进入交互式的 Python 命令行界面，并堵塞当前线程</span></span><br><span class="line">embed()</span><br></pre></td></tr></table></figure>
+<h4 id="6-个人聊天机器人搭建（基于图灵机器人的）"><a href="#6-个人聊天机器人搭建（基于图灵机器人的）" class="headerlink" title="6.个人聊天机器人搭建（基于图灵机器人的）"></a>6.个人聊天机器人搭建（基于图灵机器人的）</h4><h5 id="（1）事前准备"><a href="#（1）事前准备" class="headerlink" title="（1）事前准备"></a>（1）事前准备</h5><p>百度图灵机器人，注册图灵机器人账号,然后创建一个机器人，即可获得属于你的图灵机器人api。</p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM截图20180904170507.png" alt=""></p>
+<h5 id="（2）-创建属于自己的聊天机器人"><a href="#（2）-创建属于自己的聊天机器人" class="headerlink" title="（2） 创建属于自己的聊天机器人"></a>（2） 创建属于自己的聊天机器人</h5><ul>
+<li>方法一：使用<code>Tuling</code>类，简单实现</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time    : 2018/9/4 11:09</span></span><br><span class="line"><span class="comment"># @Author  : yfzhou</span></span><br><span class="line"><span class="comment"># @Site    : </span></span><br><span class="line"><span class="comment"># @File    : demo6.py</span></span><br><span class="line"><span class="comment"># @Software: PyCharm</span></span><br><span class="line"><span class="comment"># Life is short, I use python.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> wxpy <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 登录缓存路径,第一次设置为True</span></span><br><span class="line"><span class="comment"># 生成缓存文件wxpy.pkl后，为该文件路径</span></span><br><span class="line">bot = Bot(cache_path=<span class="string">"D:\PycharmProjects\pythonProcedure\com\zyf\weixin\wxpy.pkl"</span>)</span><br><span class="line">tuling = Tuling(api_key=<span class="string">'b28b82730280474394c52d217d8de222'</span>)</span><br><span class="line">print(<span class="string">'Felix机器人已经启动'</span>)</span><br><span class="line"><span class="comment"># 我的小号，测试需谨慎</span></span><br><span class="line">my_friend = bot.friends().search(<span class="string">'张大饼'</span>)[<span class="number">0</span>]</span><br><span class="line">my_friend.send(<span class="string">'Felix图灵机器人已启动，可以开始和劳资bb啦~~'</span>)</span><br><span class="line"><span class="comment"># 如果想对所有好友实现机器人回复把参数my_friend改成chats = [Friend]</span></span><br><span class="line"><span class="comment"># 使用图灵机器人自动与指定好友聊天</span></span><br><span class="line"><span class="meta">@bot.register(my_friend)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">reply_my_friend</span><span class="params">(msg)</span>:</span></span><br><span class="line">    tuling.do_reply(msg)</span><br><span class="line"><span class="comment"># 进入交互式的 Python 命令行界面，并堵塞当前线程</span></span><br><span class="line">embed()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>方法二：自己手动发送<code>post</code>请求，有点麻烦哈哈哈~</li>
+</ul>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">auto_ai</span><span class="params">(text)</span>:</span></span><br><span class="line">    url = <span class="string">"http://www.tuling123.com/openapi/api"</span></span><br><span class="line">    api_key = <span class="string">"你的图灵接口api"</span></span><br><span class="line">    payload = &#123;</span><br><span class="line">        <span class="string">"key"</span>: api_key,</span><br><span class="line">        <span class="string">"info"</span>: text,</span><br><span class="line">        <span class="string">"userid"</span>: <span class="string">"userid"</span></span><br><span class="line">    &#125;</span><br><span class="line">    r = requests.post(url, data=json.dumps(payload))</span><br><span class="line">    result = json.loads(r.content)</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"[Felix图灵机器人]  "</span> + result[<span class="string">"text"</span>]</span><br><span class="line"></span><br><span class="line">bot = Bot(cache_path=<span class="string">"D:\PycharmProjects\pythonProcedure\com\zyf\weixin\wxpy.pkl"</span>)  </span><br><span class="line">print(<span class="string">'Felix图灵机器人已经启动'</span>)</span><br><span class="line"><span class="comment"># 我的小号，测试需谨慎</span></span><br><span class="line">my_friednd = bot.friends().search(<span class="string">'张大饼'</span>)[<span class="number">0</span>]</span><br><span class="line"><span class="comment"># 如果想对所有好友实现机器人回复把参数my_friend改成chats = [Friend]</span></span><br><span class="line"><span class="meta">@bot.register(my_friednd)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">my_friednd_message</span><span class="params">(msg)</span>:</span></span><br><span class="line">    print(<span class="string">'[接收]'</span> + str(msg))</span><br><span class="line">    <span class="keyword">if</span> msg.type != <span class="string">'Text'</span>:</span><br><span class="line">        ret = <span class="string">'你给我看了什么！[拜托]'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ret = auto_ai(msg.text)</span><br><span class="line">    print(<span class="string">'[发送]'</span> + str(ret))</span><br><span class="line">    <span class="keyword">return</span> ret</span><br><span class="line"><span class="comment"># 进入交互式的 Python 命令行界面，并堵塞当前线程</span></span><br><span class="line">embed()</span><br></pre></td></tr></table></figure>
+<h5 id="（3）聊天效果图"><a href="#（3）聊天效果图" class="headerlink" title="（3）聊天效果图"></a>（3）聊天效果图</h5><p>基本测试，图灵机器人可以实现查询天气、车票、翻译、基本聊天等功能，比我们自己写的，，，哈哈哈。  </p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/IMG_9382_看图王.png" alt=""></p>
+<h4 id="7-来点有趣的"><a href="#7-来点有趣的" class="headerlink" title="7.来点有趣的"></a>7.来点有趣的</h4><h5 id="1-获取微信好友性别、位置分布数据"><a href="#1-获取微信好友性别、位置分布数据" class="headerlink" title="(1)获取微信好友性别、位置分布数据"></a>(1)获取微信好友性别、位置分布数据</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> wxpy <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 初始化一个机器人对象</span></span><br><span class="line"><span class="comment"># cache_path缓存路径，给定值为第一次登录生成的缓存文件路径</span></span><br><span class="line">bot = Bot(cache_path=<span class="string">"D:\PycharmProjects\pythonProcedure\com\zyf\weixin\wxpy.pkl"</span>)</span><br><span class="line"><span class="comment">#获取好友列表(包括自己)</span></span><br><span class="line">my_friends = bot.friends(update=<span class="keyword">False</span>)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">stats_text 函数：帮助我们简单统计微信好友基本信息</span></span><br><span class="line"><span class="string">简单的统计结果的文本</span></span><br><span class="line"><span class="string">    :param total: 总体数量</span></span><br><span class="line"><span class="string">    :param sex: 性别分布</span></span><br><span class="line"><span class="string">    :param top_provinces: 省份分布</span></span><br><span class="line"><span class="string">    :param top_cities: 城市分布</span></span><br><span class="line"><span class="string">    :return: 统计结果文本</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">print(my_friends.stats_text())</span><br></pre></td></tr></table></figure>
+<p>运行结果：</p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">雨碎 共有 103 位微信好友</span><br><span class="line"></span><br><span class="line"><span class="section">男性: 68 (66.0%)</span></span><br><span class="line"><span class="section">女性: 27 (26.2%)</span></span><br><span class="line"></span><br><span class="line">TOP 10 省份</span><br><span class="line"><span class="section">江苏: 61 (59.22%)</span></span><br><span class="line"><span class="section">上海: 5 (4.85%)</span></span><br><span class="line"><span class="section">安徽: 2 (1.94%)</span></span><br><span class="line"><span class="section">广东: 2 (1.94%)</span></span><br><span class="line"><span class="section">北京: 2 (1.94%)</span></span><br><span class="line"><span class="section">Carinthia: 1 (0.97%)</span></span><br><span class="line"><span class="section">内蒙古: 1 (0.97%)</span></span><br><span class="line"><span class="section">Barcelona: 1 (0.97%)</span></span><br><span class="line"><span class="section">江西: 1 (0.97%)</span></span><br><span class="line"><span class="section">Auckland: 1 (0.97%)</span></span><br><span class="line"></span><br><span class="line">TOP 10 城市</span><br><span class="line"><span class="section">常州: 34 (33.01%)</span></span><br><span class="line"><span class="section">南京: 23 (22.33%)</span></span><br><span class="line"><span class="section">广州: 2 (1.94%)</span></span><br><span class="line"><span class="section">浦东新区: 2 (1.94%)</span></span><br><span class="line"><span class="section">苏州: 2 (1.94%)</span></span><br><span class="line"><span class="section">阜阳: 1 (0.97%)</span></span><br><span class="line"><span class="section">房山: 1 (0.97%)</span></span><br><span class="line"><span class="section">九江: 1 (0.97%)</span></span><br><span class="line"><span class="section">徐州: 1 (0.97%)</span></span><br><span class="line"><span class="section">无锡: 1 (0.97%)</span></span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">###### 4）获取好友微信昵称和个性签名，词云分析</span></span><br><span class="line"></span><br><span class="line">```py</span><br><span class="line">bot = Bot(cache_path=<span class="string">"D:\PycharmProjects\pythonProcedure\com\zyf\weixin\wxpy.pkl"</span>)</span><br><span class="line"><span class="comment">#获取好友列表(包括自己)</span></span><br><span class="line">my_friends = bot.friends(update=False)</span><br><span class="line"><span class="comment"># 微信昵称</span></span><br><span class="line">nick_name = ''</span><br><span class="line"><span class="comment"># 微信个性签名</span></span><br><span class="line">wx_signature = ''</span><br><span class="line">for friend in my_friends:</span><br><span class="line">    <span class="comment"># 微信昵称：NickName</span></span><br><span class="line">    nick_name = nick_name + friend.raw['NickName']</span><br><span class="line">    <span class="comment"># 个性签名：Signature</span></span><br><span class="line">    wx_signature = wx_signature + friend.raw['Signature']</span><br><span class="line"></span><br><span class="line">nick_name = jiebaclearText(nick_name)</span><br><span class="line">wx_signature = jiebaclearText(wx_signature)</span><br><span class="line">make_wordcloud(nick_name,1)</span><br><span class="line">make_wordcloud(wx_signature,2)</span><br></pre></td></tr></table></figure>
+<p>效果图：  </p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/render_01.png" alt=""></p>
+<p>微信昵称词云图</p>
+<blockquote>
+<p>我的微信好友昵称，有点复杂，搞淘宝的，浩浩，石头，还有创业，当然最醒目的是老师，都说老师是园丁，谢谢您培养了我们（突发其感）。</p>
+</blockquote>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/render_02.png" alt=""></p>
+<p>个性签名词云图</p>
+<blockquote>
+<p>我发现他们可以连成一段话：我们所有的人生，就是平凡的自己最伟大，遇见一个美好的自己，一生不止生活，加油。。。</p>
+</blockquote>
+<h6 id="5）获取关注微信公众号名称和基本简介，词云分析"><a href="#5）获取关注微信公众号名称和基本简介，词云分析" class="headerlink" title="5）获取关注微信公众号名称和基本简介，词云分析"></a>5）获取关注微信公众号名称和基本简介，词云分析</h6><h1 id="获取微信公众号名称"><a href="#获取微信公众号名称" class="headerlink" title="获取微信公众号名称"></a>获取微信公众号名称</h1><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 获取微信公众号名称</span></span><br><span class="line">wx_public_name = <span class="string">''</span></span><br><span class="line"><span class="comment"># 公众号简介</span></span><br><span class="line">wx_pn_signature = <span class="string">''</span></span><br><span class="line"><span class="comment"># 获取微信公众号列表</span></span><br><span class="line">my_wx_pn = bot.mps(update=<span class="keyword">False</span>)</span><br><span class="line"><span class="keyword">for</span> wx_pn <span class="keyword">in</span> my_wx_pn:</span><br><span class="line">    wx_public_name = wx_public_name + wx_pn.raw[<span class="string">'NickName'</span>]</span><br><span class="line">    wx_pn_signature = wx_pn_signature + wx_pn.raw[<span class="string">'Signature'</span>]</span><br><span class="line"></span><br><span class="line">wx_public_name = jiebaclearText(wx_public_name)</span><br><span class="line">make_wordcloud(wx_public_name,<span class="number">3</span>)</span><br><span class="line">wx_pn_signature = jiebaclearText(wx_pn_signature)</span><br><span class="line">make_wordcloud(wx_pn_signature,<span class="number">4</span>)</span><br></pre></td></tr></table></figure>
+<p>效果图：  </p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/render_03.png" alt=""></p>
+<p>关注微信公众号昵称词云图</p>
+<blockquote>
+<p>看出什么蹊跷没？你问我爱你有多深，你看看Python就知道了哈哈！</p>
+</blockquote>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/render_04.png" alt=""></p>
+<p>公众号简介词云图</p>
+<p>本文参考文档：</p>
+<p>1.wxpy官方介绍文档<br><a href="https://wxpy.readthedocs.io/zh/latest/messages.html" target="_blank" rel="noopener">https://wxpy.readthedocs.io/zh/latest/messages.html</a></p>
+<p>2.matplotlib官方介绍文档（<a href="https://matplotlib.org/）" target="_blank" rel="noopener">https://matplotlib.org/）</a>  </p>
+<p>本文所有源代码已经上传到码云上：<a href="https://gitee.com/ShaErHu/wxpy_matplotlib_learning" target="_blank" rel="noopener">https://gitee.com/ShaErHu/wxpy_matplotlib_learning</a></p>
+<p>人必有痴，而后有成</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/wechatpay.png" alt="felix 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/alipay.png" alt="felix 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+	
+	<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+	
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/03/使用Python自动生成报表以邮件发送/" rel="next" title="使用Python自动生成报表以邮件发送">
+                <i class="fa fa-chevron-left"></i> 使用Python自动生成报表以邮件发送
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/04/Python-wordcloud-jieba-生成中文词云图/" rel="prev" title="Python(wordcloud+jieba)生成中文词云图">
+                Python(wordcloud+jieba)生成中文词云图 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count" title="累计分享次数"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODUyNC8xNTA1Mg=="></div>
+    </div>
+
+  
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg"
+                alt="felix" />
+            
+              <p class="site-author-name" itemprop="name">felix</p>
+              <p class="site-description motion-element" itemprop="description">周宇峰的博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/542869246" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/zyf542869246" target="_blank" title="Gitee">
+                      
+                        <i class="fa fa-fw fa-git"></i>Gitee</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://music.163.com/#/user/home?id=343583524" title="😆 网易云音乐 😆" target="_blank">😆 网易云音乐 😆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ityouknow.com/spring-boot.html" title="spring-boot 纯洁的微笑" target="_blank">spring-boot 纯洁的微笑</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" title="Python教程 廖雪峰" target="_blank">Python教程 廖雪峰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、wxpy基本介绍与安装"><span class="nav-number">1.</span> <span class="nav-text">一、wxpy基本介绍与安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-wxpy基本介绍"><span class="nav-number">1.1.</span> <span class="nav-text">1.wxpy基本介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-wxpy安装"><span class="nav-number">1.2.</span> <span class="nav-text">2.wxpy安装</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、实践出真知"><span class="nav-number">2.</span> <span class="nav-text">二、实践出真知</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-给自己的文件传输助手发消息"><span class="nav-number">3.</span> <span class="nav-text">1.给自己的文件传输助手发消息</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-给指定朋友发送消息"><span class="nav-number">3.0.1.</span> <span class="nav-text">2.给指定朋友发送消息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-群发消息（今早醒来突发奇想，给每人发个早安！）"><span class="nav-number">3.0.2.</span> <span class="nav-text">3.群发消息（今早醒来突发奇想，给每人发个早安！）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-获取自己的微信好友数、活跃微信群数、关注微信公众号数"><span class="nav-number">3.0.3.</span> <span class="nav-text">4.获取自己的微信好友数、活跃微信群数、关注微信公众号数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-个人聊天机器人搭建（基于自己的）"><span class="nav-number">3.0.4.</span> <span class="nav-text">5.个人聊天机器人搭建（基于自己的）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#（1）自己的聊天机器人"><span class="nav-number">3.0.4.1.</span> <span class="nav-text">（1）自己的聊天机器人</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-个人聊天机器人搭建（基于图灵机器人的）"><span class="nav-number">3.0.5.</span> <span class="nav-text">6.个人聊天机器人搭建（基于图灵机器人的）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#（1）事前准备"><span class="nav-number">3.0.5.1.</span> <span class="nav-text">（1）事前准备</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（2）-创建属于自己的聊天机器人"><span class="nav-number">3.0.5.2.</span> <span class="nav-text">（2） 创建属于自己的聊天机器人</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（3）聊天效果图"><span class="nav-number">3.0.5.3.</span> <span class="nav-text">（3）聊天效果图</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-来点有趣的"><span class="nav-number">3.0.6.</span> <span class="nav-text">7.来点有趣的</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-获取微信好友性别、位置分布数据"><span class="nav-number">3.0.6.1.</span> <span class="nav-text">(1)获取微信好友性别、位置分布数据</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#5）获取关注微信公众号名称和基本简介，词云分析"><span class="nav-number">3.0.6.1.1.</span> <span class="nav-text">5）获取关注微信公众号名称和基本简介，词云分析</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取微信公众号名称"><span class="nav-number"></span> <span class="nav-text">获取微信公众号名称</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+	
+      <div class="footer-inner">
+        <div id='show2'></div>
+		<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-tint"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">felix</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">78.9k</span>
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+		
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("4DkhRkq5CadWFisToA3zFrop-gzGzoHsz", "xihAA2ETGTdekJFloguCmmgq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+ 
+  
+  <!-- 右上角github关注-->
+  <div class="forkme">
+	<a href="https://github.com/542869246"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://pd2tflnys.bkt.clouddn.com/img/blog/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+  </div>
+ 
+  <!-- 音乐播放器-->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+  undefined
+   
+<!-- 代码块复制功能 -->
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!-- 背景图-->
+<script type="text/javascript" src="/js/src/dynamic_bg.js"></script
+ <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+ <!-- 页面点击汉字 -->
+<script type="text/javascript" src="/js/src/hanzi.js"></script>
+</html>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+
+<script>
+window.onload = function() { 
+var show = document.getElementById("show2"); 
+setInterval(function() { 
+var time = new Date(); 
+// 程序计时的月从0开始取值后+1 
+var m = time.getMonth() + 1; 
+//根据自己博客的创建时间更改数值 
+var t = "周宇峰的博客已存活了"+(time.getFullYear()-2018) + "年" + (m-8) + "月" 
++ time.getDate() + "天 " + time.getHours() + "时" 
++ time.getMinutes() + "分" + time.getSeconds() + "秒"; 
+show.innerHTML = t; 
+}, 1000); 
+}; 
+</script>
