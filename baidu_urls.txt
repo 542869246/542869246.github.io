@@ -1,3 +1,5 @@
+https://yfzhou.coding.me/2018/09/05/InnoDB，快照读，在RR和RC下有何差异？/
+https://yfzhou.coding.me/2018/09/05/手把手教你用-Python-来朗读网页/
 https://yfzhou.coding.me/2018/09/04/Python-wordcloud-jieba-生成中文词云图/
 https://yfzhou.coding.me/2018/09/04/微信最强花式操作，带你玩转-wxpy/
 https://yfzhou.coding.me/2018/09/03/使用Python自动生成报表以邮件发送/

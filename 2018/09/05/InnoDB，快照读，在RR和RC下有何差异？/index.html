@@ -134,7 +134,7 @@
 
 
 
-  <meta name="keywords" content="周宇峰,zyf,zhouyufeng,yfzhou,博客,yf.Zhou,felix" />
+  <meta name="keywords" content="数据库,SQL,InnoDB," />
 
 
 
@@ -161,17 +161,17 @@
     }
 </style>
 
-<meta name="description" content="周宇峰的博客">
-<meta name="keywords" content="周宇峰,zyf,zhouyufeng,yfzhou,博客,yf.Zhou,felix">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Felix">
-<meta property="og:url" content="https://yfzhou.coding.me/tags/css/index.html">
+<meta name="keywords" content="数据库,SQL,InnoDB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="InnoDB，快照读，在RR和RC下有何差异？">
+<meta property="og:url" content="https://yfzhou.coding.me/2018/09/05/InnoDB，快照读，在RR和RC下有何差异？/index.html">
 <meta property="og:site_name" content="Felix">
-<meta property="og:description" content="周宇峰的博客">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==">
+<meta property="og:updated_time" content="2018-09-05T08:39:36.425Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Felix">
-<meta name="twitter:description" content="周宇峰的博客">
+<meta name="twitter:title" content="InnoDB，快照读，在RR和RC下有何差异？">
+<meta name="twitter:image" content="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==">
 
 
 
@@ -201,7 +201,7 @@
 
 
 
-  <link rel="canonical" href="https://yfzhou.coding.me/tags/css/"/>
+  <link rel="canonical" href="https://yfzhou.coding.me/2018/09/05/InnoDB，快照读，在RR和RC下有何差异？/"/>
 
 
 
@@ -217,7 +217,7 @@
     })();
 </script>
 
-  <title>标签: css | Felix</title>
+  <title>InnoDB，快照读，在RR和RC下有何差异？ | Felix</title>
   <style>
   .forkme{
  display: none;
@@ -249,7 +249,7 @@
   <div class="bg_content">
     <canvas id="canvas"></canvas>
   </div>
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -403,54 +403,375 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>css<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yfzhou.coding.me/2018/09/05/InnoDB，快照读，在RR和RC下有何差异？/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="felix">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Felix">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/08/13/前端杂记/" itemprop="url">
-              
-                <span itemprop="name">前端杂记</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">InnoDB，快照读，在RR和RC下有何差异？</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-13T10:39:15+08:00"
-              content="2018-08-13" >
-          08-13
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-05T16:25:00+08:00">
+                2018-09-05
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据库/" itemprop="url" rel="index">
+                    <span itemprop="name">数据库</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/05/InnoDB，快照读，在RR和RC下有何差异？/" class="leancloud_visitors" data-flag-title="InnoDB，快照读，在RR和RC下有何差异？">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,300 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><span></span></p>
+<a id="more"></a>
+<p>为了保证文章知识体系的完整性，先简单解释下<strong>快照读</strong>，<strong>读提交</strong>，<strong>可重复读</strong>。</p>
+<p><strong>快照读</strong>(Snapshot Read)</p>
+<p>MySQL数据库，InnoDB存储引擎，为了提高并发，使用MVCC机制，在并发事务时，通过读取数据行的历史数据版本，不加锁，来提高并发的一种<span style="letter-spacing: 1px;font-size: 14px;color: rgb(255, 76, 0);">不加锁一致性读</span>(Consistent Nonlocking Read)。</p>
+<p><strong>读提交</strong>(Read Committed)</p>
+<ul>
+<li><p>数据库领域，事务隔离级别的一种，简称RC</p>
+</li>
+<li><p>它解决“读脏”问题，保证读取到的数据行都是已提交事务写入的</p>
+</li>
+<li><p>它可能存在“读幻影行”问题，同一个事务里，连续相同的read可能读到不同的结果集</p>
+</li>
+</ul>
+<p><strong>可重复读</strong>(Repeated Read)</p>
+<ul>
+<li><p>数据库领域，事务隔离级别的一种，简称RR</p>
+</li>
+<li><p>它不但解决“读脏”问题，还解决了“读幻影行”问题，同一个事务里，连续相同的read读到相同的结果集</p>
+</li>
+</ul>
+<p>在<strong>读提交</strong>(<span style="color: rgb(255, 76, 0);letter-spacing: 1px;font-size: 12px;">RC</span>)，<strong>可重复读</strong>(<span style="color: rgb(255, 76, 0);letter-spacing: 1px;font-size: 12px;">RR</span>)两个不同的事务的隔离级别下，<strong>快照读</strong>有什么不同呢？  </p>
+<p>先说<strong>结论</strong>：</p>
+<ul>
+<li><p>事务总能够读取到，自己写入(update /insert /delete)的行记录</p>
+</li>
+<li><p>RC下，快照读总是能读到最新的行数据快照，当然，必须是已提交事务写入的</p>
+</li>
+<li><p>RR下，某个事务首次read记录的时间为T，未来不会读取到T时间之后已提交事务写入的记录，以保证连续相同的read读到相同的结果集  </p>
+</li>
+</ul>
+<p><span style="font-size: 14px;letter-spacing: 1px;color: rgb(0, 82, 255);"><br><em>画外音：可以看到</em></span></p>
+<p><span style="font-size: 14px;letter-spacing: 1px;color: rgb(0, 82, 255);"><em>(1)和并发事务的开始时间没关系，和事务首次read的时间有关；</em></span></p>
+<p><span style="font-size: 14px;letter-spacing: 1px;color: rgb(0, 82, 255);"><em>(2)由于不加锁，和互斥关系也不大；</em></span></p>
+<p>InnoDB表：  </p>
+<p>t(id PK, name);  </p>
+<p>表中有三条记录：<br>1, shenjian<br>2, zhangsan<br>3, lisi</p>
+<p><span style="color: rgb(255, 76, 0);font-size: 16px;"><em><strong><span style="letter-spacing: 1px;font-size: 16px;">case 1</span></strong></em></span>，两个并发事务A，B执行的时间序列如下（A先于B开始，B先于A结束）：</p>
+<p>A1: start transaction;<br>         B1: start transaction;<br>A2: select <em> from t;<br>         B2: insert into t values (4, wangwu);<br>A3: select </em> from t;<br>         B3: commit;<br>A4: select * from t;</p>
+<p><strong>提问1</strong>：假设事务的隔离级别是<span style="color: rgb(255, 76, 0);letter-spacing: 1px;font-size: 14px;">可重复读RR</span>，事务A中的三次查询，A2, A3, A4分别读到什么结果集？</p>
+<p><strong>回答</strong>：RR下</p>
+<p>(1)A2读到的结果集肯定是{1, 2, 3}，这是事务A的第一个read，假设为时间T；</p>
+<p>(2)A3读到的结果集也是{1, 2, 3}，因为B还没有提交；</p>
+<p>(3)A4读到的结果集还是{1, 2, 3}，因为事务B是在时间T之后提交的，A4得读到和A2一样的记录；</p>
+<p><strong>提问2</strong>：假设事务的隔离级别是<span style="color: rgb(255, 76, 0);letter-spacing: 1px;font-size: 14px;">读提交RC</span>，A2, A3, A4又分别读到什么结果集呢？</p>
+<p><strong>回答</strong>：RC下</p>
+<p>(1)A2读到的结果集是{1, 2, 3}；</p>
+<p>(2)A3读到的结果集也是{1, 2, 3}，因为B还没有提交；</p>
+<p>(3)A4读到的结果集还是{1, 2, 3, 4}，因为事务B已经提交；</p>
+<p><span style="color: rgb(255, 76, 0);font-size: 16px;"><em><strong><span style="letter-spacing: 1px;font-size: 16px;">case 2</span></strong></em></span>，仍然是上面的两个事务，只是A和B开始时间稍有不同（B先于A开始，B先于A结束）：  </p>
+<pre><code>&lt;span style=&quot;margin: 0px;padding: 0px;color: rgb(255, 76, 0);letter-spacing: 1px;font-size: 12px;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; B1: start transaction;&lt;/span&gt;
+</code></pre><p><span style="margin: 0px;padding: 0px;color: rgb(255, 76, 0);letter-spacing: 1px;font-size: 12px;">A1: start transaction;</span></p>
+<p>A2: select <em> from t;<br>         B2: insert into t values (4, wangwu);<br>A3: select </em> from t;<br>         B3: commit;<br>A4: select * from t;  </p>
+<p><strong>提问3</strong>：假设事务的隔离级别是<span style="color: rgb(255, 76, 0);letter-spacing: 1px;font-size: 14px;">可重复读RR</span>，事务A中的三次查询，A2, A3, A4分别读到什么结果集？  </p>
+<p><strong>提问4</strong>：假设事务的隔离级别是<span style="color: rgb(255, 76, 0);letter-spacing: 1px;font-size: 14px;">读提交RC</span>，A2, A3, A4的结果集又是什么呢？  </p>
+<p><strong>回答</strong>：事务的开始时间不一样，不会影响“快照读”的结果，所以结果集和case 1一样。</p>
+<p><span style="color: rgb(255, 76, 0);font-size: 16px;"><em><strong><span style="letter-spacing: 1px;font-size: 16px;">case 3</span></strong></em></span>，仍然是并发的事务A与B（A先于B开始，B先于A结束）：</p>
+<p>A1: start transaction;<br>         B1: start transaction;<br>         B2: insert into t values (4, wangwu);<br>         B3: commit;<br>A2: select * from t;  </p>
+<p><strong>提问5</strong>：假设事务的隔离级别是<span style="color: rgb(255, 76, 0);letter-spacing: 1px;font-size: 14px;">可重复读RR</span>，事务A中的A2查询，结果集是什么？  </p>
+<p><strong>提问6</strong>：假设事务的隔离级别是<span style="color: rgb(255, 76, 0);letter-spacing: 1px;font-size: 14px;">读提交RC</span>，A2的结果集又是什么呢？  </p>
+<p><strong>回答</strong>：在RR下，</p>
+<p>A2是事务A的第一个read，假设为时间T，它能读取到T之前提交事务写入的数据行，故结果集为{1, 2, 3, 4}。在RC下，没有疑问，一定是{1, 2, 3, 4}。</p>
+<p><span style="color: rgb(255, 76, 0);font-size: 16px;"><em><strong><span style="letter-spacing: 1px;font-size: 16px;">case 4</span></strong></em></span>，事务开始的时间再换一下（B先于A开始，B先于A结束）：</p>
+<pre><code>&lt;span style=&quot;color: rgb(255, 76, 0);letter-spacing: 1px;font-size: 12px;&quot;&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp; B1: start transaction;&lt;/span&gt;
+</code></pre><p><span style="color: rgb(255, 76, 0);letter-spacing: 1px;font-size: 12px;display: inline !important;float: none;background-color: transparent;">A1: start transaction;</span></p>
+<pre><code>B2: insert into t values (4, wangwu);  
+
+B3: commit;  
+</code></pre><p>A2: select * from t;</p>
+<p><strong>提问7</strong>：假设事务的隔离级别是<span style="color: rgb(255, 76, 0);letter-spacing: 1px;font-size: 14px;">可重复读RR</span>，事务A中的A2查询，结果集是什么？  </p>
+<p><strong>提问8</strong>：假设事务的隔离级别是<span style="color: rgb(255, 76, 0);letter-spacing: 1px;font-size: 14px;">读提交RC</span>，A2的结果集又是什么呢？</p>
+<p><strong>回答</strong>：事务的开始时间不一样，不会影响“快照读”的结果，所以结果集和case 3一样。</p>
+<p>啰嗦说了这么多，用昨天一位网友“山峰”同学的话<strong>总结</strong>：</p>
+<ul>
+<li><p>RR下，事务在第一个Read操作时，会建立Read View</p>
+</li>
+<li><p>RC下，事务在每次Read操作时，都会建立Read View</p>
+</li>
+</ul>
+<p><strong><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt=""></strong></p>
+<p><strong>架构师之路</strong>-分享可落地的架构文章</p>
+<p>相关推荐：  </p>
+<p>《<a href="https://yfzhou.coding.me/2018/08/14/InnoDB%E5%B9%B6%E5%8F%91%E5%A6%82%E6%AD%A4%E9%AB%98%EF%BC%8C%E5%8E%9F%E5%9B%A0%E7%AB%9F%E7%84%B6%E5%9C%A8%E8%BF%99%EF%BC%9F/">InnoDB，并发如此之高的原因</a>》</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/wechatpay.png" alt="felix 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/alipay.png" alt="felix 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+	
+	<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+	
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数据库/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
+          
+            <a href="/tags/SQL/" rel="tag"><i class="fa fa-tag"></i> SQL</a>
+          
+            <a href="/tags/InnoDB/" rel="tag"><i class="fa fa-tag"></i> InnoDB</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/05/手把手教你用-Python-来朗读网页/" rel="next" title="手把手教你用 Python 来朗读网页">
+                <i class="fa fa-chevron-left"></i> 手把手教你用 Python 来朗读网页
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count" title="累计分享次数"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
 
 
           </div>
@@ -458,6 +779,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODUyNC8xNTA1Mg=="></div>
+    </div>
+
+  
+  
+
 
         </div>
         
@@ -762,6 +1092,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -790,6 +1124,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
