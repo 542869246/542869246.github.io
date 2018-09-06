@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+<!--<meta name="baidu-site-verification" content="Cd4Lc5evwc" />-->
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "b3c7d22e"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="Cd4Lc5evwc" />
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Felix" type="application/atom+xml" />
+
+
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python骚操作 | 还原已撤回的微信消息">
+<meta property="og:url" content="https://yfzhou.coding.me/2018/09/06/Python骚操作-还原已撤回的微信消息/index.html">
+<meta property="og:site_name" content="Felix">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://res.wx.qq.com/mpres/htmledition/images/icon/common/emotion_panel/emoji_wx/2_02.png?tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/DajPxmUr7cb3ASibtVAw4uuQgFpgscjkrnXh3hdROicibicpRsUgUJQViaC4nI1lH9cnibcprB8ChM24zdXWdyaE1iaqg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_jpg/DajPxmUr7cb3ASibtVAw4uuQgFpgscjkrbdfW1JCB9Frtyc2ArdTFXnKw3rq7RbsyBuqHhPZaJyiaIDlEhORSvWg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta property="og:updated_time" content="2018-09-06T08:37:50.265Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python骚操作 | 还原已撤回的微信消息">
+<meta name="twitter:image" content="https://res.wx.qq.com/mpres/htmledition/images/icon/common/emotion_panel/emoji_wx/2_02.png?tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '5GWESN2MHV',
+      apiKey: '756045653a25072015750606fb533a33',
+      indexName: 'hexo blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没有找到与 ${query} 相关的内容","hits_stats":"${hits}条相关记录，共耗时${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://yfzhou.coding.me/2018/09/06/Python骚操作-还原已撤回的微信消息/"/>
+
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+  <title>Python骚操作 | 还原已撤回的微信消息 | Felix</title>
+  <style>
+  .forkme{
+ display: none;
+ }
+  @media (min-width: 768px) {
+ .forkme{
+ display: inline;
+ }
+  }
+  </style>
+  
+
+
+
+
+
+
+
+
+</head>
+
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+  <div class="bg_content">
+    <canvas id="canvas"></canvas>
+  </div>
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Felix</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Viva La Vida</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
+            
+            站点地图
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+ </div>
+	  
+	  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+	  
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yfzhou.coding.me/2018/09/06/Python骚操作-还原已撤回的微信消息/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="felix">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Felix">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Python骚操作 | 还原已撤回的微信消息</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-06T15:54:00+08:00">
+                2018-09-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/09/06/Python骚操作-还原已撤回的微信消息/" class="leancloud_visitors" data-flag-title="Python骚操作 | 还原已撤回的微信消息">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,674 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><span></span></p>
+<a id="more"></a>
+<p>一大早醒来，发现女神昨晚发来三条消息，但是显示都已撤回，OMG，我错过了什么？群里有一个漂亮妹纸的爆照照片撤回了，想看又看不到！群里大佬分享的经典语录被撤回了，感觉错过一个亿！怎么办？用无所不能的 Python 就可以将这些撤回的消息发给你的微信，让你从此走上人生巅峰<img src="https://res.wx.qq.com/mpres/htmledition/images/icon/common/emotion_panel/emoji_wx/2_02.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
+<h4 id="项目环境"><a href="#项目环境" class="headerlink" title="项目环境"></a>项目环境</h4><p>语言：Python3<br>编辑器：Pycharm</p>
+<h4 id="导包"><a href="#导包" class="headerlink" title="导包"></a>导包</h4><p>itchat：控制微信的第三方库</p>
+<p>这个库相信大家不陌生了，之前写的 <a href="https://yfzhou.coding.me/2018/09/04/%E5%BE%AE%E4%BF%A1%E6%9C%80%E5%BC%BA%E8%8A%B1%E5%BC%8F%E6%93%8D%E4%BD%9C%EF%BC%8C%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC-wxpy/">微信最强花式操作，带你玩转 wxpy</a> 文章里用的 wxpy 库就是在 itchat 库的基础上封装的。</p>
+<h4 id="效果展示"><a href="#效果展示" class="headerlink" title="效果展示"></a>效果展示</h4><p>以下截图显示的撤回消息类型依次是文字消息、微信自带表情、图片、语音、定位地图、名片、公众号文章、音乐、视频。有群里撤回的，也有个人号撤回的。</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/DajPxmUr7cb3ASibtVAw4uuQgFpgscjkrnXh3hdROicibicpRsUgUJQViaC4nI1lH9cnibcprB8ChM24zdXWdyaE1iaqg/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_jpg/DajPxmUr7cb3ASibtVAw4uuQgFpgscjkrbdfW1JCB9Frtyc2ArdTFXnKw3rq7RbsyBuqHhPZaJyiaIDlEhORSvWg/640?wx_fmt=jpeg&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
+<h4 id="程序思路"><a href="#程序思路" class="headerlink" title="程序思路"></a>程序思路</h4><p><strong>主要由两部分组成：</strong><br><span style="color: rgb(165, 200, 255);">handler_receive_msg()</span>：处理接收到的消息，将消息临时放在字典中。</p>
+<p><span style="color: rgb(165, 200, 255);">send_msg_helper()</span>：将撤回的消息自动发给文件传输助手。</p>
+<h4 id="程序分析"><a href="#程序分析" class="headerlink" title="程序分析"></a>程序分析</h4><p>首先，我们定义一个字典来储存消息，定义消息储存的临时路径。  </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 说明：可以撤回的有文本文字、微信自带&amp;收藏的表情、图片、语音、位置、名片、分享、附件、视频</span></span><br><span class="line">msg_dict = &#123;&#125;    <span class="comment"># 定义字典储存消息</span></span><br><span class="line">rev_tmp_dir = <span class="string">"D:\PycharmProjects\pythonProcedure\com\zyf\weixin\wxpy.pkl"</span>   <span class="comment"># 定义文件存储临时目录</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(rev_tmp_dir):</span><br><span class="line">    os.mkdir(rev_tmp_dir)</span><br><span class="line">face_bug = <span class="keyword">None</span>    <span class="comment"># 处理表情解决方法</span></span><br></pre></td></tr></table></figure>
+<h4 id="接收信息处理"><a href="#接收信息处理" class="headerlink" title="接收信息处理"></a>接收信息处理</h4><p>先将我们需要处理的消息用 msg_register 装饰器进行注册，格式化本地时间，定义消息 ID 和消息时间。如果是群成员而且是自己微信好友撤回消息，则显示撤回消息的名称是你备注的名字，如果没有备注名字，则显示名称为微信昵称。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@itchat.msg_register([TEXT, PICTURE, MAP, CARD, SHARING, RECORDING, ATTACHMENT, VIDEO, FRIENDS],</span></span><br><span class="line">                     isFriendChat=<span class="keyword">True</span>, isGroupChat=<span class="keyword">True</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handler_receive_msg</span><span class="params">(msg)</span>:</span>    <span class="comment"># 将接收到的消息存放在字典中，不接受不具有撤回功能的信息</span></span><br><span class="line">    <span class="keyword">global</span> face_bug     <span class="comment"># 全局变量</span></span><br><span class="line">    msg_time_rec = time.strftime(<span class="string">"%Y-%m-%d %H:%M:%S"</span>, time.localtime())   <span class="comment"># 格式化本地时间戳 e: 2018-09-04 22:02:08</span></span><br><span class="line">    msg_id = msg[<span class="string">'MsgId'</span>]   <span class="comment"># 消息ID</span></span><br><span class="line">    msg_time = msg[<span class="string">'CreateTime'</span>]    <span class="comment"># 消息时间</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">'ActualNickName'</span> <span class="keyword">in</span> msg:     <span class="comment"># 判断是否为群消息</span></span><br><span class="line">        from_user = msg[<span class="string">'ActualUserName'</span>]    <span class="comment"># 群消息的发送者,用户的唯一标识</span></span><br><span class="line">        msg_from = msg[<span class="string">'ActualNickName'</span>]</span><br><span class="line">        friends = itchat.get_friends(update=<span class="keyword">True</span>)    <span class="comment"># 获取所有好友</span></span><br><span class="line">        <span class="keyword">for</span> friend <span class="keyword">in</span> friends:</span><br><span class="line">            <span class="keyword">if</span> from_user == friend[<span class="string">'UserName'</span>]:      <span class="comment"># 判断群里撤回消息的是否为自己好友</span></span><br><span class="line">                <span class="keyword">if</span> friend[<span class="string">'RemarkName'</span>]:             <span class="comment"># 优先使用好友的备注名称，没有则使用昵称</span></span><br><span class="line">                    msg_from = friend[<span class="string">'RemarkName'</span>]</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    msg_from = friend[<span class="string">'NickName'</span>]</span><br><span class="line">                <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>获取你的所有群的消息，判断出撤回的消息来自哪个群，显示出群名称。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">groups = itchat.get_chatrooms(update=<span class="keyword">True</span>)        <span class="comment"># 获取所有的群</span></span><br><span class="line"><span class="keyword">for</span> group <span class="keyword">in</span> groups:</span><br><span class="line">    <span class="keyword">if</span> msg[<span class="string">'FromUserName'</span>] == group[<span class="string">'UserName'</span>]:  <span class="comment"># 根据群消息的FromUserName匹配是哪个群</span></span><br><span class="line">        group_name = group[<span class="string">'NickName'</span>]</span><br><span class="line">        group_members = group[<span class="string">'MemberCount'</span>]</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">group_name = group_name + <span class="string">'('</span> + str(group_members) + <span class="string">')'</span></span><br></pre></td></tr></table></figure></p>
+<h4 id="个人消息处理"><a href="#个人消息处理" class="headerlink" title="个人消息处理"></a>个人消息处理</h4><p>如果为个人聊天信息，也是优先显示备注名称，没有备注名就显示昵称。  </p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">else</span>:    <span class="comment"># 否则输入个人消息</span></span><br><span class="line">    <span class="keyword">if</span> itchat.search_friends(userName=msg[<span class="string">'FromUserName'</span>])[<span class="string">'RemarkName'</span>]:   <span class="comment"># 优先使用备注名称</span></span><br><span class="line">        msg_from = itchat.search_friends(userName=msg[<span class="string">'FromUserName'</span>])[<span class="string">'RemarkName'</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        msg_from = itchat.search_friends(userName=msg[<span class="string">'FromUserName'</span>])[<span class="string">'NickName'</span>]</span><br><span class="line">    group_name = <span class="string">''</span></span><br></pre></td></tr></table></figure>
+<h4 id="各类型消息处理"><a href="#各类型消息处理" class="headerlink" title="各类型消息处理"></a>各类型消息处理</h4><p>用判断语句对各种类型的消息进行处理，包括文字消息、微信自带的表情和收藏的表情、图片、语音、位置、名片、分享、附件、视频。多条件时这里用了 in 的用法，还记得之前讲  <a href="https://yfzhou.coding.me/2018/09/06/Python%E4%BC%98%E9%9B%85%E5%86%99%E6%B3%95%EF%BC%8C%E8%AE%A9%E4%BD%A0%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87%E7%BF%BB2%E5%80%8D/#more">Python 优雅的写法</a>  文章里把用 or 连接条件改成用 in，代码更简洁，这样我们通过项目不断的巩固之前学到的知识点，这样才能不断进步。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> msg[<span class="string">'Type'</span>] <span class="keyword">in</span> (<span class="string">'Text'</span>, <span class="string">'Friends'</span>):</span><br><span class="line">    msg_content = msg[<span class="string">'Text'</span>]    <span class="comment"># 如果发送的消息是文本或者好友推荐</span></span><br><span class="line"><span class="keyword">elif</span> msg[<span class="string">'Type'</span>] <span class="keyword">in</span> (<span class="string">'Recording'</span>, <span class="string">'Attachment'</span>, <span class="string">'Video'</span>, <span class="string">'Picture'</span>):</span><br><span class="line">    msg_content = <span class="string">r""</span> + msg[<span class="string">'FileName'</span>]     <span class="comment"># 如果发送的消息是附件、视频、图片、语音</span></span><br><span class="line">    msg[<span class="string">'Text'</span>](rev_tmp_dir + msg[<span class="string">'FileName'</span>])   <span class="comment"># 保存文件</span></span><br><span class="line"><span class="keyword">elif</span> msg[<span class="string">'Type'</span>] == <span class="string">'Card'</span>:</span><br><span class="line">    msg_content = msg[<span class="string">'RecommendInfo'</span>][<span class="string">'NickName'</span>] + <span class="string">r" 的名片"</span></span><br><span class="line"><span class="keyword">elif</span> msg[<span class="string">'Type'</span>] == <span class="string">'Map'</span>:</span><br><span class="line">    x, y, location = re.search(</span><br><span class="line">        <span class="string">"&lt;location x=\"(.*?)\" y=\"(.*?)\".*label=\"(.*?)\".*"</span>, msg[<span class="string">'OriContent'</span>]).group(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">    <span class="keyword">if</span> location <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">        msg_content = <span class="string">r"纬度-&gt;"</span> + x.__str__() + <span class="string">" 经度-&gt;"</span> + y.__str__()      <span class="comment"># 内容为详细的地址</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        msg_content = <span class="string">r""</span> + location</span><br><span class="line"><span class="keyword">elif</span> msg[<span class="string">'Type'</span>] == <span class="string">'Sharing'</span>:      <span class="comment"># 如果消息为分享的音乐或者文章，详细的内容为文章的标题或者是分享的名字</span></span><br><span class="line">    msg_content = msg[<span class="string">'Text'</span>]</span><br><span class="line">    msg_share_url = msg[<span class="string">'Url'</span>]      <span class="comment"># 分享链接</span></span><br><span class="line">face_bug = msg_content</span><br></pre></td></tr></table></figure></p>
+<p>更新信息字典</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新字典</span></span><br><span class="line">msg_dict.update(&#123;msg_id: &#123;<span class="string">"msg_from"</span>: msg_from,</span><br><span class="line">                          <span class="string">"msg_time"</span>: msg_time,</span><br><span class="line">                          <span class="string">"msg_time_rec"</span>: msg_time_rec,</span><br><span class="line">                          <span class="string">"msg_type"</span>: msg[<span class="string">"Type"</span>],</span><br><span class="line">                          <span class="string">"msg_content"</span>: msg_content,</span><br><span class="line">                          <span class="string">"msg_share_url"</span>: msg_share_url,</span><br><span class="line">                          <span class="string">"group_name"</span>: group_name&#125;&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="处理撤回消息"><a href="#处理撤回消息" class="headerlink" title="处理撤回消息"></a>处理撤回消息</h4><p>先判断是否是撤回消息，将撤回消息发送到你的文件传输助手里，把上面函数储存的消息的发送人、发送类型、发送时间、撤回的内容发出来。以下是部分代码。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@itchat.msg_register(NOTE, isFriendChat=True, isGroupChat=True, isMpChat=True)</span></span><br><span class="line"><span class="comment"># 收到note通知类消息，判断是不是撤回并进行相应操作</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_msg_helper</span><span class="params">(msg)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> face_bug</span><br><span class="line">    <span class="keyword">if</span> re.search(<span class="string">r"\&lt;\!\[CDATA\[.*撤回了一条消息\]\]\&gt;"</span>, msg[<span class="string">'Content'</span>]) <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">        <span class="comment"># 获取消息的id</span></span><br><span class="line">        old_msg_id = re.search(</span><br><span class="line">            <span class="string">"\&lt;msgid\&gt;(.*?)\&lt;\/msgid\&gt;"</span>,</span><br><span class="line">            msg[<span class="string">'Content'</span>]).group(<span class="number">1</span>)  <span class="comment"># 在返回的content查找撤回的消息的id</span></span><br><span class="line">        old_msg = msg_dict.get(old_msg_id, &#123;&#125;)</span><br><span class="line">        <span class="keyword">if</span> len(old_msg_id) &lt; <span class="number">11</span>:</span><br><span class="line">            itchat.send_file(rev_tmp_dir + face_bug, toUserName=<span class="string">'filehelper'</span>)</span><br><span class="line">            os.remove(rev_tmp_dir + face_bug)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            msg_body = <span class="string">"快来看啊，有人撤回消息啦！"</span> + <span class="string">"\n"</span> \</span><br><span class="line">                       + old_msg.get(<span class="string">'msg_from'</span>) + <span class="string">" 撤回了 "</span> + old_msg.get(<span class="string">"msg_type"</span>) + <span class="string">" 消息"</span> + <span class="string">"\n"</span> \</span><br><span class="line">                       + old_msg.get(<span class="string">'msg_time_rec'</span>) + <span class="string">"\n"</span> \</span><br><span class="line">                       + <span class="string">"撤回了什么 ⇣"</span> + <span class="string">"\n"</span> \</span><br><span class="line">                       + <span class="string">r""</span> + old_msg.get(<span class="string">'msg_content'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="主函数"><a href="#主函数" class="headerlink" title="主函数"></a>主函数</h4><p>最后用主函数执行微信的登录和运行。第一次需要扫码登录微信，登录时加上 hotReload 参数，为 True 时，短时间内再次运行会保存上次微信的登录态，不需要再次扫码登录。</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    itchat.auto_login(hotReload=<span class="keyword">True</span>)</span><br><span class="line">    itchat.run()</span><br></pre></td></tr></table></figure>
+<p>如果你电脑中有安装 Python 环境，在编辑器中直接运行源码或者在 cmd 中运行 py 文件即可。源码获取方式在文末给出。有需要的话以后可以做成界面化工具，挂在服务器上，支持做成界面化工具。</p>
+<h4 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h4><p>今天的分享就到这里了，需要优化的地方：长时间运行时会报 ConnectionError 提示的错误，但是不影响发送撤回消息的功能，后期加个异常捕捉机制优化下。</p>
+<p>赶紧动手试试吧，把你朋友撤回的消息发给 TA 看看，看看他是什么反应，有趣的撤回消息发到朋友圈去提高逼格，奈斯！</p>
+<h4 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h4><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> shutil</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> itchat</span><br><span class="line"><span class="keyword">from</span> itchat.content <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># 说明：可以撤回的有文本文字、微信自带&amp;收藏的表情、图片、语音、位置、名片、分享、附件、视频</span></span><br><span class="line">msg_dict = &#123;&#125;  <span class="comment"># 定义字典储存消息</span></span><br><span class="line">rev_tmp_dir = <span class="string">"D:\PycharmProjects\pythonProcedure\com\zyf\weixin\wxpy.pkl"</span>  <span class="comment"># 定义文件存储临时目录</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(rev_tmp_dir):</span><br><span class="line">    os.mkdir(rev_tmp_dir)</span><br><span class="line">face_bug = <span class="keyword">None</span>  <span class="comment"># 处理表情解决方法</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@itchat.msg_register([TEXT, PICTURE, MAP, CARD, SHARING, RECORDING, ATTACHMENT, VIDEO, FRIENDS],</span></span><br><span class="line">                     isFriendChat=<span class="keyword">True</span>, isGroupChat=<span class="keyword">True</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handler_receive_msg</span><span class="params">(msg)</span>:</span>  <span class="comment"># 将接收到的消息存放在字典中，不接受不具有撤回功能的信息</span></span><br><span class="line">    <span class="keyword">global</span> face_bug  <span class="comment"># 全局变量</span></span><br><span class="line">    msg_time_rec = time.strftime(<span class="string">"%Y-%m-%d %H:%M:%S"</span>, time.localtime())  <span class="comment"># 格式化本地时间戳 e: 2018-09-04 22:02:08</span></span><br><span class="line">    msg_id = msg[<span class="string">'MsgId'</span>]  <span class="comment"># 消息ID</span></span><br><span class="line">    msg_time = msg[<span class="string">'CreateTime'</span>]  <span class="comment"># 消息时间</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">'ActualNickName'</span> <span class="keyword">in</span> msg:  <span class="comment"># 判断是否为群消息</span></span><br><span class="line">        from_user = msg[<span class="string">'ActualUserName'</span>]  <span class="comment"># 群消息的发送者,用户的唯一标识</span></span><br><span class="line">        msg_from = msg[<span class="string">'ActualNickName'</span>]</span><br><span class="line">        friends = itchat.get_friends(update=<span class="keyword">True</span>)  <span class="comment"># 获取所有好友</span></span><br><span class="line">        <span class="keyword">for</span> friend <span class="keyword">in</span> friends:</span><br><span class="line">            <span class="keyword">if</span> from_user == friend[<span class="string">'UserName'</span>]:  <span class="comment"># 判断群里撤回消息的是否为自己好友</span></span><br><span class="line">                <span class="keyword">if</span> friend[<span class="string">'RemarkName'</span>]:  <span class="comment"># 优先使用好友的备注名称，没有则使用昵称</span></span><br><span class="line">                    msg_from = friend[<span class="string">'RemarkName'</span>]</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    msg_from = friend[<span class="string">'NickName'</span>]</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">        groups = itchat.get_chatrooms(update=<span class="keyword">True</span>)  <span class="comment"># 获取所有的群</span></span><br><span class="line">        <span class="keyword">for</span> group <span class="keyword">in</span> groups:</span><br><span class="line">            <span class="keyword">if</span> msg[<span class="string">'FromUserName'</span>] == group[<span class="string">'UserName'</span>]:  <span class="comment"># 根据群消息的FromUserName匹配是哪个群</span></span><br><span class="line">                group_name = group[<span class="string">'NickName'</span>]</span><br><span class="line">                group_members = group[<span class="string">'MemberCount'</span>]</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        group_name = group_name + <span class="string">'('</span> + str(group_members) + <span class="string">')'</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">else</span>:  <span class="comment"># 否则输入个人消息</span></span><br><span class="line">        <span class="keyword">if</span> itchat.search_friends(userName=msg[<span class="string">'FromUserName'</span>])[<span class="string">'RemarkName'</span>]:  <span class="comment"># 优先使用备注名称</span></span><br><span class="line">            msg_from = itchat.search_friends(userName=msg[<span class="string">'FromUserName'</span>])[<span class="string">'RemarkName'</span>]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            msg_from = itchat.search_friends(userName=msg[<span class="string">'FromUserName'</span>])[<span class="string">'NickName'</span>]</span><br><span class="line">        group_name = <span class="string">''</span></span><br><span class="line"></span><br><span class="line">    msg_content = <span class="keyword">None</span>  <span class="comment"># 消息内容</span></span><br><span class="line">    msg_share_url = <span class="keyword">None</span>  <span class="comment"># 分享的链接</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> msg[<span class="string">'Type'</span>] <span class="keyword">in</span> (<span class="string">'Text'</span>, <span class="string">'Friends'</span>):</span><br><span class="line">        msg_content = msg[<span class="string">'Text'</span>]  <span class="comment"># 如果发送的消息是文本或者好友推荐</span></span><br><span class="line">    <span class="keyword">elif</span> msg[<span class="string">'Type'</span>] <span class="keyword">in</span> (<span class="string">'Recording'</span>, <span class="string">'Attachment'</span>, <span class="string">'Video'</span>, <span class="string">'Picture'</span>):</span><br><span class="line">        msg_content = <span class="string">r""</span> + msg[<span class="string">'FileName'</span>]  <span class="comment"># 如果发送的消息是附件、视频、图片、语音</span></span><br><span class="line">        msg[<span class="string">'Text'</span>](rev_tmp_dir + msg[<span class="string">'FileName'</span>])  <span class="comment"># 保存文件</span></span><br><span class="line">    <span class="keyword">elif</span> msg[<span class="string">'Type'</span>] == <span class="string">'Card'</span>:</span><br><span class="line">        msg_content = msg[<span class="string">'RecommendInfo'</span>][<span class="string">'NickName'</span>] + <span class="string">r" 的名片"</span></span><br><span class="line">    <span class="keyword">elif</span> msg[<span class="string">'Type'</span>] == <span class="string">'Map'</span>:</span><br><span class="line">        x, y, location = re.search(</span><br><span class="line">            <span class="string">"&lt;location x=\"(.*?)\" y=\"(.*?)\".*label=\"(.*?)\".*"</span>, msg[<span class="string">'OriContent'</span>]).group(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>)</span><br><span class="line">        <span class="keyword">if</span> location <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">            msg_content = <span class="string">r"纬度-&gt;"</span> + x.__str__() + <span class="string">" 经度-&gt;"</span> + y.__str__()  <span class="comment"># 内容为详细的地址</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            msg_content = <span class="string">r""</span> + location</span><br><span class="line">    <span class="keyword">elif</span> msg[<span class="string">'Type'</span>] == <span class="string">'Sharing'</span>:  <span class="comment"># 如果消息为分享的音乐或者文章，详细的内容为文章的标题或者是分享的名字</span></span><br><span class="line">        msg_content = msg[<span class="string">'Text'</span>]</span><br><span class="line">        msg_share_url = msg[<span class="string">'Url'</span>]  <span class="comment"># 分享链接</span></span><br><span class="line">    face_bug = msg_content</span><br><span class="line">    <span class="comment"># 更新字典</span></span><br><span class="line">    msg_dict.update(&#123;msg_id: &#123;<span class="string">"msg_from"</span>: msg_from,</span><br><span class="line">                              <span class="string">"msg_time"</span>: msg_time,</span><br><span class="line">                              <span class="string">"msg_time_rec"</span>: msg_time_rec,</span><br><span class="line">                              <span class="string">"msg_type"</span>: msg[<span class="string">"Type"</span>],</span><br><span class="line">                              <span class="string">"msg_content"</span>: msg_content,</span><br><span class="line">                              <span class="string">"msg_share_url"</span>: msg_share_url,</span><br><span class="line">                              <span class="string">"group_name"</span>: group_name&#125;&#125;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@itchat.msg_register(NOTE, isFriendChat=True, isGroupChat=True, isMpChat=True)</span></span><br><span class="line"><span class="comment"># 收到note通知类消息，判断是不是撤回并进行相应操作</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">send_msg_helper</span><span class="params">(msg)</span>:</span></span><br><span class="line">    <span class="keyword">global</span> face_bug</span><br><span class="line">    <span class="keyword">if</span> re.search(<span class="string">r"\&lt;\!\[CDATA\[.*撤回了一条消息\]\]\&gt;"</span>, msg[<span class="string">'Content'</span>]) <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">None</span>:</span><br><span class="line">        <span class="comment"># 获取消息的id</span></span><br><span class="line">        old_msg_id = re.search(</span><br><span class="line">            <span class="string">"\&lt;msgid\&gt;(.*?)\&lt;\/msgid\&gt;"</span>,</span><br><span class="line">            msg[<span class="string">'Content'</span>]).group(<span class="number">1</span>)  <span class="comment"># 在返回的content查找撤回的消息的id</span></span><br><span class="line">        old_msg = msg_dict.get(old_msg_id, &#123;&#125;)</span><br><span class="line">        <span class="keyword">if</span> len(old_msg_id) &lt; <span class="number">11</span>:</span><br><span class="line">            itchat.send_file(rev_tmp_dir + face_bug, toUserName=<span class="string">'filehelper'</span>)</span><br><span class="line">            os.remove(rev_tmp_dir + face_bug)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            msg_body = <span class="string">"快来看啊，有人撤回消息啦！"</span> + <span class="string">"\n"</span> \</span><br><span class="line">                       + old_msg.get(<span class="string">'msg_from'</span>) + <span class="string">" 撤回了 "</span> + old_msg.get(<span class="string">"msg_type"</span>) + <span class="string">" 消息"</span> + <span class="string">"\n"</span> \</span><br><span class="line">                       + old_msg.get(<span class="string">'msg_time_rec'</span>) + <span class="string">"\n"</span> \</span><br><span class="line">                       + <span class="string">"撤回了什么 ⇣"</span> + <span class="string">"\n"</span> \</span><br><span class="line">                       + <span class="string">r""</span> + old_msg.get(<span class="string">'msg_content'</span>)</span><br><span class="line">            <span class="comment"># 如果是分享存在链接</span></span><br><span class="line">            <span class="keyword">if</span> old_msg[<span class="string">'msg_type'</span>] == <span class="string">"Sharing"</span>:</span><br><span class="line">                msg_body += <span class="string">"\n就是这个链接➣ "</span> + old_msg.get(<span class="string">'msg_share_url'</span>)</span><br><span class="line">            itchat.send(msg_body, toUserName=<span class="string">'filehelper'</span>)  <span class="comment"># 将撤回消息发送到文件助手</span></span><br><span class="line">            <span class="keyword">if</span> old_msg[<span class="string">"msg_type"</span>] <span class="keyword">in</span> (</span><br><span class="line">                    <span class="string">"Picture"</span>, <span class="string">"Recording"</span>, <span class="string">"Video"</span>, <span class="string">"Attachment"</span>):</span><br><span class="line">                file = <span class="string">'@fil@%s'</span> % (rev_tmp_dir + old_msg[<span class="string">'msg_content'</span>])</span><br><span class="line">                itchat.send(msg=file, toUserName=<span class="string">'filehelper'</span>)</span><br><span class="line">                os.remove(rev_tmp_dir + old_msg[<span class="string">'msg_content'</span>])</span><br><span class="line">            msg_dict.pop(old_msg_id)  <span class="comment"># 删除字典旧消息</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    itchat.auto_login(hotReload=<span class="keyword">True</span>)</span><br><span class="line">    itchat.run()</span><br></pre></td></tr></table></figure>
+<h4 id="推荐阅读"><a href="#推荐阅读" class="headerlink" title="推荐阅读"></a>推荐阅读</h4><p><a href="https://yfzhou.coding.me/2018/08/20/Python%E9%AA%9A%E6%93%8D%E4%BD%9C%EF%BC%9A%E5%BE%AE%E4%BF%A1%E8%BF%9C%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%94%B5%E8%84%91/">Python骚操作：微信远程控制电脑</a></p>
+<p><a href="https://yfzhou.coding.me/2018/09/04/%E5%BE%AE%E4%BF%A1%E6%9C%80%E5%BC%BA%E8%8A%B1%E5%BC%8F%E6%93%8D%E4%BD%9C%EF%BC%8C%E5%B8%A6%E4%BD%A0%E7%8E%A9%E8%BD%AC-wxpy/">微信最强花式操作，带你玩转-wxpy</a>  </p>
+<p><a href="https://yfzhou.coding.me/2018/09/05/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E7%94%A8-Python-%E6%9D%A5%E6%9C%97%E8%AF%BB%E7%BD%91%E9%A1%B5/">手把手教你用 Python 来朗读网页</a>  </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/wechatpay.png" alt="felix 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/alipay.png" alt="felix 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+	
+	<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:18px;">-------------本文结束 <i class="fa fa-paw"></i> 感谢您的阅读-------------</div>
+    
+</div>
+  
+</div>
+	
+	
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/05/InnoDB，快照读，在RR和RC下有何差异？/" rel="next" title="InnoDB，快照读，在RR和RC下有何差异？">
+                <i class="fa fa-chevron-left"></i> InnoDB，快照读，在RR和RC下有何差异？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/06/Python优雅写法，让你工作效率翻2倍/" rel="prev" title="Python优雅写法，让你工作效率翻2倍">
+                Python优雅写法，让你工作效率翻2倍 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count" title="累计分享次数"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODUyNC8xNTA1Mg=="></div>
+    </div>
+
+  
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg"
+                alt="felix" />
+            
+              <p class="site-author-name" itemprop="name">felix</p>
+              <p class="site-description motion-element" itemprop="description">周宇峰的博客</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/542869246" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://gitee.com/zyf542869246" target="_blank" title="Gitee">
+                      
+                        <i class="fa fa-fw fa-git"></i>Gitee</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://music.163.com/#/user/home?id=343583524" title="😆 网易云音乐 😆" target="_blank">😆 网易云音乐 😆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ityouknow.com/spring-boot.html" title="spring-boot 纯洁的微笑" target="_blank">spring-boot 纯洁的微笑</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" title="Python教程 廖雪峰" target="_blank">Python教程 廖雪峰</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目环境"><span class="nav-number">1.</span> <span class="nav-text">项目环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#导包"><span class="nav-number">2.</span> <span class="nav-text">导包</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#效果展示"><span class="nav-number">3.</span> <span class="nav-text">效果展示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#程序思路"><span class="nav-number">4.</span> <span class="nav-text">程序思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#程序分析"><span class="nav-number">5.</span> <span class="nav-text">程序分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#接收信息处理"><span class="nav-number">6.</span> <span class="nav-text">接收信息处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#个人消息处理"><span class="nav-number">7.</span> <span class="nav-text">个人消息处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#各类型消息处理"><span class="nav-number">8.</span> <span class="nav-text">各类型消息处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理撤回消息"><span class="nav-number">9.</span> <span class="nav-text">处理撤回消息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主函数"><span class="nav-number">10.</span> <span class="nav-text">主函数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写在最后"><span class="nav-number">11.</span> <span class="nav-text">写在最后</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#源码"><span class="nav-number">12.</span> <span class="nav-text">源码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推荐阅读"><span class="nav-number">13.</span> <span class="nav-text">推荐阅读</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+	
+      <div class="footer-inner">
+        <div id='show2'></div>
+		<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-tint"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">felix</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">85.9k</span>
+  
+</div>
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+-->
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人次
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+		
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("4DkhRkq5CadWFisToA3zFrop-gzGzoHsz", "xihAA2ETGTdekJFloguCmmgq");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+ 
+  
+  <!-- 右上角github关注-->
+  <div class="forkme">
+	<a href="https://github.com/542869246"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://pd2tflnys.bkt.clouddn.com/img/blog/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+  </div>
+ 
+  <!-- 音乐播放器-->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  
+  undefined
+   
+<!-- 代码块复制功能 -->
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!-- 背景图-->
+<script type="text/javascript" src="/js/src/dynamic_bg.js"></script
+ <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+ <!-- 页面点击汉字 -->
+<script type="text/javascript" src="/js/src/hanzi.js"></script>
+</html>
+<!--崩溃欺骗-->
+<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+
+<script>
+window.onload = function() { 
+var show = document.getElementById("show2"); 
+setInterval(function() { 
+var time = new Date(); 
+// 程序计时的月从0开始取值后+1 
+var m = time.getMonth() + 1; 
+//根据自己博客的创建时间更改数值 
+var t = "周宇峰的博客已存活了"+(time.getFullYear()-2018) + "年" + (m-8) + "月" 
++ time.getDate() + "天 " + time.getHours() + "时" 
++ time.getMinutes() + "分" + time.getSeconds() + "秒"; 
+show.innerHTML = t; 
+}, 1000); 
+}; 
+</script>
