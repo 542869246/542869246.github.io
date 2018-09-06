@@ -181,7 +181,14 @@ if __name__ == '__main__':
 
 #### 源码
 ```py
-# -*- coding:utf-8 -*-
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+# @Time    : 2018/9/6 16:09
+# @Author  : yfzhou
+# @Site    :
+# @File    : withdraw.py
+# @Software: PyCharm
+# Life is short, I use python.
 import os
 import re
 import shutil
