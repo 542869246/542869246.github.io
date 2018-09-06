@@ -13,7 +13,7 @@ description:
 
 <!--more-->
 
-一大早醒来，发现女神昨晚发来三条消息，但是显示都已撤回，OMG，我错过了什么？群里有一个漂亮妹纸的爆照照片撤回了，想看又看不到！群里大佬分享的经典语录被撤回了，感觉错过一个亿！怎么办？用无所不能的 Python 就可以将这些撤回的消息发给你的微信，让你从此走上人生巅峰![](https://res.wx.qq.com/mpres/htmledition/images/icon/common/emotion_panel/emoji_wx/2_02.png?tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+一大早醒来，发现女神昨晚发来三条消息，但是显示都已撤回，OMG，我错过了什么？群里有一个漂亮妹纸的爆照照片撤回了，想看又看不到！群里大佬分享的经典语录被撤回了，感觉错过一个亿！怎么办？用无所不能的 Python 就可以将这些撤回的消息发给你的微信，让你从此走上人生巅峰!
 
 #### 项目环境
 
@@ -30,9 +30,9 @@ itchat：控制微信的第三方库
 
 以下截图显示的撤回消息类型依次是文字消息、微信自带表情、图片、语音、定位地图、名片、公众号文章、音乐、视频。有群里撤回的，也有个人号撤回的。
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/DajPxmUr7cb3ASibtVAw4uuQgFpgscjkrnXh3hdROicibicpRsUgUJQViaC4nI1lH9cnibcprB8ChM24zdXWdyaE1iaqg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/613709486458704724_看图王.png?x-oss-process=style/w200)
 
-![](https://mmbiz.qpic.cn/mmbiz_jpg/DajPxmUr7cb3ASibtVAw4uuQgFpgscjkrbdfW1JCB9Frtyc2ArdTFXnKw3rq7RbsyBuqHhPZaJyiaIDlEhORSvWg/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1)
+![](https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/706731996162609493.png?x-oss-process=style/w200)
 
 #### 程序思路
 
