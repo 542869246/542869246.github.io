@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yfzhou.coding.me/"/>
-  <updated>2018-09-10T11:28:25.929Z</updated>
+  <updated>2018-09-17T01:11:36.028Z</updated>
   <id>https://yfzhou.coding.me/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo-Next搭建个人博客（Hexo博客备份）</title>
+    <link href="https://yfzhou.coding.me/2018/09/17/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88Hexo%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD%EF%BC%89/"/>
+    <id>https://yfzhou.coding.me/2018/09/17/Hexo-Next搭建个人博客（Hexo博客备份）/</id>
+    <published>2018-09-17T00:39:51.000Z</published>
+    <updated>2018-09-17T01:11:36.028Z</updated>
+    
+    <content type="html"><![CDATA[<p><span></span></p><a id="more"></a><h3 id="一、需求："><a href="#一、需求：" class="headerlink" title="一、需求："></a>一、需求：</h3><p>在Windows和Mac下需要对Hexo进行管理和更新，或者进行重新部署环境。</p><h3 id="二、思路"><a href="#二、思路" class="headerlink" title="二、思路"></a>二、思路</h3><p>创建分支，一个分支用来存放Hexo生成的网站原始的文件，另一个分支用来存放生成的静态网页。</p><h3 id="三、搭建的流程"><a href="#三、搭建的流程" class="headerlink" title="三、搭建的流程"></a>三、搭建的流程</h3><p>博客搭建请看我之前的文章</p><ol><li>将themes/next/(我用的是NexT主题)中的.git/删除，否则无法将主题文件夹push；</li><li>在本地blog文件夹下创建文件.gitignore(一般都自带一个)，打开后写入</li></ol><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br></pre></td></tr></table></figure><div class="note info"><p>备注：<br>刚开始好多备份的教程都没有说明.gitignore文件，在恢复之后，进行hexo d之后老是报错，发在邮箱里的错误内容</p></div><p><img src="http://oe53dpmqz.bkt.clouddn.com/20160929001.png" alt="20160929001"><br>github给邮箱发送的内容，说：<span class="label danger">有模块没有初始化，在这里所指的就是.deploy_git这个模块</span></p><ol start="3"><li><p>在本地blog文件夹下执行命令</p><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#git初始化</span></span><br><span class="line">git init</span><br><span class="line"><span class="comment">#创建hexo分支，用来存放源码</span></span><br><span class="line">git checkout -b hexo</span><br><span class="line"><span class="comment">#git 文件添加</span></span><br><span class="line">git <span class="keyword">add</span><span class="bash"> .</span></span><br><span class="line"><span class="bash"><span class="comment">#git 提交</span></span></span><br><span class="line"><span class="bash">git commit -m <span class="string">"init"</span></span></span><br><span class="line"><span class="bash"><span class="comment">#添加远程仓库</span></span></span><br><span class="line"><span class="bash">git remote add origin git@github.com:542869246/542869246.github.io.git</span></span><br><span class="line"><span class="bash"><span class="comment">#push到hexo分支</span></span></span><br><span class="line"><span class="bash">git push origin hexo</span></span><br></pre></td></tr></table></figure></li><li><p>执行hexo d -g生成网站并部署到GitHub上</p></li></ol><p>这样一来，在GitHub上的<a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:542869246/542869246.github.io.git仓库就有两个分支，一个hexo分支用来存放网站的原始文件，一个master分支用来存放生成的静态网页。</p><h3 id="四、恢复"><a href="#四、恢复" class="headerlink" title="四、恢复"></a>四、恢复</h3><p>当重装电脑之后，或者想在其他电脑上修改博客，可以使用下列步骤：</p><ul><li>1、先安装hexo<br>$ npm install -g hexo-cli</li><li>2、存在github上的git clone下来<br>git clone <a href="mailto:git@github.com" target="_blank" rel="noopener">git@github.com</a>:542869246/542869246.github.io.git</li><li>3、项目文件夹下npm<br>cd项目名/ npm install –no-bin-links<br>$ npm install hexo-deployer-git</li><li>4、重新配置github和coding的公钥</li></ul><h3 id="五、更新"><a href="#五、更新" class="headerlink" title="五、更新"></a>五、更新</h3><p>每次写作之后,可以使用下列步骤：<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo d<span class="comment">#生成网站并部署到GitHub上</span></span><br><span class="line">git <span class="keyword">add</span><span class="bash"> .</span></span><br><span class="line"><span class="bash">git commit -m <span class="string">'update'</span></span></span><br><span class="line"><span class="bash">git push origin hexo</span></span><br></pre></td></tr></table></figure></p>]]></content>
+    
+    <summary type="html">
+    
+      解决下多终端下怎么同步写作备份的问题。
+    
+    </summary>
+    
+      <category term="Hexo" scheme="https://yfzhou.coding.me/categories/Hexo/"/>
+    
+    
+      <category term="Hexo" scheme="https://yfzhou.coding.me/tags/Hexo/"/>
+    
+      <category term="Next" scheme="https://yfzhou.coding.me/tags/Next/"/>
+    
+  </entry>
   
   <entry>
     <title>业界难题 - 『跨库分页』的四种方案</title>
@@ -772,11 +796,11 @@
     
       <category term="HTML" scheme="https://yfzhou.coding.me/tags/HTML/"/>
     
-      <category term="js" scheme="https://yfzhou.coding.me/tags/js/"/>
-    
       <category term="前端" scheme="https://yfzhou.coding.me/tags/%E5%89%8D%E7%AB%AF/"/>
     
       <category term="css" scheme="https://yfzhou.coding.me/tags/css/"/>
+    
+      <category term="js" scheme="https://yfzhou.coding.me/tags/js/"/>
     
   </entry>
   
