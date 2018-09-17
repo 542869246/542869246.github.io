@@ -164,6 +164,7 @@ scheme: Pisces # 双栏 Scheme，小家碧玉似的清新
     type: "categories"
     ---
 ```
+
 #### 6.头像设置
 
 ![](https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM%E6%88%AA%E5%9B%BE20180827165555.png)
@@ -391,3 +392,179 @@ scheme: Pisces # 双栏 Scheme，小家碧玉似的清新
       baidu: http://example.com/
       google: http://example.com/
 ```
+
+#### 11好玩的写作样式
+用一些特殊的样式，可以增加文章的可读性。不过也不是越多越好，没必要写一篇文章就把下面的样式全部用一遍，这样只会适得其反，从下面的样式中选几个自己觉得比较好的、经常会用的就行。而且写博客重点是文章的文字内容，而不是这些样式，样式只是为了让文章更美观，更适合阅读。这和我们用 Markdown 写文章是一样的道理，用 Markdown 而不是直接写 HTML 代码，就是为了将更多时间花在文字上。
+
+
+###### **11.01主题自带样式 文本居中引用**
+效果：
+{% cq %}
+人生乃是一面镜子，
+从镜子里认识自己，
+我要称之为头等大事，
+也只是我们追求的目的！
+{% endcq %}
+
+源码：
+```
+{% cq %}
+人生乃是一面镜子，
+从镜子里认识自己，
+我要称之为头等大事，
+也只是我们追求的目的！
+{% endcq %}
+```
+更多 NexT 主题自带的标签样式，请点击：http://theme-next.iissnan.com/tag-plugins.html
+
+###### **11.02主题自带样式 note 标签**
+在主题配置文件_config.yml里有一个关于这个的配置，但官方文档没有提供 HTML 的使用方式，个人认为这种方式更简单，也不会产生一些奇怪的显示 bug……
+
+
+```html
+<div class="note default"><p>default</p></div>
+```
+<div class="note default"><p>default</p></div>
+
+```html
+<div class="note primary"><p>primary</p></div>
+```
+<div class="note primary"><p>primary</p></div>
+
+```html
+<div class="note success"><p>success</p></div>
+```
+<div class="note success"><p>success</p></div>
+
+```html
+<div class="note info"><p>info</p></div>
+```
+<div class="note info"><p>info</p></div>
+
+```html
+<div class="note warning"><p>warning</p></div>
+```
+<div class="note warning"><p>warning</p></div>
+
+```html
+<div class="note danger"><p>danger</p></div>
+```
+<div class="note danger"><p>danger</p></div>
+
+```html
+<div class="note danger no-icon"><p>danger no-icon</p></div>
+```
+<div class="note danger no-icon"><p>danger no-icon</p></div>
+
+首先可以在`主题配置文件`中需要配置下，贴上我的：
+```
+# Note tag (bs-callout).
+note:
+  # 风格
+  style: flat
+  # 要不要图标
+  icons: true
+  # 圆角矩形
+  border_radius: 3
+  light_bg_offset:
+```
+里面的三种风格长啥样？开启图标长啥样？可以查看[这个页面](https://github.com/iissnan/hexo-theme-next/pull/1697)，更多的介绍也在这个页面，请自行查看。
+
+
+###### **11.03主题自带样式 label 标签**
+首先可以在`主题配置文件`中有配置，需要配置下，贴上我的:
+```
+# Label tag.
+label: true
+```
+
+然后效果如下（@ 前面的是{% label success@label %}的名字，后面的是要显示的文字）：
+
+{% label default@default %}
+```
+{% label default@default %}
+```
+
+{% label primary@primary %}
+```
+{% label primary@primary %}
+```
+
+{% label success@success %}
+```
+{% label success@success %}
+```
+
+{% label info@info %}
+```
+{% label info@info %}
+
+```
+
+{% label warning@warning %}
+```
+{% label warning@warning %}
+```
+
+{% label danger@danger %}
+```
+{% label danger@danger %}
+```
+
+
+
+###### **11.03主题自带样式 tabs 标签**
+效果：
+{% tabs 选项卡, 2 %}
+<!-- tab -->
+**这是选项卡 1** 呵呵哈哈哈哈哈哈哈哈呵呵哈哈哈哈哈哈哈哈呵呵哈哈哈哈哈哈哈哈呵呵哈哈哈哈哈哈哈哈呵呵哈哈哈哈哈哈哈哈呵呵哈哈哈哈哈哈哈哈……
+<!-- endtab -->
+<!-- tab -->
+**这是选项卡 2**
+<!-- endtab -->
+<!-- tab -->
+**这是选项卡 3** 哇，你找到我了！φ(≧ω≦*)♪～
+<!-- endtab -->
+{% endtabs %}
+
+
+
+源码：
+```
+{% tabs 选项卡, 2 %}
+<!-- tab -->
+**这是选项卡 1** 呵呵哈哈哈哈哈哈哈哈呵呵哈哈哈哈哈哈哈哈呵呵哈哈哈哈哈哈哈哈呵呵哈哈哈哈哈哈哈哈呵呵哈哈哈哈哈哈哈哈呵呵哈哈哈哈哈哈哈哈……
+<!-- endtab -->
+<!-- tab -->
+**这是选项卡 2**
+<!-- endtab -->
+<!-- tab -->
+**这是选项卡 3** 哇，你找到我了！φ(≧ω≦*)♪～
+<!-- endtab -->
+{% endtabs %}
+```
+
+首先可以在`主题配置文件`中有配置，需要配置下，贴上我的：
+```
+# Tabs tag.
+tabs:
+  enable: true
+  transition:
+    tabs: true
+    labels: true
+  border_radius: 0
+```
+
+
+然后上面源码中, 2表示一开始在第二个选项卡，非必须，若数值为-1则隐藏选项卡内容。更多用法请查看[这个页面](https://almostover.ru/2016-01/hexo-theme-next-test/#Tab-tag-test)。
+
+
+
+###### **11.04主题自带样式 tabs 标签**
+源码：
+```
+{% btn https://www.baidu.com, 点击下载百度, download fa-lg fa-fw %}
+```
+
+效果：{% btn https://www.baidu.com, 点击下载百度, download fa-lg fa-fw %}
+关于按钮的更多使用可以前往[这个页面](https://almostover.ru/2016-01/hexo-theme-next-test/#Button-tag-test)查看。

@@ -39,6 +39,12 @@ date: 2018-08-01 22:59:45
 <hr>
 <h4 id="🍀-更新日志"><a href="#🍀-更新日志" class="headerlink" title="🍀 更新日志"></a>🍀 更新日志</h4>
 
+<div class="note success"><p>[2018/9/17] 更新</p></div>
+- 关闭博客右下角的萌妹子，十个看我Blog的有九个问我怎么弄的，喧宾夺主。😒
+- 新增[Hexo-Next搭建个人博客（Hexo博客备份）](https://yfzhou.coding.me/2018/09/17/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88Hexo%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD%EF%BC%89/)
+- [Hexo-Next搭建个人博客（主题优化）](https://yfzhou.coding.me/2018/08/27/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%EF%BC%89/)更新{% label info@11.好玩的写作样式 %}
+- 左侧站点概览新增我的[知乎](https://www.zhihu.com/people/yu-sui-58/activities)和[网易云音乐](https://music.163.com/#/user/home?id=343583524)入口，欢迎互关哦~😤
+
 <div class="note success"><p>[2018/9/10] 更新</p></div>
 - 备份博客至Github，麻麻再也不怕我博客数据丢失啦。
 

@@ -131,6 +131,8 @@ scheme: Pisces
 social:
   GitHub: https://github.com/542869246 || github
   Gitee: https://gitee.com/zyf542869246 || git
+  网易云音乐: https://music.163.com/#/user/home?id=343583524 || music
+  知乎: https://www.zhihu.com/people/yu-sui-58/activities
   #E-Mail: mailto:yourname@gmail.com || envelope
   #Google: https://plus.goog le.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
@@ -155,6 +157,7 @@ links_layout: block
   #Title: http://example.com/
 links:
   😆 网易云音乐 😆: https://music.163.com/#/user/home?id=343583524
+  😤 知乎 😤: https://www.zhihu.com/people/yu-sui-58/activities
   spring-boot 纯洁的微笑: http://www.ityouknow.com/spring-boot.html
   Python教程 廖雪峰: https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000
 
@@ -826,9 +829,9 @@ passage_end_tag:
   enabled: true
 
 # 配置宠物信息
-live2d:
-  modle: hijiki
-  moblieShow: false
+#live2d:
+  #modle: hijiki
+  #moblieShow: false
   
 # Online contact
 daovoice: true
