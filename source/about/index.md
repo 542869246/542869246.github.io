@@ -39,6 +39,9 @@ date: 2018-08-01 22:59:45
 <hr>
 <h4 id="🍀-更新日志"><a href="#🍀-更新日志" class="headerlink" title="🍀 更新日志"></a>🍀 更新日志</h4>
 
+<div class="note success"><p>[2018/9/10] 更新</p></div>
+- 备份博客至Github，麻麻再也不怕我博客数据丢失啦。
+
 <div class="note success"><p>[2018/8/31] 更新</p></div>
 - 修改主页文章列表显示方式，支持配图，优化
 - 优化文章内应用样式
