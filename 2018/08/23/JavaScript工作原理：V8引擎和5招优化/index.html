@@ -2,16 +2,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
-<!--<meta name="baidu-site-verification" content="Cd4Lc5evwc" />-->
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-<meta name="theme-color" content="#222">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#fff">
+
+
+
 
 
 
@@ -54,8 +65,8 @@
 
 
 
+  <meta name="baidu-site-verification" content="true" />
 
-  <meta name="baidu-site-verification" content="Cd4Lc5evwc" />
 
 
 
@@ -116,59 +127,78 @@
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.4.1">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.4.1">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.4.1">
 
 
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="js,V8," />
+  <link rel="mask-icon" href="/images/logo.svg?v=6.4.1" color="#fff">
 
 
 
 
 
-  <link rel="alternate" href="/atom.xml" title="Felix" type="application/atom+xml" />
 
 
 
 
-<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
-<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
-<style>
-    .pace .pace-progress {
-        background: #1E92FB; /*进度条颜色*/
-        height: 3px;
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"perspectiveLeftIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"perspectiveLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '5GWESN2MHV',
+      apiKey: '756045653a25072015750606fb533a33',
+      indexName: 'hexo blog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没有找到与 ${query} 相关的内容","hits_stats":"${hits}条相关记录，共耗时${time} ms"}
     }
-    .pace .pace-progress-inner {
-         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
-    }
-    .pace .pace-activity {
-        border-top-color: #1E92FB;    /*上边框颜色*/
-        border-left-color: #1E92FB;    /*左边框颜色*/
-    }
-</style>
+  };
+</script>
 
-<meta name="description" content="概述JavaScript引擎是执行JavaScript代码的程序或解释器。JavaScript引擎可以作为标准解释器或即时编译器来实现，该编译器以某种形式将JavaScript编译为字节码。">
+
+  
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("https://yfzhou.coding.me/"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+  <meta name="description" content="概述JavaScript引擎是执行JavaScript代码的程序或解释器。JavaScript引擎可以作为标准解释器或即时编译器来实现，该编译器以某种形式将JavaScript编译为字节码。">
 <meta name="keywords" content="js,V8">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript工作原理：V8引擎和5招优化">
 <meta property="og:url" content="https://yfzhou.coding.me/2018/08/23/JavaScript工作原理：V8引擎和5招优化/index.html">
 <meta property="og:site_name" content="Felix">
 <meta property="og:description" content="概述JavaScript引擎是执行JavaScript代码的程序或解释器。JavaScript引擎可以作为标准解释器或即时编译器来实现，该编译器以某种形式将JavaScript编译为字节码。">
-<meta property="og:locale" content="zh-Hans">
+<meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://image-static.segmentfault.com/118/401/1184019299-599fa1648acc6_articlex">
 <meta property="og:image" content="https://image-static.segmentfault.com/912/896/912896149-5ae2d38d99b77_articlex">
 <meta property="og:image" content="https://image-static.segmentfault.com/338/869/3388694770-5ae29b3121882_articlex">
@@ -184,29 +214,8 @@
 
 
 
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"hide","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '5GWESN2MHV',
-      apiKey: '756045653a25072015750606fb533a33',
-      indexName: 'hexo blog',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"输入关键字","hits_empty":"没有找到与 ${query} 相关的内容","hits_stats":"${hits}条相关记录，共耗时${time} ms"}
-    }
-  };
-</script>
+  <link rel="alternate" href="/atom.xml" title="Felix" type="application/atom+xml" />
+
 
 
 
@@ -214,29 +223,13 @@
 
 
 
-
-<script>
-    (function(){
-        if(''){
-            if (prompt('请输入文章密码') !== ''){
-                alert('密码错误！');
-                history.back();
-            }
-        }
-    })();
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
 </script>
 
   <title>JavaScript工作原理：V8引擎和5招优化 | Felix</title>
-  <style>
-  .forkme{
- display: none;
- }
-  @media (min-width: 768px) {
- .forkme{
- display: inline;
- }
-  }
-  </style>
   
 
 
@@ -246,18 +239,43 @@
 
 
 
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
   
   
     
   
-  <div class="bg_content">
-    <canvas id="canvas"></canvas>
-  </div>
+
   <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
@@ -267,19 +285,21 @@
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">Felix</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">Viva La Vida</p>
       
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="切换导航栏">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -287,95 +307,88 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-sitemap">
-          <a href="/sitemap.xml" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />
-            
-            站点地图
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-about">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-top">
+    <a href="/top/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />TopX</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+    <a href="/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
 
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
         </li>
       
     </ul>
   
 
   
-</nav>
+    
 
+  
 
- </div>
-	  
-	  
+  
     <div class="site-search">
       
   
@@ -403,12 +416,24 @@
 
     </div>
   
-	  
+</nav>
+
+
+
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
 
@@ -421,6 +446,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -430,7 +457,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="felix">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="周宇峰的博客">
       <meta itemprop="image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg">
     </span>
 
@@ -443,11 +470,19 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JavaScript工作原理：V8引擎和5招优化</h1>
+          <h1 class="post-title" itemprop="name headline">JavaScript工作原理：V8引擎和5招优化
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -455,11 +490,12 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-23T11:51:12+08:00">
-                2018-08-23
-              </time>
-            
 
+              
+                
+              
+
+              <time title="创建时间：2018-08-23 11:51:12" itemprop="dateCreated datePublished" datetime="2018-08-23T11:51:12+08:00">2018-08-23</time>
             
 
             
@@ -477,11 +513,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
 
                 
                 
@@ -495,33 +527,21 @@
 
           
           
-             <span id="/2018/08/23/JavaScript工作原理：V8引擎和5招优化/" class="leancloud_visitors" data-flag-title="JavaScript工作原理：V8引擎和5招优化">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
 
           
 
           
-            <div class="post-wordcount">
+            <div class="post-symbolscount">
               
-                
+
+              
                 <span class="post-meta-item-icon">
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 
-                  <span class="post-meta-item-text">字数统计&#58;</span>
+                  <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="字数统计">
-                  3,306 字
-                </span>
+                <span title="本文字数">4.7k</span>
               
 
               
@@ -535,9 +555,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">
-                  12 分钟
-                </span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -627,6 +645,9 @@
 
       
     </div>
+
+    
+
     
     
     
@@ -675,8 +696,7 @@
 </div>
   
 </div>
-	
-	
+
     <footer class="post-footer">
       
         <div class="post-tags">
@@ -690,44 +710,17 @@
 
       
       
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2018/08/22/SQL执行效率总结/" rel="next" title="SQL执行效率总结">
-                <i class="fa fa-chevron-left"></i> SQL执行效率总结
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/23/Java多线程学习（吐血超详细总结）/" rel="prev" title="Java多线程学习（吐血超详细总结）">
-                Java多线程学习（吐血超详细总结） <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
+        <div class="post-widgets">
         
+
+        
+
+        
+          
+          <div class="social_share">
+            
+               <div>
+                 
   <div class="bdsharebuttonbox">
     <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
     <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
@@ -738,7 +731,7 @@
     <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
     <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
     <a href="#" class="bds_more" data-cmd="more"></a>
-    <a class="bds_count" data-cmd="count" title="累计分享次数"></a>
+    <a class="bds_count" data-cmd="count"></a>
   </div>
   <script>
     window._bd_share_config = {
@@ -761,18 +754,55 @@
   </script>
 
 <script>
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
 </script>
 
+               </div>
+            
+            
+          </div>
+        
+        </div>
       
-    </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+			
+			   <a href="/2018/08/23/Java多线程学习（吐血超详细总结）/" rel="prev" title="Java多线程学习（吐血超详细总结）">
+			   <i class="fa fa-chevron-left"></i> Java多线程学习（吐血超详细总结）
+			   
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+             
+				<a href="/2018/08/22/SQL执行效率总结/" rel="next" title="SQL执行效率总结">
+				SQL执行效率总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
           </div>
-          
-
-
           
 
   
@@ -781,7 +811,7 @@
     </div>
 
   
-  
+
 
 
         </div>
@@ -797,6 +827,8 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
     
     <div class="sidebar-inner">
 
@@ -817,50 +849,142 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+			<a href="/">
               <img class="site-author-image" itemprop="image"
                 src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg"
                 alt="felix" />
+				</a>
             
               <p class="site-author-name" itemprop="name">felix</p>
               <p class="site-description motion-element" itemprop="description">周宇峰的博客</p>
           </div>
 
-          <nav class="site-state motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">46</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
 
-            
-              <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
               
-                  <span class="site-state-item-count">46</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
 
-            
               
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
               
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">35</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
+            </nav>
+          
 
           
             <div class="feed-link motion-element">
@@ -873,19 +997,27 @@
 
           
             <div class="links-of-author motion-element">
-                
-                  <span class="links-of-author-item">
-                    <a href="https://github.com/542869246" target="_blank" title="GitHub">
-                      
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
-                  </span>
-                
-                  <span class="links-of-author-item">
-                    <a href="https://gitee.com/zyf542869246" target="_blank" title="Gitee">
-                      
-                        <i class="fa fa-fw fa-git"></i>Gitee</a>
-                  </span>
-                
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/542869246" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://gitee.com/zyf542869246" target="_blank" title="Gitee"><i class="fa fa-fw fa-git"></i>Gitee</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://music.163.com/#/user/home?id=343583524" target="_blank" title="网易云音乐"><i class="fa fa-fw fa-music"></i>网易云音乐</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/yu-sui-58/activities" target="_blank" title="知乎"><i class="fa fa-fw fa-globe"></i>知乎</a>
+                  
+                </span>
+              
             </div>
           
 
@@ -906,6 +1038,10 @@
                   </li>
                 
                   <li class="links-of-blogroll-item">
+                    <a href="https://www.zhihu.com/people/yu-sui-58/activities" title="😤 知乎 😤" target="_blank">😤 知乎 😤</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
                     <a href="http://www.ityouknow.com/spring-boot.html" title="spring-boot 纯洁的微笑" target="_blank">spring-boot 纯洁的微笑</a>
                   </li>
                 
@@ -913,12 +1049,69 @@
                     <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" title="Python教程 廖雪峰" target="_blank">Python教程 廖雪峰</a>
                   </li>
                 
+                  <li class="links-of-blogroll-item">
+                    <a href="https://yfzhou.coding.me/about" title="关于此博客" target="_blank">关于此博客</a>
+                  </li>
+                
               </ul>
+			  <div id="days"></div>
+<script>
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("07/30/2018 15:13:14");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
             </div>
           
 
           
-
+            
+          
+          <div id="days"></div>
+<script>
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("07/30/2018 15:13:14");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
         </div>
       </section>
 
@@ -941,13 +1134,6 @@
       
 
       
-        <div class="back-to-top">
-          <i class="fa fa-arrow-up"></i>
-          
-            <span id="scrollpercent"><span>0</span>%</span>
-          
-        </div>
-      
 
     </div>
   </aside>
@@ -958,11 +1144,9 @@
     </main>
 
     <footer id="footer" class="footer">
-	
       <div class="footer-inner">
-        <div id='show2'></div>
-		<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
     <i class="fa fa-tint"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">felix</span>
@@ -973,43 +1157,61 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-      <span class="post-meta-item-text">Site words total count&#58;</span>
+      <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="Site words total count">90.3k</span>
+    <span title="站点总字数">221k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">3:21</span>
+  
+  
+  <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>
   
 </div>
+
+
 <!--
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
 
 
 
-  <span class="post-meta-divider">|</span>
 
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 -->
 
+
+<div class="weixin-box">
+  <div class="weixin-menu">
+    <div class="weixin-hover">
+      <div class="weixin-description">微信扫一扫，加好友</div>
+    </div>
+  </div>
+</div>
 
         
 <div class="busuanzi-count">
   <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">
+    <span class="site-uv" title="总访客量">
       <i class="fa fa-user"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      人次
     </span>
   
 
   
-    <span class="site-pv">
+    <span class="site-pv" title="总访问量">
       <i class="fa fa-eye"></i>
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      次
     </span>
   
 </div>
@@ -1021,15 +1223,25 @@
 
 
 
+
         
-		
       </div>
     </footer>
 
     
-
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
     
 
+    
+	
+    
+
+    
   </div>
 
   
@@ -1048,7 +1260,13 @@
 
 
 
+
+
+
   
+
+
+
 
 
 
@@ -1064,16 +1282,6 @@
   
   
     <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
   
 
   
@@ -1095,57 +1303,37 @@
   
 
 
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
 
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
 
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
 
 
 
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
 
 
 
   
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
 
 
 
   
     <script type="text/javascript">
+      window.livereOptions = {
+        refer: '2018/08/23/JavaScript工作原理：V8引擎和5招优化/'
+      };
       (function(d, s) {
         var j, e = d.getElementsByTagName(s)[0];
         if (typeof LivereTower === 'function') { return; }
@@ -1156,9 +1344,6 @@
       })(document, 'script');
     </script>
   
-
-
-
 
 
 
@@ -1183,137 +1368,17 @@
   <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
   
 
-  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+  <script src="/js/src/algolia-search.js?v=6.4.1"></script>
 
 
 
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("4DkhRkq5CadWFisToA3zFrop-gzGzoHsz", "xihAA2ETGTdekJFloguCmmgq");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
-
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
-
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
-
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            counter.save(null, {
-              success: function(counter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(counter.get('time'));
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            var newcounter = new Counter();
-            /* Set ACL */
-            var acl = new AV.ACL();
-            acl.setPublicReadAccess(true);
-            acl.setPublicWriteAccess(true);
-            newcounter.setACL(acl);
-            /* End Set ACL */
-            newcounter.set("title", title);
-            newcounter.set("url", url);
-            newcounter.set("time", 1);
-            newcounter.save(null, {
-              success: function(newcounter) {
-                var $element = $(document.getElementById(url));
-                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-              },
-              error: function(newcounter, error) {
-                console.log('Failed to create');
-              }
-            });
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
-
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
-
-
 
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 
   
   
@@ -1324,48 +1389,36 @@
 
   
 
- 
+  
+
+  
+
+  
+  <div class="bg_content">
+  <canvas id="canvas"></canvas>
+  </div>
   
   <!-- 右上角github关注-->
   <div class="forkme">
 	<a href="https://github.com/542869246"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://pd2tflnys.bkt.clouddn.com/img/blog/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
   </div>
- 
+  
   <!-- 音乐播放器-->
   <link rel="stylesheet" href="/dist/APlayer.min.css">
   <div id="aplayer"></div>
   <script type="text/javascript" src="/dist/APlayer.min.js"></script>
   <script type="text/javascript" src="/dist/music.js"></script>
   
-  undefined
-   
-<!-- 代码块复制功能 -->
-<script type="text/javascript" src="/js/src/clipboard.min.js"></script>
-<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
-
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
-<!-- 背景图-->
-<script type="text/javascript" src="/js/src/dynamic_bg.js"></script
- <!-- 页面点击小红心 -->
+   <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
  <!-- 页面点击汉字 -->
 <script type="text/javascript" src="/js/src/hanzi.js"></script>
-</html>
-<!--崩溃欺骗-->
-<script type="text/javascript" src="/js/src/crash_cheat.js"></script>
+  
+  <!-- 代码块复制功能 -->
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<!-- 背景图-->
+<script type="text/javascript" src="/js/src/dynamic_bg.js"></script>
 
-<script>
-window.onload = function() { 
-var show = document.getElementById("show2"); 
-setInterval(function() { 
-var time = new Date(); 
-// 程序计时的月从0开始取值后+1 
-var m = time.getMonth() + 1; 
-//根据自己博客的创建时间更改数值 
-var t = "周宇峰的博客已存活了"+(time.getFullYear()-2018) + "年" + (m-8) + "月" 
-+ time.getDate() + "天 " + time.getHours() + "时" 
-+ time.getMinutes() + "分" + time.getSeconds() + "秒"; 
-show.innerHTML = t; 
-}, 1000); 
-}; 
-</script>
+</body>
+</html>

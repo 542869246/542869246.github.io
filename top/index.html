@@ -191,17 +191,18 @@
     })();
 </script>
 
-  <meta name="description" content="周宇峰的博客">
-<meta name="keywords" content="周宇峰,zyf,zhouyufeng,yfzhou,博客,yf.Zhou,felix">
+  <meta name="description" content="博客文章阅读量排行榜">
+<meta name="keywords" content="top,文章阅读量排行榜">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Felix">
-<meta property="og:url" content="https://yfzhou.coding.me/tags/SQL/index.html">
+<meta property="og:title" content="TopX">
+<meta property="og:url" content="https://yfzhou.coding.me/top/index.html">
 <meta property="og:site_name" content="Felix">
-<meta property="og:description" content="周宇峰的博客">
+<meta property="og:description" content="博客文章阅读量排行榜">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-09-17T14:23:46.891Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Felix">
-<meta name="twitter:description" content="周宇峰的博客">
+<meta name="twitter:title" content="TopX">
+<meta name="twitter:description" content="博客文章阅读量排行榜">
 
 
 
@@ -210,7 +211,7 @@
 
 
 
-  <link rel="canonical" href="https://yfzhou.coding.me/tags/SQL/"/>
+  <link rel="canonical" href="https://yfzhou.coding.me/top/"/>
 
 
 
@@ -220,7 +221,7 @@
   };
 </script>
 
-  <title>标签: SQL | Felix</title>
+  <title>TopX | Felix</title>
   
 
 
@@ -267,7 +268,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -316,7 +317,7 @@
         
         
           
-          <li class="menu-item menu-item-tags menu-item-active">
+          <li class="menu-item menu-item-tags">
     <a href="/tags/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
   </li>
@@ -340,7 +341,7 @@
         
         
           
-          <li class="menu-item menu-item-top">
+          <li class="menu-item menu-item-top menu-item-active">
     <a href="/top/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />TopX</a>
   </li>
@@ -456,175 +457,74 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">TopX</h1>
+
+<div class="post-meta">
+  
+    <div class="post-description">博客文章阅读量排行榜</div>
   
   
-  
-  <div class="post-block tag">
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>SQL<small>标签</small>
-        </h1>
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <p><div id="top"></div></p>
+<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script>AV.initialize("4DkhRkq5CadWFisToA3zFrop-gzGzoHsz", "xihAA2ETGTdekJFloguCmmgq");</script>
+<script type="text/javascript">
+  var time=0
+  var title=""
+  var url=""
+  var query = new AV.Query('Counter');
+  query.notEqualTo('id',0);
+  query.descending('time');
+  query.limit(1000);
+  query.find().then(function (todo) {
+    for (var i=0;i<1000;i++){
+      var result=todo[i].attributes;
+      time=result.time;
+      title=result.title;
+      url=result.url;
+      var content="<a href='"+"https://yfzhou.coding.me"+url+"'>"+title+"</a>"+"<br />"+"<font color='#555'>"+"阅读次数："+time+"</font>"+"<br /><br />";
+      document.getElementById("top").innerHTML+=content
+    }
+  }, function (error) {
+    console.log("error");
+  });
+</script>
+
+<p><style>.post-description { display: none; }<style></p>
+</style></p>
+        
       </div>
-
-      
-	  
-	  
       
       
-
-      
-        
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-        </div>
-      
-      
-	  
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/09/05/InnoDB，快照读，在RR和RC下有何差异？/" itemprop="url">
-              
-                <span itemprop="name">InnoDB，快照读，在RR和RC下有何差异？</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-09-05T16:25:00+08:00"
-              content="2018-09-05" >
-          09-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-	  
-	  
-      
-      
-
-      
-      
-	  
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/22/SQL执行效率总结/" itemprop="url">
-              
-                <span itemprop="name">SQL执行效率总结</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-22T11:14:58+08:00"
-              content="2018-08-22" >
-          08-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-	  
-	  
-      
-      
-
-      
-      
-	  
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/21/Oracle-分组统计，按照天、月份周和自然周、月、季度和年/" itemprop="url">
-              
-                <span itemprop="name">Oracle 分组统计，按照天、月份周和自然周、月、季度和年</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-21T18:11:20+08:00"
-              content="2018-08-21" >
-          08-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-	  
-	  
-      
-      
-
-      
-      
-	  
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/08/14/InnoDB并发如此高，原因竟然在这？/" itemprop="url">
-              
-                <span itemprop="name">InnoDB并发如此高，原因竟然在这？</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-08-14T18:07:19+08:00"
-              content="2018-08-14" >
-          08-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
       
     </div>
+    
 
+
+
+    
+    
+    
   </div>
-  
-  
-  
-
-  
 
 
           </div>
@@ -1104,7 +1004,9 @@ show_date_time();
   
 
   
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
 
 
   
