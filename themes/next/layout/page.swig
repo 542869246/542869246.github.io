@@ -2,7 +2,7 @@
 {% import '_macro/sidebar.swig' as sidebar_template %}
 
   {% block title %}{#
-  #}{% set page_title_suffix = ' | ' + config.title %}{#
+  #}{% set page_title_suffix = ' | ' + title %}{#
 
   #}{% if page.type === "categories" and not page.title %}{#
     #}{{ __('title.category') + page_title_suffix }}{#
@@ -31,16 +31,30 @@
         {% if page.type === "tags" %}
           <div class="tag-cloud">
             <div class="tag-cloud-title">
-                {{ _p('counter.tag_cloud', site.tags.length) }}
+                {% set visibleTags = 0 %}
+                {% for tag in site.tags %}
+                  {% if tag.length %}
+                    {% set visibleTags += 1 %}
+                  {% endif %}
+                {% endfor %}
+                {{ _p('counter.tag_cloud', visibleTags) }}
             </div>
             <div class="tag-cloud-tags">
-              {{ tagcloud({min_font: 13, max_font: 31, amount: 1000, color: true, start_color: '#9733EE', end_color: '#FF512F'}) }}
+              
+1
+{{ tagcloud({min_font: 13, max_font: 31, amount: 1000, color: true, start_color: '#9733EE', end_color: '#FF512F'}) }}
             </div>
           </div>
         {% elif page.type === 'categories' %}
           <div class="category-all-page">
             <div class="category-all-title">
-                {{ _p('counter.categories', site.categories.length) }}
+                {% set visibleCategories = 0 %}
+                {% for cat in site.categories %}
+                  {% if cat.length %}
+                    {% set visibleCategories += 1 %}
+                  {% endif %}
+                {% endfor %}
+                {{ _p('counter.categories', visibleCategories) }}
             </div>
             <div class="category-all">
               {{ list_categories() }}
@@ -54,6 +68,7 @@
       {### END PAGE BODY ###}
       {#####################}
     </div>
+    {% include '_partials/breadcrumb.swig' %}
     {######################}
     {### END PAGE BLOCK ###}
     {######################}

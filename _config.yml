@@ -8,7 +8,7 @@ subtitle: Viva La Vida
 description: 周宇峰的博客
 keywords: 周宇峰,zyf,zhouyufeng,yfzhou,博客,yf.Zhou,felix
 author: felix
-language: zh-Hans
+language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
@@ -157,3 +157,17 @@ baidu_url_submit:
   host: yfzhou.coding.me # 在百度站长平台中注册的域名
   token: HFkjiVFYGbTik7jc # 请注意这是您的秘钥， 所以请不要把博客源代码发布在公众仓库里!
   path: baidu_urls.txt # 文本文档的地址， 新链接会保存在此文本文档里
+ 
+ 
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
+  
+leancloud_counter_security:
+  enable_sync: true
+  app_id: 4DkhRkq5CadWFisToA3zFrop-gzGzoHsz
+  app_key: xihAA2ETGTdekJFloguCmmgq
+  username: 18851200889@163.com # Will be asked while deploying if is left blank
+  password: 542869246zyf # Recommmended to be left blank. Will be asked while deploying if is left blank

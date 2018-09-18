@@ -9,7 +9,7 @@
     <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
     <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
     <a href="#" class="bds_more" data-cmd="more"></a>
-    <a class="bds_count" data-cmd="count" title="累计分享次数"></a>
+    <a class="bds_count" data-cmd="count"></a>
   </div>
   <script>
     window._bd_share_config = {
@@ -53,5 +53,5 @@
   </script>
 {% endif %}
 <script>
-  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
 </script>

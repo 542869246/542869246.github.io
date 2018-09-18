@@ -62,8 +62,8 @@ get_font_family(config) {
 }
 
 // Font families.
-$font-family-chinese      = "Helvetica Neue", "Helvetica", "Hiragino Sans GB", "Microsoft YaHei", "Source Han Sans CN", "WenQuanYi Micro Hei", Arial, sans-serif
-//"PingFang SC", "Microsoft YaHei"
+// Font families.
+$font-family-chinese      = -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "STHeiti", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", "Droid Sans Fallback", "Microsoft YaHei"
 
 $font-family-base         = $font-family-chinese, sans-serif
 $font-family-base         = get_font_family('global'), $font-family-chinese, sans-serif if get_font_family('global')
@@ -77,8 +77,8 @@ $font-family-headings     = get_font_family('headings'), $font-family-base if ge
 $font-family-posts        = $font-family-base
 $font-family-posts        = get_font_family('posts'), $font-family-base if get_font_family('posts')
 
-$font-family-monospace    = consolas, Menlo, $font-family-chinese, monospace
-$font-family-monospace    = get_font_family('codes'), consolas, Menlo, $font-family-chinese, monospace if get_font_family('codes')
+$font-family-monospace    = $font-family-chinese, monospace
+$font-family-monospace    = Menlo, Monaco, Consolas, get_font_family('codes'), $font-family-chinese, monospace if get_font_family('codes')
 
 $font-family-icons        = 'FontAwesome'
 
@@ -145,7 +145,7 @@ $table-row-hover-bg-color       = $whitesmoke
 // Code & Code Blocks
 // --------------------------------------------------
 $code-font-family               = $font-family-monospace
-$code-font-size                 = 13px
+$code-font-size                 = 14px
 $code-font-size                 = unit(hexo-config('font.codes.size'), px) if hexo-config('font.codes.size') is a 'unit'
 $code-border-radius             = 3px
 $code-foreground                = $black-light
@@ -192,17 +192,14 @@ $pagination-active-border       = $grey-light
 // Layout sizes
 // --------------------------------------------------
 
-$main-desktop                   = 960px
-$main-desktop-large             = 1200px
 
 $content-desktop                = 700px
-$content-desktop-large          = 900px
+$content-desktop-large          = 800px
+$content-desktop-largest        = 900px
 
 $content-desktop-padding        = 40px
 $content-tablet-padding         = 10px
 $content-mobile-padding         = 8px
-
-$sidebar-desktop                = 240px
 
 $footer-height                  = 50px
 
@@ -314,11 +311,6 @@ $b2t-position-right           = 30px
 $b2t-font-size                = 12px
 $b2t-color                    = white
 $b2t-bg-color                 = $black-deep
-
-// full-image
-$full-image-width             = 110%
-$full-image-margin-horizontal = -5%
-$full-image-margin-vertical   = 25px
 
 //  .post-expand .post-eof
 //  In Muse scheme, margin above and below the post separator

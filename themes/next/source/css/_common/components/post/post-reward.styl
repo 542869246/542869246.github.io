@@ -39,17 +39,11 @@
     display: inline-block;
     margin: 0.8em 2em 0 2em;
 }
-#wechat:hover p{
-    color: #5877f8;
+#QR > div:hover p {
+  animation: roll 0.1s infinite linear;
+  -webkit-animation: roll 0.1s infinite linear;
+  -moz-animation: roll 0.1s infinite linear;
 }
-
-#alipay:hover p{
-    color: #5877f8;
-}
-#bitcoin:hover p {
-    color: #5877f8;
-}
-
 @keyframes roll {
     from {
       transform(rotateZ(30deg));
