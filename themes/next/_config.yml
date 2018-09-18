@@ -248,7 +248,7 @@ sidebar:
   #  - always  expand for all pages automatically
   #  - hide    expand only when click on the sidebar toggle icon.
   #  - remove  Totally remove sidebar including sidebar toggle.
-  display: hide
+  display: post
   #display: always
   #display: hide
   #display: remove
@@ -290,7 +290,7 @@ post_meta:
   item_text: true
   created_at: true
   updated_at:
-    enabled: false
+    enabled: true
     # If true, show updated date label only if `updated date` different from 'created date' (post edited in another day than was created).
     # And if post will edited in same day as created, edited time will show in popup title under created time label.
     # If false show anyway, but if post edited in same day, show only edited time.
@@ -548,8 +548,9 @@ gitment:
 ##  type: button
 baidushare:
   type: button
-  baidushare: true
-
+  baidushare: false
+# JiaThis 分享服务
+jiathis: true
 # addthis Share, see: https://www.addthis.com/
 #add_this_id:
 
