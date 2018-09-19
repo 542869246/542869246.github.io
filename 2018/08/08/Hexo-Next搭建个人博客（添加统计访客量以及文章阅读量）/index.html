@@ -212,7 +212,7 @@
 <meta property="og:image" content="http://7xkj6q.com1.z0.glb.clouddn.com/static/images/leancloud-page-anlysis/open_safe_center.png">
 <meta property="og:image" content="http://7xkj6q.com1.z0.glb.clouddn.com/static/images/leancloud-page-anlysis/bind_domain.png">
 <meta property="og:image" content="http://7xkj6q.com1.z0.glb.clouddn.com/static/images/leancloud-page-anlysis/broswer_403.png">
-<meta property="og:updated_time" content="2018-08-31T16:00:16.407Z">
+<meta property="og:updated_time" content="2018-09-19T02:21:02.999Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo-Next搭建个人博客（添加统计访客量以及文章阅读量）">
 <meta name="twitter:description" content="使用不蒜子和Lean Cloud给文章添加阅读量和统计访客功能">
@@ -462,7 +462,7 @@
     <link itemprop="mainEntityOfPage" href="https://yfzhou.coding.me/2018/08/08/Hexo-Next搭建个人博客（添加统计访客量以及文章阅读量）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="felix">
+      <meta itemprop="name" content="Felix">
       <meta itemprop="description" content="周宇峰的博客">
       <meta itemprop="image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg">
     </span>
@@ -518,7 +518,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-01 00:00:16" itemprop="dateModified" datetime="2018-09-01T00:00:16+08:00">2018-09-01</time>
+                <time title="修改时间：2018-09-19 10:21:02" itemprop="dateModified" datetime="2018-09-19T10:21:02+08:00">2018-09-19</time>
               
             
           </span>
@@ -563,7 +563,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.8k</span>
+                <span title="本文字数">3.5k</span>
               
 
               
@@ -602,8 +602,22 @@
         <p><span><br><a id="more"></a></span></p>
 <h2 id="不蒜子统计功能"><a href="#不蒜子统计功能" class="headerlink" title="不蒜子统计功能"></a>不蒜子统计功能</h2><p>NexT主题集成了不蒜子统计功能,以下为我的配置<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Show PV/UV of the website/page with busuanzi.</span></span><br><span class="line"><span class="comment"># Get more information on http://ibruce.info/2015/04/04/busuanzi/</span></span><br><span class="line">busuanzi_count:</span><br><span class="line">  # count values only <span class="keyword">if</span> the other configs are <span class="literal">false</span></span><br><span class="line">  enable: <span class="literal">true</span></span><br><span class="line">  # custom uv span <span class="keyword">for</span> the whole site</span><br><span class="line">  site_uv: <span class="literal">true</span></span><br><span class="line">  site_uv_header: &lt;i <span class="attribute">class</span>=<span class="string">"fa fa-user"</span>&gt;&lt;/i&gt;</span><br><span class="line">  site_uv_footer: 人次</span><br><span class="line">  # custom pv span <span class="keyword">for</span> the whole site</span><br><span class="line">  site_pv: <span class="literal">true</span></span><br><span class="line">  site_pv_header: &lt;i <span class="attribute">class</span>=<span class="string">"fa fa-eye"</span>&gt;&lt;/i&gt;</span><br><span class="line">  site_pv_footer: 次</span><br><span class="line">  # custom pv span <span class="keyword">for</span> one<span class="built_in"> page </span>only</span><br><span class="line">  page_pv: <span class="literal">true</span></span><br><span class="line">  page_pv_header: &lt;i <span class="attribute">class</span>=<span class="string">"fa fa-file-o"</span>&gt;&lt;/i&gt;</span><br><span class="line">  page_pv_footer: 次</span><br></pre></td></tr></table></figure></p>
 <p>当<code>enable: true</code>时，代表开启全局开关。若s<code>ite_uv、site_pv、page_pv</code>的值均为<code>false</code>时，不蒜子仅作记录而不会在页面上显示。<br>当<code>site_uv: true</code>时，代表在页面底部显示站点的UV值。<br>当<code>site_pv: true</code>时，代表在页面底部显示站点的PV值。<br>当<code>page_pv: true</code>时，代表在文章页面的标题下显示该页面的PV值（阅读数）。<br><code>site_uv_header</code>和<code>site_uv_footer</code>这几个为自定义样式配置，相关的值留空时将不显示，可以使用（带特效的）font-awesome。 </p>
+<div class="note success"><p>[2018/9/19] 更新</p></div>
+
+<p>Next主题已经更新至6.X版本,不蒜子统计插件配置有变化</p>
+<figure class="highlight yml"><figcaption><span>文件：主题配置文件_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Show Views/Visitors of the website/page with busuanzi.</span></span><br><span class="line"><span class="comment"># Get more information on http://ibruce.info/2015/04/04/busuanzi/</span></span><br><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line"><span class="attr">  enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  total_visitors:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  total_visitors_icon:</span> <span class="string">user</span></span><br><span class="line"><span class="attr">  total_views:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  total_views_icon:</span> <span class="string">eye</span></span><br><span class="line"><span class="attr">  post_views:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">  post_views_icon:</span> <span class="string">eye</span></span><br></pre></td></tr></table></figure>
+<hr>
+
 <p>效果图：<br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/read02.png" alt=""><br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/read01.png" alt=""></p>
-<h2 id="LeanCloud阅读次数统计"><a href="#LeanCloud阅读次数统计" class="headerlink" title="LeanCloud阅读次数统计"></a>LeanCloud阅读次数统计</h2><p>首先一句话介绍Lean Cloud:</p>
+<h2 id="LeanCloud阅读次数统计"><a href="#LeanCloud阅读次数统计" class="headerlink" title="LeanCloud阅读次数统计"></a>LeanCloud阅读次数统计</h2><div class="note success"><p>[2018/9/19] 更新</p></div>
+
+<figure class="highlight cmd"><figcaption><span>安装</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install hexo-symbols-count-<span class="built_in">time</span> --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><figcaption><span>文件：站点配置文件_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line"><span class="attr">  symbols:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  time:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  total_symbols:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  total_time:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><figcaption><span>文件：主题配置文件_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line"><span class="attr">  separated_meta:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  item_text_post:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  item_text_total:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">  awl:</span> <span class="number">4</span> <span class="comment"># 平均单词长度（单词的计数）。默认值:4。CN≈2 EN≈5 俄文≈6</span></span><br><span class="line"><span class="attr">  wpm:</span> <span class="number">275</span> <span class="comment"># 每分钟的单词。默认值:275。缓慢≈200 正常≈275 快≈350</span></span><br></pre></td></tr></table></figure>
+<p>更多请<a href="http://theme-next.iissnan.com/third-party-services.html#share-system" target="_blank" rel="noopener">点击这里</a></p>
+<hr>
+
+<p>首先一句话介绍Lean Cloud:</p>
 <blockquote>
 <p><a href="https://leancloud.cn/" target="_blank" rel="noopener">LeanCloud</a>（aka. AVOS Cloud）提供一站式后端云服务，从数据存储、实时聊天、消息推送到移动统计，涵盖应用开发的多方面后端需求。</p>
 </blockquote>
@@ -677,14 +691,14 @@
 
     
       <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/wechatpay.png" alt="felix 微信支付"/>
+        <img id="wechat_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/wechatpay.png" alt="Felix 微信支付"/>
         <p>微信支付</p>
       </div>
     
 
     
       <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/alipay.png" alt="felix 支付宝"/>
+        <img id="alipay_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/alipay.png" alt="Felix 支付宝"/>
         <p>支付宝</p>
       </div>
     
@@ -864,10 +878,10 @@
 			<a href="/">
               <img class="site-author-image" itemprop="image"
                 src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg"
-                alt="felix" />
+                alt="Felix" />
 				</a>
             
-              <p class="site-author-name" itemprop="name">felix</p>
+              <p class="site-author-name" itemprop="name">Felix</p>
               <p class="site-description motion-element" itemprop="description">周宇峰的博客</p>
           </div>
 
@@ -1161,7 +1175,7 @@ show_date_time();
   <span class="with-love" id="animate">
     <i class="fa fa-tint"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">felix</span>
+  <span class="author" itemprop="copyrightHolder">Felix</span>
 
   
     <span class="post-meta-divider">|</span>
@@ -1171,7 +1185,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">222k</span>
   
 
   
@@ -1182,7 +1196,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:22</span>
   
   
   <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>

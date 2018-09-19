@@ -2034,7 +2034,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #492b06;
+  background: #50edff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2944,11 +2944,12 @@ embed {
   display: inline-block;
 }
 body {
-  background-image: url("https://newsn.net/usr/themes/sn_v2ex/img/bg/idev.jpg");
+  background-image: url("https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/zhihu_bg.png");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
+  background-color: #b8e5f8;
 }
 .highlight {
   position: relative;
@@ -2992,7 +2993,7 @@ body {
   line-height: 1.5;
 }
 .container {
-  background-color: rgba(0,0,0,0.15);
+  background-color: rgba(0,0,0,0.1);
 }
 .header-inner {
   padding-top: 0px;
@@ -3012,6 +3013,7 @@ body {
 }
 .site-meta {
   background-image: linear-gradient(90deg, #f79533 0%, #f37055 15%, #ef4e7b 30%, #a166ab 44%, #5073b8 58%, #1098ad 72%, #07b39b 86%, #6dba82 100%);
+  opacity: 0.95;
 }
 .brand {
   background-color: rgba(255,255,255,0);
@@ -3058,6 +3060,7 @@ body {
   padding: 45px 36px 36px 36px;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
   background-color: #fff;
+  opacity: 0.95;
 }
 .posts-expand .post-title {
   font-size: 26px;
@@ -3155,6 +3158,7 @@ body {
   background-color: #fff;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.35);
   margin: 80px 0px 40px 0px;
+  opacity: 0.95;
 }
 a {
   color: #5073b8;
@@ -3380,6 +3384,7 @@ pre .deletion {
 }
 .post-block.page {
   margin-top: 40px;
+  opacity: 0.95 !important;
 }
 .category-all-page {
   margin: -80px 50px 40px 50px;
@@ -3417,6 +3422,7 @@ pre .deletion {
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
   background-color: #fff;
   padding: 106px 36px 10px 36px;
+  opacity: 0.95;
 }
 @media (max-width: 767px) {
   #top {

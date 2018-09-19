@@ -4,6 +4,28 @@
 
     
     
+  <url>
+    <loc>https://yfzhou.coding.me/2018/08/08/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E6%B7%BB%E5%8A%A0%E7%BB%9F%E8%AE%A1%E8%AE%BF%E5%AE%A2%E9%87%8F%E4%BB%A5%E5%8F%8A%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%EF%BC%89/</loc>
+    <lastmod>2018-09-19T02:21:02.999Z</lastmod>
+    <data>
+        <display>
+        <title>Hexo-Next搭建个人博客（添加统计访客量以及文章阅读量）</title>
+        <pubTime>2018-08-08T01:04:37.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>Next</tag>
+         
+         
+           
+             
+              <breadCrumb title="Hexo" url="https://yfzhou.coding.me/categories/Hexo/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
   <url>
     <loc>https://yfzhou.coding.me/2018/08/27/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%EF%BC%89/</loc>
@@ -416,28 +438,6 @@
         <display>
         <title>Hexo-Next搭建个人博客（集成DaoVoice在线联系功能）</title>
         <pubTime>2018-08-08T00:56:39.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-        <tag>Next</tag>
-         
-         
-           
-             
-              <breadCrumb title="Hexo" url="https://yfzhou.coding.me/categories/Hexo/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://yfzhou.coding.me/2018/08/08/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E6%B7%BB%E5%8A%A0%E7%BB%9F%E8%AE%A1%E8%AE%BF%E5%AE%A2%E9%87%8F%E4%BB%A5%E5%8F%8A%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%EF%BC%89/</loc>
-    <lastmod>2018-08-31T16:00:16.407Z</lastmod>
-    <data>
-        <display>
-        <title>Hexo-Next搭建个人博客（添加统计访客量以及文章阅读量）</title>
-        <pubTime>2018-08-08T01:04:37.000Z</pubTime>
         
         <tag>Hexo</tag>
          
