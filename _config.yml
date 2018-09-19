@@ -6,8 +6,8 @@
 title: Felix
 subtitle: Viva La Vida
 description: 周宇峰的博客
-keywords: 周宇峰,zyf,zhouyufeng,yfzhou,博客,yf.Zhou,felix
-author: felix
+keywords: 周宇峰,zyf,zhouyufeng,yfzhou,博客,yf.Zhou,felix,Felix
+author: Felix
 language: zh-CN
 timezone: Asia/Shanghai
 
@@ -169,5 +169,5 @@ leancloud_counter_security:
   enable_sync: true
   app_id: 4DkhRkq5CadWFisToA3zFrop-gzGzoHsz
   app_key: xihAA2ETGTdekJFloguCmmgq
-  username: 18851200889@163.com # Will be asked while deploying if is left blank
-  password: 542869246zyf # Recommmended to be left blank. Will be asked while deploying if is left blank
+  username: 542869246
+  password: 542869246zyf

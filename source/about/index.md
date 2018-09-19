@@ -51,8 +51,9 @@ type: about
 <div class="note success"><p>[2018/9/18] 更新</p></div>
 
 - hexo主题升级 v5->v6,升级一堆坑😭☠😠
-- 大幅度修改页面样式，提升性能😎
+- 提升性能😎
 - 增加Top标签😎
+- 全新的页面排版，大幅度修改页面样式😊
 
 <div class="note success"><p>[2018/9/17] 更新</p></div>
 
@@ -73,7 +74,7 @@ type: about
 - 优化标签页
 - 优化分类页
 - 优化归档页
-- 优化博客大部分字体
+- 优化博客大部分字体![](https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8)
 
 <div class="note success"><p>[2018/8/25] 更新</p></div>
 

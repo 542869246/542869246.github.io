@@ -41,12 +41,58 @@ busuanzi_count:
 当`page_pv: true`时，代表在文章页面的标题下显示该页面的PV值（阅读数）。 
 `site_uv_header`和`site_uv_footer`这几个为自定义样式配置，相关的值留空时将不显示，可以使用（带特效的）font-awesome。 
 
+<div class="note success"><p>[2018/9/19] 更新</p></div>
+
+Next主题已经更新至6.X版本,不蒜子统计插件配置有变化
+
+
+
+```yml 文件：主题配置文件_config.yml
+# Show Views/Visitors of the website/page with busuanzi.
+# Get more information on http://ibruce.info/2015/04/04/busuanzi/
+busuanzi_count:
+  enable: true
+  total_visitors: true
+  total_visitors_icon: user
+  total_views: true
+  total_views_icon: eye
+  post_views: false
+  post_views_icon: eye
+```
+<hr/>
+
 效果图：
 ![](https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/read02.png)
 ![](https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/read01.png)
 
 
 ## LeanCloud阅读次数统计
+
+<div class="note success"><p>[2018/9/19] 更新</p></div>
+
+```cmd 安装
+$ npm install hexo-symbols-count-time --save
+```
+
+```yml 文件：站点配置文件_config.yml
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
+```
+
+```yml 文件：主题配置文件_config.yml
+symbols_count_time:
+  separated_meta: true
+  item_text_post: true
+  item_text_total: true
+  awl: 4 # 平均单词长度（单词的计数）。默认值:4。CN≈2 EN≈5 俄文≈6
+  wpm: 275 # 每分钟的单词。默认值:275。缓慢≈200 正常≈275 快≈350
+```
+更多请[点击这里](http://theme-next.iissnan.com/third-party-services.html#share-system)
+
+<hr/>
 
 首先一句话介绍Lean Cloud:
 
