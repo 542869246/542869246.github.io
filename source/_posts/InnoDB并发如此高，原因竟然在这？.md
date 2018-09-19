@@ -4,7 +4,7 @@ top: 95
 copyright: true
 date: 2018-08-14 18:07:19
 categories: [数据库]
-tags: [数据库,SQL,InnoDB]
+tags: [数据库,SQL,InnoDB,MySQL]
 image: http://pic1.win4000.com/wallpaper/a/599d24580ffcf.jpg
 ---
 
