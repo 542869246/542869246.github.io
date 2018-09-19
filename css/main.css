@@ -2034,7 +2034,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #50edff;
+  background: #bd633c;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3163,6 +3163,7 @@ body {
 a {
   color: #5073b8;
   border-bottom-color: #5073b8;
+  text-decoration: none;
 }
 a:hover {
   color: #a166ab;
@@ -3505,7 +3506,7 @@ img#github-emoji {
 .post-body a {
   color: #5073b8;
   border-bottom: none;
-  text-decoration: underline;
+  text-decoration: none;
 }
 .post-body a:hover {
   color: #a166ab;
@@ -3513,7 +3514,6 @@ img#github-emoji {
   text-decoration: underline;
 }
 .tag-cloud a {
-  border-bottom: 1px solid #5073b8;
   text-decoration: none;
 }
 .tag-cloud a:hover {
