@@ -49,14 +49,14 @@ type: about
 
 <div class="note success"><p>[2018/9/20] 更新</p></div>
 
-- 修复Top标签页title不显示的bug。😫
-- Top标签增加排名序号，随机颜色。😖
+- 修复[TopX标签](https://yfzhou.coding.me/top/)页title不显示的bug。😫
+- [TopX标签](https://yfzhou.coding.me/top/)增加排名序号，随机颜色。😖
 
 <div class="note success"><p>[2018/9/18] 更新</p></div>
 
 - hexo主题升级 v5->v6,升级一堆坑😭☠😠
 - 提升性能，页面打开更快😎
-- 增加Top标签😎
+- 增加[TopX标签](https://yfzhou.coding.me/top/)😎
 - 全新的页面排版，大幅度修改页面样式😊
 
 <div class="note success"><p>[2018/9/17] 更新</p></div>
@@ -69,7 +69,7 @@ type: about
 
 <div class="note success"><p>[2018/9/10] 更新</p></div>
 
-- 备份博客至Github，麻麻再也不怕我博客数据丢失啦。😏
+- 备份博客至[Github](https://github.com/542869246)，麻麻再也不怕我博客数据丢失啦。😏
 
 <div class="note success"><p>[2018/8/31] 更新</p></div>
 
@@ -98,6 +98,6 @@ type: about
 
 <div class="note success"><p>[2018/7/29] 更新</p></div>
 
-- 博客搭建😇
+- [博客](https://yfzhou.coding.me/)搭建😇
 
 </div>
