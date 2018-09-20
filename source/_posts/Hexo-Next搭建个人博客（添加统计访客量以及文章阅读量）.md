@@ -91,6 +91,7 @@ symbols_count_time:
   wpm: 275 # 每分钟的单词。默认值:275。缓慢≈200 正常≈275 快≈350
 ```
 更多请[点击这里](http://theme-next.iissnan.com/third-party-services.html#share-system)
+next升级6.X后，页面LeanCloud访问统计提示`Counter not initialized! See more at console err msg.`的问题，请查看[《Leancloud访客统计插件重大安全漏洞修复指南》](https://leaferx.online/2018/02/11/lc-security/#5acc7b329f54542bb2384a7e)
 
 <hr/>
 

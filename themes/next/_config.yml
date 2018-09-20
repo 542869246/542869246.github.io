@@ -304,7 +304,7 @@ symbols_count_time:
   item_text_post: true
   item_text_total: true
   awl: 4
-  wpm: 275
+  wpm: 200
 
 codeblock:
   # Manual define the border radius in codeblock
@@ -663,7 +663,7 @@ leancloud_visitors:
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
   # If you don't care about security in lc counter and just want to use it directly
   # (without hexo-leancloud-counter-security plugin), set the `security` to `false`.
-  security: true
+  security: false
   betterPerformance: false
 
 # Another tool to show number of visitors to each article.

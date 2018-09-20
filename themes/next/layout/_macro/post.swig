@@ -239,7 +239,7 @@
 
               {% if config.symbols_count_time.symbols %}
                 <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
+                  <i class="fa fa-edit"></i>
                 </span>
                 {% if theme.symbols_count_time.item_text_post %}
                   <span class="post-meta-item-text">{{ __('symbols_count_time.count') + __('symbol.colon') }}</span>
