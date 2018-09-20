@@ -5,7 +5,7 @@ top: 95
 date: 2018-09-19 17:31:09
 categories: [数据库]
 tags: [数据库,SQL,InnoDB,MySQL]
-image:
+image: http://pic1.win4000.com/wallpaper/2018-02-03/5a7555b21eb97.jpg
 description:
 ---
 

@@ -5,10 +5,9 @@ type: about
 ---
 
 <div class='about-page'>
-<hr>
 <div class="note default no-icon"><p>🍀 基础信息</p></div>
 
-- ☯微信☯：ZYF542869246
+- ☯微信☯：ZYF542869246 (网站底部扫描二维码)
 - 🐧QQ🐧：<a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=542869246&website=www.oicqzone.com">542869246</a>
 - 📧E-mail📧：18851200889@163.com
 - 😤GitHub😤: [github.com/542869246](http://github.com/542869246 "github.com/542869246")
@@ -48,6 +47,11 @@ type: about
 <hr>
 <div class="note default no-icon"><p>更新日志</p></div>
 
+<div class="note success"><p>[2018/9/20] 更新</p></div>
+
+- 修复Top标签页title不显示的bug。😫
+- Top标签增加排名序号，随机颜色。😖
+
 <div class="note success"><p>[2018/9/18] 更新</p></div>
 
 - hexo主题升级 v5->v6,升级一堆坑😭☠😠
@@ -75,7 +79,7 @@ type: about
 - 优化标签页
 - 优化分类页
 - 优化归档页
-- 优化博客大部分字体![](https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8)
+- 优化博客大部分字体
 
 <div class="note success"><p>[2018/8/25] 更新</p></div>
 

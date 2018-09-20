@@ -21,7 +21,11 @@ description: 博客文章阅读量排行榜
       time=result.time;
       title=result.title;
       url=result.url;
-      var content="<a href='"+"https://yfzhou.coding.me"+url+"'>"+title+"</a>"+"<br />"+"<font color='#555'>"+"阅读次数："+time+"</font>"+"<br /><br />";
+      var r = parseInt(Math.random()*255,10)+1
+      var g = parseInt(Math.random()*255,10)+1
+      var b = parseInt(Math.random()*255,10)+1
+      
+      var content="<span style='background-color:rgb("+r+", "+g+", "+b+",0.5)' id='inline-toc'>"+(1+i)+".</span>"+"<a href='"+"https://yfzhou.coding.me"+url+"'>"+title+"</a>"+"<br />"+"<font color='#555'>"+"阅读次数：<sapn style='border-radius: 11px;padding: 1px 7px;background-image: linear-gradient(120deg, rgba(247, 149, 51, 0.5) 0%, rgba(243, 112, 85, 0.5) 21%, rgba(239, 78, 123, 0.5) 30%, rgba(161, 102, 171, 0.5) 44%, rgba(80, 115, 184, 0.5) 58%, rgba(16, 152, 173, 0.5) 72%, rgba(7, 179, 155, 0.5) 86%, rgba(109, 186, 130, 0.5) 100%);color: black;'>"+time+"</span></font>"+"<br /><br />";
       document.getElementById("top").innerHTML+=content
     }
   }, function (error) {
