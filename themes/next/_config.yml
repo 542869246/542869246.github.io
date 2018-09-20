@@ -510,15 +510,15 @@ changyan:
 # more info please open https://valine.js.org
 valine:
   enable: true # When enable is set to be true, leancloud_visitors is recommended to be closed for the re-initialization problem within different leancloud adk version.
-  app_id:  4DkhRkq5CadWFisToA3zFrop-gzGzoHsz
-  app_key:  xihAA2ETGTdekJFloguCmmgq
+  app_id:  "4DkhRkq5CadWFisToA3zFrop-gzGzoHsz"
+  app_key:  "xihAA2ETGTdekJFloguCmmgq"
   notify: false # mail notifier , https://github.com/xCss/Valine/wiki
   verify: false  # Verification code
   placeholder: Just go go # comment box placeholder
   avatar: mm # gravatar style
   guest_info: nick,mail,link # custom comment header
   pageSize: 10 # pagination size
-  visitor: true # leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors' for counter compatibility. Article reading statistic https://valine.js.org/visitor.html
+  visitor: false # leancloud-counter-security is not supported for now. When visitor is set to be true, appid and appkey are recommended to be the same as leancloud_visitors' for counter compatibility. Article reading statistic https://valine.js.org/visitor.html
   
 # Support for LiveRe comments system.
 # You can get your uid from https://livere.com/insight/myCode (General web site)
@@ -657,9 +657,9 @@ rating:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: false
-  app_id: 4DkhRkq5CadWFisToA3zFrop-gzGzoHsz
-  app_key: xihAA2ETGTdekJFloguCmmgq
+  enable: true
+  app_id: "4DkhRkq5CadWFisToA3zFrop-gzGzoHsz"
+  app_key: "xihAA2ETGTdekJFloguCmmgq"
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
   # If you don't care about security in lc counter and just want to use it directly
   # (without hexo-leancloud-counter-security plugin), set the `security` to `false`.

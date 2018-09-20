@@ -135,9 +135,11 @@ deploy:
   #repo: git@github.com:542869246/542869246.github.io.git
  # branch: master
   repo:
-      coding: git@git.coding.net:yfzhou/yfzhou.git,master
-      github: git@github.com:542869246/542869246.github.io.git,master
+    coding: git@git.coding.net:yfzhou/yfzhou.git,master
+    github: git@github.com:542869246/542869246.github.io.git,master
 - type: baidu_url_submitter
+- type: leancloud_counter_security_sync
+
 
 
 
@@ -167,7 +169,7 @@ symbols_count_time:
   
 leancloud_counter_security:
   enable_sync: true
-  app_id: 4DkhRkq5CadWFisToA3zFrop-gzGzoHsz
-  app_key: xihAA2ETGTdekJFloguCmmgq
-  username: 542869246
-  password: 542869246zyf
+  app_id: "4DkhRkq5CadWFisToA3zFrop-gzGzoHsz"
+  app_key: "xihAA2ETGTdekJFloguCmmgq"
+  username: "542869246"
+  password: "542869246zyf"
