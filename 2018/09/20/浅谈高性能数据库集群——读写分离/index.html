@@ -191,20 +191,33 @@
     })();
 </script>
 
-  <meta name="description" content="为博客添加网页音乐播放器功能">
-<meta name="keywords" content="Hexo,Next">
+  <meta name="description" content="本文主要介绍高性能数据库集群读写分离相关理论，基本架构，涉及的复杂度问题以及常见解决方案">
+<meta name="keywords" content="数据库,分库分表,高性能,集群">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo-Next搭建个人博客（添加网页音乐播放器功能）">
-<meta property="og:url" content="https://yfzhou.coding.me/2018/08/08/Hexo-Next搭建个人博客（添加网页音乐播放器功能）/index.html">
+<meta property="og:title" content="浅谈高性能数据库集群——读写分离">
+<meta property="og:url" content="https://yfzhou.coding.me/2018/09/20/浅谈高性能数据库集群——读写分离/index.html">
 <meta property="og:site_name" content="Felix">
-<meta property="og:description" content="为博客添加网页音乐播放器功能">
+<meta property="og:description" content="本文主要介绍高性能数据库集群读写分离相关理论，基本架构，涉及的复杂度问题以及常见解决方案">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/music01.png">
-<meta property="og:updated_time" content="2018-08-31T15:58:25.828Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-e43f3412c6387b0a?imageMogr2/auto-orient/strip%7CimageView2/2/w/732/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-06f5e8df8aeb7eac.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-4163278bb12eced4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/610/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-a20f9c336fe62c3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/887/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-ea2f0f7e5d05f248.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-2201ff0331bac1e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/859/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-2e54b4f173dcdefc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/710/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-1c6e396883493510.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/590/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-14d0897f3ff15bcb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-9174a86fd6e5f23b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/798/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-31ebcb40b8079f31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/819/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-c3960a36b36ae8d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/767/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-c34706b5d7f379bd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/702/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-d7b51511d8fdbefe.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/542/format/webp">
+<meta property="og:updated_time" content="2018-09-20T06:59:36.113Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo-Next搭建个人博客（添加网页音乐播放器功能）">
-<meta name="twitter:description" content="为博客添加网页音乐播放器功能">
-<meta name="twitter:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/music01.png">
+<meta name="twitter:title" content="浅谈高性能数据库集群——读写分离">
+<meta name="twitter:description" content="本文主要介绍高性能数据库集群读写分离相关理论，基本架构，涉及的复杂度问题以及常见解决方案">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5618238-e43f3412c6387b0a?imageMogr2/auto-orient/strip%7CimageView2/2/w/732/format/webp">
 
 
 
@@ -213,7 +226,7 @@
 
 
 
-  <link rel="canonical" href="https://yfzhou.coding.me/2018/08/08/Hexo-Next搭建个人博客（添加网页音乐播放器功能）/"/>
+  <link rel="canonical" href="https://yfzhou.coding.me/2018/09/20/浅谈高性能数据库集群——读写分离/"/>
 
 
 
@@ -223,7 +236,7 @@
   };
 </script>
 
-  <title>Hexo-Next搭建个人博客（添加网页音乐播放器功能） | Felix</title>
+  <title>浅谈高性能数据库集群——读写分离 | Felix</title>
   
 
 
@@ -447,7 +460,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yfzhou.coding.me/2018/08/08/Hexo-Next搭建个人博客（添加网页音乐播放器功能）/">
+    <link itemprop="mainEntityOfPage" href="https://yfzhou.coding.me/2018/09/20/浅谈高性能数据库集群——读写分离/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Felix">
@@ -464,7 +477,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hexo-Next搭建个人博客（添加网页音乐播放器功能）
+          <h1 class="post-title" itemprop="name headline">浅谈高性能数据库集群——读写分离
               
             
           </h1>
@@ -489,7 +502,7 @@
                 
               
 
-              <time title="创建时间：2018-08-08 16:38:02" itemprop="dateCreated datePublished" datetime="2018-08-08T16:38:02+08:00">2018-08-08</time>
+              <time title="创建时间：2018-09-20 14:25:10" itemprop="dateCreated datePublished" datetime="2018-09-20T14:25:10+08:00">2018-09-20</time>
             
 
             
@@ -506,7 +519,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-31 23:58:25" itemprop="dateModified" datetime="2018-08-31T23:58:25+08:00">2018-08-31</time>
+                <time title="修改时间：2018-09-20 14:59:36" itemprop="dateModified" datetime="2018-09-20T14:59:36+08:00">2018-09-20</time>
               
             
           </span>
@@ -523,7 +536,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/数据库/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a></span>
 
                 
                 
@@ -537,7 +550,7 @@
 
           
           
-             <span id="/2018/08/08/Hexo-Next搭建个人博客（添加网页音乐播放器功能）/" class="leancloud_visitors" data-flag-title="Hexo-Next搭建个人博客（添加网页音乐播放器功能）">
+             <span id="/2018/09/20/浅谈高性能数据库集群——读写分离/" class="leancloud_visitors" data-flag-title="浅谈高性能数据库集群——读写分离">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -562,7 +575,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2k</span>
+                <span title="本文字数">1.3k</span>
               
 
               
@@ -582,7 +595,7 @@
           
 
           
-              <div class="post-description">为博客添加网页音乐播放器功能</div>
+              <div class="post-description">本文主要介绍高性能数据库集群读写分离相关理论，基本架构，涉及的复杂度问题以及常见解决方案</div>
           
 
         </div>
@@ -598,17 +611,120 @@
       
 
       
-        <p><span><br><a id="more"></a><br>效果图：<br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/music01.png" alt=""></span></p>
-<h1 id="download"><a href="#download" class="headerlink" title="download"></a><a href="#download" title="download"></a>download</h1><p>点击访问Aplayer源码：<a href="https://github.com/MoePlayer/APlayer" target="_blank" rel="noopener">GitHub Aplayer</a>。下载到本地，解压后将<code>dist</code>文件夹复制到<code>themes\next\source</code>文件夹下。</p>
-<h1 id="music-js"><a href="#music-js" class="headerlink" title="music.js"></a><a href="#music-js" title="music.js"></a>music.js</h1><p>新建<code>themes\next\source\dist\music.js</code>文件，添加内容：  </p>
-<figure class="highlight roboconf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">const ap = new APlayer(&#123;</span><br><span class="line">    <span class="attribute">container</span>: document<span class="variable">.getElementById</span>('aplayer'),</span><br><span class="line">    fixed: true,</span><br><span class="line">    autoplay: false,</span><br><span class="line">    audio: [</span><br><span class="line">	&#123;</span><br><span class="line">        name: "canon in d",</span><br><span class="line">        artist: 'Brian Crain',</span><br><span class="line">        url: 'http://pd2tflnys<span class="variable">.bkt</span><span class="variable">.clouddn</span><span class="variable">.com</span>/Brian%20Crain%20-%20canon%20in%20d<span class="variable">.mp</span>3',</span><br><span class="line">        cover: 'http://p1<span class="variable">.music</span>.126<span class="variable">.net</span>/QGb9Vtyw7qHS00uEvPfM6g==/843325418547559<span class="variable">.jpg</span>?param=130y130',</span><br><span class="line">      &#125;,</span><br><span class="line">	  &#123;</span><br><span class="line">        name: "Apologize",</span><br><span class="line">        artist: 'Martin Ermen',</span><br><span class="line">        url: 'http://pd2tflnys<span class="variable">.bkt</span><span class="variable">.clouddn</span><span class="variable">.com</span>/Martin%20Ermen%20-%20Apologize<span class="variable">.mp</span>3',</span><br><span class="line">        cover: 'http://p1<span class="variable">.music</span>.126<span class="variable">.net</span>/-_6mcI4VV5IKaiwhUAytbg==/1791104441647901<span class="variable">.jpg</span>?param=130y130',</span><br><span class="line">      &#125;,</span><br><span class="line">	  &#123;</span><br><span class="line">        name: "River Flows in You",</span><br><span class="line">        artist: 'Yiruma',</span><br><span class="line">        url: 'http://pd2tflnys<span class="variable">.bkt</span><span class="variable">.clouddn</span><span class="variable">.com</span>/Yiruma%20-%20River%20Flows%20in%20You<span class="variable">.flac</span>',</span><br><span class="line">        cover: 'http://p1<span class="variable">.music</span>.126<span class="variable">.net</span>/8ZRSyI0ZN_4ah8uzsNd1mA==/2324367581169008<span class="variable">.jpg</span>?param=130y130',</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        name: '惊蛰',</span><br><span class="line">        artist: '音阙诗听/王梓钰',</span><br><span class="line">        url: 'http://www<span class="variable">.ytmp</span>3<span class="variable">.cn</span>/down/48755<span class="variable">.mp</span>3',</span><br><span class="line">        cover: 'http://p1<span class="variable">.music</span>.126<span class="variable">.net</span>/5MmXpaP9r88tNzExPGMI8Q==/109951163370350985<span class="variable">.jpg</span>?param=130y130',</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>源码中对应的参数解释，这边都有： <a href="https://aplayer.js.org/#/zh-Hans/" target="_blank" rel="noopener">Aplayer 中文文档</a></p>
-<p><code>audio</code>对应的便是音频文件，所以音乐播放器需要播放的音乐是需要自己进行相关信息（如歌曲链接、歌词、封面等）的配置。这里放一个mp3音乐外链网站：<a href="http://up.mcyt.net/" target="_blank" rel="noopener">http://up.mcyt.net/</a> ，搜索对应的音乐，然后复制<code>url</code>和右击封面图片链接粘贴到对应的位置上就行了。</p>
-<p>注：由于该外链网站没有歌词链接，我这边没有进行配置，所以播放器在播放音乐时点击歌词是没有显示的。</p>
-<h1 id="layout-swig"><a href="#layout-swig" class="headerlink" title="_layout.swig"></a><a href="#layout-swig" title="_layout.swig"></a>_layout.swig</h1><p>打开<code>themes\next\layout\_layout.swig</code>文件，将<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"/dist/APlayer.min.css"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"aplayer"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/dist/APlayer.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/dist/music.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>添加到<code>&lt;body itemscope ...&gt;</code>后面就行，即在<code>&lt;body&gt;&lt;/body&gt;</code>里面。</p>
-<p>重新生成，访问页面，就能看到左下角的音乐播放器了。</p>
+        <p><span></span></p>
+<a id="more"></a>
+<h1 id="1-读写分离概述"><a href="#1-读写分离概述" class="headerlink" title="1 读写分离概述"></a>1 读写分离概述</h1><p><img src="//upload-images.jianshu.io/upload_images/5618238-e43f3412c6387b0a?imageMogr2/auto-orient/strip%7CimageView2/2/w/732/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">读写分离概述</center>
 
+<p>基本架构图：<br><img src="//upload-images.jianshu.io/upload_images/5618238-06f5e8df8aeb7eac.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">基本架构图</center>
+
+<h1 id="2-适用场景"><a href="#2-适用场景" class="headerlink" title="2 适用场景"></a>2 适用场景</h1><p><img src="//upload-images.jianshu.io/upload_images/5618238-4163278bb12eced4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/610/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">适用场景</center>
+
+<p><strong>读写分离不是银弹，并不是一有性能问题就上读写分离，</strong>而是应该先优化，例如优化慢查询，调整不合理的业务逻辑，引入缓存查询等只有确定系统没有优化空间后才考虑读写分离集群</p>
+<h1 id="3-引入的系统复杂度问题"><a href="#3-引入的系统复杂度问题" class="headerlink" title="3 引入的系统复杂度问题"></a>3 引入的系统复杂度问题</h1><h2 id="问题一-主从复制延迟"><a href="#问题一-主从复制延迟" class="headerlink" title="问题一 主从复制延迟"></a>问题一 主从复制延迟</h2><p><img src="//upload-images.jianshu.io/upload_images/5618238-a20f9c336fe62c3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/887/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">主从复制延迟</center>
+
+<h2 id="问题二-分配机制"><a href="#问题二-分配机制" class="headerlink" title="问题二 分配机制"></a>问题二 分配机制</h2><p>如何将读写操作区分开来，然后访问不同的数据库服务器？</p>
+<h3 id="解决方案1-客户端程序代码封装实现"><a href="#解决方案1-客户端程序代码封装实现" class="headerlink" title="解决方案1 客户端程序代码封装实现"></a>解决方案1 客户端程序代码封装实现</h3><p><strong>基本架构图</strong>  </p>
+<p><img src="//upload-images.jianshu.io/upload_images/5618238-ea2f0f7e5d05f248.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">程序代码封装实现分配基本架构图</center>
+
+<p><img src="//upload-images.jianshu.io/upload_images/5618238-2201ff0331bac1e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/859/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">程序代码封装</center>
+
+<p><strong>业界开源实现</strong></p>
+<ul>
+<li>Sharding-JDBC<br>定位为轻量级Java框架，在Java的JDBC层提供的额外服务。 它使用客户端直连数据库，以jar包形式提供服务，无需额外部署和依赖，可理解为增强版的JDBC驱动，完全兼容JDBC和各种ORM框架。</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/5618238-2e54b4f173dcdefc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/710/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">Sharding-JDBC基本架构图</center>
+
+<ul>
+<li>淘宝TDDL<br>淘宝根据自身业务需求研发了 TDDL （ Taobao Distributed Data Layer ）框架，主要用于解决 分库分表场景下的访问路由（持久层与数据访问层的配合）以及异构数据库之间的数据同步 ，它是一个基于集中式配置的 JDBC DataSource 实现，具有分库分表、 Master/Salve 、动态数据源配置等功能。</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/5618238-1c6e396883493510.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/590/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">淘宝TDDL基本架构图</center>
+
+<h3 id="解决方案2-服务端中间件封装"><a href="#解决方案2-服务端中间件封装" class="headerlink" title="解决方案2 服务端中间件封装"></a>解决方案2 服务端中间件封装</h3><p><strong>基本架构图</strong></p>
+<p><img src="//upload-images.jianshu.io/upload_images/5618238-14d0897f3ff15bcb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">服务端中间件封装实现分配基本架构图</center>
+
+<p><img src="//upload-images.jianshu.io/upload_images/5618238-9174a86fd6e5f23b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/798/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">服务端中间件封装</center>
+
+<p><strong>业界开源实现</strong></p>
+<ul>
+<li>MySQL官方推荐的MySQL Router</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/5618238-31ebcb40b8079f31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/819/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">MySQL Router架构图</center>
+
+<p>MySQL Router是轻量级的中间件，可在应用程序和任何后端MySQL服务器之间提供透明路由。它可以用于各种各样的用例，例如通过有效地将数据库流量路由到适当的后端MySQL服务器来提供高可用性和可伸缩性。可插拔架构还使开发人员能够扩展MySQL Router以用于自定义用例。</p>
+<p>基于MySQL Router可以实现读写分离，故障自动切换，负载均衡，连接池等功能。</p>
+<ul>
+<li><p>MySQL官方提供的MySQL Proxy<br><img src="//upload-images.jianshu.io/upload_images/5618238-c3960a36b36ae8d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/767/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%"> MySQL Proxy</center>
+</li>
+<li><p>360开源的Atlas<br><img src="//upload-images.jianshu.io/upload_images/5618238-c34706b5d7f379bd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/702/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">Atlas架构图形象表示</center>
+
+</li>
+</ul>
+<p><img src="//upload-images.jianshu.io/upload_images/5618238-d7b51511d8fdbefe.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/542/format/webp" alt=""></p>
+<p><center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">Atlas总体架构</center><br>Atlas是由平台部基础架构团队开发维护的一个基于MySQL协议的数据中间层项目。它是在mysql-proxy的基础上，对其进行了优化，增加了一些新的功能特性。</p>
+<h3 id="常见的开源数据库中间件对比"><a href="#常见的开源数据库中间件对比" class="headerlink" title="常见的开源数据库中间件对比"></a>常见的开源数据库中间件对比</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">功能</th>
+<th style="text-align:center">Sharding-JDBC</th>
+<th style="text-align:center">TDDL</th>
+<th style="text-align:center">Amoeba</th>
+<th style="text-align:center">Cobar</th>
+<th style="text-align:center">MyCat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">基于客户端还是服务端</td>
+<td style="text-align:center">客户端</td>
+<td style="text-align:center">客户端</td>
+<td style="text-align:center">服务端</td>
+<td style="text-align:center">服务端</td>
+<td style="text-align:center">服务端</td>
+</tr>
+<tr>
+<td style="text-align:center">分库分表</td>
+<td style="text-align:center">有</td>
+<td style="text-align:center">有</td>
+<td style="text-align:center">有</td>
+<td style="text-align:center">有</td>
+<td style="text-align:center">有</td>
+</tr>
+<tr>
+<td style="text-align:center">MySQL交互协议</td>
+<td style="text-align:center">JDBC Driver</td>
+<td style="text-align:center">JDBC Driver</td>
+<td style="text-align:center">前端用NIO,后端用JDBC Driver</td>
+<td style="text-align:center">前端用NIO,后端用BIO</td>
+<td style="text-align:center">前后端均用NIO</td>
+</tr>
+<tr>
+<td style="text-align:center">支持的数据库</td>
+<td style="text-align:center">任意</td>
+<td style="text-align:center">任意</td>
+<td style="text-align:center">任意</td>
+<td style="text-align:center">MySQL</td>
+<td style="text-align:center">任意</td>
+</tr>
+</tbody>
+</table>
+<p>参考</p>
+<p><a href="https://blog.csdn.net/u011983531/article/details/78948680" target="_blank" rel="noopener">Mycat原理解析-Mycat架构分析</a></p>
+<pre><code>作者 陈彩华
+文章转载交流请联系 caison@aliyun.com
+</code></pre>
       
     </div>
 
@@ -667,9 +783,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+            <a href="/tags/数据库/" rel="tag"><i class="fa fa-tag"></i> 数据库</a>
           
-            <a href="/tags/Next/" rel="tag"><i class="fa fa-tag"></i> Next</a>
+            <a href="/tags/分库分表/" rel="tag"><i class="fa fa-tag"></i> 分库分表</a>
+          
+            <a href="/tags/高性能/" rel="tag"><i class="fa fa-tag"></i> 高性能</a>
+          
+            <a href="/tags/集群/" rel="tag"><i class="fa fa-tag"></i> 集群</a>
           
         </div>
       
@@ -737,18 +857,14 @@
           <div class="post-nav-next post-nav-item">
             
 			
-			   <a href="/2018/08/08/Hexo-Next搭建个人博客（主题内加入动态背景）/" rel="prev" title="Hexo-Next搭建个人博客（主题内加入动态背景）">
-			   <i class="fa fa-chevron-left"></i> Hexo-Next搭建个人博客（主题内加入动态背景）
-			   
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
              
-				<a href="/2018/08/08/Hexo-Next搭建个人博客（添加统计访客量以及文章阅读量）/" rel="next" title="Hexo-Next搭建个人博客（添加统计访客量以及文章阅读量）">
-				Hexo-Next搭建个人博客（添加统计访客量以及文章阅读量） <i class="fa fa-chevron-right"></i>
+				<a href="/2018/09/20/浅谈高性能数据库集群——分库分表/" rel="next" title="浅谈高性能数据库集群——分库分表">
+				浅谈高性能数据库集群——分库分表 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1099,7 +1215,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#download"><span class="nav-number">1.</span> <span class="nav-text">download</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#music-js"><span class="nav-number">2.</span> <span class="nav-text">music.js</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#layout-swig"><span class="nav-number">3.</span> <span class="nav-text">_layout.swig</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-读写分离概述"><span class="nav-number">1.</span> <span class="nav-text">1 读写分离概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-适用场景"><span class="nav-number">2.</span> <span class="nav-text">2 适用场景</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-引入的系统复杂度问题"><span class="nav-number">3.</span> <span class="nav-text">3 引入的系统复杂度问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题一-主从复制延迟"><span class="nav-number">3.1.</span> <span class="nav-text">问题一 主从复制延迟</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#问题二-分配机制"><span class="nav-number">3.2.</span> <span class="nav-text">问题二 分配机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案1-客户端程序代码封装实现"><span class="nav-number">3.2.1.</span> <span class="nav-text">解决方案1 客户端程序代码封装实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解决方案2-服务端中间件封装"><span class="nav-number">3.2.2.</span> <span class="nav-text">解决方案2 服务端中间件封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的开源数据库中间件对比"><span class="nav-number">3.2.3.</span> <span class="nav-text">常见的开源数据库中间件对比</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1306,7 +1422,7 @@ show_date_time();
   
     <script type="text/javascript">
       window.livereOptions = {
-        refer: '2018/08/08/Hexo-Next搭建个人博客（添加网页音乐播放器功能）/'
+        refer: '2018/09/20/浅谈高性能数据库集群——读写分离/'
       };
       (function(d, s) {
         var j, e = d.getElementsByTagName(s)[0];

@@ -201,7 +201,14 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-3255d9e9ddc2ec2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-65d8b7e266b9d0dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/673/format/webp">
-<meta property="og:updated_time" content="2018-09-20T02:51:58.009Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-36a209c1dea789a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-ee84446b35676125.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-09eba8d05a18f9aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/663/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-a120249dcd6a9343.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-fa3e86227db9877d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-02241d45a2ffbb04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-4f3534f5bd04994c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400/format/webp">
+<meta property="og:updated_time" content="2018-09-20T06:30:20.484Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈高性能数据库集群——分库分表">
 <meta name="twitter:description" content="本文主要介绍高性能数据库集群分库分表相关理论，基本架构，涉及的复杂度问题以及常见解决方案。">
@@ -507,7 +514,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-20 10:51:58" itemprop="dateModified" datetime="2018-09-20T10:51:58+08:00">2018-09-20</time>
+                <time title="修改时间：2018-09-20 14:30:20" itemprop="dateModified" datetime="2018-09-20T14:30:20+08:00">2018-09-20</time>
               
             
           </span>
@@ -563,7 +570,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">785</span>
+                <span title="本文字数">702</span>
               
 
               
@@ -601,14 +608,13 @@
       
         <p><span></span></p>
 <a id="more"></a>
-<p>分库分表</p>
-<p>最近学习了阿里资深技术专家李运华的架构设计关于分库分表的教程，颇有收获，总结一下。</p>
-<p>本文主要介绍高性能数据库集群分库分表相关理论，基本架构，涉及的复杂度问题以及常见解决方案。</p>
 <h1 id="分库分表概述"><a href="#分库分表概述" class="headerlink" title="分库分表概述"></a>分库分表概述</h1><p><img src="//upload-images.jianshu.io/upload_images/5618238-3255d9e9ddc2ec2b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp" alt=""></p>
-<p>分库分表概述</p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">分库分表概述</center>
+
 <p>读写分离分散数据库读写操作压力，分库分表<strong>分散存储压力</strong></p>
 <h1 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h1><p><img src="//upload-images.jianshu.io/upload_images/5618238-65d8b7e266b9d0dd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/673/format/webp" alt=""></p>
-<p>适用场景</p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">适用场景</center>
+
 <blockquote>
 <p><strong>类似读写分离，分库分表也是确定没有其他优化空间之后才采取的优化方案</strong>。那如果业务真的发展很快岂不是很快要进行分库分表了？那为何不一开始就设计好呢？</p>
 </blockquote>
@@ -621,26 +627,34 @@
 <blockquote>
 <p>其次，<strong>如果业务真的发展很快，后面进行分库分表也不迟</strong>。因为业务发展好，相应的资源投入就会加大，可以投入更多的人和更多的钱，那业务分库带来的代码和业务复杂问题就可以通过加人来解决，成本问题也可以通过增加资金来解决。</p>
 </blockquote>
-<h1 id="业务分库"><a href="#业务分库" class="headerlink" title="业务分库"></a>业务分库</h1><p>业务分库</p>
-<p>示例</p>
-<h1 id="业务分表"><a href="#业务分表" class="headerlink" title="业务分表"></a>业务分表</h1><h2 id="业务分表概述"><a href="#业务分表概述" class="headerlink" title="业务分表概述"></a>业务分表概述</h2><p>业务分表</p>
-<p>拆分方式</p>
+<h1 id="业务分库"><a href="#业务分库" class="headerlink" title="业务分库"></a>业务分库</h1><p><img src="//upload-images.jianshu.io/upload_images/5618238-36a209c1dea789a7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">业务分库</center><br><img src="//upload-images.jianshu.io/upload_images/5618238-ee84446b35676125.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp" alt=""><br><center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">示例</center>
+
+<h1 id="业务分表"><a href="#业务分表" class="headerlink" title="业务分表"></a>业务分表</h1><h2 id="业务分表概述"><a href="#业务分表概述" class="headerlink" title="业务分表概述"></a>业务分表概述</h2><p><img src="//upload-images.jianshu.io/upload_images/5618238-09eba8d05a18f9aa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/663/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">业务分表</center><br><img src="//upload-images.jianshu.io/upload_images/5618238-a120249dcd6a9343.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp" alt=""><br><center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">拆分方式</center>
+
 <h2 id="带来的问题"><a href="#带来的问题" class="headerlink" title="带来的问题"></a>带来的问题</h2><h3 id="垂直分表"><a href="#垂直分表" class="headerlink" title="垂直分表"></a>垂直分表</h3><p>增加表操作的次数</p>
 <h3 id="水平分表"><a href="#水平分表" class="headerlink" title="水平分表"></a>水平分表</h3><ul>
-<li>路由问题</li>
+<li><p>路由问题<br><img src="//upload-images.jianshu.io/upload_images/5618238-fa3e86227db9877d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">路由问题</center>
+</li>
+<li><p>数据库操作问题<br><img src="//upload-images.jianshu.io/upload_images/5618238-02241d45a2ffbb04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">数据库操作问题</center>
+
+</li>
 </ul>
-<p>路由问题</p>
-<ul>
-<li>数据库操作问题</li>
-</ul>
-<p>数据库操作问题</p>
-<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p>实现方法</p>
+<h1 id="实现方法"><a href="#实现方法" class="headerlink" title="实现方法"></a>实现方法</h1><p><img src="//upload-images.jianshu.io/upload_images/5618238-4f3534f5bd04994c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/400/format/webp" alt=""></p>
+<center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">实现方法</center>
+
 <p>类似<a href="https://juejin.im/post/5b3753b66fb9a00e65267a55" target="_blank" rel="noopener">读写分离</a>，具体实现也是“程序代码封装”和“中间件封装”，但具体实现复杂一些，因为还有要判断SQL中具体操作的表，具体操作(例如count、order by、group by等)，根据具体操作做不同的处理。</p>
-<p>参考</p>
-<p><a href="https://time.geekbang.org/column/intro/81?code=OK4eM0TBPTKGPRCzcZdzIeXjPACLfY3KCzATXOSWzXE%3D" target="_blank" rel="noopener">从0开始学架构 —— 李运华</a></p>
-<p><a href="https://juejin.im/post/5b3753b66fb9a00e65267a55" target="_blank" rel="noopener">《浅谈高性能数据库集群——读写分离》—— 陈彩华</a></p>
-<p><a href="https://juejin.im/post/5b2c6669e51d4558c91ba776" target="_blank" rel="noopener">《架构设计方法初探》 —— 陈彩华</a></p>
-<p><a href="http://kuaibao.qq.com/s/20180506G0J38H00?refer=spider" target="_blank" rel="noopener">《分库分表、主从、读写分离》</a></p>
+<div class="note success"><p>参考</p></div>
+
+<ul>
+<li><a href="https://time.geekbang.org/column/intro/81?code=OK4eM0TBPTKGPRCzcZdzIeXjPACLfY3KCzATXOSWzXE%3D" target="_blank" rel="noopener">从0开始学架构 —— 李运华</a></li>
+<li><a href="https://juejin.im/post/5b3753b66fb9a00e65267a55" target="_blank" rel="noopener">《浅谈高性能数据库集群——读写分离》—— 陈彩华</a></li>
+<li><a href="https://juejin.im/post/5b2c6669e51d4558c91ba776" target="_blank" rel="noopener">《架构设计方法初探》 —— 陈彩华</a></li>
+<li><a href="http://kuaibao.qq.com/s/20180506G0J38H00?refer=spider" target="_blank" rel="noopener">《分库分表、主从、读写分离》</a></li>
+</ul>
 <pre><code>作者 陈彩华
 文章转载交流请联系 caison@aliyun.com
 </code></pre>
@@ -776,6 +790,10 @@
           <div class="post-nav-next post-nav-item">
             
 			
+			   <a href="/2018/09/20/浅谈高性能数据库集群——读写分离/" rel="prev" title="浅谈高性能数据库集群——读写分离">
+			   <i class="fa fa-chevron-left"></i> 浅谈高性能数据库集群——读写分离
+			   
+            
           </div>
 
           <span class="post-nav-divider"></span>
@@ -867,7 +885,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">48</span>
+                    <span class="site-state-item-count">49</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1168,7 +1186,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">225k</span>
+    <span title="站点总字数">226k</span>
   
 
   
@@ -1179,7 +1197,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">4:41</span>
+    <span title="站点阅读时长">4:43</span>
   
   
   <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>
