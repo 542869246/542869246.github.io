@@ -199,25 +199,25 @@
 <meta property="og:site_name" content="Felix">
 <meta property="og:description" content="本文主要介绍高性能数据库集群读写分离相关理论，基本架构，涉及的复杂度问题以及常见解决方案">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-e43f3412c6387b0a?imageMogr2/auto-orient/strip%7CimageView2/2/w/732/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-06f5e8df8aeb7eac.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-4163278bb12eced4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/610/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-a20f9c336fe62c3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/887/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-ea2f0f7e5d05f248.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-2201ff0331bac1e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/859/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-2e54b4f173dcdefc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/710/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-1c6e396883493510.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/590/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-14d0897f3ff15bcb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-9174a86fd6e5f23b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/798/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-31ebcb40b8079f31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/819/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-c3960a36b36ae8d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/767/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-c34706b5d7f379bd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/702/format/webp">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5618238-d7b51511d8fdbefe.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/542/format/webp">
-<meta property="og:updated_time" content="2018-09-25T09:59:45.417Z">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-e43f3412c6387b0a.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-06f5e8df8aeb7eac.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-4163278bb12eced4.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-a20f9c336fe62c3b.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-ea2f0f7e5d05f248.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-2201ff0331bac1e9.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-2e54b4f173dcdefc.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-1c6e396883493510.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-14d0897f3ff15bcb.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-9174a86fd6e5f23b.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-31ebcb40b8079f31.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-c3960a36b36ae8d4.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-c34706b5d7f379bd.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-d7b51511d8fdbefe.webp">
+<meta property="og:updated_time" content="2018-09-25T10:08:57.895Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浅谈高性能数据库集群——读写分离">
 <meta name="twitter:description" content="本文主要介绍高性能数据库集群读写分离相关理论，基本架构，涉及的复杂度问题以及常见解决方案">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/5618238-e43f3412c6387b0a?imageMogr2/auto-orient/strip%7CimageView2/2/w/732/format/webp">
+<meta name="twitter:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-e43f3412c6387b0a.webp">
 
 
 
@@ -519,7 +519,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-25 17:59:45" itemprop="dateModified" datetime="2018-09-25T17:59:45+08:00">2018-09-25</time>
+                <time title="修改时间：2018-09-25 18:08:57" itemprop="dateModified" datetime="2018-09-25T18:08:57+08:00">2018-09-25</time>
               
             
           </span>
@@ -613,66 +613,66 @@
       
         <p><span></span></p>
 <a id="more"></a>
-<h1 id="1-读写分离概述"><a href="#1-读写分离概述" class="headerlink" title="1 读写分离概述"></a>1 读写分离概述</h1><p><img src="//upload-images.jianshu.io/upload_images/5618238-e43f3412c6387b0a?imageMogr2/auto-orient/strip%7CimageView2/2/w/732/format/webp" alt=""></p>
+<h1 id="1-读写分离概述"><a href="#1-读写分离概述" class="headerlink" title="1 读写分离概述"></a>1 读写分离概述</h1><p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-e43f3412c6387b0a.webp" alt=""></p>
 <center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">读写分离概述</center>
 
-<p>基本架构图：<br><img src="//upload-images.jianshu.io/upload_images/5618238-06f5e8df8aeb7eac.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
+<p>基本架构图：<br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-06f5e8df8aeb7eac.webp" alt=""></p>
 <center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">基本架构图</center>
 
-<h1 id="2-适用场景"><a href="#2-适用场景" class="headerlink" title="2 适用场景"></a>2 适用场景</h1><p><img src="//upload-images.jianshu.io/upload_images/5618238-4163278bb12eced4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/610/format/webp" alt=""></p>
+<h1 id="2-适用场景"><a href="#2-适用场景" class="headerlink" title="2 适用场景"></a>2 适用场景</h1><p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-4163278bb12eced4.webp" alt=""></p>
 <center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">适用场景</center>
 
 <p><strong>读写分离不是银弹，并不是一有性能问题就上读写分离，</strong>而是应该先优化，例如优化慢查询，调整不合理的业务逻辑，引入缓存查询等只有确定系统没有优化空间后才考虑读写分离集群</p>
-<h1 id="3-引入的系统复杂度问题"><a href="#3-引入的系统复杂度问题" class="headerlink" title="3 引入的系统复杂度问题"></a>3 引入的系统复杂度问题</h1><h2 id="问题一-主从复制延迟"><a href="#问题一-主从复制延迟" class="headerlink" title="问题一 主从复制延迟"></a>问题一 主从复制延迟</h2><p><img src="//upload-images.jianshu.io/upload_images/5618238-a20f9c336fe62c3b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/887/format/webp" alt=""></p>
+<h1 id="3-引入的系统复杂度问题"><a href="#3-引入的系统复杂度问题" class="headerlink" title="3 引入的系统复杂度问题"></a>3 引入的系统复杂度问题</h1><h2 id="问题一-主从复制延迟"><a href="#问题一-主从复制延迟" class="headerlink" title="问题一 主从复制延迟"></a>问题一 主从复制延迟</h2><p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-a20f9c336fe62c3b.webp" alt=""></p>
 <center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">主从复制延迟</center>
 
 <h2 id="问题二-分配机制"><a href="#问题二-分配机制" class="headerlink" title="问题二 分配机制"></a>问题二 分配机制</h2><p>如何将读写操作区分开来，然后访问不同的数据库服务器？</p>
 <h3 id="解决方案1-客户端程序代码封装实现"><a href="#解决方案1-客户端程序代码封装实现" class="headerlink" title="解决方案1 客户端程序代码封装实现"></a>解决方案1 客户端程序代码封装实现</h3><p><strong>基本架构图</strong>  </p>
-<p><img src="//upload-images.jianshu.io/upload_images/5618238-ea2f0f7e5d05f248.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-ea2f0f7e5d05f248.webp" alt=""></p>
 <center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">程序代码封装实现分配基本架构图</center>
 
-<p><img src="//upload-images.jianshu.io/upload_images/5618238-2201ff0331bac1e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/859/format/webp" alt=""></p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-2201ff0331bac1e9.webp" alt=""></p>
 <center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">程序代码封装</center>
 
 <p><strong>业界开源实现</strong></p>
 <ul>
 <li>Sharding-JDBC<br>定位为轻量级Java框架，在Java的JDBC层提供的额外服务。 它使用客户端直连数据库，以jar包形式提供服务，无需额外部署和依赖，可理解为增强版的JDBC驱动，完全兼容JDBC和各种ORM框架。</li>
 </ul>
-<p><img src="//upload-images.jianshu.io/upload_images/5618238-2e54b4f173dcdefc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/710/format/webp" alt=""></p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-2e54b4f173dcdefc.webp" alt=""></p>
 <center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">Sharding-JDBC基本架构图</center>
 
 <ul>
 <li>淘宝TDDL<br>淘宝根据自身业务需求研发了 TDDL （ Taobao Distributed Data Layer ）框架，主要用于解决 分库分表场景下的访问路由（持久层与数据访问层的配合）以及异构数据库之间的数据同步 ，它是一个基于集中式配置的 JDBC DataSource 实现，具有分库分表、 Master/Salve 、动态数据源配置等功能。</li>
 </ul>
-<p><img src="//upload-images.jianshu.io/upload_images/5618238-1c6e396883493510.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/590/format/webp" alt=""></p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-1c6e396883493510.webp" alt=""></p>
 <center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">淘宝TDDL基本架构图</center>
 
 <h3 id="解决方案2-服务端中间件封装"><a href="#解决方案2-服务端中间件封装" class="headerlink" title="解决方案2 服务端中间件封装"></a>解决方案2 服务端中间件封装</h3><p><strong>基本架构图</strong></p>
-<p><img src="//upload-images.jianshu.io/upload_images/5618238-14d0897f3ff15bcb.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp" alt=""></p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-14d0897f3ff15bcb.webp" alt=""></p>
 <center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">服务端中间件封装实现分配基本架构图</center>
 
-<p><img src="//upload-images.jianshu.io/upload_images/5618238-9174a86fd6e5f23b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/798/format/webp" alt=""></p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-9174a86fd6e5f23b.webp" alt=""></p>
 <center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">服务端中间件封装</center>
 
 <p><strong>业界开源实现</strong></p>
 <ul>
 <li>MySQL官方推荐的MySQL Router</li>
 </ul>
-<p><img src="//upload-images.jianshu.io/upload_images/5618238-31ebcb40b8079f31.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/819/format/webp" alt=""></p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-31ebcb40b8079f31.webp" alt=""></p>
 <center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">MySQL Router架构图</center>
 
 <p>MySQL Router是轻量级的中间件，可在应用程序和任何后端MySQL服务器之间提供透明路由。它可以用于各种各样的用例，例如通过有效地将数据库流量路由到适当的后端MySQL服务器来提供高可用性和可伸缩性。可插拔架构还使开发人员能够扩展MySQL Router以用于自定义用例。</p>
 <p>基于MySQL Router可以实现读写分离，故障自动切换，负载均衡，连接池等功能。</p>
 <ul>
-<li><p>MySQL官方提供的MySQL Proxy<br><img src="//upload-images.jianshu.io/upload_images/5618238-c3960a36b36ae8d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/767/format/webp" alt=""></p>
+<li><p>MySQL官方提供的MySQL Proxy<br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-c3960a36b36ae8d4.webp" alt=""></p>
 <center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%"> MySQL Proxy</center>
 </li>
-<li><p>360开源的Atlas<br><img src="//upload-images.jianshu.io/upload_images/5618238-c34706b5d7f379bd.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/702/format/webp" alt=""></p>
+<li><p>360开源的Atlas<br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-c34706b5d7f379bd.webp" alt=""></p>
 <center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">Atlas架构图形象表示</center>
 
 </li>
 </ul>
-<p><img src="//upload-images.jianshu.io/upload_images/5618238-d7b51511d8fdbefe.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/542/format/webp" alt=""></p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5618238-d7b51511d8fdbefe.webp" alt=""></p>
 <p><center style="border-bottom: 1px solid #d9d9d9;min-width: 20%;max-width: 80%;margin: 0 auto;width:20%">Atlas总体架构</center><br>Atlas是由平台部基础架构团队开发维护的一个基于MySQL协议的数据中间层项目。它是在mysql-proxy的基础上，对其进行了优化，增加了一些新的功能特性。</p>
 <h3 id="常见的开源数据库中间件对比"><a href="#常见的开源数据库中间件对比" class="headerlink" title="常见的开源数据库中间件对比"></a>常见的开源数据库中间件对比</h3><table>
 <thead>
