@@ -195,7 +195,7 @@
 <meta name="keywords" content="redis,缓存,集群分布式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题">
-<meta property="og:url" content="https://zfelix.top/2018/08/26/缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题/index.html">
+<meta property="og:url" content="https://yfzhou.coding.me/2018/08/26/缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题/index.html">
 <meta property="og:site_name" content="Felix">
 <meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;前面一节说到了《为什么说Redis是单线程的以及Redis为什么这么快！》，今天给大家整理一篇关于Redis经常被问到的问题：缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等概念的入门及简单解决方案。">
 <meta property="og:locale" content="zh-CN">
@@ -214,7 +214,7 @@
 
 
 
-  <link rel="canonical" href="https://zfelix.top/2018/08/26/缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题/"/>
+  <link rel="canonical" href="https://yfzhou.coding.me/2018/08/26/缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题/"/>
 
 
 
@@ -448,7 +448,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://zfelix.top/2018/08/26/缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题/">
+    <link itemprop="mainEntityOfPage" href="https://yfzhou.coding.me/2018/08/26/缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Felix">
@@ -597,7 +597,7 @@
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;前面一节说到了《<a href="http://yfzhou.coding.me/2018/08/26/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4Redis%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BB%A5%E5%8F%8ARedis%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E4%B9%88%E5%BF%AB%EF%BC%81/#more" target="_blank" rel="noopener">为什么说Redis是单线程的以及Redis为什么这么快！</a>》，今天给大家整理一篇关于Redis经常被问到的问题：缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等概念的入门及简单解决方案。</p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;前面一节说到了《<a href="http://yfzhou.coding.me/2018/08/26/%E4%B8%BA%E4%BB%80%E4%B9%88%E8%AF%B4Redis%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B%E7%9A%84%E4%BB%A5%E5%8F%8ARedis%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%99%E4%B9%88%E5%BF%AB%EF%BC%81/#more">为什么说Redis是单线程的以及Redis为什么这么快！</a>》，今天给大家整理一篇关于Redis经常被问到的问题：缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等概念的入门及简单解决方案。</p>
 <a id="more"></a>
 <h2 id="一、缓存雪崩"><a href="#一、缓存雪崩" class="headerlink" title="一、缓存雪崩"></a>一、缓存雪崩</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;缓存雪崩我们可以简单的理解为：<strong>由于原有缓存失效，新缓存未到期间</strong>(例如：我们设置缓存时采用了相同的过期时间，在同一时刻出现大面积的缓存过期)，所有原本应该访问缓存的请求都去查询数据库了，而对数据库CPU和内存造成巨大压力，严重的会造成数据库宕机。从而形成一系列连锁反应，造成整个系统崩溃。</p>
 <p>缓存正常从Redis中获取，示意图如下：</p>
