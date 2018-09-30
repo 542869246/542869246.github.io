@@ -197,8 +197,8 @@
 <meta property="og:url" content="https://yfzhou.coding.me/2018/09/30/单点登录原理与简单实现/index.html">
 <meta property="og:site_name" content="Felix">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155231912-1627010726.png">
-<meta property="og:image" content="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155233115-1744636093.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155231224-831614516.png">
+<meta property="og:image" content="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155232537-1894700627.png">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155234443-99011212.png">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155235693-1708276896.png">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155236615-855014039.png">
@@ -208,10 +208,10 @@
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155243068-1378377736.png">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155244646-2067469767.png">
 <meta property="og:image" content="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155245506-1069288802.png">
-<meta property="og:updated_time" content="2018-09-30T01:38:11.400Z">
+<meta property="og:updated_time" content="2018-09-30T01:46:44.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="单点登录原理与简单实现">
-<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155231912-1627010726.png">
+<meta name="twitter:image" content="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155231224-831614516.png">
 
 
 
@@ -513,7 +513,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-30 09:38:11" itemprop="dateModified" datetime="2018-09-30T09:38:11+08:00">2018-09-30</time>
+                <time title="修改时间：2018-09-30 09:46:44" itemprop="dateModified" datetime="2018-09-30T09:46:44+08:00">2018-09-30</time>
               
             
           </span>
@@ -607,10 +607,10 @@
 <a id="more"></a>
 <h2 id="一、单系统登录机制"><a href="#一、单系统登录机制" class="headerlink" title="一、单系统登录机制"></a>一、单系统登录机制</h2><hr>
 <h3 id="1、http无状态协议"><a href="#1、http无状态协议" class="headerlink" title="1、http无状态协议"></a>1、http无状态协议</h3><p>&emsp;&emsp;web应用采用browser/server架构，http作为通信协议。http是无状态协议，浏览器的每一次请求，服务器会独立处理，不与之前或之后的请求产生关联，这个过程用下图说明，三次请求/响应对之间没有任何联系</p>
-<p><a href="http://images2015.cnblogs.com/blog/797930/201611/797930-20161129155231224-831614516.png" target="_blank" rel="noopener"><img src="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155231912-1627010726.png" alt="3c91a3bf-25d8-4b1f-8e4a-68535c51aaa8" title="3c91a3bf-25d8-4b1f-8e4a-68535c51aaa8"></a></p>
+<p><img src="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155231224-831614516.png" alt="3c91a3bf-25d8-4b1f-8e4a-68535c51aaa8" title="sd单点登录原理"></p>
 <p>&emsp;&emsp;但这也同时意味着，任何用户都能通过浏览器访问服务器资源，如果想保护服务器的某些资源，必须限制浏览器请求；要限制浏览器请求，必须鉴别浏览器请求，响应合法请求，忽略非法请求；要鉴别浏览器请求，必须清楚浏览器请求状态。既然http协议无状态，那就让服务器和浏览器共同维护一个状态吧！这就是会话机制</p>
 <h3 id="2、会话机制"><a href="#2、会话机制" class="headerlink" title="2、会话机制"></a>2、会话机制</h3><p>&emsp;&emsp;浏览器第一次请求服务器，服务器创建一个会话，并将会话的id作为响应的一部分发送给浏览器，浏览器存储会话id，并在后续第二次和第三次请求中带上会话id，服务器取得请求中的会话id就知道是不是同一个用户了，这个过程用下图说明，后续请求与第一次请求产生了关联</p>
-<p><a href="http://images2015.cnblogs.com/blog/797930/201611/797930-20161129155232537-1894700627.png" target="_blank" rel="noopener"><img src="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155233115-1744636093.png" alt="8a9fb230-d506-4b19-b821-4001c68c4588" title="8a9fb230-d506-4b19-b821-4001c68c4588"></a></p>
+<p><img src="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155232537-1894700627.png" alt="8a9fb230-d506-4b19-b821-4001c68c4588" title="sd单点登录原理"></p>
 <p>&emsp;&emsp;服务器在内存中保存会话对象，浏览器怎么保存会话id呢？你可能会想到两种方式</p>
 <ol>
 <li>请求参数</li>
@@ -618,7 +618,7 @@
 </ol>
 <p>&emsp;&emsp;将会话id作为每一个请求的参数，服务器接收请求自然能解析参数获得会话id，并借此判断是否来自同一会话，很明显，这种方式不靠谱。那就浏览器自己来维护这个会话id吧，每次发送http请求时浏览器自动发送会话id，cookie机制正好用来做这件事。cookie是浏览器用来存储少量数据的一种机制，数据以”key/value“形式存储，浏览器发送http请求时自动附带cookie信息</p>
 <p>&emsp;&emsp;tomcat会话机制当然也实现了cookie，访问tomcat服务器时，浏览器中可以看到一个名为“JSESSIONID”的cookie，这就是tomcat会话机制维护的会话id，使用了cookie的请求响应过程如下图</p>
-<p><a href="http://images2015.cnblogs.com/blog/797930/201611/797930-20161129155233724-190446648.png" target="_blank" rel="noopener"><img src="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155234443-99011212.png" alt="518293d9-64b2-459c-9d45-9f353c757d1f" title="518293d9-64b2-459c-9d45-9f353c757d1f"></a></p>
+<p>[<img src="https://images2015.cnblogs.com/blog/797930/201611/797930-20161129155234443-99011212.png" alt="518293d9-64b2-459c-9d45-9f353c757d1f" title="sd单点登录原理"></p>
 <h3 id="3、登录状态"><a href="#3、登录状态" class="headerlink" title="3、登录状态"></a>3、登录状态</h3><p>&emsp;&emsp;有了会话机制，登录状态就好明白了，我们假设浏览器第一次请求服务器需要输入用户名与密码验证身份，服务器拿到用户名密码去数据库比对，正确的话说明当前持有这个会话的用户是合法用户，应该将这个会话标记为“已授权”或者“已登录”等等之类的状态，既然是会话的状态，自然要保存在会话对象中，tomcat在会话对象中设置登录状态如下</p>
 <p><a href="#">?</a></p>
 <p>1</p>
