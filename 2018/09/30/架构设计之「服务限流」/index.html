@@ -197,13 +197,13 @@
 <meta property="og:url" content="https://yfzhou.coding.me/2018/09/30/架构设计之「服务限流」/index.html">
 <meta property="og:site_name" content="Felix">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/PgqYrEEtEnq3qicd4U58icNkBnsciaic7dmibuhhTyqV7ciaiba7EraH4N6hRy4v56rW0ryLfUbaZrXNCcCudrCYZZMdA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
-<meta property="og:image" content="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==">
-<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/PgqYrEEtEnq3qicd4U58icNkBnsciaic7dmibaXx7ibnnlr160EzK2xic5vHZzMsR6fxYgTTiaFxt1m7xJQWSwgzGmQglA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
-<meta property="og:updated_time" content="2018-09-30T02:56:05.759Z">
+<meta property="og:image" content="http://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/8ujnrf7yh3wed6tg3we.png">
+<meta property="og:image" content="http://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/jhgfd3422fewdvshwgefa.png">
+<meta property="og:image" content="http://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/12asfdcasf234231f.png">
+<meta property="og:updated_time" content="2018-09-30T03:06:45.750Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="架构设计之「服务限流」">
-<meta name="twitter:image" content="https://mmbiz.qpic.cn/mmbiz_png/PgqYrEEtEnq3qicd4U58icNkBnsciaic7dmibuhhTyqV7ciaiba7EraH4N6hRy4v56rW0ryLfUbaZrXNCcCudrCYZZMdA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1">
+<meta name="twitter:image" content="http://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/8ujnrf7yh3wed6tg3we.png">
 
 
 
@@ -505,7 +505,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-30 10:56:05" itemprop="dateModified" datetime="2018-09-30T10:56:05+08:00">2018-09-30</time>
+                <time title="修改时间：2018-09-30 11:06:45" itemprop="dateModified" datetime="2018-09-30T11:06:45+08:00">2018-09-30</time>
               
             
           </span>
@@ -561,7 +561,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">2.4k</span>
+                <span title="本文字数">2.5k</span>
               
 
               
@@ -599,10 +599,10 @@
 <a id="more"></a>
 <blockquote class="blockquote-center"><p>&emsp;&emsp;限流可以认为服务降级的一种，限流就是限制系统的输入和输出流量已达到保护系统的目的。一般来说系统的吞吐量是可以被测算的，为了保证系统的稳定运行，一旦达到的需要限制的阈值，就需要限制流量并采取一些措施以完成限制流量的目的。比如：延迟处理，拒绝处理，或者部分拒绝处理等等。</p>
 </blockquote>
-<p>在介绍限流概念之前，我们先来聊聊身边有哪些限流，如果有在帝都的码农估计对限流是最深有感触的，帝都但凡开个XXX会议，各大地铁站都会限流。</p>
-<p>每年的双11都是剁手族的天堂，11月11号0点0几秒的时候，下面这些场景或许你曾经遇到过。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PgqYrEEtEnq3qicd4U58icNkBnsciaic7dmibuhhTyqV7ciaiba7EraH4N6hRy4v56rW0ryLfUbaZrXNCcCudrCYZZMdA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
-<p><img src="data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==" alt=""></p>
+<p>&emsp;&emsp;在介绍限流概念之前，我们先来聊聊身边有哪些限流，如果有在帝都的码农估计对限流是最深有感触的，帝都但凡开个XXX会议，各大地铁站都会限流。</p>
+<p>&emsp;&emsp;每年的双11都是剁手族的天堂，11月11号0点0几秒的时候，下面这些场景或许你曾经遇到过。</p>
+<p><img src="http://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/8ujnrf7yh3wed6tg3we.png" alt=""></p>
+<p><img src="http://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/jhgfd3422fewdvshwgefa.png" alt=""></p>
 <p>当然，这几年双11各大电商对并发的支持做的越来越好，这里只是借鉴双11刚推出之际，常常需要应对的一些问题。</p>
 <p>通过这两个场景，基本上服务限流的作用也就明白：</p>
 <p>「服务限流」其实是指当系统资源不够，不足以应对大量请求，即系统资源与访问量出现矛盾的时候，我们为了保证有限的资源能够正常服务，因此对系统按照预设的规则进行流量限制或功能限制的一种方法。</p>
@@ -628,7 +628,7 @@
 <p>那在实际项目中，对访问流量的限制，可采用如下几种技术方法：</p>
 <ul>
 <li><p><strong>熔断技术</strong><br>熔断的技术可以重点参考Netflix的开源组件hystrix的做法，主要有三个模块：熔断请求判断算法、熔断恢复机制、熔断报警。  </p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/PgqYrEEtEnq3qicd4U58icNkBnsciaic7dmibaXx7ibnnlr160EzK2xic5vHZzMsR6fxYgTTiaFxt1m7xJQWSwgzGmQglA/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1" alt=""></p>
+<p><img src="http://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/12asfdcasf234231f.png" alt=""></p>
 </li>
 <li><p><strong>计数器方法</strong><br>系统维护一个计数器，来一个请求就加1，请求处理完成就减1，当计数器大于指定的阈值，就拒绝新的请求。<br>基于这个简单的方法，可以再延伸出一些高级功能，比如阈值可以不是固定值，是动态调整的。另外，还可以有多组计数器分别管理不同的服务，以保证互不影响等。</p>
 </li>
@@ -647,6 +647,8 @@
 </li>
 </ul>
 <p>系统故障常常都是不可预测且难以避免的，因此作为系统设计师的我们，必须要提前预设各种措施，以应对随时可能的系统风险。</p>
+<div class="note info"><p>作者：奎哥  &emsp;&emsp;公众号：不止思考</p></div>
+
 
       
     </div>
