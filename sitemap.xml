@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://yfzhou.coding.me/about/index.html</loc>
+    
+    <lastmod>2018-10-08T03:49:24.129Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://yfzhou.coding.me/2018/10/08/MyBatis%E5%8A%A8%E6%80%81SQL%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/</loc>
     
     <lastmod>2018-10-08T02:10:18.075Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>https://yfzhou.coding.me/2018/09/20/%E6%B5%85%E8%B0%88%E9%AB%98%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E7%BE%A4%E2%80%94%E2%80%94%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/</loc>
     
     <lastmod>2018-09-25T10:08:57.895Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://yfzhou.coding.me/about/index.html</loc>
-    
-    <lastmod>2018-09-20T08:49:14.148Z</lastmod>
     
   </url>
   
