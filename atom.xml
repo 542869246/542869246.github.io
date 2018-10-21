@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yfzhou.coding.me/"/>
-  <updated>2018-10-16T11:52:54.722Z</updated>
+  <updated>2018-10-21T07:18:26.957Z</updated>
   <id>https://yfzhou.coding.me/</id>
   
   <author>
@@ -15,6 +15,84 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Centos7使用gnome美化主题</title>
+    <link href="https://yfzhou.coding.me/2018/10/21/Centos7%E4%BD%BF%E7%94%A8gnome%E7%BE%8E%E5%8C%96%E4%B8%BB%E9%A2%98/"/>
+    <id>https://yfzhou.coding.me/2018/10/21/Centos7使用gnome美化主题/</id>
+    <published>2018-10-21T06:26:10.000Z</published>
+    <updated>2018-10-21T07:18:26.957Z</updated>
+    
+    <content type="html"><![CDATA[<p><span></span></p><a id="more"></a><p>先上效果图<br><img src="http://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/1_20181021143906.png" alt=""></p><h2 id="1-安装必要工具、依赖"><a href="#1-安装必要工具、依赖" class="headerlink" title="1.安装必要工具、依赖"></a>1.安装必要工具、依赖</h2><hr><p>主题配置工具<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> gnome-tweak-tool</span><br></pre></td></tr></table></figure></p><p>依赖<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install chrome-gnome-<span class="keyword">shell</span><span class="bash"></span></span><br></pre></td></tr></table></figure></p><h2 id="2-浏览器安装扩展"><a href="#2-浏览器安装扩展" class="headerlink" title="2.浏览器安装扩展"></a>2.浏览器安装扩展</h2><hr><p>浏览器打开<a href="https://extensions.gnome.org/" target="_blank" rel="noopener">https://extensions.gnome.org/</a></p><p><img src="http://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/3_20181021145247.png" alt="这里写图片描述"></p><h2 id="3-安装User-Themes"><a href="#3-安装User-Themes" class="headerlink" title="3.安装User Themes"></a>3.安装User Themes</h2><hr><p><img src="http://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/4_20181021145438.png" alt="这里写图片描述"></p><p>更多请<a href="https://wiki.gnome.org/Projects/GnomeShellIntegrationForChrome/Installation" target="_blank" rel="noopener">点击这里</a></p><h2 id="4-创建主题和图标文件夹"><a href="#4-创建主题和图标文件夹" class="headerlink" title="4.创建主题和图标文件夹"></a>4.创建主题和图标文件夹</h2><hr><figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> ~/.themes</span><br><span class="line"><span class="built_in">mkdir</span> ~/.icons</span><br></pre></td></tr></table></figure><h2 id="5-下载Github资源地址"><a href="#5-下载Github资源地址" class="headerlink" title="5.下载Github资源地址"></a>5.下载<a href="https://github.com/wangxiaoleiAI/CSDN-CODE/tree/master/Ubuntu18.04-tutorials-themes" target="_blank" rel="noopener">Github资源地址</a></h2><hr><p>只需关注thmes和icons两个文件中的压缩包即可 <a href="https://github.com/wangxiaoleiAI/CSDN-CODE/tree/master/Ubuntu18.04-tutorials-themes" target="_blank" rel="noopener">资源下载</a>。<br>也可以在gnome-look.org 自行提取<a href="https://www.gnome-look.org/p/1013714/" target="_blank" rel="noopener">原始资源地址</a></p><h2 id="6-开始美化，放置资源"><a href="#6-开始美化，放置资源" class="headerlink" title="6.开始美化，放置资源"></a>6.开始美化，放置资源</h2><hr><ul><li>配置应用主题</li><li>配置gnome桌面效果</li></ul><p>themes文件夹中的压缩包Sierra-light-solid.tar.xz打开后包含gnome-shell和gtk3，即gnome桌面效果与应用效果。</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tar -xf Sierra-light-solid<span class="selector-class">.tar</span><span class="selector-class">.xz</span></span><br><span class="line">mv Sierra-light-solid ~/.themes</span><br></pre></td></tr></table></figure><p>MacOSX-icon-theme.tar.xz</p><ul><li>配置图标效果</li><li>配置光标（鼠标）效果</li></ul><p>icons文件夹中的MacOSX-cursors.tar.xz和MacOSX-icon-theme.tar.xz解压，放置在~/.icons中</p><figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tar -xf MacOSX-icon-theme.tar.xz</span><br><span class="line"><span class="keyword">mv</span> MacOSX ~/.icons</span><br><span class="line"><span class="keyword">mv</span> MacOSX-dark ~/.icons</span><br><span class="line">    </span><br><span class="line">tar -xf MacOSX-cursors.tar.xz.xz</span><br><span class="line"><span class="keyword">mv</span> capitaine-cursors ~/.icons</span><br></pre></td></tr></table></figure><blockquote><p>另外也可以配置字体，字体文件解压放置在~/.local/share/fonts/　字体不建议配置，配置不好影响正常内容显示</p></blockquote><h2 id="7-放置好资源后，配置tweaks如下图。"><a href="#7-放置好资源后，配置tweaks如下图。" class="headerlink" title="7.放置好资源后，配置tweaks如下图。"></a>7.放置好资源后，配置tweaks如下图。</h2><hr><p><img src="http://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/5_20181021150507.png" alt="这里写图片描述"></p><h2 id="8-安装其余扩展插件"><a href="#8-安装其余扩展插件" class="headerlink" title="8.安装其余扩展插件"></a>8.安装其余扩展插件</h2><p><img src="http://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/6_20181021150814.png" alt="这里写图片描述"><br><img src="http://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/7_20181021150855.png" alt="这里写图片描述"></p><p>我推荐几款我用的<br>Dash to Dock：底部任务栏<br>GPaste：记录历史复制黏贴记录<br>OpenWeather：天气插件<br>…<br>更多就去插件中心自己找去吧。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://yfzhou.coding.me/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://yfzhou.coding.me/tags/Linux/"/>
+    
+      <category term="Centos" scheme="https://yfzhou.coding.me/tags/Centos/"/>
+    
+      <category term="gnome" scheme="https://yfzhou.coding.me/tags/gnome/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos7安装Google Chrome</title>
+    <link href="https://yfzhou.coding.me/2018/10/21/Centos7%E5%AE%89%E8%A3%85Google%20Chrome/"/>
+    <id>https://yfzhou.coding.me/2018/10/21/Centos7安装Google Chrome/</id>
+    <published>2018-10-21T06:19:13.000Z</published>
+    <updated>2018-10-21T06:23:50.363Z</updated>
+    
+    <content type="html"><![CDATA[<p><span></span></p><a id="more"></a><h2 id="1-首先进入根目录，然后进入etc-yum-repos-d目录下，创建google-chrome-repo文件"><a href="#1-首先进入根目录，然后进入etc-yum-repos-d目录下，创建google-chrome-repo文件" class="headerlink" title="1.首先进入根目录，然后进入etc/yum.repos.d目录下，创建google-chrome.repo文件"></a>1.首先进入根目录，然后进入etc/yum.repos.d目录下，创建google-chrome.repo文件</h2><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> /</span><br><span class="line"><span class="keyword">cd</span> etc/yum.repos.<span class="built_in">d</span></span><br><span class="line">vi google-chrome.repo</span><br></pre></td></tr></table></figure><h2 id="2-在文件中添加："><a href="#2-在文件中添加：" class="headerlink" title="2.在文件中添加："></a>2.在文件中添加：</h2><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">[google-chrome]</span> </span><br><span class="line"><span class="attr">name</span>=google-chrome </span><br><span class="line"><span class="attr">baseurl</span>=http://dl.google.com/linux/chrome/rpm/stable/<span class="variable">$basearch</span> </span><br><span class="line"><span class="attr">enabled</span>=<span class="number">1</span></span><br><span class="line"><span class="attr">gpgcheck</span>=<span class="number">1</span> </span><br><span class="line"><span class="attr">gpgkey</span>=https://dl-ssl.google.com/linux/linux_signing_key.pub</span><br></pre></td></tr></table></figure><p><code>ESC 退出到命令模式，shift+q ， x保存退出</code></p><h2 id="3-加入谷歌的源之后键入："><a href="#3-加入谷歌的源之后键入：" class="headerlink" title="3.加入谷歌的源之后键入："></a>3.加入谷歌的源之后键入：</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum -y <span class="keyword">install</span> google-chrome-stable <span class="comment">--nogpgcheck</span></span><br></pre></td></tr></table></figure><h2 id="4-安装完成。"><a href="#4-安装完成。" class="headerlink" title="4.安装完成。"></a>4.安装完成。</h2><p>在应用程序的互联网中就可以找到谷歌浏览器了。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://yfzhou.coding.me/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://yfzhou.coding.me/tags/Linux/"/>
+    
+      <category term="Centos" scheme="https://yfzhou.coding.me/tags/Centos/"/>
+    
+      <category term="Google Chrome" scheme="https://yfzhou.coding.me/tags/Google-Chrome/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Centos7安装jq</title>
+    <link href="https://yfzhou.coding.me/2018/10/21/Centos7%E5%AE%89%E8%A3%85jq/"/>
+    <id>https://yfzhou.coding.me/2018/10/21/Centos7安装jq/</id>
+    <published>2018-10-21T06:14:34.000Z</published>
+    <updated>2018-10-21T06:16:17.547Z</updated>
+    
+    <content type="html"><![CDATA[<p><span></span></p><a id="more"></a><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http:<span class="comment">//dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm</span></span><br><span class="line">rpm -ivh epel-release-latest-<span class="number">7</span><span class="selector-class">.noarch</span><span class="selector-class">.rpm</span></span><br><span class="line">yum repolist</span><br><span class="line">yum install jq</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      Centos安装jq
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://yfzhou.coding.me/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://yfzhou.coding.me/tags/Linux/"/>
+    
+      <category term="Centos" scheme="https://yfzhou.coding.me/tags/Centos/"/>
+    
+      <category term="jq" scheme="https://yfzhou.coding.me/tags/jq/"/>
+    
+  </entry>
   
   <entry>
     <title>10张图带你了解后台服务架构演变</title>

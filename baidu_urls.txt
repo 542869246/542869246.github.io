@@ -1,3 +1,6 @@
+https://yfzhou.coding.me/2018/10/21/Centos7使用gnome美化主题/
+https://yfzhou.coding.me/2018/10/21/Centos7安装Google Chrome/
+https://yfzhou.coding.me/2018/10/21/Centos7安装jq/
 https://yfzhou.coding.me/2018/10/16/10张图带你了解后台服务架构演变/
 https://yfzhou.coding.me/2018/10/16/Idea开发环境中搭建Maven并且使用Maven打包部署程序/
 https://yfzhou.coding.me/2018/10/11/拜托，面试别再问我时间复杂度了！！！/
