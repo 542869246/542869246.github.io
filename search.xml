@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[分布式事务，原来可以这么玩？]]></title>
+    <url>%2F2018%2F10%2F22%2F%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%EF%BC%8C%E5%8E%9F%E6%9D%A5%E5%8F%AF%E4%BB%A5%E8%BF%99%E4%B9%88%E7%8E%A9%EF%BC%9F%2F</url>
+    <content type="text"><![CDATA[此文摘自微信公众号【架构师之路】 微信扫一扫关注该公众号 多个数据要同时操作，如何保证数据的完整性，以及一致性？答：事务，是常见的做法。举个栗子： 用户下了一个订单，需要修改余额表，订单表，流水表，于是会有类似的伪代码： start transaction; CURD table t_account; any Exception rollback; CURD table t_order; any Exception rollback; CURD table t_flow; any Exception rollback;commit; 如果对余额表，订单表，流水表的SQL操作全部成功，则全部提交 如果任何一个出现问题，则全部回滚 事务，以保证数据的完整性以及一致性。 事务的方案会有什么潜在问题？ 答：互联网的业务特点，数据量较大，并发量较大，经常使用拆库的方式提升系统的性能。如果进行了拆库，余额、订单、流水可能分布在不同的数据库上，甚至不同的数据库实例上，此时就不能用数据库原生事务来保证数据的一致性了。 高并发易落地的分布式事务，是行业没有很好解决的难题，那怎么办呢？答：补偿事务是一种常见的实践。什么是补偿事务？ 答：补偿事务，是一种在业务端实施业务逆向操作事务。 举个栗子： 修改余额，事务为： int Do_AccountT(uid, money){ start transaction; //余额改变money这么多 CURD table t_account with money for uid; anyException rollback return NO; commit; return YES;} 那么，修改余额，补偿事务可以是： int Compensate_AccountT(uid, money){ //做一个money的反向操作 return Do_AccountT(uid, -1*money){} 同理，订单操作，事务是：Do_OrderT，新增一个订单； 订单操作，补偿事务是：Compensate_OrderT，删除一个订单。 要保证余额与订单的一致性，伪代码： // 执行第一个事务int flag = Do_AccountT();if(flag=YES){ //第一个事务成功，则执行第二个事务 flag= Do_OrderT(); if(flag=YES){ // 第二个事务成功，则成功 return YES; } else{ // 第二个事务失败，执行第一个事务的补偿事务 Compensate_AccountT(); }} 补偿事务有什么缺点？ 不同的业务要写不同的补偿事务，不具备通用性； 没有考虑补偿事务的失败； 如果业务流程很复杂，if/else会嵌套非常多层； 画外音：上面的例子还只考虑了余额+订单的一致性，就有22=4个分支，如果要考虑余额+订单+流水的一致性，则会有22*2=8个if/else分支，复杂性呈指数级增长。 还有其它简易一致性实践么？答：多个数据库实例上的多个事务，要保证一致性，可以进行“后置提交优化”。单库是用这样一个大事务保证一致性： start transaction; CURD table t_account; any Exception rollback; CURD table t_order; any Exception rollback; CURD table t_flow; any Exception rollback;commit; 拆分成了多个库后，大事务会变成三个小事务： start transaction1; //第一个库事务执行 CURD table t_account; any Exception rollback; …// 第一个库事务提交commit1; start transaction2; //第二个库事务执行 CURD table t_order; any Exception rollback; …// 第二个库事务提交commit2; start transaction3; //第三个库事务执行 CURD table t_flow; any Exception rollback; …// 第三个库事务提交commit3; 画外音：再次提醒，这三个事务发生在三个库，甚至3个不同实例的数据库上。 一个事务，分成执行与提交两个阶段： 执行(CURD)的时间很长 提交(commit)的执行很快 于是整个执行过程的时间轴如下： 第一个事务执行200ms，提交1ms； 第二个事务执行120ms，提交1ms； 第三个事务执行80ms，提交1ms； 在什么时候，会出现不一致？ 答：第一个事务成功提交之后，最后一个事务成功提交之前，如果出现问题（例如服务器重启，数据库异常等），都可能导致数据不一致。 画外音：如上图，最后202ms内出现异常，会出现不一致。 什么是后置提交优化？ 答：如果改变事务执行与提交的时序，变成事务先执行，最后一起提交。 第一个事务执行200ms，第二个事务执行120ms，第三个事务执行80ms； 第一个事务提交1ms，第二个事务提交1ms，第三个事务提交1ms； 后置提交优化后，在什么时候，会出现不一致？ 答：问题的答案与之前相同，第一个事务成功提交之后，最后一个事务成功提交之前，如果出现问题（例如服务器重启，数据库异常等），都可能导致数据不一致。 画外音：如上图，最后2ms内出现异常，会出现不一致。 有什么区别和差异？ 答： 串行事务方案，总执行时间是303ms，最后202ms内出现异常都可能导致不一致； 后置提交优化方案，总执行时间也是303ms，但最后2ms内出现异常才会导致不一致； 虽然没有彻底解决数据的一致性问题，但不一致出现的概率大大降低了。 画外音：上面这个例子，概率降低了100倍。 后置提交优化，有什么不足？ 答：对事务吞吐量会有影响： 串行事务方案，第一个库事务提交，数据库连接就释放了； 后置提交优化方案，所有库的连接，要等到所有事务执行完才释放； 这就意味着，数据库连接占用的时间增长了，系统整体的吞吐量降低了。 总结分布式事务，两种常见的实践： 补偿事务 后置提交优化 把trx1.exec(); trx1.commit();trx2.exec(); trx2.commit();trx3.exec(); trx3.commit(); 优化为：trx1.exec(); trx2.exec(); trx3.exec();trx1.commit(); trx2.commit(); trx3.commit(); 这个小小的改动（改动成本极低），不能彻底解决多库分布式事务数据一致性问题，但能大大降低数据不一致的概率，牺牲的是吞吐量。 对于一致性与吞吐量的折衷，还需要业务架构师谨慎权衡折衷。 画外音：还是那句话，一切脱离业务常见的架构设计，都是耍流氓。 思路比结论重要，希望大家有收获。 作业题：事务执行exec时间长，提交commit却很快，为什么设计成这样呢？数据库内核是怎么考虑的呢？]]></content>
+      <categories>
+        <category>架构设计</category>
+      </categories>
+      <tags>
+        <tag>架构设计</tag>
+        <tag>分布式</tag>
+        <tag>事务</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Centos7使用gnome美化主题]]></title>
     <url>%2F2018%2F10%2F21%2FCentos7%E4%BD%BF%E7%94%A8gnome%E7%BE%8E%E5%8C%96%E4%B8%BB%E9%A2%98%2F</url>
     <content type="text"><![CDATA[先上效果图 1.安装必要工具、依赖 主题配置工具1sudo apt install gnome-tweak-tool 依赖1sudo apt install chrome-gnome-shell 2.浏览器安装扩展 浏览器打开https://extensions.gnome.org/ 3.安装User Themes 更多请点击这里 4.创建主题和图标文件夹 12mkdir ~/.themesmkdir ~/.icons 5.下载Github资源地址 只需关注thmes和icons两个文件中的压缩包即可 资源下载。也可以在gnome-look.org 自行提取原始资源地址 6.开始美化，放置资源 配置应用主题 配置gnome桌面效果 themes文件夹中的压缩包Sierra-light-solid.tar.xz打开后包含gnome-shell和gtk3，即gnome桌面效果与应用效果。 12tar -xf Sierra-light-solid.tar.xzmv Sierra-light-solid ~/.themes MacOSX-icon-theme.tar.xz 配置图标效果 配置光标（鼠标）效果 icons文件夹中的MacOSX-cursors.tar.xz和MacOSX-icon-theme.tar.xz解压，放置在~/.icons中 123456tar -xf MacOSX-icon-theme.tar.xzmv MacOSX ~/.iconsmv MacOSX-dark ~/.icons tar -xf MacOSX-cursors.tar.xz.xzmv capitaine-cursors ~/.icons 另外也可以配置字体，字体文件解压放置在~/.local/share/fonts/ 字体不建议配置，配置不好影响正常内容显示 7.放置好资源后，配置tweaks如下图。 8.安装其余扩展插件 我推荐几款我用的Dash to Dock：底部任务栏GPaste：记录历史复制黏贴记录OpenWeather：天气插件…更多就去插件中心自己找去吧。]]></content>
@@ -769,11 +782,6 @@
     <content type="text"><![CDATA[< !DOCTYPE html> 404页面]]></content>
   </entry>
   <entry>
-    <title><![CDATA[TopX]]></title>
-    <url>%2Ftop%2Findex.html</url>
-    <content type="text"><![CDATA[AV.initialize("4DkhRkq5CadWFisToA3zFrop-gzGzoHsz", "xihAA2ETGTdekJFloguCmmgq"); var time=0 var title="" var url="" var query = new AV.Query('Counter'); query.notEqualTo('id',0); query.descending('time'); query.limit(1000); query.find().then(function (todo) { for (var i=0;i]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[分类]]></title>
     <url>%2Fcategories%2Findex.html</url>
     <content type="text"></content>
@@ -782,6 +790,11 @@
     <title><![CDATA[标签]]></title>
     <url>%2Ftags%2Findex.html</url>
     <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[TopX]]></title>
+    <url>%2Ftop%2Findex.html</url>
+    <content type="text"><![CDATA[AV.initialize("4DkhRkq5CadWFisToA3zFrop-gzGzoHsz", "xihAA2ETGTdekJFloguCmmgq"); var time=0 var title="" var url="" var query = new AV.Query('Counter'); query.notEqualTo('id',0); query.descending('time'); query.limit(1000); query.find().then(function (todo) { for (var i=0;i]]></content>
   </entry>
   <entry>
     <title><![CDATA[About]]></title>

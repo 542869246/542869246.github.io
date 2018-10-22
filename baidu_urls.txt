@@ -1,3 +1,4 @@
+https://yfzhou.coding.me/2018/10/22/分布式事务，原来可以这么玩？/
 https://yfzhou.coding.me/2018/10/21/Centos7使用gnome美化主题/
 https://yfzhou.coding.me/2018/10/21/Centos7安装Google Chrome/
 https://yfzhou.coding.me/2018/10/21/Centos7安装jq/
