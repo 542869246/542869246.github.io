@@ -120,6 +120,7 @@
   
   <div class="bg_content">
   <canvas id="canvas"></canvas>
+  <canvas id="canvas1"></canvas>
   </div>
   
   <!-- 右上角github关注-->
@@ -132,7 +133,7 @@
   <div id="aplayer"></div>
   <script type="text/javascript" src="/dist/APlayer.min.js"></script>
   <script type="text/javascript" src="/dist/music.js"></script>
-  
+ 
    <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
  <!-- 页面点击汉字 -->
@@ -141,8 +142,11 @@
   <!-- 代码块复制功能 -->
 <script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
 <script type="text/javascript" src="/js/src/clipboard-use.js"></script>
-<!-- 背景图-->
+<!-- 流星雨-->
+<!--<script type="text/javascript" src="/js/src/meteor-rain.js"></script>-->
+<!-- 粒子效果-->
 <script type="text/javascript" src="/js/src/dynamic_bg.js"></script>
+
 
 </body>
 </html>

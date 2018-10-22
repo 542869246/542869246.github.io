@@ -47,6 +47,19 @@ type: about
 <hr>
 <div class="note default no-icon"><p>更新日志</p></div>
 
+<div class="note success"><p>[2018/10/25] 更新</p></div>
+
+- 更换百度分享插件为[needmoreshare2](https://github.com/theme-next/theme-next-needmoreshare2)。😇
+- Blog添加后台管理插件[hexo-admin](https://jaredforsyth.com/hexo-admin/)。😊
+
+<div class="note success"><p>[2018/10/25] 更新</p></div>
+
+- 解决不蒜子插件不显示bug，[查看解决方案](https://blog.csdn.net/stormdony/article/details/82980320 "查看解决方案") 😎
+
+<div class="note success"><p>[2018/10/08] 更新</p></div>
+
+- 原博客使用的[Algolia](https://www.algolia.com/)站内搜索插件账户过期了，继续使用需要35美金。弃坑，使用自带的[local_search](https://github.com/theme-next/hexo-generator-searchdb)。😒
+
 <div class="note success"><p>[2018/9/20] 更新</p></div>
 
 - 修复[TopX标签](https://yfzhou.coding.me/top/)页title不显示的bug。😫

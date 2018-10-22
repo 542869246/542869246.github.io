@@ -13,7 +13,7 @@ timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://yfzhou.coding.me
+url: https://yfzhou.coding.me/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -121,7 +121,9 @@ githubEmojis:
 search:
   path: search.xml
   # 如只想索引文章，可设置为post
-  field: all 
+  field: all
+  format: html
+  limit: 10000
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
@@ -144,15 +146,15 @@ deploy:
 
 
 # 百度分享功能
-baidushare: true 
+#baidushare: true 
 
 # Algolia Search API Key
-algolia:
-  applicationID: '5GWESN2MHV'
-  apiKey: '756045653a25072015750606fb533a33'
-  adminApiKey: 'ae2151e8f81a0c2d6b89fb4d1501e48d'
-  indexName: 'hexo blog'
-  chunkSize: 5000
+#algolia:
+#  applicationID: '5GWESN2MHV'
+#  apiKey: '756045653a25072015750606fb533a33'
+#  adminApiKey: 'ae2151e8f81a0c2d6b89fb4d1501e48d'
+#  indexName: 'hexo blog'
+#  chunkSize: 5000
 
 baidu_url_submit:
   count: 100 # 提交最新的一个链接
@@ -173,3 +175,9 @@ leancloud_counter_security:
   app_key: "xihAA2ETGTdekJFloguCmmgq"
   username: "542869246"
   password: "542869246zyf"
+  
+# hexo-admin authentification
+admin:
+  username: felix
+  password_hash: $2a$10$7YQgZSF2y6NvDyx1Bg1DI.OcAEVpk2xNtzE3vCoMj3HeWUESfG9my
+  secret: 1qaz2wsx3edc

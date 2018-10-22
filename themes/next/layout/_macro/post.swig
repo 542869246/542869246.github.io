@@ -431,8 +431,8 @@
             {% endif %}
             {% if theme.needmoreshare2.enable and theme.needmoreshare2.postbottom.enable %}
                <div id="needsharebutton-postbottom">
-                 <span class="btn">
-                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 <span class="btn" title="分享">
+                    <i class="fa fa-share-alt" aria-hidden="true" style='font-size:23px;'></i>
                  </span>
                </div>
             {% endif %}

@@ -181,11 +181,6 @@ A2: select * from t;
 *   RR下，事务在第一个Read操作时，会建立Read View
     
 *   RC下，事务在每次Read操作时，都会建立Read View
-    
-
-**![](data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVQImWNgYGBgAAAABQABh6FO1AAAAABJRU5ErkJggg==)**
-
-**架构师之路**-分享可落地的架构文章
 
   
 

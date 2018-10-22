@@ -192,15 +192,16 @@ social_icons:
 
 # Blog rolls
 links_icon: link
-links_title: 链接
+links_title: 友情链接
 links_layout: block
 #links_layout: inline
 links:
+  删库东😎: http://zblog.dawnings.top/
   😆 网易云音乐 😆: https://music.163.com/#/user/home?id=343583524
   😤 知乎 😤: https://www.zhihu.com/people/yu-sui-58/activities
   spring-boot 纯洁的微笑: http://www.ityouknow.com/spring-boot.html
   Python教程 廖雪峰: https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000
-  关于此博客: https://yfzhou.coding.me/about
+  关于此博客: /about
 
 
 # Sidebar Avatar
@@ -323,7 +324,7 @@ codeblock:
   #description: ex. subscribe to my blog by scanning my public wechat account
 
 # Reward
-reward_comment: 坚持原创技术分享，您的支持将鼓励我继续创作！
+reward_comment: 如果你觉得这篇文章对你有用，欢迎赞赏哦~
 wechatpay: https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/wechatpay.png
 alipay: https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/alipay.png
 #bitcoin: /images/bitcoin.png
@@ -546,11 +547,9 @@ gitment:
 # Warning: Baidu Share does not support https.
 #baidushare:
 ##  type: button
-baidushare:
-  type: button
-  baidushare: false
+##  baidushare: false
 # JiaThis 分享服务
-jiathis: true
+#jiathis: false
 # addthis Share, see: https://www.addthis.com/
 #add_this_id:
 
@@ -566,21 +565,21 @@ jiathis: true
 #           Technorati,Posterous,Tumblr,GoogleBookmarks,Newsvine,
 #           Evernote,Friendfeed,Vkontakte,Odnoklassniki,Mailru
 needmoreshare2:
-  enable: false
+  enable: true
   postbottom:
-    enable: false
+    enable: true
     options:
-      iconStyle: box
+      iconStyle: default
       boxForm: horizontal
       position: bottomCenter
-      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
+      networks: Weibo,Wechat,Douban,QQZone,Twitter,Linkedin,Mailto,Reddit,Delicious,StumbleUpon,Pinterest,Facebook,GooglePlus,Slashdot,Technorati,Posterous,Tumblr,GoogleBookmarks,Newsvine,Evernote,Friendfeed,Vkontakte,Odnoklassniki,Mailru
   float:
-    enable: false
+    enable: true
     options:
-      iconStyle: box
+      iconStyle: default
       boxForm: horizontal
       position: middleRight
-      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
+      networks: Weibo,Wechat,Douban,QQZone,Twitter,Linkedin,Mailto,Facebook,Tumblr,Friendfeed
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
@@ -719,7 +718,7 @@ calendar:
 # See: https://github.com/theme-next/hexo-theme-next/blob/master/docs/ALGOLIA-SEARCH.md
 # Dependencies: https://github.com/theme-next/theme-next-algolia-instant-search
 algolia_search:
-  enable: true
+  enable: false
   hits:
     per_page: 10
   labels:
@@ -730,7 +729,7 @@ algolia_search:
 # Local search
 # Dependencies: https://github.com/theme-next/hexo-generator-searchdb
 local_search:
-  enable: false
+  enable: true
   # if auto, trigger search by changing input
   # if manual, trigger search by pressing enter key or search button
   trigger: auto

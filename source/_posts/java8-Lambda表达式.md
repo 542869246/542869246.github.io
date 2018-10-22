@@ -4,7 +4,7 @@ copyright: true
 top: 95
 date: 2018-08-13 20:10:58
 categories: java
-tags: [java,Lambda]
+tags: [java,Lambda,jdk1.8]
 image: http://pic1.win4000.com/wallpaper/2017-12-08/5a29fbecc3c1f.png
 description: Java8发布已经有一段时间了，这次发布的改动比较大，很多人将这次改动与Java5的升级相提并论。Java8其中一个很重要的新特性就是lambda表达式，允许我们将行为传到函数中。
 ---

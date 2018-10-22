@@ -5,7 +5,7 @@ top: 95
 date: 2018-08-27 19:15:55
 categories: Hexo
 tags: [Hexo,Next]
-image: http://pic.xiudodo.com/figure/00/00/33/16/73/1655bda6abbcd26.jpg
+image: https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/1540193068353_0.png
 ---
 
 为了提高博客代码块的用户体验，仅仅代码高亮还不行，最好还能一键复制代码。故此文将讲述Hexo NexT主题博客的代码块复制功能配置。
