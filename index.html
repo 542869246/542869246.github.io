@@ -23,6 +23,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -711,7 +715,7 @@
                 
               
 
-              <time title="创建时间：2018-10-22 14:00:28" itemprop="dateCreated datePublished" datetime="2018-10-22T14:00:28+08:00">2018-10-22</time>
+              <time title="创建时间：2018-10-22 14:00:00" itemprop="dateCreated datePublished" datetime="2018-10-22T14:00:00+08:00">2018-10-22</time>
             
 
             
@@ -728,7 +732,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-22 15:19:53" itemprop="dateModified" datetime="2018-10-22T15:19:53+08:00">2018-10-22</time>
+                <time title="修改时间：2018-10-22 15:57:04" itemprop="dateModified" datetime="2018-10-22T15:57:04+08:00">2018-10-22</time>
               
             
           </span>
@@ -3144,6 +3148,12 @@ show_date_time();
     
 
     
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
 	
     
 
@@ -3645,6 +3655,39 @@ show_date_time();
   
 
   
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Linkedin,Mailto,Reddit,Delicious,StumbleUpon,Pinterest,Facebook,GooglePlus,Slashdot,Technorati,Posterous,Tumblr,GoogleBookmarks,Newsvine,Evernote,Friendfeed,Vkontakte,Odnoklassniki,Mailru";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "vertical";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Linkedin,Mailto,Facebook,Tumblr,Friendfeed";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
   
 
   

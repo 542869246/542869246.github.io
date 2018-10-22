@@ -2033,7 +2033,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffe2ff;
+  background: #0eb6e4;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2454,6 +2454,29 @@ pre .javascript .function {
 .site-pv .busuanzi-value,
 .page-pv .busuanzi-value {
   margin: 0 5px;
+}
+#needsharebutton-postbottom {
+  position: relative;
+  cursor: pointer;
+  height: 26px;
+}
+#needsharebutton-postbottom .btn {
+  display: initial;
+  padding: 12px 25px;
+  border: 1px solid #222;
+  border-radius: 7px;
+}
+#needsharebutton-float {
+  position: fixed;
+  bottom: 168px;
+  left: -8px;
+  z-index: 9999;
+  cursor: pointer;
+}
+#needsharebutton-float .btn {
+  padding: 10px 20px 10px 24px;
+  border: 1px solid #222;
+  border-radius: 7px;
 }
 .page-archive .archive-page-counter {
   position: relative;
@@ -2993,9 +3016,6 @@ body {
 }
 .posts-expand .post-tags a:hover {
   background: #eee;
-}
-.post-widgets {
-  padding-top: 0px;
 }
 .post-nav {
   margin-top: 30px;

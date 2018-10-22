@@ -23,6 +23,10 @@
 
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
 
@@ -199,7 +203,7 @@
 <meta property="og:site_name" content="Felix">
 <meta property="og:description" content="🍀 基础信息   ☯微信☯：ZYF542869246 (网站底部扫描二维码) 🐧QQ🐧：542869246 📧E-mail📧：18851200889@163.com 😤GitHub😤: github.com/542869246 😔码云😔： gitee.com/zyf542869246 🚀坐标🚀：南京 行业：互联网💻 岗位：IT开发🐵   🍀 专业技能&amp;amp;热衷方向">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-22T07:36:03.521Z">
+<meta property="og:updated_time" content="2018-10-22T09:12:46.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="About">
 <meta name="twitter:description" content="🍀 基础信息   ☯微信☯：ZYF542869246 (网站底部扫描二维码) 🐧QQ🐧：542869246 📧E-mail📧：18851200889@163.com 😤GitHub😤: github.com/542869246 😔码云😔： gitee.com/zyf542869246 🚀坐标🚀：南京 行业：互联网💻 岗位：IT开发🐵   🍀 专业技能&amp;amp;热衷方向">
@@ -517,6 +521,12 @@
 <p><hr></p>
 <div class="note default no-icon"><p>更新日志</p></div>
 
+<div class="note success"><p>[2018/10/25] 更新</p></div>
+
+<ul>
+<li>更换百度分享插件为<a href="https://github.com/theme-next/theme-next-needmoreshare2" target="_blank" rel="noopener">needmoreshare2</a>。😇</li>
+<li>Blog添加后台管理插件<a href="https://jaredforsyth.com/hexo-admin/" target="_blank" rel="noopener">hexo-admin</a>。😊</li>
+</ul>
 <div class="note success"><p>[2018/10/25] 更新</p></div>
 
 <ul>
@@ -1078,6 +1088,12 @@ show_date_time();
     
 
     
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
 	
     
 
@@ -1597,6 +1613,39 @@ show_date_time();
   
 
   
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Linkedin,Mailto,Reddit,Delicious,StumbleUpon,Pinterest,Facebook,GooglePlus,Slashdot,Technorati,Posterous,Tumblr,GoogleBookmarks,Newsvine,Evernote,Friendfeed,Vkontakte,Odnoklassniki,Mailru";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "box";
+      
+          flOptions.boxForm = "vertical";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Linkedin,Mailto,Facebook,Tumblr,Friendfeed";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
   
 
   
