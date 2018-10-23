@@ -2033,7 +2033,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1fffe4;
+  background: #b37ac4;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2821,12 +2821,20 @@ embed {
   display: inline-block;
 }
 body {
-  background-image: url("https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/zhihu_bg.png");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   background-attachment: fixed;
   background-color: #b8e5f8;
+}
+#canvas3 {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #1a1724;
 }
 .highlight {
   position: relative;
