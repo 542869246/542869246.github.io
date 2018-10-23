@@ -3,6 +3,26 @@
 
 
     
+  <url>
+    <loc>https://yfzhou.coding.me/2018/10/23/%E6%8E%A8%E8%8D%90%E5%87%A0%E6%AC%BE%E4%B8%AA%E4%BA%BA%E4%BD%BF%E7%94%A8%E7%9A%84Chrome%E6%8F%92%E4%BB%B6/</loc>
+    <lastmod>2018-10-23T09:24:40.470Z</lastmod>
+    <data>
+        <display>
+        <title>推荐几款个人使用的Chrome插件</title>
+        <pubTime>2018-10-23T08:11:02.000Z</pubTime>
+        
+        <tag>Chrome</tag>
+         
+         
+           
+             
+              <breadCrumb title="Chrome" url="https://yfzhou.coding.me/categories/Chrome/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
     
     
@@ -23,30 +43,6 @@
            
              
               <breadCrumb title="架构设计" url="https://yfzhou.coding.me/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://yfzhou.coding.me/2018/10/08/%E9%80%9A%E8%BF%87%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90MyBatis%E7%9A%84%E7%BC%93%E5%AD%98/</loc>
-    <lastmod>2018-10-22T12:06:57.713Z</lastmod>
-    <data>
-        <display>
-        <title>通过源码分析MyBatis的缓存</title>
-        <pubTime>2018-10-08T01:34:01.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>mybatis</tag>
-         
-        <tag>cache</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="https://yfzhou.coding.me/categories/java/"/>
           
         </display>
     </data>
@@ -78,25 +74,23 @@
 
     
   <url>
-    <loc>https://yfzhou.coding.me/2018/09/20/%E6%B5%85%E8%B0%88%E9%AB%98%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E7%BE%A4%E2%80%94%E2%80%94%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/</loc>
-    <lastmod>2018-10-22T12:06:57.712Z</lastmod>
+    <loc>https://yfzhou.coding.me/2018/10/08/%E9%80%9A%E8%BF%87%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90MyBatis%E7%9A%84%E7%BC%93%E5%AD%98/</loc>
+    <lastmod>2018-10-22T12:06:57.713Z</lastmod>
     <data>
         <display>
-        <title>浅谈高性能数据库集群——读写分离</title>
-        <pubTime>2018-09-20T06:25:10.000Z</pubTime>
+        <title>通过源码分析MyBatis的缓存</title>
+        <pubTime>2018-10-08T01:34:01.000Z</pubTime>
         
-        <tag>数据库</tag>
+        <tag>java</tag>
          
-        <tag>分库分表</tag>
+        <tag>mybatis</tag>
          
-        <tag>高性能</tag>
-         
-        <tag>集群</tag>
+        <tag>cache</tag>
          
          
            
              
-              <breadCrumb title="数据库" url="https://yfzhou.coding.me/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+              <breadCrumb title="java" url="https://yfzhou.coding.me/categories/java/"/>
           
         </display>
     </data>
@@ -104,12 +98,12 @@
 
     
   <url>
-    <loc>https://yfzhou.coding.me/2018/09/20/%E6%B5%85%E8%B0%88%E9%AB%98%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E7%BE%A4%E2%80%94%E2%80%94%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/</loc>
-    <lastmod>2018-10-22T12:06:57.711Z</lastmod>
+    <loc>https://yfzhou.coding.me/2018/09/20/%E6%B5%85%E8%B0%88%E9%AB%98%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E7%BE%A4%E2%80%94%E2%80%94%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB/</loc>
+    <lastmod>2018-10-22T12:06:57.712Z</lastmod>
     <data>
         <display>
-        <title>浅谈高性能数据库集群——分库分表</title>
-        <pubTime>2018-09-20T02:48:44.000Z</pubTime>
+        <title>浅谈高性能数据库集群——读写分离</title>
+        <pubTime>2018-09-20T06:25:10.000Z</pubTime>
         
         <tag>数据库</tag>
          
@@ -145,6 +139,32 @@
            
              
               <breadCrumb title="架构设计" url="https://yfzhou.coding.me/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://yfzhou.coding.me/2018/09/20/%E6%B5%85%E8%B0%88%E9%AB%98%E6%80%A7%E8%83%BD%E6%95%B0%E6%8D%AE%E5%BA%93%E9%9B%86%E7%BE%A4%E2%80%94%E2%80%94%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8/</loc>
+    <lastmod>2018-10-22T12:06:57.711Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈高性能数据库集群——分库分表</title>
+        <pubTime>2018-09-20T02:48:44.000Z</pubTime>
+        
+        <tag>数据库</tag>
+         
+        <tag>分库分表</tag>
+         
+        <tag>高性能</tag>
+         
+        <tag>集群</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="https://yfzhou.coding.me/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
           
         </display>
     </data>
@@ -238,28 +258,6 @@
 
     
   <url>
-    <loc>https://yfzhou.coding.me/2018/09/30/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E5%8E%9F%E7%90%86%E4%B8%8E%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</loc>
-    <lastmod>2018-10-22T12:06:57.707Z</lastmod>
-    <data>
-        <display>
-        <title>单点登录原理与简单实现</title>
-        <pubTime>2018-09-30T01:24:59.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>单点登录</tag>
-         
-         
-           
-             
-              <breadCrumb title="架构设计" url="https://yfzhou.coding.me/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://yfzhou.coding.me/2018/08/09/%E5%9C%A8HTML%E5%9C%A8%E7%BA%BF%E9%A2%84%E8%A7%88PDF%E3%80%81word%E3%80%81xls%E3%80%81ppt%E7%AD%89%E6%96%87%E4%BB%B6/</loc>
     <lastmod>2018-10-22T12:06:57.707Z</lastmod>
     <data>
@@ -285,6 +283,28 @@
            
              
               <breadCrumb title="前端" url="https://yfzhou.coding.me/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://yfzhou.coding.me/2018/09/30/%E5%8D%95%E7%82%B9%E7%99%BB%E5%BD%95%E5%8E%9F%E7%90%86%E4%B8%8E%E7%AE%80%E5%8D%95%E5%AE%9E%E7%8E%B0/</loc>
+    <lastmod>2018-10-22T12:06:57.707Z</lastmod>
+    <data>
+        <display>
+        <title>单点登录原理与简单实现</title>
+        <pubTime>2018-09-30T01:24:59.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>单点登录</tag>
+         
+         
+           
+             
+              <breadCrumb title="架构设计" url="https://yfzhou.coding.me/categories/%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1/"/>
           
         </display>
     </data>
@@ -342,12 +362,12 @@
 
     
   <url>
-    <loc>https://yfzhou.coding.me/2018/08/27/%E4%BD%BF%E7%94%A8-Python-%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81/</loc>
+    <loc>https://yfzhou.coding.me/2018/09/03/%E4%BD%BF%E7%94%A8Python%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E6%8A%A5%E8%A1%A8%E4%BB%A5%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81/</loc>
     <lastmod>2018-10-22T12:06:57.705Z</lastmod>
     <data>
         <display>
-        <title>使用 Python 生成二维码</title>
-        <pubTime>2018-08-27T02:22:03.000Z</pubTime>
+        <title>使用Python自动生成报表以邮件发送</title>
+        <pubTime>2018-09-03T11:13:56.000Z</pubTime>
         
         <tag>Python</tag>
          
@@ -362,12 +382,12 @@
 
     
   <url>
-    <loc>https://yfzhou.coding.me/2018/09/03/%E4%BD%BF%E7%94%A8Python%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E6%8A%A5%E8%A1%A8%E4%BB%A5%E9%82%AE%E4%BB%B6%E5%8F%91%E9%80%81/</loc>
+    <loc>https://yfzhou.coding.me/2018/08/27/%E4%BD%BF%E7%94%A8-Python-%E7%94%9F%E6%88%90%E4%BA%8C%E7%BB%B4%E7%A0%81/</loc>
     <lastmod>2018-10-22T12:06:57.705Z</lastmod>
     <data>
         <display>
-        <title>使用Python自动生成报表以邮件发送</title>
-        <pubTime>2018-09-03T11:13:56.000Z</pubTime>
+        <title>使用 Python 生成二维码</title>
+        <pubTime>2018-08-27T02:22:03.000Z</pubTime>
         
         <tag>Python</tag>
          
@@ -468,12 +488,12 @@
 
     
   <url>
-    <loc>https://yfzhou.coding.me/2018/08/21/Spring%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E4%B9%8BQuartz/</loc>
+    <loc>https://yfzhou.coding.me/2018/08/21/Spring-Quartz%E7%9A%84%E7%89%88%E6%9C%AC%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2018-10-22T12:06:57.701Z</lastmod>
     <data>
         <display>
-        <title>Spring任务调度之Quartz</title>
-        <pubTime>2018-08-21T00:47:21.000Z</pubTime>
+        <title>Spring+Quartz的版本问题</title>
+        <pubTime>2018-08-21T00:35:58.000Z</pubTime>
         
         <tag>java</tag>
          
@@ -492,12 +512,12 @@
 
     
   <url>
-    <loc>https://yfzhou.coding.me/2018/08/21/Spring-Quartz%E7%9A%84%E7%89%88%E6%9C%AC%E9%97%AE%E9%A2%98/</loc>
+    <loc>https://yfzhou.coding.me/2018/08/21/Spring%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6%E4%B9%8BQuartz/</loc>
     <lastmod>2018-10-22T12:06:57.701Z</lastmod>
     <data>
         <display>
-        <title>Spring+Quartz的版本问题</title>
-        <pubTime>2018-08-21T00:35:58.000Z</pubTime>
+        <title>Spring任务调度之Quartz</title>
+        <pubTime>2018-08-21T00:47:21.000Z</pubTime>
         
         <tag>java</tag>
          
@@ -682,28 +702,6 @@
 
     
   <url>
-    <loc>https://yfzhou.coding.me/2018/10/08/MyBatis%E6%8B%A6%E6%88%AA%E5%99%A8%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6/</loc>
-    <lastmod>2018-10-22T12:06:57.694Z</lastmod>
-    <data>
-        <display>
-        <title>MyBatis拦截器原理探究</title>
-        <pubTime>2018-10-08T09:22:48.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>mybatis</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="https://yfzhou.coding.me/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://yfzhou.coding.me/2018/09/19/MySQL%E4%B8%8D%E4%B8%BA%E4%BA%BA%E7%9F%A5%E7%9A%84%E4%B8%BB%E9%94%AE%E4%B8%8E%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95%E7%BA%A6%E6%9D%9F/</loc>
     <lastmod>2018-10-22T12:06:57.694Z</lastmod>
     <data>
@@ -723,6 +721,28 @@
            
              
               <breadCrumb title="数据库" url="https://yfzhou.coding.me/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://yfzhou.coding.me/2018/10/08/MyBatis%E6%8B%A6%E6%88%AA%E5%99%A8%E5%8E%9F%E7%90%86%E6%8E%A2%E7%A9%B6/</loc>
+    <lastmod>2018-10-22T12:06:57.694Z</lastmod>
+    <data>
+        <display>
+        <title>MyBatis拦截器原理探究</title>
+        <pubTime>2018-10-08T09:22:48.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>mybatis</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="https://yfzhou.coding.me/categories/java/"/>
           
         </display>
     </data>
@@ -752,26 +772,6 @@
 
     
   <url>
-    <loc>https://yfzhou.coding.me/2018/07/30/My-New-Project/</loc>
-    <lastmod>2018-10-22T12:06:57.692Z</lastmod>
-    <data>
-        <display>
-        <title>My New Project</title>
-        <pubTime>2018-07-30T11:07:18.000Z</pubTime>
-        
-        <tag>其它</tag>
-         
-         
-           
-             
-              <breadCrumb title="其它" url="https://yfzhou.coding.me/categories/%E5%85%B6%E5%AE%83/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://yfzhou.coding.me/2018/08/24/Java%E7%B1%BB%E5%8A%A0%E8%BD%BD%E5%99%A8%E6%B7%B1%E5%85%A5%E6%8E%A2%E7%B4%A2/</loc>
     <lastmod>2018-10-22T12:06:57.692Z</lastmod>
     <data>
@@ -789,6 +789,26 @@
            
              
               <breadCrumb title="java" url="https://yfzhou.coding.me/categories/java/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://yfzhou.coding.me/2018/07/30/My-New-Project/</loc>
+    <lastmod>2018-10-22T12:06:57.692Z</lastmod>
+    <data>
+        <display>
+        <title>My New Project</title>
+        <pubTime>2018-07-30T11:07:18.000Z</pubTime>
+        
+        <tag>其它</tag>
+         
+         
+           
+             
+              <breadCrumb title="其它" url="https://yfzhou.coding.me/categories/%E5%85%B6%E5%AE%83/"/>
           
         </display>
     </data>
@@ -1008,12 +1028,12 @@
 
     
   <url>
-    <loc>https://yfzhou.coding.me/2018/08/08/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E9%9B%86%E6%88%90Algolia%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%EF%BC%89/</loc>
+    <loc>https://yfzhou.coding.me/2018/08/08/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E9%9B%86%E6%88%90DaoVoice%E5%9C%A8%E7%BA%BF%E8%81%94%E7%B3%BB%E5%8A%9F%E8%83%BD%EF%BC%89/</loc>
     <lastmod>2018-10-22T12:06:57.683Z</lastmod>
     <data>
         <display>
-        <title>Hexo-Next搭建个人博客（集成Algolia站内搜索引擎）</title>
-        <pubTime>2018-08-08T00:53:22.000Z</pubTime>
+        <title>Hexo-Next搭建个人博客（集成DaoVoice在线联系功能）</title>
+        <pubTime>2018-08-08T00:56:39.000Z</pubTime>
         
         <tag>Hexo</tag>
          
@@ -1030,12 +1050,12 @@
 
     
   <url>
-    <loc>https://yfzhou.coding.me/2018/08/08/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E9%9B%86%E6%88%90DaoVoice%E5%9C%A8%E7%BA%BF%E8%81%94%E7%B3%BB%E5%8A%9F%E8%83%BD%EF%BC%89/</loc>
+    <loc>https://yfzhou.coding.me/2018/08/08/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E9%9B%86%E6%88%90Algolia%E7%AB%99%E5%86%85%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%EF%BC%89/</loc>
     <lastmod>2018-10-22T12:06:57.683Z</lastmod>
     <data>
         <display>
-        <title>Hexo-Next搭建个人博客（集成DaoVoice在线联系功能）</title>
-        <pubTime>2018-08-08T00:56:39.000Z</pubTime>
+        <title>Hexo-Next搭建个人博客（集成Algolia站内搜索引擎）</title>
+        <pubTime>2018-08-08T00:53:22.000Z</pubTime>
         
         <tag>Hexo</tag>
          
@@ -1096,12 +1116,12 @@
 
     
   <url>
-    <loc>https://yfzhou.coding.me/2018/08/07/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E6%89%98%E7%AE%A1%E5%88%B0Github%E5%92%8CCoding%EF%BC%89/</loc>
+    <loc>https://yfzhou.coding.me/2018/08/08/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E6%B7%BB%E5%8A%A0%E7%BB%9F%E8%AE%A1%E8%AE%BF%E5%AE%A2%E9%87%8F%E4%BB%A5%E5%8F%8A%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%EF%BC%89/</loc>
     <lastmod>2018-10-22T12:06:57.680Z</lastmod>
     <data>
         <display>
-        <title>Hexo-Next搭建个人博客（托管到Github和Coding）</title>
-        <pubTime>2018-08-07T14:55:27.000Z</pubTime>
+        <title>Hexo-Next搭建个人博客（添加统计访客量以及文章阅读量）</title>
+        <pubTime>2018-08-08T01:04:37.000Z</pubTime>
         
         <tag>Hexo</tag>
          
@@ -1118,12 +1138,12 @@
 
     
   <url>
-    <loc>https://yfzhou.coding.me/2018/08/08/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E6%B7%BB%E5%8A%A0%E7%BB%9F%E8%AE%A1%E8%AE%BF%E5%AE%A2%E9%87%8F%E4%BB%A5%E5%8F%8A%E6%96%87%E7%AB%A0%E9%98%85%E8%AF%BB%E9%87%8F%EF%BC%89/</loc>
+    <loc>https://yfzhou.coding.me/2018/08/07/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E6%89%98%E7%AE%A1%E5%88%B0Github%E5%92%8CCoding%EF%BC%89/</loc>
     <lastmod>2018-10-22T12:06:57.680Z</lastmod>
     <data>
         <display>
-        <title>Hexo-Next搭建个人博客（添加统计访客量以及文章阅读量）</title>
-        <pubTime>2018-08-08T01:04:37.000Z</pubTime>
+        <title>Hexo-Next搭建个人博客（托管到Github和Coding）</title>
+        <pubTime>2018-08-07T14:55:27.000Z</pubTime>
         
         <tag>Hexo</tag>
          
@@ -1294,30 +1314,6 @@
 
     
   <url>
-    <loc>https://yfzhou.coding.me/2018/08/01/FreeMarker%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2018-10-22T12:06:57.674Z</lastmod>
-    <data>
-        <display>
-        <title>FreeMarker笔记</title>
-        <pubTime>2018-08-01T01:24:56.000Z</pubTime>
-        
-        <tag>java</tag>
-         
-        <tag>FreeMarker</tag>
-         
-        <tag>模板引擎</tag>
-         
-         
-           
-             
-              <breadCrumb title="java" url="https://yfzhou.coding.me/categories/java/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://yfzhou.coding.me/2018/08/10/HTML5%20file%20API%E5%8A%A0canvas%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E5%89%8D%E7%AB%AFJS%E5%8E%8B%E7%BC%A9%E5%B9%B6%E4%B8%8A%E4%BC%A0/</loc>
     <lastmod>2018-10-22T12:06:57.674Z</lastmod>
     <data>
@@ -1335,6 +1331,30 @@
            
              
               <breadCrumb title="前端" url="https://yfzhou.coding.me/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://yfzhou.coding.me/2018/08/01/FreeMarker%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2018-10-22T12:06:57.674Z</lastmod>
+    <data>
+        <display>
+        <title>FreeMarker笔记</title>
+        <pubTime>2018-08-01T01:24:56.000Z</pubTime>
+        
+        <tag>java</tag>
+         
+        <tag>FreeMarker</tag>
+         
+        <tag>模板引擎</tag>
+         
+         
+           
+             
+              <breadCrumb title="java" url="https://yfzhou.coding.me/categories/java/"/>
           
         </display>
     </data>
