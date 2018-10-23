@@ -2033,7 +2033,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a2e3ff;
+  background: #7d16cf;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2462,9 +2462,9 @@ pre .javascript .function {
 }
 #needsharebutton-postbottom .btn {
   display: initial;
-  padding: 12px 25px;
+  padding: 5px 15px 6px 12px;
   border: 1px solid #222;
-  border-radius: 7px;
+  border-radius: 3px;
 }
 #needsharebutton-float {
   position: fixed;
@@ -2474,9 +2474,9 @@ pre .javascript .function {
   cursor: pointer;
 }
 #needsharebutton-float .btn {
-  padding: 10px 20px 10px 24px;
+  padding: 3px 10px 2px 17px;
   border: 1px solid #222;
-  border-radius: 7px;
+  border-radius: 6px;
 }
 .page-archive .archive-page-counter {
   position: relative;
