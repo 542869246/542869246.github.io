@@ -84,7 +84,7 @@ var mouseX = 0, mouseY = 0,
 
                 document.addEventListener( 'mousemove', onDocumentMouseMove, false );
                 document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-                document.addEventListener( 'touchmove', onDocumentTouchMove, false );
+                document.addEventListener( 'touchmove', onDocumentTouchMove, { passive: false } );
 
                 //
 
@@ -131,12 +131,12 @@ var mouseX = 0, mouseY = 0,
                 if ( event.touches.length == 1 ) {
 
                      // 判断默认行为是否可以被禁用
-    if (event.cancelable) {
+   // if (event.cancelable) {
         // 判断默认行为是否已经被禁用
-        if (!event.defaultPrevented) {
+       // if (!event.defaultPrevented) {
             event.preventDefault();
-        }
-    }
+       // }
+    //}
 
                     mouseX = event.touches[ 0 ].pageX - windowHalfX;
                     mouseY = event.touches[ 0 ].pageY - windowHalfY;
