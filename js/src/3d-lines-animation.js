@@ -164,3 +164,8 @@ var mouseX = 0, mouseY = 0,
                 renderer.render( scene, camera );
 
             }
+			function stopScrolling(touchEvent) {
+			touchEvent.preventDefault();
+		}
+		document.addEventListener('touchstart', stopScrolling, false);
+		document.addEventListener('touchmove', stopScrolling, false);
