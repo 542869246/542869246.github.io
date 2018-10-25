@@ -2033,7 +2033,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c97a6c;
+  background: #ff7fff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2826,6 +2826,7 @@ body {
   background-size: 100% 100%;
   background-attachment: fixed;
   background-color: #b8e5f8;
+  touch-action: none;
 }
 #canvas3 {
   width: 100%;
