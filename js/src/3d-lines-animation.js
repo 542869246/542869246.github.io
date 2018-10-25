@@ -130,7 +130,13 @@ var mouseX = 0, mouseY = 0,
 
                 if ( event.touches.length == 1 ) {
 
-                    event.preventDefault();
+                     // 判断默认行为是否可以被禁用
+    if (event.cancelable) {
+        // 判断默认行为是否已经被禁用
+        if (!event.defaultPrevented) {
+            event.preventDefault();
+        }
+    }
 
                     mouseX = event.touches[ 0 ].pageX - windowHalfX;
                     mouseY = event.touches[ 0 ].pageY - windowHalfY;
