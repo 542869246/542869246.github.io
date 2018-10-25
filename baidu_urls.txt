@@ -1,3 +1,4 @@
+https://yfzhou.coding.me/2018/10/25/Nginx快速入门/
 https://yfzhou.coding.me/2018/10/23/推荐几款个人使用的Chrome插件/
 https://yfzhou.coding.me/2018/10/22/分布式事务，原来可以这么玩？/
 https://yfzhou.coding.me/2018/10/21/Centos7使用gnome美化主题/
