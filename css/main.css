@@ -2033,7 +2033,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #b698b4;
+  background: #e7ffff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2821,6 +2821,7 @@ embed {
   display: inline-block;
 }
 body {
+  background-image: url("https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/zhihu_bg.png");
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 100% 100%;
