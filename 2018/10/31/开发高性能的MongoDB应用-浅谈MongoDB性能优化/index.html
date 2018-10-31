@@ -1,0 +1,1906 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#fff">
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "b3c7d22e"
+    });
+  daovoice('update');
+  </script>
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="true" />
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.cat.net/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.4.1" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/favicon1.ico?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/favicon1.ico?v=6.4.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/favicon1.ico?v=6.4.1">
+
+
+  <link rel="mask-icon" href="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/favicon1.ico?v=6.4.1" color="#fff">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '6.4.1',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"perspectiveLeftIn","post_header":"fadeIn","post_body":"fadeIn","coll_header":"perspectiveLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"输入关键字","hits_empty":"没有找到与 ${query} 相关的内容","hits_stats":"${hits}条相关记录，共耗时${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                if (history.length === 1) {
+                    location.replace("https://yfzhou.coding.me/"); // 这里替换成你的首页
+                } else {
+                    history.back();
+                }
+            }
+        }
+    })();
+</script>
+
+  <meta name="keywords" content="MongoDB,NoSQL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="开发高性能的MongoDB应用-浅谈MongoDB性能优化">
+<meta property="og:url" content="https://yfzhou.coding.me/2018/10/31/开发高性能的MongoDB应用-浅谈MongoDB性能优化/index.html">
+<meta property="og:site_name" content="Felix">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/166c7a875b9ca442.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/166c7a875b6a82a3.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/166c7a875b7750f6.webp">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/166c7a875b8027ec.webp">
+<meta property="og:updated_time" content="2018-10-31T09:54:09.782Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="开发高性能的MongoDB应用-浅谈MongoDB性能优化">
+<meta name="twitter:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/166c7a875b9ca442.webp">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Felix" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="https://yfzhou.coding.me/2018/10/31/开发高性能的MongoDB应用-浅谈MongoDB性能优化/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>开发高性能的MongoDB应用-浅谈MongoDB性能优化 | Felix</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Felix</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Viva La Vida</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-top">
+    <a href="/top/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-signal"></i> <br />TopX</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-sitemap">
+    <a href="/sitemap.xml" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-sitemap"></i> <br />站点地图</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="输入关键字搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yfzhou.coding.me/2018/10/31/开发高性能的MongoDB应用-浅谈MongoDB性能优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Felix">
+      <meta itemprop="description" content="周宇峰的博客">
+      <meta itemprop="image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Felix">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">开发高性能的MongoDB应用-浅谈MongoDB性能优化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-31 17:26:42" itemprop="dateCreated datePublished" datetime="2018-10-31T17:26:42+08:00">2018-10-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-10-31 17:54:09" itemprop="dateModified" datetime="2018-10-31T17:54:09+08:00">2018-10-31</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MongoDB/" itemprop="url" rel="index"><span itemprop="name">MongoDB</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/10/31/开发高性能的MongoDB应用-浅谈MongoDB性能优化/" class="leancloud_visitors" data-flag-title="开发高性能的MongoDB应用-浅谈MongoDB性能优化">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-edit"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">7.1k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">9 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><span></span></p>
+<a id="more"></a>
+<h2 id="1-、为什么选择MongoDB？"><a href="#1-、为什么选择MongoDB？" class="headerlink" title="1 、为什么选择MongoDB？"></a>1 、为什么选择MongoDB？</h2><h3 id="1-性能"><a href="#1-性能" class="headerlink" title="1.性能"></a>1.性能</h3><p>在大数据时代中，大数据量的处理已经成了考量一个数据库最重要的原因之一。而MongoDB的一个主要目标就是尽可能的让数据库保持卓越的性能，这很大程度地决定了MongoDB的设计。在一个以传统机械硬盘为主导的年代，硬盘很可能会成为性能的短板，而MongoDB选择了最大程度而利用内存资源用作缓存来换取卓越的性能，并且会自动选择速度最快的索引来进行查询。MongoDB尽可能精简数据库，将尽可能多的操作交给客户端，这种方式也是MongoDB能够保持卓越性能的原因之一。</p>
+<h3 id="2-扩展"><a href="#2-扩展" class="headerlink" title="2.扩展"></a>2.扩展</h3><p>现在互联网的数据量已经从过去的MB、GB变为了现在的TB级别，单一的数据库显然已经无法承受，扩展性成为重要的话题，然而现在的开发人员常常在选择扩展方式的时候犯了难，到底是选择横向扩展还是纵向扩展呢？</p>
+<p><strong>横向扩展</strong> <strong>（scale out）</strong>是以增加分区的方式将数据库拆分成不同的区块来分布到不同的机器中来，这样的优势是扩展成本低但管理困难。</p>
+<p><strong>纵向扩展</strong> <strong>（scale up） </strong>纵向扩展与横向扩展不同的是他会将原本的服务器进行升级，让其拥有更强大的计算能力。这样的优势是易于管理无需考虑扩展带来的众多问题，但缺点也显而易见，那就是成本高。一台大型机的价格往往非常昂贵，并且这样的升级在数据达到极限时，可能就找不到计算能力更为强大的机器了。</p>
+<p><strong>而MongoDB选择的是更为经济的横向扩展，他可以很容易的将数据拆分至不同的服务器中。</strong>而且在获取数据时开发者也无需考虑多服务器带来的问题，MongoDB可以将开发者的请求自动路由到正确的服务器中，让开发者脱离横向扩展带来的弊病，更专注于程序的开发上。</p>
+<h3 id="3-使用"><a href="#3-使用" class="headerlink" title="3.使用"></a>3.使用</h3><p>MongoDB采用的是NoSQL的设计方式，可以更加灵活的操作数据。在进行传统的RDBMS中你一定遇到过几十行甚至上百行的复杂SQL语句，传统的RDBMS的SQL语句中包含着大量关联，子查询等语句，在增加复杂性的同时还让性能调优变得更加困难。MongoDB的<strong>面向文档（document-oriented）</strong>设计中采用更为灵活的文档来作为数据模型用来取代RDBMS中的行，面向文档的设计让开发人员获取数据的方式更加灵活，甚至于开发人员仅用一条语句即可查询复杂的嵌套关系，让开发人员不必为了获取数据而绞尽脑汁。</p>
+<h2 id="2-、NoSQL对传统数据库设计思维的影响"><a href="#2-、NoSQL对传统数据库设计思维的影响" class="headerlink" title="2 、NoSQL对传统数据库设计思维的影响"></a>2 、NoSQL对传统数据库设计思维的影响</h2><h3 id="1-预设计模式与动态模式"><a href="#1-预设计模式与动态模式" class="headerlink" title="1.预设计模式与动态模式"></a>1.预设计模式与动态模式</h3><p>传统数据库设计思维中，项目的设计阶段需要对数据库表中的字段名称、字段类型、进行规定，如果尝试插入不符合设计的数据，数据库不会接受这条数据以保证数据的完整性。</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">--</span>数据库字段<span class="selector-pseudo">:NAME</span>, <span class="selector-tag">SONGINSERT</span> <span class="selector-tag">INTO</span> <span class="selector-tag">T_INFO</span> <span class="selector-tag">VALUES</span>(<span class="string">'John'</span>,<span class="string">'Come Together'</span>);  <span class="selector-tag">--</span>成功<span class="selector-tag">INSERT</span> <span class="selector-tag">INTO</span> <span class="selector-tag">T_INFO</span> <span class="selector-tag">VALUES</span>(<span class="string">'小明'</span>, <span class="number">20</span>, <span class="string">'xiaoming@111.com'</span>);  <span class="selector-tag">--</span>失败</span><br></pre></td></tr></table></figure>
+<p>NoSQL采用的是对集合（类似”表”）中的文档（类似于”行”）进行动态追加，在创建集合之初不会对数据类型进行限定，任何文档都可以追加到任何集合中去，例如我们可以将这样两条文档添加到一个集合中去：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"name"</span> : <span class="string">"John"</span>, <span class="attr">"song"</span> : <span class="string">"Come Together"</span>&#125;&#123;<span class="attr">"name"</span> : <span class="string">"小明"</span>,  <span class="attr">"age"</span>:<span class="string">"20"</span>, <span class="attr">"email"</span> : <span class="string">"xiaoming@111.com"</span>&#125;</span><br></pre></td></tr></table></figure>
+<p>MongoDB中文档的格式类似于我们常见的JSON，由此可见，我们第一个拥有”name”、”song”两个字段，而第二个拥有”name”、”age”、”email”三个字段，这在预设计模式中的数据库是不可能插入成功的，但在MongoDB的动态模式是可以的，这样做的优势是我们不必为一些数量很少，但种类很多的字段单独设计一张表，可以将他们集中在单独一张表进行存储，但这样做的弊病也是显而易见的，我们在获取数据时需要对同一张表的不同文档进行区分，增加了开发上的代码量。所以在设计之初需要权衡动态模式的优劣来选择表中的数据类型。  </p>
+<h3 id="2-范式化与反范式化"><a href="#2-范式化与反范式化" class="headerlink" title="2.范式化与反范式化"></a>2.范式化与反范式化</h3><p><strong>范式化（normalization）</strong> 是关系模型的发明者埃德加·科德于1970年提出这一概念，范式化会将数据分散到不同的表中，利用关系模型进行关联，由此带来的优点是，在后期进行修改时，不会影响到与其关联的数据，仅对自身修改即可完成。</p>
+<p><strong>反范式化（denormalization）</strong> 是针对范式化提出的相反理念，反范式化会将当前文档的数据集中存放在本表中，而不会采用拆分的方式进行存储。</p>
+<p><strong>范式化和反范式化之间不存在优劣的问题，范式化的好处是可以在我们写入、修改、删除时的提供更高性能，而反范式化可以提高我们在查询时的性能。</strong> 当然NoSQL中是不存在关联查询的，以此提高查询性能，但我们依旧可以以在表中存储关联表ID的方式进行范式化。但由此可见，NoSQL的理念中反范式化的地位是大于范式化的。</p>
+<h2 id="3-、性能与用户量"><a href="#3-、性能与用户量" class="headerlink" title="3 、性能与用户量"></a>3 、性能与用户量</h2><p>“如何能让软件拥有更高的性能？”，我想这是一个大部分开发者都思考过的问题。性能往往决定了一个软件的质量，如果你开发的是一个互联网产品，那么你的产品性能将更加受到考验，因为你面对的是广大的 <strong>互联网用户</strong>，他们可不是那么有耐心的。严重点说，页面的加载速度每增加一秒也许都会使你失去一部分用户，也就是说，<strong>加载速度和用户量是成反比的</strong> 。那么用户能够接受的加载速度到底是多少呢？</p>
+<p>　<img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/166c7a875b9ca442.webp" alt=""></p>
+<p>如图，如果页面加载时间超过10s那么用户就会离开，如果1s–10s的话就需要有提示，但如果我们的页面没有提示的话需要多快的加载速度呢？是的，<strong>1s</strong> 。</p>
+<p>当然，这是站在一个产品经理的角度来说的，但如果站在一个技术人员的角度来说呢？<strong>加载速度和用户量就是成正比的</strong>，你的用户数量越多需要处理的数据当然也就越多，加载速度当然也就越慢。这是一件很有趣的事，所以如果你的产品如果是一件激动人心的产品，那么作为技术人员你需要做的事就是<strong>让软件的性能和用户的数量同时增长，甚至性能增长要快于用户量的增长。</strong></p>
+<p><strong>数据库性能对软件整体性能的影响是不言而喻的，那么，当我们使用MongoDB时改如何提高数据库性能呢？</strong></p>
+<h2 id="4-、范式化与反范式化"><a href="#4-、范式化与反范式化" class="headerlink" title="4 、范式化与反范式化"></a>4 、范式化与反范式化</h2><p>在项目设计阶段，明确集合的用途是对性能调优非常重要的一步。</p>
+<p>从性能优化的角度来看，集合的设计我们需要考虑的是<strong>集合中数据的常用操作</strong>，例如我们需要设计一个日志（log）集合，日志的查看频率不高，但写入频率却很高，那么我们就可以得到这个集合中常用的操作是<strong>更新（增删改）</strong>。如果我们要保存的是城市列表呢？显而易见，这个集合是一个查看频率很高，但写入频率很低的集合，那么常用的操作就是<strong>查询。</strong></p>
+<p>对于频繁更新和频繁查询的集合，我们最需要关注的重点是他们的范式化程度，在上篇<strong>范式化与反范式化</strong>的介绍中我们了解到，范式化与反范式化的合理运用对于性能的提高至关重要。然而这种设计的使用非常灵活，假设现在我们需要存储一篇图书及其作者，在MongoDB中的关联就可以体现为以下几种形式：</p>
+<h3 id="1-完全分离（范式化设计）"><a href="#1-完全分离（范式化设计）" class="headerlink" title="1.完全分离（范式化设计）"></a>1.完全分离（范式化设计）</h3><p><strong>示例1：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;	<span class="string">"_id"</span> : ObjectId(<span class="string">"5124b5d86041c7dca81917"</span>), </span><br><span class="line">	<span class="string">"title"</span> : <span class="string">"如何使用MongoDB"</span>,</span><br><span class="line">	<span class="string">"author"</span> : [</span><br><span class="line">				ObjectId(<span class="string">"144b5d83041c7dca84416"</span>), </span><br><span class="line">            	ObjectId(<span class="string">"144b5d83041c7dca84418"</span>), </span><br><span class="line">             	ObjectId(<span class="string">"144b5d83041c7dca84420"</span>)</span><br><span class="line">				]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>我们将<strong>作者(comment)</strong> 的id数组作为一个字段添加到了<strong>图书</strong>中去。这样的设计方式是在非关系型数据库中常用的，也就是我们所说的范式化设计。在MongoDB中我们将与主键没有直接关系的图书单独提取到另一个集合，用存储主键的方式进行关联查询。当我们要查询文章和评论时需要先查询到所需的文章，再从文章中获取评论id，最后用获得的完整的文章及其评论。在这种情况下查询性能显然是不理想的。但当某位作者的信息需要修改时，范式化的<strong>维护优势</strong>就凸显出来了，我们无需考虑此作者关联的图书，直接进行修改此作者的字段即可。</p>
+<h3 id="2-完全内嵌（反范式化设计）"><a href="#2-完全内嵌（反范式化设计）" class="headerlink" title="2.完全内嵌（反范式化设计）"></a>2.完全内嵌（反范式化设计）</h3><p><strong>示例2：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"_id"</span>: ObjectId(<span class="string">"5124b5d86041c7dca81917"</span>),</span><br><span class="line">    <span class="string">"title"</span>: <span class="string">"如何使用MongoDB"</span>,</span><br><span class="line">    <span class="string">"author"</span>: [</span><br><span class="line">        &#123;　　　　</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"丁磊"</span>　　　　</span><br><span class="line">            <span class="string">"age"</span>: <span class="number">40</span>,</span><br><span class="line">            　　　　<span class="string">"nationality"</span>: <span class="string">"china"</span>,</span><br><span class="line">   &#125;,</span><br><span class="line">        &#123;　　　　</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"马云"</span>　　　　</span><br><span class="line">            <span class="string">"age"</span>: <span class="number">49</span>,</span><br><span class="line">            　　　　<span class="string">"nationality"</span>: <span class="string">"china"</span>,</span><br><span class="line">                &#125;,</span><br><span class="line">        &#123;　　　　</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"张召忠"</span>　　　　</span><br><span class="line">            <span class="string">"age"</span>: <span class="number">59</span>,</span><br><span class="line">            　　　　<span class="string">"nationality"</span>: <span class="string">"china"</span>,</span><br><span class="line">             &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在这个示例中我们将作者的字段完全嵌入到了图书中去，在查询的时候直接查询图书即可获得所对应作者的全部信息，但因一个作者可能有多本著作，当修改某位作者的信息时时，我们需要遍历所有图书以找到该作者，将其修改。</p>
+<h3 id="3-部分内嵌（折中方案）"><a href="#3-部分内嵌（折中方案）" class="headerlink" title="3.部分内嵌（折中方案）"></a>3.部分内嵌（折中方案）</h3><p><strong><strong>示例3：</strong></strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"_id"</span>: ObjectId(<span class="string">"5124b5d86041c7dca81917"</span>),</span><br><span class="line">    <span class="string">"title"</span>: <span class="string">"如何使用MongoDB"</span>,</span><br><span class="line">    <span class="string">"author"</span>: [</span><br><span class="line">        &#123;　　　　</span><br><span class="line">            <span class="string">"_id"</span>: ObjectId(<span class="string">"144b5d83041c7dca84416"</span>),</span><br><span class="line">            　　　　<span class="string">"name"</span>: <span class="string">"丁磊"</span></span><br><span class="line">       &#125;,</span><br><span class="line">        &#123;　　　　</span><br><span class="line">            <span class="string">"_id"</span>: ObjectId(<span class="string">"144b5d83041c7dca84418"</span>),</span><br><span class="line">            　　　　<span class="string">"name"</span>: <span class="string">"马云"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;　　　　</span><br><span class="line">            <span class="string">"_id"</span>: ObjectId(<span class="string">"144b5d83041c7dca84420"</span>),</span><br><span class="line">            　　　　<span class="string">"name"</span>: <span class="string">"张召忠"</span></span><br><span class="line">        &#125;,</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这次我们将作者字段中的最常用的一部分提取出来。当我们只需要获得图书和作者名时，无需再次进入作者集合进行查询，仅在图书集合查询即可获得。</p>
+<p>这种方式是一种相对折中的方式，既保证了查询效率，也保证的更新效率。但这样的方式显然要比前两种较难以掌握，难点在于需要与<strong>实际业务</strong>进行结合来寻找合适的提取字段。如同示例3所述，名字显然不是一个经常修改的字段，这样的字段如果提取出来是没问题的，但如果提取出来的字段是一个经常修改的字段（比如age）的话，我们依旧在更新这个字段时需要大范围的寻找并依此进行更新。</p>
+<p>在上面三个示例中，第一个示例的更新效率是最高的，但查询效率是最低的，而第二个示例的查询效率最高，但更新效率最低。所以在实际的工作中我们需要根据自己实际的需要来设计表中的字段，以获得最高的效率。</p>
+<h2 id="5-、理解填充因子"><a href="#5-、理解填充因子" class="headerlink" title="5 、理解填充因子"></a>5 、理解填充因子</h2><h3 id="何为填充因子？"><a href="#何为填充因子？" class="headerlink" title="何为填充因子？"></a>何为填充因子？</h3><p><strong>填充因子（padding factor）</strong>是MongoDB为文档的扩展而预留的增长空间，因为MongoDB的文档是以顺序表的方式存储的，每个文档之间会非常紧凑，如图所示。</p>
+<p>　　（注：图片出处：《MongoDB The Definitive Guide》）</p>
+<p>　<img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/166c7a875b6a82a3.webp" alt=""></p>
+<p>　　1.元素之间没有多余的可增长空间。</p>
+<p>　<img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/166c7a875b7750f6.webp" alt=""></p>
+<p>　　2.当我们对顺序表中某个元素的大小进行增长的时候，就会导致原来分配的空间不足，只能要求其向后移动。</p>
+<p>　<img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/166c7a875b8027ec.webp" alt=""></p>
+<p>　　3.当修改元素移动后，后续插入的文档都会提供一定的填充因子，以便于文档频繁的修改，如果没有不再有文档因增大而移动的话，后续插入的文档的填充因子会依此减小。 </p>
+<p>填充因子的理解之所以重要，是因为文档的移动非常消耗性能，频繁的移动会大大增加系统的负担，在实际开发中最有可能会让文档体积变大的因素是数组，所以如果我们的文档会频繁修改并增大空间的话，则一定要充分考虑填充因子。</p>
+<p>那么如果我们的文档是个常常会扩展的话，应该如何提高性能？</p>
+<h3 id="两种方案"><a href="#两种方案" class="headerlink" title="两种方案"></a>两种方案</h3><h4 id="1-增加初始分配空间。在集合的属性中包含一个-usePowerOf2Sizes-属性，当这个选项为true时，系统会将后续-插入的文档，初始空间都分配为2的N次方。"><a href="#1-增加初始分配空间。在集合的属性中包含一个-usePowerOf2Sizes-属性，当这个选项为true时，系统会将后续-插入的文档，初始空间都分配为2的N次方。" class="headerlink" title="1.增加初始分配空间。在集合的属性中包含一个 usePowerOf2Sizes 属性，当这个选项为true时，系统会将后续**插入的文档，初始空间都分配为2的N次方。"></a>1.<strong>增加初始分配空间。在集合的属性中包含一个 </strong>usePowerOf2Sizes <strong>属性，当这个选项为</strong>true<strong>时，系统会将</strong>后续**插入的文档，初始空间都分配为2的N次方。</h4><p>这种分配机制适用于一个数据会频繁变更的集合使用，他会给每个文档留有更大的空间，但因此空间的分配不会像原来那样高效，如果你的集合在更新时不会频繁的出现移动现象，这种分配方式会导致写入速度相对变慢。</p>
+<h4 id="2-我们可以利用数据强行将初始分配空间扩大。"><a href="#2-我们可以利用数据强行将初始分配空间扩大。" class="headerlink" title="2.我们可以利用数据强行将初始分配空间扩大。"></a>2.我们可以利用数据强行将初始分配空间扩大。</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db.book.insert(&#123;</span><br><span class="line">    <span class="string">"name"</span>: <span class="string">"MongoDB"</span>,</span><br><span class="line">    <span class="string">"publishing"</span>: <span class="string">"清华大学出版社"</span>,</span><br><span class="line">    <span class="string">"author"</span>: <span class="string">"john"</span></span><br><span class="line">    <span class="string">"tags"</span>: []</span><br><span class="line">    <span class="string">"stuff"</span>: <span class="string">"ggggggggggggggggggggggggggggggggggggg               </span></span><br><span class="line"><span class="string">			ggggggggggggggggggggggggggggggggggggg               </span></span><br><span class="line"><span class="string">		ggggggggggggggggggggggggggggggggggggg"</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>是的，这样看起来可能不太优雅…但有时却很有效！当我们对这个文档进行增长式修改时，只要将stuff字段删掉即可。当然，这个stuff字段随便你怎么起名，包括里边的填充字符当然也是可以随意添加的。　　</p>
+<h2 id="6-、准确利用索引"><a href="#6-、准确利用索引" class="headerlink" title="6 、准确利用索引"></a>6 、准确利用索引</h2><p>索引对于一个数据库的影响相信大家一定了解，如果一个查询命令进入到数据库中后，查询优化器没有找到合适的索引，那么数据库会进行 <strong>全集合扫描</strong>(在RDBMS中也叫全表扫描)，全集合查询对于性能的影响是灾难性的。</p>
+<p>没有索引的查询就如同在词典那毫无规律的海量词汇中获得某个你想要的词汇，但这个词典是没有目录的，只能通过逐页来查找。这样的查找可能会让你耗费几个小时的时间，但如果要求你查询词汇的频率如同用户访问的频率一样的话。。。嘿嘿，我相信你一定会大喊“老子不干了！”。显然计算机不会这样喊，它一直是一个勤勤恳恳的员工，不论多么苛刻的请求他都会完成。所以请通过索引善待你的计算机：D。</p>
+<p>在MongoDB中索引的类型与RDBMS中大体一致，我们不做过多重复，我们来看一下在MongoDB中如何才能更高效的利用索引。</p>
+<h3 id="6-1-索引越少越好"><a href="#6-1-索引越少越好" class="headerlink" title="6.1 索引越少越好"></a>6.1 索引越少越好</h3><p>索引可以极大地提高查询性能，那么索引是不是越多越好？答案是否定的，并且索引并非越多越好，而是<strong>越少越好</strong>。每当你建立一个索引时，系统会为你添加一个索引表，用于索引指定的列，然而当你对已建立索引的列进行插入或修改时，数据库则需要对原来的索引表进行重新排序，重新排序的过程非常消耗性能，但应对少量的索引压力并不是很大，但如果索引的数量较多的话对于性能的影响可想而知。所以在创建索引时需要谨慎建立索引，要把每个索引的功能都要发挥到极致，也就是说<strong>在可以满足索引需求的情况下，索引的数量越少越好</strong>。</p>
+<p><strong>隐式索引</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//建立复合索引</span></span><br><span class="line">db.test.ensureIndex(&#123;<span class="string">"age"</span>: <span class="number">1</span>,<span class="string">"no"</span>: <span class="number">1</span>,<span class="string">"name"</span>: <span class="number">1</span> &#125;)</span><br></pre></td></tr></table></figure></p>
+<p>我们在查询时可以迅速的将age,no字段进行排序，隐式索引指的是 <strong>如果我们想要排序的字段包含在已建立的复合索引中则无需重复建立索引</strong> 。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">   db.test.find().sort(<span class="string">"age"</span>: <span class="number">1</span>,<span class="string">"no"</span>: <span class="number">1</span>)</span><br><span class="line">db.test.find().sort(<span class="string">"age"</span>: <span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
+<p>如以上两个排序查询，均可使用上面的复合索引，而不需要重新建立索引。</p>
+<p><strong>翻转索引</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">//建立复合索引</span></span><br><span class="line">db.test.ensureIndex(&#123;<span class="string">"age"</span>: <span class="number">1</span>&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>翻转索引很好理解，就是我们在排序查询时无需考虑索引列的方向，例如这个例子中我们在查询时可以将排序条件写为”{‘age’: 0}”，依旧不会影响性能。</p>
+<h3 id="6-2-索引列颗粒越小越好"><a href="#6-2-索引列颗粒越小越好" class="headerlink" title="6.2 索引列颗粒越小越好"></a>6.2 索引列颗粒越小越好</h3><p>什么叫颗粒越小越好？在索引列中每个数据的重复数量称为颗粒，也叫作索引的 <strong>基数</strong>。如果数据的颗粒过大，索引就无法发挥该有的性能。例如，我们拥有一个”age”列索引，如果在”age”列中，20岁占了50%，如果现在要查询一个20岁，名叫”Tom”的人，我们则需要在表的50%的数据中查询，索引的作用大大降低。所以，我们在建立索引时要尽量将数据颗粒小的列放在索引左侧，以保证索引发挥最大的作用。                 </p>
+<div class="note info"><p>作者：吴纹羽<br>出处：<a href="cnblogs.com/mokafamily">cnblogs.com/mokafamily</a></p></div>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果你觉得这篇文章对你有用，欢迎赞赏哦~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/wechatpay.png" alt="Felix 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/alipay.png" alt="Felix 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+	
+	<div>
+  
+    <div>
+    
+        <div style="text-align: center;font-size: 13px;letter-spacing: 10px;user-select: none;margin-top: 50px;color: #bbb;">本文结束啦 <i class="fa fa-star"></i> 感谢您阅读</div>
+    
+</div>
+  
+</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/MongoDB/" rel="tag"><i class="fa fa-tag"></i> MongoDB</a>
+          
+            <a href="/tags/NoSQL/" rel="tag"><i class="fa fa-tag"></i> NoSQL</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn" title="分享">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+			
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+             
+				<a href="/2018/10/26/windows解除iis占用80端口/" rel="next" title="windows解除iis占用80端口">
+				windows解除iis占用80端口 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODUyNC8xNTA1Mg=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+      <div id="sidebar-dimmer"></div>
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+			<a href="/">
+              <img class="site-author-image" itemprop="image"
+                src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg"
+                alt="Felix" />
+				</a>
+            
+              <p class="site-author-name" itemprop="name">Felix</p>
+              <p class="site-description motion-element" itemprop="description">周宇峰的博客</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">67</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">14</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">65</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/542869246" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://gitee.com/zyf542869246" target="_blank" title="Gitee"><i class="fa fa-fw fa-git"></i>Gitee</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://music.163.com/#/user/home?id=343583524" target="_blank" title="网易云音乐"><i class="fa fa-fw fa-music"></i>网易云音乐</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/yu-sui-58/activities" target="_blank" title="知乎"><i class="fa fa-fw fa-globe"></i>知乎</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zblog.dawnings.top/" title="删库东😎" target="_blank">删库东😎</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://music.163.com/#/user/home?id=343583524" title="😆 网易云音乐 😆" target="_blank">😆 网易云音乐 😆</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.zhihu.com/people/yu-sui-58/activities" title="😤 知乎 😤" target="_blank">😤 知乎 😤</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ityouknow.com/spring-boot.html" title="spring-boot 纯洁的微笑" target="_blank">spring-boot 纯洁的微笑</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000" title="Python教程 廖雪峰" target="_blank">Python教程 廖雪峰</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="/about" title="关于此博客" target="_blank">关于此博客</a>
+                  </li>
+                
+              </ul>
+			  <div id="days"></div>
+<script>
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("07/30/2018 15:13:14");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+            </div>
+          
+
+          
+            
+          
+          <div id="days"></div>
+<script>
+function show_date_time(){
+window.setTimeout("show_date_time()", 1000);
+BirthDay=new Date("07/30/2018 15:13:14");
+today=new Date();
+timeold=(today.getTime()-BirthDay.getTime());
+sectimeold=timeold/1000
+secondsold=Math.floor(sectimeold);
+msPerDay=24*60*60*1000
+e_daysold=timeold/msPerDay
+daysold=Math.floor(e_daysold);
+e_hrsold=(e_daysold-daysold)*24;
+hrsold=setzero(Math.floor(e_hrsold));
+e_minsold=(e_hrsold-hrsold)*60;
+minsold=setzero(Math.floor((e_hrsold-hrsold)*60));
+seconds=setzero(Math.floor((e_minsold-minsold)*60));
+document.getElementById('days').innerHTML="已运行"+daysold+"天"+hrsold+"小时"+minsold+"分"+seconds+"秒";
+}
+function setzero(i){
+if (i<10)
+{i="0" + i};
+return i;
+}
+show_date_time();
+</script>
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-、为什么选择MongoDB？"><span class="nav-number">1.</span> <span class="nav-text">1 、为什么选择MongoDB？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-性能"><span class="nav-number">1.1.</span> <span class="nav-text">1.性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-扩展"><span class="nav-number">1.2.</span> <span class="nav-text">2.扩展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-使用"><span class="nav-number">1.3.</span> <span class="nav-text">3.使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-、NoSQL对传统数据库设计思维的影响"><span class="nav-number">2.</span> <span class="nav-text">2 、NoSQL对传统数据库设计思维的影响</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-预设计模式与动态模式"><span class="nav-number">2.1.</span> <span class="nav-text">1.预设计模式与动态模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-范式化与反范式化"><span class="nav-number">2.2.</span> <span class="nav-text">2.范式化与反范式化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-、性能与用户量"><span class="nav-number">3.</span> <span class="nav-text">3 、性能与用户量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-、范式化与反范式化"><span class="nav-number">4.</span> <span class="nav-text">4 、范式化与反范式化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-完全分离（范式化设计）"><span class="nav-number">4.1.</span> <span class="nav-text">1.完全分离（范式化设计）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-完全内嵌（反范式化设计）"><span class="nav-number">4.2.</span> <span class="nav-text">2.完全内嵌（反范式化设计）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-部分内嵌（折中方案）"><span class="nav-number">4.3.</span> <span class="nav-text">3.部分内嵌（折中方案）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-、理解填充因子"><span class="nav-number">5.</span> <span class="nav-text">5 、理解填充因子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#何为填充因子？"><span class="nav-number">5.1.</span> <span class="nav-text">何为填充因子？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#两种方案"><span class="nav-number">5.2.</span> <span class="nav-text">两种方案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-增加初始分配空间。在集合的属性中包含一个-usePowerOf2Sizes-属性，当这个选项为true时，系统会将后续-插入的文档，初始空间都分配为2的N次方。"><span class="nav-number">5.2.1.</span> <span class="nav-text">1.增加初始分配空间。在集合的属性中包含一个 usePowerOf2Sizes 属性，当这个选项为true时，系统会将后续**插入的文档，初始空间都分配为2的N次方。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-我们可以利用数据强行将初始分配空间扩大。"><span class="nav-number">5.2.2.</span> <span class="nav-text">2.我们可以利用数据强行将初始分配空间扩大。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-、准确利用索引"><span class="nav-number">6.</span> <span class="nav-text">6 、准确利用索引</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-索引越少越好"><span class="nav-number">6.1.</span> <span class="nav-text">6.1 索引越少越好</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-2-索引列颗粒越小越好"><span class="nav-number">6.2.</span> <span class="nav-text">6.2 索引列颗粒越小越好</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-tint"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Felix</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点总字数：</span>
+    
+    <span title="站点总字数">337k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    
+    <span title="站点阅读时长">7:01</span>
+  
+  
+  <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>
+  
+</div>
+
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+
+
+-->
+
+
+
+  <span>Hosted by <a href="https://pages.coding.me" >Coding Pages</a></span>
+
+
+
+<div class="weixin-box">
+  <div class="weixin-menu">
+    <div class="weixin-hover">
+      <div class="weixin-description">微信扫一扫，加好友</div>
+    </div>
+  </div>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.4.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.4.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.4.1"></script>
+
+
+
+  
+
+
+
+  
+    <script type="text/javascript">
+      window.livereOptions = {
+        refer: '2018/10/31/开发高性能的MongoDB应用-浅谈MongoDB性能优化/'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script>
+    
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
+        .done(function ({ results }) {
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
+          }
+        })
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
+    }
+    
+
+    $(function() {
+      $.get('https://app-router.leancloud.cn/2/route?appId=' + "4DkhRkq5CadWFisToA3zFrop-gzGzoHsz")
+        .done(function ({ api_server }) {
+          var Counter = function (method, url, data) {
+            return $.ajax({
+              method: method,
+              url: `https://${api_server}/1.1${url}`,
+              headers: {
+                'X-LC-Id': "4DkhRkq5CadWFisToA3zFrop-gzGzoHsz",
+                'X-LC-Key': "xihAA2ETGTdekJFloguCmmgq",
+                'Content-Type': 'application/json',
+              },
+              data: data,
+            });
+          };
+          
+          addCount(Counter);
+          
+        })
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+      pbOptions = {};
+      
+          pbOptions.iconStyle = "default";
+      
+          pbOptions.boxForm = "horizontal";
+      
+          pbOptions.position = "bottomCenter";
+      
+          pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Linkedin,Mailto,Reddit,Delicious,StumbleUpon,Pinterest,Facebook,GooglePlus,Slashdot,Technorati,Posterous,Tumblr,GoogleBookmarks,Newsvine,Evernote,Friendfeed,Vkontakte,Odnoklassniki,Mailru";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+          flOptions.iconStyle = "default";
+      
+          flOptions.boxForm = "horizontal";
+      
+          flOptions.position = "middleRight";
+      
+          flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Linkedin,Mailto,Facebook,Tumblr,Friendfeed";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <div class="bg_content">
+	<canvas id="canvas"></canvas>
+	<canvas id="canvas1"></canvas>
+	  <!-- html5-canvas-animation
+	  <div class="canvas-wrap">
+		<div id="canvas3" class="gradient"></div>
+	</div>-->
+  </div>
+  
+  
+  
+  <!-- 右上角github关注-->
+  <div class="forkme">
+	<a href="https://github.com/542869246"><img style="position: absolute; top: 0; right: 0; border: 0;" src="http://pd2tflnys.bkt.clouddn.com/img/blog/forkme_right_red_aa0000.png" alt="Fork me on GitHub"></a>
+  </div>
+  
+  <!-- 音乐播放器-->
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+ 
+   <!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+ <!-- 页面点击汉字 -->
+<script type="text/javascript" src="/js/src/hanzi.js"></script>
+  
+  <!-- 代码块复制功能 -->
+<script type="text/javascript" src="/js/src/clipboard.min.js"></script>  
+<script type="text/javascript" src="/js/src/clipboard-use.js"></script>
+<!-- 流星雨-->
+<!--<script type="text/javascript" src="/js/src/meteor-rain.js"></script>-->
+<!-- 粒子效果-->
+<script type="text/javascript" src="/js/src/dynamic_bg.js"></script>
+
+<!-- html5-canvas-animation-->
+<!-- Main library
+<script src="/js/src/three.min.js"></script> -->
+<!-- Helpers
+<script src="/js/src/projector.js"></script>
+<script src="/js/src/canvas-renderer.js"></script> -->
+<!-- Visualitzation adjustments 
+<script src="/js/src/3d-lines-animation.js"></script>-->
+<!-- Animated background color 
+<script src="/js/src/color.js"></script>-->
+
+
+
+</body>
+</html>
