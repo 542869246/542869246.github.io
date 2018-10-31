@@ -47,12 +47,17 @@ type: about
 <hr>
 <div class="note default no-icon"><p>更新日志</p></div>
 
-<div class="note success"><p>[2018/10/25] 更新</p></div>
+<div class="note success"><p>[2018/10/26] 更新</p></div>
+
+- 更换Blog背景动态样式[html5-canvas-animation](https://github.com/JoanClaret/html5-canvas-animation "https://github.com/JoanClaret/html5-canvas-animation"),关于移动端不能拖动的bug，请[点击这里](https://github.com/JoanClaret/html5-canvas-animation/issues/10#issuecomment-433308298 "https://github.com/JoanClaret/html5-canvas-animation/issues/10#issuecomment-433308298")查看我的评论。😫
+- 感谢来自深圳的一名用户反馈背景过于花哨，伤眼。移除[html5-canvas-animation](https://github.com/JoanClaret/html5-canvas-animation "https://github.com/JoanClaret/html5-canvas-animation")背景，改用原[知乎登录页面](https://www.zhihu.com/signup)背景+粒子效果。😤
+
+<div class="note success"><p>[2018/10/20] 更新</p></div>
 
 - 更换百度分享插件为[needmoreshare2](https://github.com/theme-next/theme-next-needmoreshare2)。😇
 - Blog添加后台管理插件[hexo-admin](https://jaredforsyth.com/hexo-admin/)。😊
 
-<div class="note success"><p>[2018/10/25] 更新</p></div>
+<div class="note success"><p>[2018/10/15] 更新</p></div>
 
 - 解决不蒜子插件不显示bug，[查看解决方案](https://blog.csdn.net/stormdony/article/details/82980320 "查看解决方案") 😎
 
