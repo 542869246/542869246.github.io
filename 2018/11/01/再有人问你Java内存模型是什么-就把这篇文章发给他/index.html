@@ -204,7 +204,7 @@
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/12rwfdwqf3f3.png">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/h3w4gqt4hqg.png">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/245qhtnerdq34th.png">
-<meta property="og:updated_time" content="2018-11-01T09:50:44.143Z">
+<meta property="og:updated_time" content="2018-11-01T09:54:59.731Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="再有人问你Java内存模型是什么,就把这篇文章发给他">
 <meta name="twitter:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/12rwfdwqf3f3.png">
@@ -505,7 +505,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-01 17:50:44" itemprop="dateModified" datetime="2018-11-01T17:50:44+08:00">2018-11-01</time>
+                <time title="修改时间：2018-11-01 17:54:59" itemprop="dateModified" datetime="2018-11-01T17:54:59+08:00">2018-11-01</time>
               
             
           </span>
@@ -597,7 +597,7 @@
       
         <p><span></span></p>
 <a id="more"></a>
-<p>前几天，发了一篇文章，介绍了一下<a href="/2018/11/01/JVM内存结构 VS Java内存模型 VS Java对象模型/">JVM内存结构 VS Java内存模型 VS Java对象模型</a>。有很多小伙伴反馈希望可以深入的讲解下每个知识点。Java内存模型，是这三个知识点当中最晦涩难懂的一个，而且涉及到很多背景知识和相关知识。</p>
+<p>前几天，发了一篇文章，介绍了一下<a href="/2018/11/01/JVM内存结构-VS-Java内存模型-VS-Java对象模型/">JVM内存结构 VS Java内存模型 VS Java对象模型</a>。有很多小伙伴反馈希望可以深入的讲解下每个知识点。Java内存模型，是这三个知识点当中最晦涩难懂的一个，而且涉及到很多背景知识和相关知识。</p>
 <p>网上有很多关于Java内存模型的文章，在《深入理解Java虚拟机》和《Java并发编程的艺术》等书中也都有关于这个知识点的介绍。但是，很多人读完之后还是搞不清楚，甚至有的人说自己更懵了。本文，就来整体的介绍一下Java内存模型，目的很简单，让你读完本文以后，就知道到底Java内存模型是什么，为什么要有Java内存模型，Java内存模型解决了什么问题等。</p>
 <p>本文中，有很多定义和说法，都是笔者自己理解后定义出来的。希望能够让读者可以对Java内存模型有更加清晰的认识。当然，如有偏颇，欢迎指正。</p>
 <h2 id="为什么要有内存模型"><a href="#为什么要有内存模型" class="headerlink" title="为什么要有内存模型"></a>为什么要有内存模型</h2><p>在介绍Java内存模型之前，先来看一下到底什么是计算机内存模型，然后再来看Java内存模型在计算机内存模型的基础上做了哪些事情。要说计算机的内存模型，就要说一下一段古老的历史，看一下为什么要有内存模型。</p>
