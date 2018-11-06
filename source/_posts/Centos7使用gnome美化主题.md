@@ -5,7 +5,7 @@ top: 95
 date: 2018-10-21 14:26:10
 categories: [Linux]
 tags: [Linux,Centos,gnome]
-image: http://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/2_20181021144228.png
+image: http://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/2_20181021144228.png?x-oss-process=style/ys30
 description: 
 ---
 

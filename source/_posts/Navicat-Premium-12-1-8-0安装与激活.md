@@ -5,7 +5,7 @@ top: 95
 date: 2018-11-06 09:05:45
 categories: [Tool]
 tags: [Navicat Premium]
-image:
+image: https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/18159.jpg?x-oss-process=style/ys30
 description:
 ---
 
