@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yfzhou.coding.me/"/>
-  <updated>2018-11-01T09:54:59.731Z</updated>
+  <updated>2018-11-06T01:23:09.507Z</updated>
   <id>https://yfzhou.coding.me/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Navicat Premium 12.1.8.0安装与激活</title>
+    <link href="https://yfzhou.coding.me/2018/11/06/Navicat-Premium-12-1-8-0%E5%AE%89%E8%A3%85%E4%B8%8E%E6%BF%80%E6%B4%BB/"/>
+    <id>https://yfzhou.coding.me/2018/11/06/Navicat-Premium-12-1-8-0安装与激活/</id>
+    <published>2018-11-06T01:05:45.000Z</published>
+    <updated>2018-11-06T01:23:09.507Z</updated>
+    
+    <content type="html"><![CDATA[<p><span></span></p><a id="more"></a><p>前阵子升级了Navicat Premium到12.1.8，支持MongoDB了，再也不要用Robo 3T了。</p><p>顺便按照网上教程破解了下，比较正版要9999RMB，用不起。</p><p>破解亲测有效。<a href="https://www.jianshu.com/p/5f693b4c9468?mType=Group" title="点这里查看教程" target="_blank" rel="noopener">点这里查看教程</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;span&gt;&lt;/span&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Tool" scheme="https://yfzhou.coding.me/categories/Tool/"/>
+    
+    
+      <category term="Navicat Premium" scheme="https://yfzhou.coding.me/tags/Navicat-Premium/"/>
+    
+  </entry>
   
   <entry>
     <title>再有人问你Java内存模型是什么,就把这篇文章发给他</title>

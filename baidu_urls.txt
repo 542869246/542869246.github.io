@@ -1,3 +1,4 @@
+https://yfzhou.coding.me/2018/11/06/Navicat-Premium-12-1-8-0安装与激活/
 https://yfzhou.coding.me/2018/11/01/再有人问你Java内存模型是什么-就把这篇文章发给他/
 https://yfzhou.coding.me/2018/11/01/JVM内存结构-VS-Java内存模型-VS-Java对象模型/
 https://yfzhou.coding.me/2018/10/31/开发高性能的MongoDB应用-浅谈MongoDB性能优化/
