@@ -1,3 +1,4 @@
+https://yfzhou.coding.me/2018/11/12/Nginx-思维导图/
 https://yfzhou.coding.me/2018/11/12/OpenCV-Python-实现简单人脸识别/
 https://yfzhou.coding.me/2018/11/12/Class-getResource和ClassLoader-getResource的区别分析/
 https://yfzhou.coding.me/2018/11/09/手写mini版本的Spring/
