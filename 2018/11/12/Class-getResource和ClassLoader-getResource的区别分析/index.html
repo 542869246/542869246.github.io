@@ -195,18 +195,18 @@
     })();
 </script>
 
-  <meta name="description" content="🍀 基础信息   ☯微信☯：ZYF542869246 (网站底部扫描二维码) 🐧QQ🐧：542869246 📧E-mail📧：18851200889@163.com 😤GitHub😤: github.com/542869246 😔码云😔： gitee.com/zyf542869246 🚀坐标🚀：南京 行业：互联网💻 岗位：IT开发🐵   🍀 专业技能&amp;amp;热衷方向">
-<meta name="keywords" content="周宇峰,zyf,zhouyufeng,yfzhou,博客,yf.Zhou,felix,Felix">
-<meta property="og:type" content="website">
-<meta property="og:title" content="About">
-<meta property="og:url" content="https://yfzhou.coding.me/about/index.html">
+  <meta name="description" content="在Java中获取资源的时候，经常用到Class.getResource和ClassLoader.getResource，本文给大家说一下这两者方法在获取资源文件的路径差异。">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Class.getResource和ClassLoader.getResource的区别分析">
+<meta property="og:url" content="https://yfzhou.coding.me/2018/11/12/Class-getResource和ClassLoader-getResource的区别分析/index.html">
 <meta property="og:site_name" content="Felix">
-<meta property="og:description" content="🍀 基础信息   ☯微信☯：ZYF542869246 (网站底部扫描二维码) 🐧QQ🐧：542869246 📧E-mail📧：18851200889@163.com 😤GitHub😤: github.com/542869246 😔码云😔： gitee.com/zyf542869246 🚀坐标🚀：南京 行业：互联网💻 岗位：IT开发🐵   🍀 专业技能&amp;amp;热衷方向">
+<meta property="og:description" content="在Java中获取资源的时候，经常用到Class.getResource和ClassLoader.getResource，本文给大家说一下这两者方法在获取资源文件的路径差异。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-26T08:19:30.275Z">
+<meta property="og:updated_time" content="2018-11-12T02:37:24.181Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="About">
-<meta name="twitter:description" content="🍀 基础信息   ☯微信☯：ZYF542869246 (网站底部扫描二维码) 🐧QQ🐧：542869246 📧E-mail📧：18851200889@163.com 😤GitHub😤: github.com/542869246 😔码云😔： gitee.com/zyf542869246 🚀坐标🚀：南京 行业：互联网💻 岗位：IT开发🐵   🍀 专业技能&amp;amp;热衷方向">
+<meta name="twitter:title" content="Class.getResource和ClassLoader.getResource的区别分析">
+<meta name="twitter:description" content="在Java中获取资源的时候，经常用到Class.getResource和ClassLoader.getResource，本文给大家说一下这两者方法在获取资源文件的路径差异。">
 
 
 
@@ -215,7 +215,7 @@
 
 
 
-  <link rel="canonical" href="https://yfzhou.coding.me/about/"/>
+  <link rel="canonical" href="https://yfzhou.coding.me/2018/11/12/Class-getResource和ClassLoader-getResource的区别分析/"/>
 
 
 
@@ -225,7 +225,7 @@
   };
 </script>
 
-  <title>About | Felix</title>
+  <title>Class.getResource和ClassLoader.getResource的区别分析 | Felix</title>
   
 
 
@@ -361,7 +361,7 @@
         
         
           
-          <li class="menu-item menu-item-about menu-item-active">
+          <li class="menu-item menu-item-about">
     <a href="/about/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
   </li>
@@ -381,34 +381,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -459,166 +431,299 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yfzhou.coding.me/2018/11/12/Class-getResource和ClassLoader-getResource的区别分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Felix">
+      <meta itemprop="description" content="周宇峰的博客">
+      <meta itemprop="image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Felix">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">About</h1>
-
-<div class="post-meta">
-  
-  
-
-
-
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="about-page"><br><div class="note default no-icon"><p>🍀 基础信息</p></div>
-
-<ul>
-<li>☯微信☯：ZYF542869246 (网站底部扫描二维码)</li>
-<li>🐧QQ🐧：<a href="tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=542869246&website=www.oicqzone.com" target="_blank" rel="noopener">542869246</a></li>
-<li>📧E-mail📧：<a href="mailto:18851200889@163.com" target="_blank" rel="noopener">18851200889@163.com</a></li>
-<li>😤GitHub😤: <a href="http://github.com/542869246" title="github.com/542869246" target="_blank" rel="noopener">github.com/542869246</a></li>
-<li>😔码云😔： <a href="https://gitee.com/zyf542869246" title="gitee.com/zyf542869246" target="_blank" rel="noopener">gitee.com/zyf542869246</a></li>
-<li>🚀坐标🚀：南京</li>
-<li>行业：互联网💻</li>
-<li>岗位：IT开发🐵</li>
-</ul>
-<p><hr></p>
-<div class="note default no-icon"><p>🍀 专业技能&amp;热衷方向</p></div>
-
-<ul>
-<li>Java☕</li>
-<li>SQL</li>
-<li>H5C3</li>
-<li>Python</li>
-</ul>
-<p><hr></p>
-<div class="note default no-icon"><p>个人兴趣</p></div>
-
-<ul>
-<li>吃🍗</li>
-<li>喝🍹</li>
-<li>拉💩</li>
-<li>撒🙀</li>
-<li>睡💤</li>
-</ul>
-<p><hr></p>
-<div class="note default no-icon"><p>博客简介</p></div>
-
-<blockquote class="blockquote-center"><p><br><br>此Blog诞生纯属意外，完全是自己一时心血来潮的产物，若有瑕疵，请别bb，我会骂你。😎😎<br><br><br><br></p>
-</blockquote>
-<p><hr></p>
-<div class="note default no-icon"><p>更新日志</p></div>
-
-<div class="note success"><p>[2018/10/26] 更新</p></div>
-
-<ul>
-<li>更换Blog背景动态样式<a href="https://github.com/JoanClaret/html5-canvas-animation" title="https://github.com/JoanClaret/html5-canvas-animation" target="_blank" rel="noopener">html5-canvas-animation</a>,关于移动端不能拖动的bug，请<a href="https://github.com/JoanClaret/html5-canvas-animation/issues/10#issuecomment-433308298" title="https://github.com/JoanClaret/html5-canvas-animation/issues/10#issuecomment-433308298" target="_blank" rel="noopener">点击这里</a>查看我的评论。😫</li>
-<li>感谢来自深圳的一名用户反馈背景过于花哨，伤眼。移除<a href="https://github.com/JoanClaret/html5-canvas-animation" title="https://github.com/JoanClaret/html5-canvas-animation" target="_blank" rel="noopener">html5-canvas-animation</a>背景，改用原<a href="https://www.zhihu.com/signup" target="_blank" rel="noopener">知乎登录页面</a>背景+粒子效果。😤</li>
-</ul>
-<div class="note success"><p>[2018/10/20] 更新</p></div>
-
-<ul>
-<li>更换百度分享插件为<a href="https://github.com/theme-next/theme-next-needmoreshare2" target="_blank" rel="noopener">needmoreshare2</a>。😇</li>
-<li>Blog添加后台管理插件<a href="https://jaredforsyth.com/hexo-admin/" target="_blank" rel="noopener">hexo-admin</a>。😊</li>
-</ul>
-<div class="note success"><p>[2018/10/15] 更新</p></div>
-
-<ul>
-<li>解决不蒜子插件不显示bug，<a href="https://blog.csdn.net/stormdony/article/details/82980320" title="查看解决方案" target="_blank" rel="noopener">查看解决方案</a> 😎</li>
-</ul>
-<div class="note success"><p>[2018/10/08] 更新</p></div>
-
-<ul>
-<li>原博客使用的<a href="https://www.algolia.com/" target="_blank" rel="noopener">Algolia</a>站内搜索插件账户过期了，继续使用需要35美金。弃坑，使用自带的<a href="https://github.com/theme-next/hexo-generator-searchdb" target="_blank" rel="noopener">local_search</a>。😒</li>
-</ul>
-<div class="note success"><p>[2018/9/20] 更新</p></div>
-
-<ul>
-<li>修复<a href="https://yfzhou.coding.me/top/">TopX标签</a>页title不显示的bug。😫</li>
-<li><a href="https://yfzhou.coding.me/top/">TopX标签</a>增加排名序号，随机颜色。😖</li>
-</ul>
-<div class="note success"><p>[2018/9/18] 更新</p></div>
-
-<ul>
-<li>hexo主题升级 v5-&gt;v6,升级一堆坑😭☠😠</li>
-<li>提升性能，页面打开更快😎</li>
-<li>增加<a href="https://yfzhou.coding.me/top/">TopX标签</a>😎</li>
-<li>全新的页面排版，大幅度修改页面样式😊</li>
-</ul>
-<div class="note success"><p>[2018/9/17] 更新</p></div>
-
-<ul>
-<li>关闭博客右下角的萌妹子，十个看我Blog的有九个问我怎么弄的，喧宾夺主。😒</li>
-<li>移除浏览器标签搞怪效果，理由同上。😒</li>
-<li>新增<a href="https://yfzhou.coding.me/2018/09/17/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88Hexo%E5%8D%9A%E5%AE%A2%E5%A4%87%E4%BB%BD%EF%BC%89/">Hexo-Next搭建个人博客（Hexo博客备份）</a></li>
-<li><a href="https://yfzhou.coding.me/2018/08/27/Hexo-Next%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%88%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96%EF%BC%89/">Hexo-Next搭建个人博客（主题优化）</a>更新<span class="label info">11.好玩的写作样式</span></li>
-<li>左侧站点概览新增我的<a href="https://www.zhihu.com/people/yu-sui-58/activities" target="_blank" rel="noopener">知乎</a>和<a href="https://music.163.com/#/user/home?id=343583524" target="_blank" rel="noopener">网易云音乐</a>入口，欢迎互关哦~😤</li>
-</ul>
-<div class="note success"><p>[2018/9/10] 更新</p></div>
-
-<ul>
-<li>备份博客至<a href="https://github.com/542869246" target="_blank" rel="noopener">Github</a>，麻麻再也不怕我博客数据丢失啦。😏</li>
-</ul>
-<div class="note success"><p>[2018/8/31] 更新</p></div>
-
-<ul>
-<li>修改主页文章列表显示方式，支持配图😍</li>
-<li>优化文章内应用样式</li>
-<li>优化文章标签样式</li>
-<li>优化标签页</li>
-<li>优化分类页</li>
-<li>优化归档页</li>
-<li>优化博客大部分字体</li>
-</ul>
-<div class="note success"><p>[2018/8/25] 更新</p></div>
-
-<ul>
-<li>SEO优化，百度收录。☺</li>
-<li>优化主页顶部加载条样式</li>
-<li>优化header部分背景颜色及选中效果</li>
-<li>优化footer部分样式</li>
-<li>回到顶部优化，显示百分比</li>
-</ul>
-<div class="note success"><p>[2018/8/15] 更新</p></div>
-
-<ul>
-<li>添加各种功能😉</li>
-<li>部分js使用CDN加速</li>
-<li>footer添加时间</li>
-<li>代码块复制</li>
-</ul>
-<div class="note success"><p>[2018/7/29] 更新</p></div>
-
-<ul>
-<li><a href="https://yfzhou.coding.me/">博客</a>搭建😇</li>
-</ul>
-<p></p></div><p></p>
-
+          <h1 class="post-title" itemprop="name headline">Class.getResource和ClassLoader.getResource的区别分析
+              
+            
+          </h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-12 10:26:46" itemprop="dateCreated datePublished" datetime="2018-11-12T10:26:46+08:00">2018-11-12</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-12 10:37:24" itemprop="dateModified" datetime="2018-11-12T10:37:24+08:00">2018-11-12</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/12/Class-getResource和ClassLoader-getResource的区别分析/" class="leancloud_visitors" data-flag-title="Class.getResource和ClassLoader.getResource的区别分析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-edit"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">2.2k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">3 分钟</span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">在Java中获取资源的时候，经常用到Class.getResource和ClassLoader.getResource，本文给大家说一下这两者方法在获取资源文件的路径差异。</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p><span></span></p>
+<a id="more"></a>
+<h2 id="Class-getResource-String-path"><a href="#Class-getResource-String-path" class="headerlink" title="Class.getResource(String path)"></a>Class.getResource(String path)</h2><p>path不以’/‘开头时，默认是从此类所在的包下取资源；path以’/‘开头时，则是从项目的ClassPath根下获取资源。在这里’/‘表示ClassPath<br>JDK设置这样的规则，是很好理解的，path不以’/‘开头时，我们就能获取与当前类所在的路径相同的资源文件，而以’/‘开头时可以获取ClassPath根下任意路径的资源。<br>如下所示的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(Test.class.getResource(<span class="string">""</span>));</span><br><span class="line">        System.out.println(Test.class.getResource(<span class="string">"/"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果为：<br>file:/D:/work_space/java/bin/net/swiftlet/<br>file:/D:/work_space/java/bin/</p>
+<h2 id="Class-getClassLoader-getResource-String-path"><a href="#Class-getClassLoader-getResource-String-path" class="headerlink" title="Class.getClassLoader().getResource(String path)"></a>Class.getClassLoader().getResource(String path)</h2><p>path不能以’/‘开头时，path是指类加载器的加载范围，在资源加载的过程中，使用的逐级向上委托的形式加载的，’/‘表示Boot ClassLoader中的加载范围，因为这个类加载器是C++实现的，所以加载范围为null。如下所示：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        System.out.println(Test.class.getClassLoader().getResource(<span class="string">""</span>));</span><br><span class="line">        System.out.println(Test.class.getClassLoader().getResource(<span class="string">"/"</span>));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果为：<br>file:/D:/work_space/java/bin/<br>null<br><strong>从上面可以看出：</strong><br>class.getResource(“/“) == class.getClassLoader().getResource(“”)<br>其实，Class.getResource和ClassLoader.getResource本质上是一样的，都是使用ClassLoader.getResource加载资源的。下面请看一下jdk的Class源码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> java.net.<span class="function">URL <span class="title">getResource</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        name = resolveName(name);</span><br><span class="line">        ClassLoader cl = getClassLoader0();</span><br><span class="line">        <span class="keyword">if</span> (cl==<span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">// A system class.</span></span><br><span class="line">            <span class="keyword">return</span> ClassLoader.getSystemResource(name);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cl.getResource(name);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>从上面就可以看才出来：Class.getResource和ClassLoader.getResource本质上是一样的。至于为什么Class.getResource(String path)中path可以’/‘开头，是因为在name = resolveName(name);进行了处理：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">resolveName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span> (name == <span class="keyword">null</span>) &#123;</span><br><span class="line">           <span class="keyword">return</span> name;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">if</span> (!name.startsWith(<span class="string">"/"</span>)) &#123;</span><br><span class="line">           Class c = <span class="keyword">this</span>;</span><br><span class="line">           <span class="keyword">while</span> (c.isArray()) &#123;</span><br><span class="line">               c = c.getComponentType();</span><br><span class="line">           &#125;</span><br><span class="line">           String baseName = c.getName();</span><br><span class="line">           <span class="keyword">int</span> index = baseName.lastIndexOf(<span class="string">'.'</span>);</span><br><span class="line">           <span class="keyword">if</span> (index != -<span class="number">1</span>) &#123;</span><br><span class="line">               name = baseName.substring(<span class="number">0</span>, index).replace(<span class="string">'.'</span>, <span class="string">'/'</span>)</span><br><span class="line">                   +<span class="string">"/"</span>+name;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125; <span class="keyword">else</span> &#123;<span class="comment">//如果是以"/"开头，则去掉</span></span><br><span class="line">           name = name.substring(<span class="number">1</span>);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> name;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
       
     </div>
-    
-
-
 
     
+
     
     
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果你觉得这篇文章对你有用，欢迎赞赏哦~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/wechatpay.png" alt="Felix 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/alipay.png" alt="Felix 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+	
+	<div>
+  
+    <div>
+    
+        <div style="text-align: center;font-size: 13px;letter-spacing: 10px;user-select: none;margin-top: 50px;color: #bbb;">本文结束啦 <i class="fa fa-star"></i> 感谢您阅读</div>
+    
+</div>
+  
+</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn" title="分享">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+			
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+             
+				<a href="/2018/11/09/手写mini版本的Spring/" rel="next" title="手写mini版本的Spring">
+				手写mini版本的Spring <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
   </div>
 
 
@@ -655,8 +760,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1013,6 +1127,22 @@ show_date_time();
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Class-getResource-String-path"><span class="nav-number">1.</span> <span class="nav-text">Class.getResource(String path)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Class-getClassLoader-getResource-String-path"><span class="nav-number">2.</span> <span class="nav-text">Class.getClassLoader().getResource(String path)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -1224,7 +1354,7 @@ show_date_time();
   
     <script type="text/javascript">
       window.livereOptions = {
-        refer: 'about/index.html'
+        refer: '2018/11/12/Class-getResource和ClassLoader-getResource的区别分析/'
       };
       (function(d, s) {
         var j, e = d.getElementsByTagName(s)[0];
@@ -1576,43 +1706,35 @@ show_date_time();
   
   <script>
     
-    function showTime(Counter) {
-      var entries = [];
+    function addCount(Counter) {
       var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { "$in": entries } }) })
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
         .done(function ({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         })
-        .fail(function ({ responseJSON }) {
-          console.log("LeanCloud Counter Error: " + responseJSON.code + " " + responseJSON.error);
-        });
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
     }
     
 
@@ -1632,9 +1754,7 @@ show_date_time();
             });
           };
           
-          if ($('.post-title-link').length >= 1) {
-            showTime(Counter);
-          }
+          addCount(Counter);
           
         })
     });
