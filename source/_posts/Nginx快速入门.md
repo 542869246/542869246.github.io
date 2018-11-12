@@ -3,8 +3,8 @@ title: Nginx快速入门
 copyright: true
 top: 95
 date: 2018-10-25 16:14:14
-categories: [nginx]
-tags: [nginx]
+categories: [Nginx]
+tags: [Nginx]
 image: https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/14765.jpg?x-oss-process=style/ys30
 description: 本文主要介绍Nginx的基本配置和操作，并介绍了一些可以完成的简单任务
 ---
