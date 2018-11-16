@@ -1964,15 +1964,6 @@
     </entry>
     
     <entry>
-      <title>标签</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    <entry>
       <title>TopX</title>
       <link href="/top/index.html"/>
       <url>/top/index.html</url>
@@ -1985,6 +1976,15 @@
       <title>分类</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    <entry>
+      <title>标签</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
