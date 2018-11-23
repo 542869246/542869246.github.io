@@ -486,6 +486,5 @@ CopyOnWriteArraySet的原理就是CopyOnWriteArrayList。
 
 
 
-
 <div class="note info"><p>作者：Java3y
-出处：[https://mp.weixin.qq.com/s/4ngxvYpTQ6ME63YcMNdLew](https://mp.weixin.qq.com/s/4ngxvYpTQ6ME63YcMNdLew)</p></div>
+出处：[https://segmentfault.com/u/java_3y](https://segmentfault.com/u/java_3y)</p></div>
