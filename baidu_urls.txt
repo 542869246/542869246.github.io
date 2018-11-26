@@ -1,3 +1,4 @@
+https://yfzhou.coding.me/2018/11/26/Spring-Boot中使用RabbitMQ/
 https://yfzhou.coding.me/2018/11/23/算法的时间与空间复杂度/
 https://yfzhou.coding.me/2018/11/23/还在用Synchronized？Atomic你了解不？/
 https://yfzhou.coding.me/2018/11/21/CopyOnWriteArrayList你都不知道，怎么拿offer？/
