@@ -1,3 +1,4 @@
+https://yfzhou.coding.me/2018/12/03/lombok插件，让代码更简洁/
 https://yfzhou.coding.me/2018/12/01/Spring-Boot整合MongoDB/
 https://yfzhou.coding.me/2018/11/26/Spring-Boot中使用RabbitMQ/
 https://yfzhou.coding.me/2018/11/23/算法的时间与空间复杂度/
