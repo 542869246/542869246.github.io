@@ -45,7 +45,24 @@ type: about
 {% endcq %}
 
 <hr>
+
+<div class="note default no-icon"><p>我的公众号</p></div>
+
+{% cq %}
+
+![](https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/cli_500px.png)
+此公众号诞生也是纯属意外 😏😏
+
+{% endcq %}
+
+<hr>
+
+
 <div class="note default no-icon"><p>更新日志</p></div>
+
+<div class="note success"><p>[2018/11/28] 更新</p></div>
+
+- 注册了个公众号，有兴趣的可以关注一波哦~😤，在关于页面
 
 <div class="note success"><p>[2018/10/26] 更新</p></div>
 
