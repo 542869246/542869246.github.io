@@ -195,17 +195,21 @@
     })();
 </script>
 
-  <meta name="description" content="周宇峰的博客">
-<meta name="keywords" content="周宇峰,zyf,zhouyufeng,yfzhou,博客,yf.Zhou,felix,Felix">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Felix">
-<meta property="og:url" content="https://yfzhou.coding.me/archives/2018/11/index.html">
+  <meta name="description" content="这篇文章主要介绍下HashMap线程安全方面的问题">
+<meta name="keywords" content="java,HashMap,线程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="浅谈HashMap线程安全问题">
+<meta property="og:url" content="https://yfzhou.coding.me/2018/12/13/浅谈HashMap线程安全问题/index.html">
 <meta property="og:site_name" content="Felix">
-<meta property="og:description" content="周宇峰的博客">
+<meta property="og:description" content="这篇文章主要介绍下HashMap线程安全方面的问题">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/JDK1.7HashMap%E5%8D%95%E7%BA%BF%E7%A8%8Brehash%E6%93%8D%E4%BD%9C.jpg">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/JDK1.7HashMap%E5%A4%9A%E7%BA%BF%E7%A8%8Brehash%E6%93%8D%E4%BD%9C.jpg">
+<meta property="og:updated_time" content="2018-12-13T08:07:21.102Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Felix">
-<meta name="twitter:description" content="周宇峰的博客">
+<meta name="twitter:title" content="浅谈HashMap线程安全问题">
+<meta name="twitter:description" content="这篇文章主要介绍下HashMap线程安全方面的问题">
+<meta name="twitter:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/JDK1.7HashMap%E5%8D%95%E7%BA%BF%E7%A8%8Brehash%E6%93%8D%E4%BD%9C.jpg">
 
 
 
@@ -214,7 +218,7 @@
 
 
 
-  <link rel="canonical" href="https://yfzhou.coding.me/archives/2018/11/"/>
+  <link rel="canonical" href="https://yfzhou.coding.me/2018/12/13/浅谈HashMap线程安全问题/"/>
 
 
 
@@ -224,7 +228,7 @@
   };
 </script>
 
-  <title>归档 | Felix</title>
+  <title>浅谈HashMap线程安全问题 | Felix</title>
   
 
 
@@ -271,7 +275,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -336,7 +340,7 @@
         
         
           
-          <li class="menu-item menu-item-archives menu-item-active">
+          <li class="menu-item menu-item-archives">
     <a href="/archives/" rel="section">
       <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
   </li>
@@ -380,34 +384,6 @@
 
   
     
-
-    
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-      
-      
-    
-    
-
-  
-
 
   
 
@@ -456,523 +432,349 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://yfzhou.coding.me/2018/12/13/浅谈HashMap线程安全问题/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Felix">
+      <meta itemprop="description" content="周宇峰的博客">
+      <meta itemprop="image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/user_head_img.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Felix">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
-         
+          <h1 class="post-title" itemprop="name headline">浅谈HashMap线程安全问题
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-13 10:11:05" itemprop="dateCreated datePublished" datetime="2018-12-13T10:11:05+08:00">2018-12-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-13 16:07:21" itemprop="dateModified" datetime="2018-12-13T16:07:21+08:00">2018-12-13</time>
+              
+            
+          </span>
+
           
-        很好! 目前共计 86 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/12/13/浅谈HashMap线程安全问题/" class="leancloud_visitors" data-flag-title="浅谈HashMap线程安全问题">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数：</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-edit"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <span title="本文字数">3.6k</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">5 分钟</span>
+              
+            </div>
+          
+
+          
+              <div class="post-description">这篇文章主要介绍下HashMap线程安全方面的问题</div>
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
       
+        <p><span></span></p>
+<a id="more"></a>
+<p>前几篇文章<a href="https://542869246.github.io/2018/12/06/hashCode-%E5%92%8Chash%E7%AE%97%E6%B3%95%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/" title="hashCode()和hash算法的那些事儿" target="_blank" rel="noopener">hashCode()和hash算法的那些事儿</a> 和 <a href="https://542869246.github.io/2018/12/07/HashMap%E6%89%AB%E7%9B%B2/" title="HashMap扫盲" target="_blank" rel="noopener">HashMap扫盲</a> 详细介绍了HashMap的实现原理，还不熟悉的小伙伴可以去回顾下。</p>
+<p>这篇文章主要介绍下HashMap线程安全方面的问题，为什么多线程情况下不安全？怎么避免线程安全问题？以及引出接下来我准备写关于ConcurrentHashMap的文章，达到过度效果吧。</p>
+<h2 id="多线程rehash的时候如何造成闭环链表"><a href="#多线程rehash的时候如何造成闭环链表" class="headerlink" title="多线程rehash的时候如何造成闭环链表"></a>多线程rehash的时候如何造成闭环链表</h2><p>看下1.7resize()源码<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> newCapacity)</span> </span>&#123;</span><br><span class="line">        Entry[] oldTable = table;</span><br><span class="line">        <span class="keyword">int</span> oldCapacity = oldTable.length;</span><br><span class="line">        <span class="keyword">if</span> (oldCapacity == MAXIMUM_CAPACITY) &#123;</span><br><span class="line">            threshold = Integer.MAX_VALUE;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Entry[] newTable = <span class="keyword">new</span> Entry[newCapacity];</span><br><span class="line">        transfer(newTable, initHashSeedAsNeeded(newCapacity));</span><br><span class="line">        table = newTable;</span><br><span class="line">        threshold = (<span class="keyword">int</span>)Math.min(newCapacity * loadFactor, MAXIMUM_CAPACITY + <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">transfer</span><span class="params">(Entry[] newTable, <span class="keyword">boolean</span> rehash)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> newCapacity = newTable.length;</span><br><span class="line">        <span class="keyword">for</span> (Entry&lt;K,V&gt; e : table) &#123;</span><br><span class="line">            <span class="keyword">while</span>(<span class="keyword">null</span> != e) &#123;</span><br><span class="line">                Entry&lt;K,V&gt; next = e.next;</span><br><span class="line">                <span class="keyword">if</span> (rehash) &#123;</span><br><span class="line">                    e.hash = <span class="keyword">null</span> == e.key ? <span class="number">0</span> : hash(e.key);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">int</span> i = indexFor(e.hash, newCapacity);</span><br><span class="line">                e.next = newTable[i];</span><br><span class="line">                newTable[i] = e;</span><br><span class="line">                e = next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>transfer()操作过程说下：</p>
+<ol>
+<li>for循环对原数组遍历</li>
+<li>while循环对链表上的每一个节点遍历，用 next 取得要转移那个元素的下一个，将 e 转移到新 Hash 表的头部，使用<code>头插法</code>插入节点。</li>
+</ol>
+<p>使用的是<code>头插法</code>，加入之前链表顺序为1-2-3，那么转以后就是3-2-1了，死锁问题就是因为1-2的同时2-1造成的，所以HashMap死锁问题就出现在transfer了。</p>
+<h3 id="单线程下-rehash-操作详细演示"><a href="#单线程下-rehash-操作详细演示" class="headerlink" title="单线程下 rehash 操作详细演示"></a>单线程下 rehash 操作详细演示</h3><p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/JDK1.7HashMap%E5%8D%95%E7%BA%BF%E7%A8%8Brehash%E6%93%8D%E4%BD%9C.jpg" alt=""></p>
+<h3 id="多线程下-rehash-操作详细演示"><a href="#多线程下-rehash-操作详细演示" class="headerlink" title="多线程下 rehash 操作详细演示"></a>多线程下 rehash 操作详细演示</h3><p>抽取transfer关键代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="keyword">null</span> != e) &#123;</span><br><span class="line">    Entry&lt;K,V&gt; next = e.next;</span><br><span class="line">    e.next = newTable[i];</span><br><span class="line">    newTable[i] = e;</span><br><span class="line">    e = next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>解释下操作过程：</p>
+<ol>
+<li><code>Entry&lt;K,V&gt; next = e.next</code>，保存下一个结点</li>
+<li><code>e.next = newTable[i]</code>，e 要插入到链表的头部，所以要先用 e.next 指向新的 Hash 表第一个元素（为什么不加到新链表最后？因为复杂度是 O（N））</li>
+<li><code>newTable[i] = e</code>，将新 Hash 表的头指针指向 e</li>
+<li><code>e = next</code>，转移 e 的下一个结点</li>
+</ol>
+<p>假设两个线程同时进行put操作，都进入了transfer()方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(<span class="keyword">null</span> != e) &#123;</span><br><span class="line">    Entry&lt;K,V&gt; next = e.next; <span class="comment">//线程1执行到这里被调度挂起了</span></span><br><span class="line">    e.next = newTable[i];</span><br><span class="line">    newTable[i] = e;</span><br><span class="line">    e = next;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/JDK1.7HashMap%E5%A4%9A%E7%BA%BF%E7%A8%8Brehash%E6%93%8D%E4%BD%9C.jpg" alt=""></p>
+<p>出现环形链表后，再进行get操作的话，就会死循环了（cpu100%），后果可想而知。。</p>
+<p>所以jdk1.8之前多线程情况下使用HashMap会造成链表的循环。但是到了1.8，resize()方法被大规模的调整过，环形链表问题在1.8中已经不存在了。</p>
+<p>改进之后的方法不再进行链表的逆转，而是保持原有链表的顺序，如果在多线程环境下，顶多会在链表后边多追加几个元素而已，不会出现环的情况。</p>
+<h2 id="数据丢失问题"><a href="#数据丢失问题" class="headerlink" title="数据丢失问题"></a>数据丢失问题</h2><p>这个问题是不管1.7还是1.8都存在的，相信在座的各位也都了解。也就是put的时候导致的多线程数据不一致。</p>
+<p>图就不画了，直接说说大白话吧。</p>
+<p>比如有两个线程A和B，首先A希望插入一个key-value对到HashMap中，首先计算记录所要落到的 hash桶的索引坐标，然后获取到该桶里面的链表头结点，此时线程A的时间片用完了，而此时线程B被调度得以执行，和线程A一样执行，只不过线程B成功将记录插到了桶里面，假设线程A插入的记录计算出来的 hash桶索引和线程B要插入的记录计算出来的 hash桶索引是一样的，那么当线程B成功插入之后，线程A再次被调度运行时，它依然持有过期的链表头但是它对此一无所知，以至于它认为它应该这样做，如此一来就覆盖了线程B插入的记录，这样线程B插入的记录就凭空消失了，造成了数据不一致的行为。。</p>
+<hr>
+<p>以上就是HashMap线程不安全的原因了，所以在并发环境下不用HashMap，那么可以用什么呢？</p>
+<p>介绍几个线程安全的Map</p>
+<ul>
+<li>Hashtable</li>
+<li>ConcurrentHashMap</li>
+<li>Synchronized Map</li>
+</ul>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="Hashtable"><a href="#Hashtable" class="headerlink" title="Hashtable"></a>Hashtable</h3><p>Hashtable算是老朋友了吧，大家应该也挺熟悉他了。<br>Hashtable 源码中是使用 synchronized 来保证线程安全的，比如下面的 get 方法和 put 等方法：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">get</span><span class="params">(Object key)</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">(Object key)</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> V <span class="title">remove</span><span class="params">(Object key)</span> </span>&#123; ... &#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">putAll</span><span class="params">(Map&lt;? extends K, ? extends V&gt; t)</span> </span>&#123; ... &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>所以当一个线程访问 HashTable 的同步方法时，其他线程如果也要访问同步方法，会被阻塞住。因此Hashtable效率很低，基本被废弃。。</p>
+<h3 id="SynchronizedMap"><a href="#SynchronizedMap" class="headerlink" title="SynchronizedMap"></a>SynchronizedMap</h3><p>SynchronizedMap是Collectionis的内部类。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map m = Collections.synchronizedMap(<span class="keyword">new</span> HashMap());</span><br></pre></td></tr></table></figure></p>
+<p>Collections.synchronizedMap()和Hashtable一样，实现上在调用map所有方法时，都对整个map进行同步。效率还是硬伤。</p>
+<h3 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h3><p>ConcurrentHashMap和HashMap很像，底层依然由数组+链表+红黑树。但是为了做到并发，又增加了很多优化，相对于Hashtable，他并没有对整个hash表进行锁定，而是采用了分离锁(segment)的方式进行局部锁定，极大提升了效率。ConcurrentHashMap方面这里就不多说了，此篇文章主要是承上启下，我会单独写一篇或者几篇文章来对ConcurrentHashMap进行深度分析，敬请期待！</p>
 
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果你觉得这篇文章对你有用，欢迎赞赏哦~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/wechatpay.png" alt="Felix 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/alipay.png" alt="Felix 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+	
+	<div>
+  
+    <div>
+    
+        <div style="text-align: center;font-size: 13px;letter-spacing: 10px;user-select: none;margin-top: 50px;color: #bbb;">本文结束啦 <i class="fa fa-star"></i> 感谢您阅读</div>
+    
+</div>
+  
+</div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+            <a href="/tags/HashMap/" rel="tag"><i class="fa fa-tag"></i> HashMap</a>
+          
+            <a href="/tags/线程/" rel="tag"><i class="fa fa-tag"></i> 线程</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
         
-        
+
         
 
         
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
+          <div class="social_share">
+            
+            
+               <div id="needsharebutton-postbottom">
+                 <span class="btn" title="分享">
+                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                 </span>
+               </div>
+            
           </div>
         
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/26/Spring-Boot中使用RabbitMQ/" itemprop="url">
-              
-                <span itemprop="name">Spring Boot中使用RabbitMQ</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-26T19:29:06+08:00"
-              content="2018-11-26" >
-          11-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        </div>
+      
       
 
-        
-        
-        
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+			
+          </div>
 
-        
-        
+          <span class="post-nav-divider"></span>
 
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/23/算法的时间与空间复杂度/" itemprop="url">
-              
-                <span itemprop="name">算法的时间与空间复杂度</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-23T15:36:33+08:00"
-              content="2018-11-23" >
-          11-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+          <div class="post-nav-prev post-nav-item">
+             
+				<a href="/2018/12/12/Mybatis开发神器-MyBatisCodeHelper-Pro插件/" rel="next" title="Mybatis开发神器 - MyBatisCodeHelper-Pro插件">
+				Mybatis开发神器 - MyBatisCodeHelper-Pro插件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/23/还在用Synchronized？Atomic你了解不？/" itemprop="url">
-              
-                <span itemprop="name">还在用Synchronized？Atomic你了解不？</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-23T09:25:46+08:00"
-              content="2018-11-23" >
-          11-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/21/CopyOnWriteArrayList你都不知道，怎么拿offer？/" itemprop="url">
-              
-                <span itemprop="name">CopyOnWriteArrayList你都不知道，怎么拿offer？</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-21T17:57:25+08:00"
-              content="2018-11-21" >
-          11-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/16/图解Java常用数据结构-一/" itemprop="url">
-              
-                <span itemprop="name">图解Java常用数据结构(一)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-16T09:19:22+08:00"
-              content="2018-11-16" >
-          11-16
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/12/Nginx-思维导图/" itemprop="url">
-              
-                <span itemprop="name">Nginx 思维导图</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-12T14:21:43+08:00"
-              content="2018-11-12" >
-          11-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/12/OpenCV-Python-实现简单人脸识别/" itemprop="url">
-              
-                <span itemprop="name">OpenCV + Python 实现简单人脸识别</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-12T10:52:23+08:00"
-              content="2018-11-12" >
-          11-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/12/Class-getResource和ClassLoader-getResource的区别分析/" itemprop="url">
-              
-                <span itemprop="name">Class.getResource和ClassLoader.getResource的区别分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-12T10:26:46+08:00"
-              content="2018-11-12" >
-          11-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/09/手写mini版本的Spring/" itemprop="url">
-              
-                <span itemprop="name">手写mini版本的Spring</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-09T19:15:57+08:00"
-              content="2018-11-09" >
-          11-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/06/MongoDB学习笔记（增删改查、聚合、索引、连接、备份与恢复、监控等）/" itemprop="url">
-              
-                <span itemprop="name">MongoDB学习笔记（增删改查、聚合、索引、连接、备份与恢复、监控等）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-06T14:17:33+08:00"
-              content="2018-11-06" >
-          11-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/06/Navicat-Premium-12-1-8-0安装与激活/" itemprop="url">
-              
-                <span itemprop="name">Navicat Premium 12.1.8.0安装与激活</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-06T09:05:45+08:00"
-              content="2018-11-06" >
-          11-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/01/再有人问你Java内存模型是什么-就把这篇文章发给他/" itemprop="url">
-              
-                <span itemprop="name">再有人问你Java内存模型是什么,就把这篇文章发给他</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-01T15:29:45+08:00"
-              content="2018-11-01" >
-          11-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/01/JVM内存结构-VS-Java内存模型-VS-Java对象模型/" itemprop="url">
-              
-                <span itemprop="name">JVM内存结构 VS Java内存模型 VS Java对象模型</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-01T15:28:53+08:00"
-              content="2018-11-01" >
-          11-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-    </div>
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+  </div>
 
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8zODUyNC8xNTA1Mg=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -995,8 +797,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -1389,6 +1200,22 @@ show_date_time();
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#多线程rehash的时候如何造成闭环链表"><span class="nav-number">1.</span> <span class="nav-text">多线程rehash的时候如何造成闭环链表</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#单线程下-rehash-操作详细演示"><span class="nav-number">1.1.</span> <span class="nav-text">单线程下 rehash 操作详细演示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多线程下-rehash-操作详细演示"><span class="nav-number">1.2.</span> <span class="nav-text">多线程下 rehash 操作详细演示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据丢失问题"><span class="nav-number">2.</span> <span class="nav-text">数据丢失问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方案"><span class="nav-number">3.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hashtable"><span class="nav-number">3.1.</span> <span class="nav-text">Hashtable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SynchronizedMap"><span class="nav-number">3.2.</span> <span class="nav-text">SynchronizedMap</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConcurrentHashMap"><span class="nav-number">3.3.</span> <span class="nav-text">ConcurrentHashMap</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -1581,6 +1408,10 @@ show_date_time();
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.4.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.4.1"></script>
+
+
 
   
 
@@ -1593,6 +1424,20 @@ show_date_time();
 
 
 
+  
+    <script type="text/javascript">
+      window.livereOptions = {
+        refer: '2018/12/13/浅谈HashMap线程安全问题/'
+      };
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
@@ -1934,43 +1779,35 @@ show_date_time();
   
   <script>
     
-    function showTime(Counter) {
-      var entries = [];
+    function addCount(Counter) {
       var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
-
-      Counter('get', '/classes/Counter', { where: JSON.stringify({ url: { "$in": entries } }) })
+      Counter('get', '/classes/Counter', { where: JSON.stringify({ url }) })
         .done(function ({ results }) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
-
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
-
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.url;
-            var time = item.time;
-            var element = document.getElementById(url);
-
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
+          if (results.length > 0) {
+            var counter = results[0];
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text(counter.time + 1);
+            
+            Counter('put', `/classes/Counter/${counter.objectId}`, JSON.stringify({ time: { "__op":"Increment", "amount":1 } }))
+            
+            .fail(function ({ responseJSON }) {
+                console.log('Failed to save Visitor num, with error message: ' + responseJSON.error);
+            })
+          } else {
+            
+              var $element = $(document.getElementById(url));
+              $element.find('.leancloud-visitors-count').text('Counter not initialized! See more at console err msg.');
+              console.error('ATTENTION! LeanCloud counter has security bug, see here how to solve it: https://github.com/theme-next/hexo-leancloud-counter-security. \n But you also can use LeanCloud without security, by set \'security\' option to \'false\'.');
+            
           }
         })
-        .fail(function ({ responseJSON }) {
-          console.log("LeanCloud Counter Error: " + responseJSON.code + " " + responseJSON.error);
-        });
+      .fail(function ({ responseJSON }) {
+        console.log('LeanCloud Counter Error:' + responseJSON.code + " " + responseJSON.error);
+      });
     }
     
 
@@ -1990,9 +1827,7 @@ show_date_time();
             });
           };
           
-          if ($('.post-title-link').length >= 1) {
-            showTime(Counter);
-          }
+          addCount(Counter);
           
         })
     });
