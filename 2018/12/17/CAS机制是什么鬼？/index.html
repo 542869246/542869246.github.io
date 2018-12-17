@@ -195,18 +195,22 @@
     })();
 </script>
 
-  <meta name="description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在开发高并发系统时有三把利器用来保护系统：缓存、降级和限流。之前已经有一些文章介绍过缓存和限流了。本文将详细聊聊降级。">
-<meta name="keywords" content="高并发,降级">
+  <meta name="description" content="CAS是现在面试经常问的问题，本文将深入的介绍CAS的原理。">
+<meta name="keywords" content="java,CAS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="都是套路：高并发系统的降级特技">
-<meta property="og:url" content="https://yfzhou.coding.me/2018/08/26/都是套路：高并发系统的降级特技/index.html">
+<meta property="og:title" content="CAS机制是什么鬼？">
+<meta property="og:url" content="https://yfzhou.coding.me/2018/12/17/CAS机制是什么鬼？/index.html">
 <meta property="og:site_name" content="Felix">
-<meta property="og:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在开发高并发系统时有三把利器用来保护系统：缓存、降级和限流。之前已经有一些文章介绍过缓存和限流了。本文将详细聊聊降级。">
+<meta property="og:description" content="CAS是现在面试经常问的问题，本文将深入的介绍CAS的原理。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-22T12:06:57.714Z">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/CAS.jpg">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM%E6%88%AA%E5%9B%BE20181217162623.png">
+<meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/JDK%E7%9A%84CAS%E6%96%B9%E6%A1%88.jpg">
+<meta property="og:updated_time" content="2018-12-17T11:13:50.901Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="都是套路：高并发系统的降级特技">
-<meta name="twitter:description" content="&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;在开发高并发系统时有三把利器用来保护系统：缓存、降级和限流。之前已经有一些文章介绍过缓存和限流了。本文将详细聊聊降级。">
+<meta name="twitter:title" content="CAS机制是什么鬼？">
+<meta name="twitter:description" content="CAS是现在面试经常问的问题，本文将深入的介绍CAS的原理。">
+<meta name="twitter:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/CAS.jpg">
 
 
 
@@ -215,7 +219,7 @@
 
 
 
-  <link rel="canonical" href="https://yfzhou.coding.me/2018/08/26/都是套路：高并发系统的降级特技/"/>
+  <link rel="canonical" href="https://yfzhou.coding.me/2018/12/17/CAS机制是什么鬼？/"/>
 
 
 
@@ -225,7 +229,7 @@
   };
 </script>
 
-  <title>都是套路：高并发系统的降级特技 | Felix</title>
+  <title>CAS机制是什么鬼？ | Felix</title>
   
 
 
@@ -445,7 +449,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://yfzhou.coding.me/2018/08/26/都是套路：高并发系统的降级特技/">
+    <link itemprop="mainEntityOfPage" href="https://yfzhou.coding.me/2018/12/17/CAS机制是什么鬼？/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Felix">
@@ -462,7 +466,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">都是套路：高并发系统的降级特技
+          <h1 class="post-title" itemprop="name headline">CAS机制是什么鬼？
               
             
           </h1>
@@ -487,7 +491,7 @@
                 
               
 
-              <time title="创建时间：2018-08-26 21:03:11" itemprop="dateCreated datePublished" datetime="2018-08-26T21:03:11+08:00">2018-08-26</time>
+              <time title="创建时间：2018-12-17 14:08:28" itemprop="dateCreated datePublished" datetime="2018-12-17T14:08:28+08:00">2018-12-17</time>
             
 
             
@@ -504,7 +508,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-22 20:06:57" itemprop="dateModified" datetime="2018-10-22T20:06:57+08:00">2018-10-22</time>
+                <time title="修改时间：2018-12-17 19:13:50" itemprop="dateModified" datetime="2018-12-17T19:13:50+08:00">2018-12-17</time>
               
             
           </span>
@@ -521,7 +525,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/架构设计/" itemprop="url" rel="index"><span itemprop="name">架构设计</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a></span>
 
                 
                 
@@ -535,7 +539,7 @@
 
           
           
-             <span id="/2018/08/26/都是套路：高并发系统的降级特技/" class="leancloud_visitors" data-flag-title="都是套路：高并发系统的降级特技">
+             <span id="/2018/12/17/CAS机制是什么鬼？/" class="leancloud_visitors" data-flag-title="CAS机制是什么鬼？">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -560,7 +564,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3.8k</span>
+                <span title="本文字数">3.6k</span>
               
 
               
@@ -580,6 +584,8 @@
           
 
           
+              <div class="post-description">CAS是现在面试经常问的问题，本文将深入的介绍CAS的原理。</div>
+          
 
         </div>
       </header>
@@ -594,85 +600,43 @@
       
 
       
-        <p>&nbsp;&nbsp;&nbsp;&nbsp;在开发高并发<a href="http://www.yunweipai.com/archives/8269.html" target="_blank" rel="noopener">系统</a>时有三把利器用来保护系统：缓存、降级和限流。之前已经有一些文章介绍过缓存和限流了。本文将详细聊聊降级。</p>
+        <p><span></span></p>
 <a id="more"></a>
-<p>当访问量剧增、服务出现问题（如响应时间慢或不响应）或非核心服务影响到核心流程的性能时，仍然需要保证服务还是可用的，即使是有损服务。</p>
-<p>系统可以根据一些关键数据进行自动降级，也可以配置开关实现人工降级。本文将介绍一些笔者在实际工作中遇到的或见到过的一些降级方案供大家参考。</p>
-<p>降级的最终目的是保证核心服务可用，即使是有损的。而且有些服务是无法降级的（如加入购物车、结算）。</p>
-<h2 id="降级预案"><a href="#降级预案" class="headerlink" title="降级预案"></a>降级预案</h2><p>在进行降级之前要对系统进行梳理，看看系统是不是可以丢卒保帅；从而梳理出哪些必须誓死保护，哪些可降级；比如可以参考日志级别设置预案：</p>
-<p><strong>一般：</strong>比如有些服务偶尔因为网络抖动或者服务正在上线而超时，可以自动降级；</p>
-<p><strong>警告：</strong>有些服务在一段时间内成功率有波动（如在95~100%之间），可以自动降级或人工降级，并发送告警；</p>
-<p><strong>错误：</strong>比如可用率低于90%，或者数据库连接池被打爆了，或者访问量突然猛增到系统能承受的最大阀值，此时可以根据情况自动降级或者人工降级；</p>
-<p><strong>严重错误：</strong>比如因为特殊原因数据错误了，此时需要紧急人工降级。</p>
-<h4 id="降级的类别"><a href="#降级的类别" class="headerlink" title="降级的类别"></a>降级的类别</h4><ul>
-<li>降级按照是否自动化可分为：自动开关降级和人工开关降级。</li>
-<li>降级按照功能可分为：读服务降级、写服务降级。</li>
-<li>降级按照处于的系统层次可分为：多级降级。</li>
-</ul>
-<h3 id="降级的功能点"><a href="#降级的功能点" class="headerlink" title="降级的功能点"></a>降级的功能点</h3><p>降级的功能点主要从服务端链路考虑，即根据用户访问的服务调用链路来梳理哪里需要降级：</p>
-<p><strong>页面降级：</strong>在大促或者某些特殊情况下，某些页面占用了一些稀缺服务资源，在紧急情况下可以对其整个降级，以达到丢卒保帅；</p>
-<p><strong>页面片段降级：</strong>比如商品详情页中的商家部分因为数据错误了，此时需要对其进行降级；</p>
-<p><strong>页面异步请求降级：</strong>比如商品详情页上有推荐信息/配送至等异步加载的请求，如果这些信息响应慢或者后端服务有问题，可以进行降级；</p>
-<p><strong>服务功能降级：</strong>比如渲染商品详情页时需要调用一些不太重要的服务：相关分类、热销榜等，而这些服务在异常情况下直接不获取，即降级即可；</p>
-<p><strong>读降级：</strong>比如多级缓存模式，如果后端服务有问题，可以降级为只读缓存，这种方式适用于对读一致性要求不高的场景；</p>
-<p><strong>写降级：</strong>比如秒杀抢购，我们可以只进行Cache的更新，然后异步同步扣减库存到DB，保证最终一致性即可，此时可以将DB降级为Cache。</p>
-<p><strong>爬虫降级：</strong>在大促活动时，可以将爬虫流量导向静态页或者返回空数据从而降级保护后端稀缺资源。</p>
-<h2 id="降级策略"><a href="#降级策略" class="headerlink" title="降级策略"></a>降级策略</h2><h3 id="1、自动开关降级"><a href="#1、自动开关降级" class="headerlink" title="1、自动开关降级"></a>1、自动开关降级</h3><p>自动降级是根据系统负载、资源使用情况、SLA等指标进行降级。</p>
-<h4 id="超时降级"><a href="#超时降级" class="headerlink" title="超时降级"></a>超时降级</h4><p>当访问的数据库/http服务/远程调用响应慢或者长时间响应慢，且该服务不是核心服务的话可以在超时后自动降级；</p>
-<div class="note info"><p>比如商品详情页上有推荐内容/评价，但是推荐内容/评价暂时不展示对用户购物流程不会产生很大的影响</p></div>
-
-<p>对于这种服务是可以超时降级的。如果是调用别人的远程服务，和对方定义一个服务响应最大时间，如果超时了则自动降级。</p>
-<p>之前总结过一些的文章《使用httpclient必须知道的参数设置及代码写法、存在的风险》和《dbcp配置及jdbc超时设置总结》。在实际场景用一定主要配置好超时时间和超时重试次数和机制。</p>
-<h4 id="统计失败次数降级"><a href="#统计失败次数降级" class="headerlink" title="统计失败次数降级"></a>统计失败次数降级</h4><p>有时候依赖一些不稳定的API，比如调用外部机票服务，当失败调用次数达到一定阀值自动降级；然后通过异步线程去探测服务是否恢复了，则取消降级。</p>
-<h4 id="故障降级"><a href="#故障降级" class="headerlink" title="故障降级"></a>故障降级</h4><p>比如要调用的远程服务挂掉了（网络故障、DNS故障、http服务返回错误的状态码、rpc服务抛出异常），则可以直接降级。</p>
-<p><strong>降级后的处理方案有：</strong></p>
-<div class="note info no-icon"><p>默认值（比如库存服务挂了，返回默认现货）<br>兜底数据（比如广告挂了，返回提前准备好的一些静态页面）<br>缓存（之前暂存的一些缓存数据）</p></div>
-
-<h4 id="限流降级"><a href="#限流降级" class="headerlink" title="限流降级"></a>限流降级</h4><p>当我们去秒杀或者抢购一些限购商品时，此时可能会因为访问量太大而导致系统崩溃，此时开发者会使用限流来进行限制访问量，当达到限流阀值，后续请求会被降级；</p>
-<p><strong>降级后的处理方案可以是：</strong></p>
-<div class="note info no-icon"><p>排队页面（将用户导流到排队页面等一会重试）<br>无货（直接告知用户没货了）<br>错误页（如活动太火爆了，稍后重试）</p></div>
-
-<h3 id="2、人工开关降级"><a href="#2、人工开关降级" class="headerlink" title="2、人工开关降级"></a>2、人工开关降级</h3><div class="note info no-icon"><p>1. 在大促期间通过监控发现线上的一些服务存在问题，这个时候需要暂时将这些服务摘掉；<br>2. 还有有时候通过任务系统调用一些服务，但是服务依赖的数据库可能存在：网卡被打满了、挂掉了或者很多慢查询，此时需要暂停下任务系统让服务方进行处理；<br>3. 还有发现突然调用量太大，可能需要改变处理方式（比如同步转换为异步）；</p></div>
-
-<p>此时就可以<strong>使用开关来完成降级</strong>。</p>
-<p>开关可以存放到配置文件、存放到数据库、存放到Redis/ZooKeeper；如果不是存放在本地，可以定期同步开关数据（比如1秒同步一次）。然后通过判断某个KEY的值来决定是否降级。</p>
-<p>另外对于新开发的服务想上线进行灰度测试；但是不太确定该服务的逻辑是否正确，此时就需要设置开关，当新服务有问题可以通过开关切换回老服务。</p>
-<p>还有多机房服务，如果某个机房挂掉了，此时需要将一个机房的服务切到另一个机房，此时也可以通过开关完成切换。</p>
-<p>还有一些是因为功能问题需要暂时屏蔽掉某些功能，比如商品规格参数数据有问题，数据问题不能用回滚解决，此时需要开关控制降级。</p>
-<h3 id="3、读服务降级"><a href="#3、读服务降级" class="headerlink" title="3、读服务降级"></a>3、读服务降级</h3><p><strong>对于读服务降级一般采用的策略有：</strong></p>
-<div class="note info no-icon"><p>暂时切换读（降级到读缓存、降级到走静态化）<br>暂时屏蔽读（屏蔽读入口、屏蔽某个读服务）</p></div>
-
-<p>在《应用多级缓存模式支撑海量读服务》中曾经介绍过<strong>读服务</strong>，即：</p>
-<div class="note info no-icon"><p>接入层缓存→应用层本地缓存→分布式缓存→RPC服务/DB</p></div>
-
-<p>我们会在接入层、应用层设置开关，当分布式缓存、RPC服务/DB有问题自动降级为不调用。当然这种情况适用于对读一致性要求不高的场景。</p>
-<p>页面降级、页面片段降级、页面异步请求降级都是读服务降级，目的是丢卒保帅（比如因为这些服务也要使用核心资源、或者占了带宽影响到核心服务）或者因数据问题暂时屏蔽。</p>
-<p>还有一种是页面静态化场景：</p>
-<p><strong>动态化降级为静态化：</strong>比如平时网站可以走动态化渲染商品详情页，但是到了大促来临之际可以将其切换为静态化来减少对核心资源的占用，而且可以提升性能；其他还有如列表页、首页、频道页都可以这么玩；可以通过一个程序定期的推送静态页到缓存或者生成到磁盘，出问题时直接切过去；</p>
-<p><strong>静态化降级为动态化：</strong>比如当使用静态化来实现商品详情页架构时，平时使用静态化来提供服务，但是因为特殊原因静态化页面有问题了，需要暂时切换回动态化来保证服务正确性。</p>
-<p>以上都保证出问题了有预案，用户还是可以使用网站，不影响用户购物。</p>
-<h3 id="4、写服务降级"><a href="#4、写服务降级" class="headerlink" title="4、写服务降级"></a>4、写服务降级</h3><p>写服务在大多数场景下是不可降级的，不过可以通过一些迂回战术来解决问题。比如将同步操作转换为异步操作，或者限制写的量/比例。</p>
-<p>比如扣减库存一般这样操作：</p>
-<h4 id="方案1："><a href="#方案1：" class="headerlink" title="方案1："></a>方案1：</h4><p>a、扣减DB库存；</p>
-<p>b、扣减成功后更新Redis中的库存；</p>
-<h4 id="方案2："><a href="#方案2：" class="headerlink" title="方案2："></a><strong>方案2：</strong></h4><p>a、扣减Redis库存；</p>
-<p>b、同步扣减DB库存，如果扣减失败则回滚Redis库存；</p>
-<p>前两种方案非常依赖DB，假设此时DB性能跟不上则扣减库存就会遇到问题；因此我们可以想到<strong>方案3：</strong></p>
-<p>a、扣减Redis库存：</p>
-<p>b、正常同步扣减DB库存，性能扛不住时降级为发送一条扣减DB库存的消息，然后异步进行DB库存扣减实现最终一致即可；</p>
-<p>这种方式发送扣减DB库存消息也可能成为瓶颈；这种情况我们可以考虑<strong>方案4：</strong></p>
-<p>a、扣减Redis库存；</p>
-<p>b、正常同步扣减DB库存，性能扛不住时降级为写扣减DB库存消息到本机，然后本机通过异步进行DB库存扣减来实现最终一致性。</p>
-<p>也就是说正常情况可以同步扣减库存，在性能扛不住时降级为异步；另外如果是秒杀场景可以直接降级为异步，从而保护系统。</p>
-<p>还有如下单操作可以在大促时暂时降级将下单数据写入Redis，然后等峰值过去了再同步回DB，当然也有更好的解决方案，但是更复杂，不是本文的重点。</p>
-<p>还有如用户评价，如果评价量太大，也可以把评价从同步写降级为异步写。当然也可以对评价按钮进行按比例开放（比如一些人的看不到评价操作按钮）。比如评价成功后会发一些奖励，在必要的时候降级同步到异步。</p>
-<h3 id="5、多级降级"><a href="#5、多级降级" class="headerlink" title="5、多级降级"></a>5、多级降级</h3><p>缓存是离用户最近越高效；而降级是离用户越近越能对系统保护的好。因为业务的复杂性导致越到后端QPS/TPS越低。</p>
-<p><strong>页面JS降级开关：</strong>主要控制页面功能的降级，在页面中通过JS脚本部署功能降级开关，在适当时机开启/关闭开关；</p>
-<p><strong>接入层降级开关</strong>：主要控制请求入口的降级，请求进入后会首先进入接入层，在接入层可以配置功能降级开关，可以根据实际情况进行自动/人工降级；</p>
-<p>这个可以参考《京东商品详情页服务闭环实践》，尤其在后端应用服务出问题时，通过接入层降级从而给应用服务有足够的时间恢复服务；</p>
-<p><strong>应用层降级开关：</strong>主要控制业务的降级，在应用中配置相应的功能开关，根据实际业务情况进行自动/人工降级。</p>
-<h2 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h2><p>降级能保障系统在大促中活下来，而不是死去，达到丢卒保帅的作用。对用户提供有损服务，总比不服务要好。根据自己的场景设计相应的降级策略，保障系统在危机时刻能通过降级手段平稳度过。</p>
-<p><a href="https://blog.csdn.net/enweitech" target="_blank" rel="noopener">EnweiTech</a>原创作品。转载请注明出处<a href="https://blog.csdn.net/enweitech" target="_blank" rel="noopener">https://blog.csdn.net/enweitech</a></p>
+<p>本来这篇文章想写ConcurrentHashMap的，看了看源码，其中使用了大量的CAS操作，就准备单独开一篇关于CAS的文章，讲解下CAS机制。</p>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><blockquote>
+<p>比较并交换(compare and swap, CAS)，是原子操作的一种，可用于在多线程编程中实现不被打断的数据交换操作，从而避免多线程同时改写某一数据时由于执行顺序不确定性以及中断的不可预知性产生的数据不一致问题。 该操作通过将内存中的值与指定数据进行比较，当数值一样时将内存中的数据替换为新的值。</p>
+</blockquote>
+<p>大家都知道悲观锁、乐观锁吧？这里的悲观锁、乐观锁指的是线程方面的锁，不是数据库方面的锁。其实CAS机制就是乐观锁。<br>synchronized操作就是一种悲观锁，这种线程一旦得到锁，其他需要锁的线程就挂起，等待持有锁的线程释放锁。当一个线程正在等待锁时，它不能做任何事，所以悲观锁有很大的缺点。</p>
+<p>乐观锁的核心思路就是<strong>每次不加锁而是假设修改数据之前其他线程一定不会修改，如果因为修改过产生冲突就失败就重试，直到成功为止。</strong>CAS机制就是一种。可以理解成一个<strong>无阻塞</strong>多线程争抢资源的模型</p>
+<p><strong>CAS 操作包含三个操作数 —— 内存地址（V）、旧的预期值（A）和即将要更新的新值(B)。执行CAS操作的时候，将内存位置的值与预期原值比较，如果相匹配，那么处理器会自动将该位置值更新为新值。否则，处理器不做任何操作。</strong></p>
+<p>画个图演示下吧<br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/CAS.jpg" alt=""></p>
+<p>理解CAS的核心就是：CAS是原子性的，虽然你可能看到比较后再修改(compare and swap)觉得会有两个操作，但终究是原子性的！</p>
+<h2 id="、-问题"><a href="#、-问题" class="headerlink" title="++、- -问题"></a>++、- -问题</h2><p><code>volatile</code>关键字大家很眼熟吧？HashMap源码、双重检测机制实现单例等场景都出现过它的身影。这里我就不详细介绍<code>volatile</code>关键字，因为要说的太多了，说到<code>volatile</code>就要说到JMM，说到JMM就要说原子性、有序性、一致性，然后又涉及到处理器优化、指令重排等等，可以扯个几小时。其实这也是为什么面试官喜欢问HashMap的问题，因为可以深度挖掘的东西太多了，可以直接看出面试者的深浅。<a href="https://542869246.github.io/2018/11/01/%E5%86%8D%E6%9C%89%E4%BA%BA%E9%97%AE%E4%BD%A0Java%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B%E6%98%AF%E4%BB%80%E4%B9%88-%E5%B0%B1%E6%8A%8A%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%8F%91%E7%BB%99%E4%BB%96/" title="这篇文章" target="_blank" rel="noopener">这篇文章</a>大概讲了下JMM，可以看下。好了，扯远了，回归文章。。。</p>
+<p><code>volatile</code>关键字主要是保证能<code>禁止指令重排序</code>和保证<code>可见性</code>，但是要注意，这并不能保证<code>原子性</code>！</p>
+<p>看代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cases</span> </span>&#123;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">volatile</span> <span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		n++;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line"></span><br><span class="line">		ExecutorService service = Executors.newCachedThreadPool();</span><br><span class="line">		<span class="comment">// 20个线程对共享变量进行add()</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++) &#123;</span><br><span class="line">			service.execute(() -&gt; &#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">1000</span>; j++) &#123;</span><br><span class="line">					add();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 等待上述的线程执行完</span></span><br><span class="line">		service.shutdown();</span><br><span class="line">		service.awaitTermination(<span class="number">1</span>, TimeUnit.DAYS);</span><br><span class="line"></span><br><span class="line">		System.out.println(n);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这段代码创建20个线程，每个线程对n变量进行1000次自增，如果这段代码能够正确并发的话，最后输出的结果应该是20000。但是，运行结果每次都是一个小于20000的数字。为什么呢？</p>
+<p>问题就出现在<code>n++</code>这个自增操作上面。我们用Javap反编译：<br>cmd里面进入该类路径，输入<code>javac Cases.java</code>编译成class文件后，再输入指令<code>javap -verbose Cases</code>，查看add方法的字节码指令<br>贴出部分：</p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM%E6%88%AA%E5%9B%BE20181217162623.png" alt=""></p>
+<p>n++被拆分成了几个指令：</p>
+<ol>
+<li>执行getfield拿到原始n；</li>
+<li>执行iadd进行加1操作；</li>
+<li>执行putfield写把累加后的值写回n；</li>
+</ol>
+<p>通过<code>volatile</code>修饰的变量可以保证线程之间的可见性，但<code>n++</code>这个操作并不是一个指令操作，而是三个，<code>volatile</code>并不能保证这3个指令的原子执行，因此在多线程并发执行下，无法做到线程安全。</p>
+<p>那么怎么解决呢？大家都知道，在add方法加上synchronized修饰就可以解决。这个方案自然也可以，都是是否有一种杀鸡用牛刀的感觉，就一个简单的自增操作，就要用synchronized来锁起来，性能上差了好多。</p>
+<h2 id="JDK原子变量类简单介绍"><a href="#JDK原子变量类简单介绍" class="headerlink" title="JDK原子变量类简单介绍"></a>JDK原子变量类简单介绍</h2><p>看下几个JDK自带的CAS方案：</p>
+<p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/JDK%E7%9A%84CAS%E6%96%B9%E6%A1%88.jpg" alt=""></p>
+<p><em>注： JDK8新增DoubleAccumulator、LongAccumulator、DoubleAdder、LongAdder，是对AtomicLong等类的改进。比如LongAccumulator与LongAdder在高并发环境下比AtomicLong更高效。</em></p>
+<h2 id="原子变量类使用"><a href="#原子变量类使用" class="headerlink" title="原子变量类使用"></a>原子变量类使用</h2><p>使用原子变量类更改之前的案例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cases</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 共享变量(使用AtomicInteger来替代Synchronized锁)</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> AtomicInteger count = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		count.incrementAndGet();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line"></span><br><span class="line">		ExecutorService service = Executors.newCachedThreadPool();</span><br><span class="line">		<span class="comment">// 20个线程对共享变量进行add()</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++) &#123;</span><br><span class="line">			service.execute(() -&gt; &#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">1000</span>; j++) &#123;</span><br><span class="line">					add();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 等待上述的线程执行完</span></span><br><span class="line">		service.shutdown();</span><br><span class="line">		service.awaitTermination(<span class="number">1</span>, TimeUnit.DAYS);</span><br><span class="line"></span><br><span class="line">		System.out.println(count);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>修改完，无论执行多少次，我们的结果永远是20000！</p>
+<p>其余几个银子变量类就不演示了，使用方法差不多，可以自行看看API，百度。</p>
+<h2 id="CAS缺陷"><a href="#CAS缺陷" class="headerlink" title="CAS缺陷"></a>CAS缺陷</h2><h3 id="循环时间长开销大"><a href="#循环时间长开销大" class="headerlink" title="循环时间长开销大"></a>循环时间长开销大</h3><p>自旋CAS如果长时间不成功，会给CPU带来非常大的执行开销。</p>
+<h3 id="只能保证一个共享变量的原子操作"><a href="#只能保证一个共享变量的原子操作" class="headerlink" title="只能保证一个共享变量的原子操作"></a>只能保证一个共享变量的原子操作</h3><p>当对一个共享变量执行操作时，我们可以使用循环CAS的方式来保证原子操作，但是对多个共享变量操作时，循环CAS就无法保证操作的原子性，这个时候就可以用锁，或者有一个取巧的办法，就是把多个共享变量合并成一个共享变量来操作。比如有两个共享变量i＝2,j=a，合并一下ij=2a，然后用CAS来操作ij。从Java1.5开始JDK提供了AtomicReference类来保证引用对象之间的原子性，你可以把多个变量放在一个对象里来进行CAS操作。</p>
+<h3 id="ABA问题"><a href="#ABA问题" class="headerlink" title="ABA问题"></a>ABA问题</h3><p>如果内存地址V初次读取的值是A，并且在准备赋值的时候检查到它的值仍然为A，那我们就能说它的值没有被其他线程改变过了吗？</p>
+<p>如果在这段期间它的值曾经被改成了B，后来又被改回为A，那CAS操作就会误认为它从来没有被改变过。这个漏洞称为CAS操作的“ABA”问题。</p>
+<p>ABA问题的解决思路就是使用版本号。在变量前面追加上版本号，每次变量更新的时候把版本号加一，那么A－B－A 就会变成1A-2B－3A。从Java1.5开始JDK的atomic包里提供了一个类<code>AtomicStampedReference</code>来解决ABA问题。这个类的<code>compareAndSet</code>方法作用是首先检查当前引用是否等于预期引用，并且当前标志是否等于预期标志，如果全部相等，则以原子方式将该引用和该标志的值设置为给定的更新值。</p>
+<p>因此，在使用CAS前要考虑清楚“ABA”问题是否会影响程序并发的正确性，如果需要解决ABA问题，改用传统的互斥同步可能会比原子类更高效。</p>
 
       
     </div>
@@ -732,9 +696,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/高并发/" rel="tag"><i class="fa fa-tag"></i> 高并发</a>
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
           
-            <a href="/tags/降级/" rel="tag"><i class="fa fa-tag"></i> 降级</a>
+            <a href="/tags/CAS/" rel="tag"><i class="fa fa-tag"></i> CAS</a>
           
         </div>
       
@@ -768,18 +732,14 @@
           <div class="post-nav-next post-nav-item">
             
 			
-			   <a href="/2018/08/27/使用-Python-生成二维码/" rel="prev" title="使用 Python 生成二维码">
-			   <i class="fa fa-chevron-left"></i> 使用 Python 生成二维码
-			   
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
              
-				<a href="/2018/08/26/缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题/" rel="next" title="缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题">
-				缓存雪崩、缓存穿透、缓存预热、缓存更新、缓存降级等问题 <i class="fa fa-chevron-right"></i>
+				<a href="/2018/12/13/浅谈HashMap线程安全问题/" rel="next" title="浅谈HashMap线程安全问题">
+				浅谈HashMap线程安全问题 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1244,7 +1204,7 @@ show_date_time();
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#降级预案"><span class="nav-number">1.</span> <span class="nav-text">降级预案</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#降级的类别"><span class="nav-number">1.0.1.</span> <span class="nav-text">降级的类别</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#降级的功能点"><span class="nav-number">1.1.</span> <span class="nav-text">降级的功能点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#降级策略"><span class="nav-number">2.</span> <span class="nav-text">降级策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、自动开关降级"><span class="nav-number">2.1.</span> <span class="nav-text">1、自动开关降级</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#超时降级"><span class="nav-number">2.1.1.</span> <span class="nav-text">超时降级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#统计失败次数降级"><span class="nav-number">2.1.2.</span> <span class="nav-text">统计失败次数降级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#故障降级"><span class="nav-number">2.1.3.</span> <span class="nav-text">故障降级</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#限流降级"><span class="nav-number">2.1.4.</span> <span class="nav-text">限流降级</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、人工开关降级"><span class="nav-number">2.2.</span> <span class="nav-text">2、人工开关降级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、读服务降级"><span class="nav-number">2.3.</span> <span class="nav-text">3、读服务降级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、写服务降级"><span class="nav-number">2.4.</span> <span class="nav-text">4、写服务降级</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方案1："><span class="nav-number">2.4.1.</span> <span class="nav-text">方案1：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方案2："><span class="nav-number">2.4.2.</span> <span class="nav-text">方案2：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、多级降级"><span class="nav-number">2.5.</span> <span class="nav-text">5、多级降级</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结："><span class="nav-number">3.</span> <span class="nav-text">总结：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#、-问题"><span class="nav-number">2.</span> <span class="nav-text">++、- -问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDK原子变量类简单介绍"><span class="nav-number">3.</span> <span class="nav-text">JDK原子变量类简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原子变量类使用"><span class="nav-number">4.</span> <span class="nav-text">原子变量类使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CAS缺陷"><span class="nav-number">5.</span> <span class="nav-text">CAS缺陷</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#循环时间长开销大"><span class="nav-number">5.1.</span> <span class="nav-text">循环时间长开销大</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#只能保证一个共享变量的原子操作"><span class="nav-number">5.2.</span> <span class="nav-text">只能保证一个共享变量的原子操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ABA问题"><span class="nav-number">5.3.</span> <span class="nav-text">ABA问题</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -1462,7 +1422,7 @@ show_date_time();
   
     <script type="text/javascript">
       window.livereOptions = {
-        refer: '2018/08/26/都是套路：高并发系统的降级特技/'
+        refer: '2018/12/17/CAS机制是什么鬼？/'
       };
       (function(d, s) {
         var j, e = d.getElementsByTagName(s)[0];
