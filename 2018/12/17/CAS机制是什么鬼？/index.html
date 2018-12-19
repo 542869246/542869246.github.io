@@ -206,7 +206,7 @@
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/CAS.jpg">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM%E6%88%AA%E5%9B%BE20181217162623.png">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/JDK%E7%9A%84CAS%E6%96%B9%E6%A1%88.jpg">
-<meta property="og:updated_time" content="2018-12-17T11:13:50.901Z">
+<meta property="og:updated_time" content="2018-12-18T02:12:59.019Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CAS机制是什么鬼？">
 <meta name="twitter:description" content="CAS是现在面试经常问的问题，本文将深入的介绍CAS的原理。">
@@ -508,7 +508,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-17 19:13:50" itemprop="dateModified" datetime="2018-12-17T19:13:50+08:00">2018-12-17</time>
+                <time title="修改时间：2018-12-18 10:12:59" itemprop="dateModified" datetime="2018-12-18T10:12:59+08:00">2018-12-18</time>
               
             
           </span>
@@ -630,7 +630,7 @@
 <p><em>注： JDK8新增DoubleAccumulator、LongAccumulator、DoubleAdder、LongAdder，是对AtomicLong等类的改进。比如LongAccumulator与LongAdder在高并发环境下比AtomicLong更高效。</em></p>
 <h2 id="原子变量类使用"><a href="#原子变量类使用" class="headerlink" title="原子变量类使用"></a>原子变量类使用</h2><p>使用原子变量类更改之前的案例<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cases</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 共享变量(使用AtomicInteger来替代Synchronized锁)</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> AtomicInteger count = <span class="keyword">new</span> AtomicInteger(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		count.incrementAndGet();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line"></span><br><span class="line">		ExecutorService service = Executors.newCachedThreadPool();</span><br><span class="line">		<span class="comment">// 20个线程对共享变量进行add()</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++) &#123;</span><br><span class="line">			service.execute(() -&gt; &#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">1000</span>; j++) &#123;</span><br><span class="line">					add();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">// 等待上述的线程执行完</span></span><br><span class="line">		service.shutdown();</span><br><span class="line">		service.awaitTermination(<span class="number">1</span>, TimeUnit.DAYS);</span><br><span class="line"></span><br><span class="line">		System.out.println(count);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>修改完，无论执行多少次，我们的结果永远是20000！</p>
-<p>其余几个银子变量类就不演示了，使用方法差不多，可以自行看看API，百度。</p>
+<p>其余几个原子变量类就不演示了，使用方法差不多，可以自行看看API，百度。</p>
 <h2 id="CAS缺陷"><a href="#CAS缺陷" class="headerlink" title="CAS缺陷"></a>CAS缺陷</h2><h3 id="循环时间长开销大"><a href="#循环时间长开销大" class="headerlink" title="循环时间长开销大"></a>循环时间长开销大</h3><p>自旋CAS如果长时间不成功，会给CPU带来非常大的执行开销。</p>
 <h3 id="只能保证一个共享变量的原子操作"><a href="#只能保证一个共享变量的原子操作" class="headerlink" title="只能保证一个共享变量的原子操作"></a>只能保证一个共享变量的原子操作</h3><p>当对一个共享变量执行操作时，我们可以使用循环CAS的方式来保证原子操作，但是对多个共享变量操作时，循环CAS就无法保证操作的原子性，这个时候就可以用锁，或者有一个取巧的办法，就是把多个共享变量合并成一个共享变量来操作。比如有两个共享变量i＝2,j=a，合并一下ij=2a，然后用CAS来操作ij。从Java1.5开始JDK提供了AtomicReference类来保证引用对象之间的原子性，你可以把多个变量放在一个对象里来进行CAS操作。</p>
 <h3 id="ABA问题"><a href="#ABA问题" class="headerlink" title="ABA问题"></a>ABA问题</h3><p>如果内存地址V初次读取的值是A，并且在准备赋值的时候检查到它的值仍然为A，那我们就能说它的值没有被其他线程改变过了吗？</p>
@@ -1110,6 +1110,10 @@
                 
                   <li class="links-of-blogroll-item">
                     <a href="http://www.charmsongo.cn/" title="charmsongo" target="_blank">charmsongo</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://huiprogramer.github.io/" title="HuiProgramer" target="_blank">HuiProgramer</a>
                   </li>
                 
                   <li class="links-of-blogroll-item">
