@@ -208,7 +208,7 @@
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM%E6%88%AA%E5%9B%BE20190107103411.png">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM%E6%88%AA%E5%9B%BE20190107104014.png">
 <meta property="og:image" content="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/d856e3238e09874e4a3d1dab8e97c98.png">
-<meta property="og:updated_time" content="2019-01-07T03:42:17.730Z">
+<meta property="og:updated_time" content="2019-01-07T06:58:21.007Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HashMap扫盲2.0">
 <meta name="twitter:description" content="HashMap扫盲">
@@ -510,7 +510,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-01-07 11:42:17" itemprop="dateModified" datetime="2019-01-07T11:42:17+08:00">2019-01-07</time>
+                <time title="修改时间：2019-01-07 14:58:21" itemprop="dateModified" datetime="2019-01-07T14:58:21+08:00">2019-01-07</time>
               
             
           </span>
@@ -618,7 +618,7 @@
 <p>这里就不对红黑树具体展开了，有兴趣大家可以百度自行学习相关知识，不然就脱离该文主题了</p>
 <p>可以看到RBTree继承了Comparable没错，为啥呢？</p>
 <p>首先咋们知道红黑树是属于二叉查找树的一种，而二叉查找树有一个特性就是：任意一个节点所包含的键值，大于等于左孩子的键值，小于等于右孩子的键值。</p>
-<p>一看到涉及到元素比较了，那么就自热而然的想到compareTo()方法了，而只有将类强制转换为Comparable类型之后才能调用compareTo()方法，但是若你没有实现Comparable接口，那当然就不能强制准换了。</p>
+<p>一看到涉及到元素比较了，那么就自然而然的想到compareTo()方法了，而只有将类强制转换为Comparable类型之后才能调用compareTo()方法，但是若你没有实现Comparable接口，那当然就不能强制准换了。</p>
 <p>再看上面添加操作的代码，里面也有使用<code>node.key.compareTo(x.key)</code>,自然就需要继承了Comparable。</p>
 <p>不过话说Comparable接口也就只有compareTo()方法嘿嘿。</p>
 <h2 id="分析源码"><a href="#分析源码" class="headerlink" title="分析源码"></a>分析源码</h2><p>ok，现在咋们知道为什么红黑树需要实现Comparable接口了，那咋们来看看HashMap1.8，它的红黑树是怎么一回事？</p>
