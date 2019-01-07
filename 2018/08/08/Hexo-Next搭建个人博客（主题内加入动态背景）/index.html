@@ -560,7 +560,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">858</span>
+                <span title="本文字数">898</span>
               
 
               
@@ -600,16 +600,16 @@
 <h4 id="添加静态背景"><a href="#添加静态背景" class="headerlink" title="添加静态背景"></a>添加静态背景</h4><ol>
 <li>打开博客根目录/themes/next/source/css/_custom/custom.styl文件，编辑如下：</li>
 </ol>
-<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Custom styles.</span></span><br><span class="line"><span class="selector-tag">body</span> &#123; </span><br><span class="line">	<span class="attribute">background-image</span>: url(/images/background.png);</span><br><span class="line">	<span class="attribute">background-attachment</span>: fixed; <span class="comment">// 不随屏幕滚动而滚动</span></span><br><span class="line">	<span class="attribute">background-repeat</span>: no-repeat; <span class="comment">// 如果背景图不够屏幕大小则重复铺，改为no-repeat则表示不重复铺</span></span><br><span class="line">	<span class="comment">//background-size: contain; // 等比例铺满屏幕</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">// Custom styles.</span><br><span class="line">body &#123; </span><br><span class="line">	background-image: url(/images/background.png);</span><br><span class="line">	background-attachment: fixed; // 不随屏幕滚动而滚动</span><br><span class="line">	background-repeat: no-repeat; // 如果背景图不够屏幕大小则重复铺，改为no-repeat则表示不重复铺</span><br><span class="line">	//background-size: contain; // 等比例铺满屏幕</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="2">
 <li>将背景图命名为background.png并放入主题根目录/images下</li>
 </ol>
 <h4 id="添加动态背景"><a href="#添加动态背景" class="headerlink" title="添加动态背景"></a>添加动态背景</h4><h1 id="layout-swig"><a href="#layout-swig" class="headerlink" title="_layout.swig"></a><a href="#layout-swig" title="_layout.swig"></a>_layout.swig</h1><p>找到<code>themes\next\layout\_layout.swig</code>文件，添加内容：<br>在<code>&lt;body&gt;</code>里添加：  </p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"bg_content"</span>&gt;</span><br><span class="line">  &lt;canvas id=<span class="string">"canvas"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/div&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;bg_content&quot;&gt;</span><br><span class="line">  &lt;canvas id=&quot;canvas&quot;&gt;&lt;/canvas&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 <p>仍是该文件，在末尾添加：  </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"/js/src/dynamic_bg.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/js/src/dynamic_bg.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 <h1 id="dynamic-bg-js"><a href="#dynamic-bg-js" class="headerlink" title="dynamic_bg.js"></a><a href="#dynamic-bg-js" title="dynamic_bg.js"></a>dynamic_bg.js</h1><p>在<code>themes\next\source\js\src</code>中新建文件<code>dynamic_bg.js</code>，代码链接中可见：<a href="https://github.com/asdfv1929/asdfv1929.github.io/blob/master/js/src/dynamic_bg.js" target="_blank" rel="noopener">dynamic_bg.js</a></p>
-<h1 id="custom-styl"><a href="#custom-styl" class="headerlink" title="custom.styl"></a><a href="#custom-styl" title="custom.styl"></a>custom.styl</h1><p>在<code>themes\next\source\css\_custom\custom.styl</code>文件末尾添加内容：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.bg_content</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">z-index</span>: -<span class="number">1</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="custom-styl"><a href="#custom-styl" class="headerlink" title="custom.styl"></a><a href="#custom-styl" title="custom.styl"></a>custom.styl</h1><p>在<code>themes\next\source\css\_custom\custom.styl</code>文件末尾添加内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.bg_content &#123;</span><br><span class="line">  position: fixed;</span><br><span class="line">  top: 0;</span><br><span class="line">  z-index: -1;</span><br><span class="line">  width: 100%;</span><br><span class="line">  height: 100%;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -800,7 +800,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1223,7 +1223,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">497k</span>
+    <span title="站点总字数">515k</span>
   
 
   
@@ -1234,7 +1234,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">10:22</span>
+    <span title="站点阅读时长">10:44</span>
   
   
   <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>

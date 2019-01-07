@@ -562,7 +562,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.5k</span>
+                <span title="本文字数">1.6k</span>
               
 
               
@@ -608,18 +608,18 @@
 <ol>
 <li>打开<code>博客根目录/themes/next/_config.yml</code></li>
 <li><p>将# Third Party Services Settings 栏目下其他评论系统如duoshuo、gentie、youyan、disqus用#注释掉，加入以下内容</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Livere评论系统</span></span><br><span class="line">    livere_uid: 上一步中你获取的<span class="class"><span class="keyword">data</span>-uid</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Livere评论系统</span><br><span class="line">    livere_uid: 上一步中你获取的data-uid</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在博客根目录<code>/themes/layout/_scripts/third-party/comments/</code>目录中新建txt文件，重命名为livere.swig，编辑内容如下：</p>
 </li>
 </ol>
-<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> not (theme.duoshuo and theme.duoshuo.shortname) and not theme.duoshuo_shortname and not theme.disqus_shortname and not theme.hypercomments_id and not theme.gentie_productKey %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  </span><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> theme.livere_uid %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span></span><br><span class="line"><span class="xml">      (function(d, s) &#123;</span></span><br><span class="line"><span class="xml">        var j, e = d.getElementsByTagName(s)[0];</span></span><br><span class="line"><span class="xml">        if (typeof LivereTower === 'function') &#123; return; &#125;</span></span><br><span class="line"><span class="xml">        j = d.createElement(s);</span></span><br><span class="line"><span class="xml">        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';</span></span><br><span class="line"><span class="xml">        j.async = true;</span></span><br><span class="line"><span class="xml">        e.parentNode.insertBefore(j, e);</span></span><br><span class="line"><span class="xml">      &#125;)(document, 'script');</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml">  </span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if not (theme.duoshuo and theme.duoshuo.shortname) and not theme.duoshuo_shortname and not theme.disqus_shortname and not theme.hypercomments_id and not theme.gentie_productKey %&#125;</span><br><span class="line">  &#123;% if theme.livere_uid %&#125;</span><br><span class="line">    &lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">      (function(d, s) &#123;</span><br><span class="line">        var j, e = d.getElementsByTagName(s)[0];</span><br><span class="line">        if (typeof LivereTower === &apos;function&apos;) &#123; return; &#125;</span><br><span class="line">        j = d.createElement(s);</span><br><span class="line">        j.src = &apos;https://cdn-city.livere.com/js/embed.dist.js&apos;;</span><br><span class="line">        j.async = true;</span><br><span class="line">        e.parentNode.insertBefore(j, e);</span><br><span class="line">      &#125;)(document, &apos;script&apos;);</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &#123;% endif %&#125;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
 <ol start="4">
 <li><p>在<code>博客根目录/themes/layout/_scripts/third-party/comments.swig</code>文件中追加：</p>
-<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">include</span></span> './comments/livere.swig' %&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% include &apos;./comments/livere.swig&apos; %&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在博客根目录<code>/themes/layout/_partials/comments.swig</code>文件中条件最后追加 LiveRe 插件是否引用的判断逻辑：</p>
-<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name">elseif</span> theme.livere_uid %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"lv-container"</span> <span class="attr">data-id</span>=<span class="string">"city"</span> <span class="attr">data-uid</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123; theme.livere_uid &#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% elseif theme.livere_uid %&#125;</span><br><span class="line">      &lt;div id=&quot;lv-container&quot; data-id=&quot;city&quot; data-uid=&quot;&#123;&#123; theme.livere_uid &#125;&#125;&quot;&gt;&lt;/div&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 <p>重新<code>hexo clean、hexo d -g</code>，然后就可以看到来必力评论啦~ </p>
@@ -815,7 +815,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1238,7 +1238,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">497k</span>
+    <span title="站点总字数">515k</span>
   
 
   
@@ -1249,7 +1249,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">10:22</span>
+    <span title="站点阅读时长">10:44</span>
   
   
   <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>

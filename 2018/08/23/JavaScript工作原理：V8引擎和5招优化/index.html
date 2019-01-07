@@ -630,7 +630,7 @@
 <h3 id="优化：隐藏的类"><a href="#优化：隐藏的类" class="headerlink" title="优化：隐藏的类"></a>优化：隐藏的类</h3><p>JavaScript是一种基于原型的语言：没有类，对象的创建是通过克隆实现的。JavaScript也是一种动态编程语言，它意味着属性可以在实例化后轻松添加或从对象中移除。</p>
 <p>大多数JavaScript解释器使用字典式结构（基于哈希函数）来存储对象属性值在内存中的位置。这种结构使得检索JavaScript中的属性的值比在Java或C＃等非动态编程语言中的计算更昂贵。在Java中，所有对象属性都是在编译之前由固定的对象布局确定的，并且不能在运行时动态添加或删除（当然，C＃的动态类型是另一个主题）。因此，属性的值（或指向这些属性的指针）可以作为连续缓冲区存储在内存中，每个值之间都有一个固定偏移量。偏移量的长度可以根据属性类型轻松确定，但在运行时可以更改属性类型的JavaScript中不可行。</p>
 <p>由于使用字典查找内存中对象属性的位置效率非常低，因此V8使用不同的方法：隐藏类。隐藏类的工作方式与Java等语言中使用的固定对象布局（类）类似，除了它们是在运行时创建的。现在，让我们看看他们实际的样子：</p>
-<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span><span class="params">(x, y)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.x = x;</span><br><span class="line">  <span class="keyword">this</span>.y = y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> Point(<span class="number">1</span>, <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function Point(x, y) &#123;</span><br><span class="line">  this.x = x;</span><br><span class="line">  this.y = y;</span><br><span class="line">&#125;</span><br><span class="line">var p1 = new Point(1, 2);</span><br></pre></td></tr></table></figure>
 <p>当“new Point(1, 2)”被执行时， V8引擎会创建一个名为C0的隐藏类。</p>
 <p><img src="https://image-static.segmentfault.com/338/869/3388694770-5ae29b3121882_articlex" alt="v8_hidden_class_c0" title="v8_hidden_class_c0"></p>
 <p>由于Point还未定义任何属性，因此“C0”为空。</p>
@@ -640,7 +640,7 @@
 <p>当执行语句“this.y = y”（同样，在“this.x = x”语句之后的Point函数内部）时，将重复此过程。</p>
 <p>创建一个名为“C2”的新隐藏类，将类转换添加到“C1”，指出如果将属性“y”添加到Point对象（已包含属性“x”），则隐藏类应更改为 “C2”，点对象的隐藏类更新为“C2”。</p>
 <p><img src="https://image-static.segmentfault.com/400/635/4006356827-5ae2c8a2f300d_articlex" alt="v8_hidden-class_c2" title="v8_hidden-class_c2"></p>
-<p>隐藏类转换取决于将属性添加到对象的顺序。 看看下面的代码片段：<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Point</span></span>(x, y) &#123;</span><br><span class="line">  <span class="built_in">this</span>.x = x;</span><br><span class="line">  <span class="built_in">this</span>.y = y;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">var</span> p1 = <span class="keyword">new</span> <span class="type">Point</span>(<span class="number">1</span>, <span class="number">2</span>);</span><br><span class="line">p1.a = <span class="number">5</span>;</span><br><span class="line">p1.b = <span class="number">6</span>;</span><br><span class="line">    </span><br><span class="line"><span class="keyword">var</span> p2 = <span class="keyword">new</span> <span class="type">Point</span>(<span class="number">3</span>, <span class="number">5</span>);</span><br><span class="line">p2.b = <span class="number">7</span>;</span><br><span class="line">p2.a = <span class="number">8</span>;</span><br></pre></td></tr></table></figure></p>
+<p>隐藏类转换取决于将属性添加到对象的顺序。 看看下面的代码片段：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">function Point(x, y) &#123;</span><br><span class="line">  this.x = x;</span><br><span class="line">  this.y = y;</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">var p1 = new Point(1, 2);</span><br><span class="line">p1.a = 5;</span><br><span class="line">p1.b = 6;</span><br><span class="line">    </span><br><span class="line">var p2 = new Point(3, 5);</span><br><span class="line">p2.b = 7;</span><br><span class="line">p2.a = 8;</span><br></pre></td></tr></table></figure></p>
 <p>现在，您可能认为对于p1和p2，将使用相同的隐藏类和转换。事实上却不是。对于“p1”，首先添加属性“a”，然后添加属性“b”。然而，对于“p2”，首先分配“b”，然后是“a”。 因此，由于不同的转换路径，“p1”和“p2”以不同的隐藏类结束。在这种情况下，以相同顺序初始化动态属性好得多，以便隐藏的类可以重用。</p>
 <p><strong>内联缓存</strong><br>V8利用另一种技术来优化称为内联缓存的动态类型化语言。内联缓存依赖于观察到对相同方法的重复调用倾向于发生在相同类型的对象上。在这里可以找到关于内联缓存的深入解释。</p>
 <p>我们将讨论内联缓存的一般概念（如果您没有时间通过​​上面的深入解释）。</p>
@@ -859,7 +859,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1282,7 +1282,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">497k</span>
+    <span title="站点总字数">515k</span>
   
 
   
@@ -1293,7 +1293,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">10:22</span>
+    <span title="站点阅读时长">10:44</span>
   
   
   <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>

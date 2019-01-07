@@ -568,7 +568,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">987</span>
+                <span title="本文字数">1.1k</span>
               
 
               
@@ -608,10 +608,10 @@
 <h1 id="注册"><a href="#注册" class="headerlink" title="注册"></a><a href="#注册" title="注册"></a>注册</h1><p>首先在<a href="http://www.daovoice.io/" target="_blank" rel="noopener">DaoVoice</a>注册个账号，点击-&gt;<a href="http://dashboard.daovoice.io/get-started?invite_code=b3c7d22e" target="_blank" rel="noopener">邀请码</a>是<code>b3c7d22e</code>。<br><a href="https://s1.ax1x.com/2018/01/21/pW5DRP.png" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/01/21/pW5DRP.png" alt="pW5DRP.png"></a></p>
 <p>完成后，会得到一个<code>app_id</code>，后面会用到：<br><a href="https://s1.ax1x.com/2018/01/21/pW5yM8.png" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/01/21/pW5yM8.png" alt="appid"></a></p>
 <h1 id="修改head-swig"><a href="#修改head-swig" class="headerlink" title="修改head.swig"></a><a href="#修改head-swig" title="修改head.swig"></a>修改head.swig</h1><p>修改<code>/themes/next/layout/_partials/head.swig</code>文件，添加内容如下：  </p>
-<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">if</span></span> theme.daovoice %&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span></span><br><span class="line"><span class="xml">  (function(i,s,o,g,r,a,m)&#123;i["DaoVoiceObject"]=r;i[r]=i[r]||function()&#123;(i[r].q=i[r].q||[]).push(arguments)&#125;,i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)&#125;)(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")</span></span><br><span class="line"><span class="xml">  daovoice('init', &#123;</span></span><br><span class="line"><span class="xml">      app_id: "</span><span class="template-variable">&#123;&#123;theme.daovoice_app_id&#125;&#125;</span><span class="xml">"</span></span><br><span class="line"><span class="xml">    &#125;);</span></span><br><span class="line"><span class="xml">  daovoice('update');</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="xml"></span><span class="template-tag">&#123;% <span class="name"><span class="name">endif</span></span> %&#125;</span><span class="xml"></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if theme.daovoice %&#125;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">  (function(i,s,o,g,r,a,m)&#123;i[&quot;DaoVoiceObject&quot;]=r;i[r]=i[r]||function()&#123;(i[r].q=i[r].q||[]).push(arguments)&#125;,i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset=&quot;utf-8&quot;;m.parentNode.insertBefore(a,m)&#125;)(window,document,&quot;script&quot;,(&apos;https:&apos; == document.location.protocol ? &apos;https:&apos; : &apos;http:&apos;) + &quot;//widget.daovoice.io/widget/0f81ff2f.js&quot;,&quot;daovoice&quot;)</span><br><span class="line">  daovoice(&apos;init&apos;, &#123;</span><br><span class="line">      app_id: &quot;&#123;&#123;theme.daovoice_app_id&#125;&#125;&quot;</span><br><span class="line">    &#125;);</span><br><span class="line">  daovoice(&apos;update&apos;);</span><br><span class="line">  &lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
 <p>位置贴图：<br><a href="https://imgchr.com/i/pWIwmF" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/01/21/pWIwmF.md.png" alt="pWIwmF.md.png"></a></p>
 <h1 id="主题配置文件"><a href="#主题配置文件" class="headerlink" title="主题配置文件"></a><a href="#主题配置文件" title="主题配置文件"></a>主题配置文件</h1><p>在<code>_config.yml</code>文件中添加内容：  </p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Online contact </span></span><br><span class="line"><span class="attr">daovoice:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">daovoice_app_id:</span> <span class="string">这里输入前面获取的app_id</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Online contact </span><br><span class="line">daovoice: true</span><br><span class="line">daovoice_app_id: 这里输入前面获取的app_id</span><br></pre></td></tr></table></figure>
 <h1 id="聊天窗口配置"><a href="#聊天窗口配置" class="headerlink" title="聊天窗口配置"></a><a href="#聊天窗口配置" title="聊天窗口配置"></a>聊天窗口配置</h1><p>附上我的聊天窗口的颜色、位置等设置信息：<br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/daovoice01.png" alt=""></p>
 <p>至此，网页的在线联系功能已经完成，重新<code>hexo d -g</code>上传GitHub后，页面上就能看到效果了。</p>
 <p>效果图：</p>
@@ -809,7 +809,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1232,7 +1232,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">497k</span>
+    <span title="站点总字数">515k</span>
   
 
   
@@ -1243,7 +1243,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">10:22</span>
+    <span title="站点阅读时长">10:44</span>
   
   
   <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>

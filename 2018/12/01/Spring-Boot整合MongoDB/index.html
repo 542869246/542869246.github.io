@@ -628,7 +628,7 @@
 <h3 id="自定义查询"><a href="#自定义查询" class="headerlink" title="自定义查询"></a>自定义查询</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test3</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">    Pageable pageable = PageRequest.of(<span class="number">0</span>, <span class="number">10</span>);</span><br><span class="line">    Page&lt;User&gt; u1 = userRepository.findByNameAndAgeRange(<span class="string">"felix"</span>, <span class="number">50</span>, pageable);</span><br><span class="line">    <span class="keyword">this</span>.logger.info(u1.toString());</span><br><span class="line">    u1.getContent().stream().forEach(n -&gt; System.out.println(n.toString()));</span><br><span class="line">    Page&lt;User&gt; u2 = userRepository.findByNameAndAgeRange2(<span class="string">"felix"</span>, <span class="number">0</span>, <span class="number">50</span>, pageable);</span><br><span class="line">    <span class="keyword">this</span>.logger.info(u2.toString());</span><br><span class="line">    u2.getContent().stream().forEach(n -&gt; System.out.println(n.toString()));</span><br><span class="line">    Page&lt;User&gt; u3 = userRepository.findByNameAndAgeRange3(<span class="string">"felix"</span>, <span class="number">0</span>, <span class="number">50</span>, pageable);</span><br><span class="line">    <span class="keyword">this</span>.logger.info(u3.toString());</span><br><span class="line">    u3.getContent().stream().forEach(n -&gt; System.out.println(n.toString()));</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>运行结果：<br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM截图20181201141807.png" alt=""></p>
 <h2 id="遇到的一些坑"><a href="#遇到的一些坑" class="headerlink" title="遇到的一些坑"></a>遇到的一些坑</h2><h3 id="findOne和findById"><a href="#findOne和findById" class="headerlink" title="findOne和findById"></a>findOne和findById</h3><p>因为这次我用的Spring Boot版本是2.1，之前是1.4.1。改版之后将findOne 更名为 findById，但是findById并不仅仅是将findOne改名，它返回的对象变成了Optional。如果想让findById和findOne有同样的功能，可以用下面这个函数：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User u = userRepository.findById(<span class="number">1L</span>).orElse(<span class="keyword">null</span>);</span><br></pre></td></tr></table></figure></p>
-<h3 id="insert-和save"><a href="#insert-和save" class="headerlink" title="insert()和save()"></a>insert()和save()</h3><p>insert:当主键”_id”在集合中存在时，不做任何处理。 将会抛以下异常：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org<span class="selector-class">.springframework</span><span class="selector-class">.dao</span><span class="selector-class">.DuplicateKeyException</span>: E11000 duplicate key error collection</span><br></pre></td></tr></table></figure></p>
+<h3 id="insert-和save"><a href="#insert-和save" class="headerlink" title="insert()和save()"></a>insert()和save()</h3><p>insert:当主键”_id”在集合中存在时，不做任何处理。 将会抛以下异常：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">org.springframework.dao.DuplicateKeyException: E11000 duplicate key error collection</span><br></pre></td></tr></table></figure></p>
 <p>save:当主键”_id”在集合中存在时，进行更新。 数据整体都会更新 ，新数据会替换掉原数据 ID 以外的所有数据。如ID 不存在就新增一条数据</p>
 <p>来看看 MongoRepository  接口的具体实现类<code>SimpleMongoRepository&lt;T, ID extends Serializable&gt;</code>的save 方法到底怎么写的。<br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM截图20181201143157.png" alt=""><br>判断一下主键的值是否存在,存在返回false,存正为true.通过  处理类 设置主键Id的,就会走save,而不是insert了</p>
 
@@ -823,7 +823,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1246,7 +1246,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">497k</span>
+    <span title="站点总字数">515k</span>
   
 
   
@@ -1257,7 +1257,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">10:22</span>
+    <span title="站点阅读时长">10:44</span>
   
   
   <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>

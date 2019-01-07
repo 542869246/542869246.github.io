@@ -612,7 +612,7 @@
 <div class="note default"><a href="https://nodejs.org/en/" target="_blank" rel="noopener">Node.js</a><br><a href="http://git-scm.com/" target="_blank" rel="noopener">Git</a><p></p></div>
 
 <p>如果您的电脑中已经安装上述必备程序，那么恭喜你！接下来只需要使用 npm 即可完成 Hexo 的安装。  </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install -g hexo-cli</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <p>如果你的电脑中尚未安装所需要的程序，请根据以下安装指示完成安装。</p>
 <div class="note primary"><p><strong>Mac 用户</strong><br>您在编译时可能会遇到问题，请先到 App Store 安装 Xcode，Xcode 完成后，启动并进入 <strong>Preferences -&gt; Download -&gt; Command Line Tools -&gt; Install</strong> 安装命令行工具。</p></div>
 
@@ -624,17 +624,17 @@
 </ul>
 <div class="note primary"><p><strong>Windows 用户</strong><br>由于众所周知的原因，从上面的链接下载git for windows最好挂上一个代理，否则下载速度十分缓慢。也可以参考<a href="https://github.com/waylau/git-for-win" target="_blank" rel="noopener">这个页面</a>，收录了存储于百度云的下载地址。</p></div>
 
-<h2 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a><a href="#安装-Node-js" title="安装 Node.js"></a>安装 Node.js</h2><p>安装 Node.js 的最佳方式是使用 <a href="https://github.com/creationix/nvm" target="_blank" rel="noopener">nvm</a>。（nvm：Node Version Manager）<br>windows 下使用 nvm 请看这里： <a href="https://github.com/coreybutler/nvm-windows" target="_blank" rel="noopener">nvm-windows</a> ，首先需要下载安装 nvm 。 <a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="noopener">Download Now</a><br>windows下安装完nvm以后，我们可以打开命令行中执行命令<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nvm  </span></span><br><span class="line"><span class="meta">$</span><span class="bash"> nvm install latest</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="安装-Node-js"><a href="#安装-Node-js" class="headerlink" title="安装 Node.js"></a><a href="#安装-Node-js" title="安装 Node.js"></a>安装 Node.js</h2><p>安装 Node.js 的最佳方式是使用 <a href="https://github.com/creationix/nvm" target="_blank" rel="noopener">nvm</a>。（nvm：Node Version Manager）<br>windows 下使用 nvm 请看这里： <a href="https://github.com/coreybutler/nvm-windows" target="_blank" rel="noopener">nvm-windows</a> ，首先需要下载安装 nvm 。 <a href="https://github.com/coreybutler/nvm-windows/releases" target="_blank" rel="noopener">Download Now</a><br>windows下安装完nvm以后，我们可以打开命令行中执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ nvm  </span><br><span class="line">$ nvm install latest</span><br></pre></td></tr></table></figure></p>
 <p>执行完以后，重启命令行，执行命令 <code>node -v</code> ，如果出现版本号，那么 <code>Node.js</code> 就安装成功了。</p>
 <p>如果没有安装成功，那可能就是墙的原因。建议下载 <code>Node.js</code> 直接安装。 <a href="https://nodejs.org/en/download/" target="_blank" rel="noopener">Download Now</a></p>
-<h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a><a href="#安装-Hexo" title="安装 Hexo"></a>安装 Hexo</h2><p>有了 Node.js ，我们可以使用 npm 安装 Hexo。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> npm install -g hexo-cli</span></span><br></pre></td></tr></table></figure></p>
-<p>安装 Hexo 完成后，我们首先需要为我们的项目创建一个指定文件夹（例如我在 D 盘目录下创建了一个文件夹 blog 。<code>D:\blog</code> ），在指定文件夹中执行下列命令， Hexo 将会在指定文件夹中新建所需要的文件。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo init</span></span><br></pre></td></tr></table></figure></p>
-<p>等待安装，安装完成后，指定文件夹 的目录如下：<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.  </span><br><span class="line">├── <span class="variable">_config</span>.yml  </span><br><span class="line">├── package.json  </span><br><span class="line">├── scaffolds  </span><br><span class="line">├── source  </span><br><span class="line">|   ├── <span class="variable">_drafts</span>  </span><br><span class="line">|   └── <span class="variable">_posts</span>  </span><br><span class="line">└──</span><br></pre></td></tr></table></figure></p>
+<h2 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a><a href="#安装-Hexo" title="安装 Hexo"></a>安装 Hexo</h2><p>有了 Node.js ，我们可以使用 npm 安装 Hexo。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g hexo-cli</span><br></pre></td></tr></table></figure></p>
+<p>安装 Hexo 完成后，我们首先需要为我们的项目创建一个指定文件夹（例如我在 D 盘目录下创建了一个文件夹 blog 。<code>D:\blog</code> ），在指定文件夹中执行下列命令， Hexo 将会在指定文件夹中新建所需要的文件。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br></pre></td></tr></table></figure></p>
+<p>等待安装，安装完成后，指定文件夹 的目录如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.  </span><br><span class="line">├── _config.yml  </span><br><span class="line">├── package.json  </span><br><span class="line">├── scaffolds  </span><br><span class="line">├── source  </span><br><span class="line">|   ├── _drafts  </span><br><span class="line">|   └── _posts  </span><br><span class="line">└──</span><br></pre></td></tr></table></figure></p>
 <p>我们继续执行命令  </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> hexo g  </span></span><br><span class="line"><span class="meta">$</span><span class="bash"> hexo s --debug</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ hexo g  </span><br><span class="line">$ hexo s --debug</span><br></pre></td></tr></table></figure>
 <p>Hexo 将 source 文件夹中除 <em>posts 文件夹之外，开头命名为</em> (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件夹会被拷贝过去。<br>这个时候，我们在浏览器中访问 <a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a> ，就可以看到基于 Hexo 的默认主题的原型</p>
 <h2 id="安装-NexT-主题"><a href="#安装-NexT-主题" class="headerlink" title="安装 NexT 主题"></a><a href="#安装-NexT-主题" title="安装 NexT 主题"></a>安装 NexT 主题</h2><h3 id="下载-NexT-主题"><a href="#下载-NexT-主题" class="headerlink" title="下载 NexT 主题"></a><a href="#下载-NexT-主题" title="下载 NexT 主题"></a>下载 NexT 主题</h3><p>依旧是在当前目录下，使用 Git checkout 代码：  </p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/iissnan/hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
 <p>等待下载完成。</p>
 <p>在 Hexo 中有两份主要的配置文件，其名称都是 _config.yml 。其中，一份位于站点根目录下，主要包含 Hexo 本身的配置；另一份位于主题目录下，这份配置由主题作者提供，主要用于配置主题相关的选项。<br>我们约定，将前者称为 <span id="inline-blue">站点配置文件</span>，后者称为 <span id="inline-purple">主题配置文件</span></p>
 <h3 id="启用-NexT-主题"><a href="#启用-NexT-主题" class="headerlink" title="启用 NexT 主题"></a><a href="#启用-NexT-主题" title="启用 NexT 主题"></a>启用 NexT 主题</h3><p>打开 <span id="inline-blue">站点配置文件</span>文件 ，找到 theme 字段，并将其值更改为 next 。<br>到此， NexT 主题安装完成。下一步我们将验证主题是否正确启用。在切换主题之后、验证之前，我们最好使用 <code>hexo clean</code> 来清除 Hexo 的缓存。</p>
@@ -656,9 +656,9 @@
 
 <h2 id="简写命令"><a href="#简写命令" class="headerlink" title="简写命令"></a><a href="#简写命令" title="简写命令"></a>简写命令</h2><div class="note info"><p>$ hexo new == hexo n<br>$ hexo generate == hexo g<br>$ hexo server == hexo s<br>$ hexo deploy == hexo d<br>$ hexo generate + $ hexo server == $ hexo s -g<br>$ hexo generate + $ hexo deploy == $ hexo d -g</p></div>
 
-<h2 id="常见问题1"><a href="#常见问题1" class="headerlink" title="常见问题1"></a><a href="#常见问题1" title="常见问题1"></a>常见问题1</h2><p>在 hexo 的配置和设置文件中，在冒号后面没留空格会导致出问题：<br>错误的设置：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">author</span>:yufeng.Zhou</span><br><span class="line"><span class="attribute">email</span>:<span class="number">18851200889</span><span class="variable">@163</span>.com</span><br><span class="line"><span class="attribute">language</span>:zh-CN</span><br></pre></td></tr></table></figure></p>
-<p>正确的设置：<br><figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">author</span>: yufeng.Zhou</span><br><span class="line"><span class="attribute">email</span>: <span class="number">18851200889</span><span class="variable">@163</span>.com</span><br><span class="line"><span class="attribute">language</span>: zh-CN</span><br></pre></td></tr></table></figure></p>
-<h2 id="常见问题2"><a href="#常见问题2" class="headerlink" title="常见问题2"></a><a href="#常见问题2" title="常见问题2"></a>常见问题2</h2><p>关于 Git 提交中用户名和 Email 的设置<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"Your name"</span>  </span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"Your email"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="常见问题1"><a href="#常见问题1" class="headerlink" title="常见问题1"></a><a href="#常见问题1" title="常见问题1"></a>常见问题1</h2><p>在 hexo 的配置和设置文件中，在冒号后面没留空格会导致出问题：<br>错误的设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">author:yufeng.Zhou</span><br><span class="line">email:18851200889@163.com</span><br><span class="line">language:zh-CN</span><br></pre></td></tr></table></figure></p>
+<p>正确的设置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">author: yufeng.Zhou</span><br><span class="line">email: 18851200889@163.com</span><br><span class="line">language: zh-CN</span><br></pre></td></tr></table></figure></p>
+<h2 id="常见问题2"><a href="#常见问题2" class="headerlink" title="常见问题2"></a><a href="#常见问题2" title="常见问题2"></a>常见问题2</h2><p>关于 Git 提交中用户名和 Email 的设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;Your name&quot;  </span><br><span class="line">git config --global user.email &quot;Your email&quot;</span><br></pre></td></tr></table></figure></p>
 <h2 id="常见问题3"><a href="#常见问题3" class="headerlink" title="常见问题3"></a><a href="#常见问题3" title="常见问题3"></a>常见问题3</h2><p>Hexo 中的图标使用的是 <a href="http://fontawesome.io/" target="_blank" rel="noopener">Font Awesome</a> ，所以，我们的博客已经自带了 Font Awesome 中的所有图标，基本可以满足我们的所有需求，我们可以去 Font Awesome 中查找我们想要使用的图标。<br><i class="fa fa-github"></i><code>&lt;i class=&quot;fa fa-github&quot;&gt;&lt;/i&gt;</code><br><i class="fa fa-github fa-lg"></i><code>&lt;i class=&quot;fa fa-github fa-lg&quot;&gt;&lt;/i&gt;</code><br><i class="fa fa-github fa-2x"></i><code>&lt;i class=&quot;fa fa-github fa-2x&quot;&gt;&lt;/i&gt;</code></p>
 
       
@@ -850,7 +850,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1273,7 +1273,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">497k</span>
+    <span title="站点总字数">515k</span>
   
 
   
@@ -1284,7 +1284,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">10:22</span>
+    <span title="站点阅读时长">10:44</span>
   
   
   <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>

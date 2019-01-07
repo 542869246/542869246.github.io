@@ -687,11 +687,11 @@
 <p><strong>什么是回滚段？</strong></p>
 <p>存储undo日志的地方，是回滚段。</p>
 <p>undo日志和回滚段和InnoDB的MVCC密切相关，这里举个例子展开说明一下。</p>
-<p><strong>栗子</strong>：<br><figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">t</span>(<span class="name">id</span> PK, name)<span class="comment">;</span></span><br></pre></td></tr></table></figure></p>
-<p>数据为：<br><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>, shenjian</span><br><span class="line"><span class="number">2</span>, zhangsan</span><br><span class="line"><span class="number">3</span>, lisi</span><br></pre></td></tr></table></figure></p>
+<p><strong>栗子</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">t(id PK, name);</span><br></pre></td></tr></table></figure></p>
+<p>数据为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1, shenjian</span><br><span class="line">2, zhangsan</span><br><span class="line">3, lisi</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/854310171767639185.jpg" alt="">  </p>
 <p>此时没有事务未提交，故回滚段是空的。</p>
-<p>接着启动了一个事务：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">start</span> trx;</span><br><span class="line"><span class="keyword">delete</span> (<span class="number">1</span>, shenjian);</span><br><span class="line"><span class="keyword">update</span> <span class="keyword">set</span>(<span class="number">3</span>, lisi) <span class="keyword">to</span> (<span class="number">3</span>, xxx);</span><br><span class="line"><span class="keyword">insert</span> (<span class="number">4</span>, wangwu);</span><br></pre></td></tr></table></figure></p>
+<p>接着启动了一个事务：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">start trx;</span><br><span class="line">delete (1, shenjian);</span><br><span class="line">update set(3, lisi) to (3, xxx);</span><br><span class="line">insert (4, wangwu);</span><br></pre></td></tr></table></figure></p>
 <p>并且事务处于<span style="font-family: 宋体;font-size: 14px;letter-spacing: 1px;color: rgb(255, 76, 0);">未提交</span>的状态。</p>
 <p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/76916220599096767.jpg" alt=""></p>
 <p>可以看到：</p>
@@ -725,8 +725,8 @@
 <p><strong>快照读</strong>（Snapshot Read），这种<strong>一致性不加锁的读</strong>（Consistent Nonlocking Read），就是<span style="font-size: 14px;letter-spacing: 1px;color: rgb(255, 76, 0);">InnoDB<span style="letter-spacing: 1px;font-size: 14px;font-family: 宋体;">并发如此之高的核心原因之一</span></span>。</p>
 <p>这里的<strong>一致性</strong>是指，事务读取到的数据，要么是事务开始前就已经存在的数据（当然，是其他已提交事务产生的），要么是事务自身插入或者修改的数据。</p>
 <p><strong>什么样的select**</strong>是快照读？**</p>
-<p>除非显示加锁，<span style="font-size: 14px;letter-spacing: 1px;color: rgb(255, 76, 0);"><span style="letter-spacing: 1px;font-size: 14px;font-family: 宋体;">普通的</span>select<span style="letter-spacing: 1px;font-size: 14px;font-family: 宋体;">语句都是快照读</span></span>，例如：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t <span class="keyword">where</span> <span class="keyword">id</span>&gt;<span class="number">2</span>;</span><br></pre></td></tr></table></figure></p>
-<p>这里的<span style="font-family: 宋体;font-size: 14px;letter-spacing: 1px;color: rgb(255, 76, 0);">显示加锁，非快照读</span>是指：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t <span class="keyword">where</span> <span class="keyword">id</span>&gt;<span class="number">2</span> **<span class="keyword">lock</span> <span class="keyword">in</span> <span class="keyword">share</span> <span class="keyword">mode</span>**;</span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> t <span class="keyword">where</span> <span class="keyword">id</span>&gt;<span class="number">2</span> **<span class="keyword">for</span> <span class="keyword">update</span>**;</span><br></pre></td></tr></table></figure></p>
+<p>除非显示加锁，<span style="font-size: 14px;letter-spacing: 1px;color: rgb(255, 76, 0);"><span style="letter-spacing: 1px;font-size: 14px;font-family: 宋体;">普通的</span>select<span style="letter-spacing: 1px;font-size: 14px;font-family: 宋体;">语句都是快照读</span></span>，例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from t where id&gt;2;</span><br></pre></td></tr></table></figure></p>
+<p>这里的<span style="font-family: 宋体;font-size: 14px;letter-spacing: 1px;color: rgb(255, 76, 0);">显示加锁，非快照读</span>是指：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select * from t where id&gt;2 **lock in share mode**;</span><br><span class="line">select * from t where id&gt;2 **for update**;</span><br></pre></td></tr></table></figure></p>
 <p>问题来了，这些显示加锁的读，是什么读？会加什么锁？和事务的隔离级别又有什么关系？</p>
 <p>本节的内容已经够多了，且听下回分解。</p>
 <p><strong>总结</strong></p>
@@ -927,7 +927,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1334,7 +1334,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">497k</span>
+    <span title="站点总字数">515k</span>
   
 
   
@@ -1345,7 +1345,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">10:22</span>
+    <span title="站点阅读时长">10:44</span>
   
   
   <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>

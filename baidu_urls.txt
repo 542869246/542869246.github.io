@@ -1,3 +1,4 @@
+https://yfzhou.coding.me/2019/01/07/HashMap扫盲2-0/
 https://yfzhou.coding.me/2019/01/02/还在使用SimpleDateFormat？你的项目崩没？/
 https://yfzhou.coding.me/2018/12/27/剑指CopyOnWriteArrayList/
 https://yfzhou.coding.me/2018/12/24/剑指ConcurrentHashMap【基于JDK1-8】/

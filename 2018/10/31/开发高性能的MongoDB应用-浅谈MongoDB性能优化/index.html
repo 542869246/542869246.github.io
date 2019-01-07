@@ -562,7 +562,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">7.1k</span>
+                <span title="本文字数">7.3k</span>
               
 
               
@@ -605,9 +605,9 @@
 <p><strong>而MongoDB选择的是更为经济的横向扩展，他可以很容易的将数据拆分至不同的服务器中。</strong>而且在获取数据时开发者也无需考虑多服务器带来的问题，MongoDB可以将开发者的请求自动路由到正确的服务器中，让开发者脱离横向扩展带来的弊病，更专注于程序的开发上。</p>
 <h3 id="3-使用"><a href="#3-使用" class="headerlink" title="3.使用"></a>3.使用</h3><p>MongoDB采用的是NoSQL的设计方式，可以更加灵活的操作数据。在进行传统的RDBMS中你一定遇到过几十行甚至上百行的复杂SQL语句，传统的RDBMS的SQL语句中包含着大量关联，子查询等语句，在增加复杂性的同时还让性能调优变得更加困难。MongoDB的<strong>面向文档（document-oriented）</strong>设计中采用更为灵活的文档来作为数据模型用来取代RDBMS中的行，面向文档的设计让开发人员获取数据的方式更加灵活，甚至于开发人员仅用一条语句即可查询复杂的嵌套关系，让开发人员不必为了获取数据而绞尽脑汁。</p>
 <h2 id="2-、NoSQL对传统数据库设计思维的影响"><a href="#2-、NoSQL对传统数据库设计思维的影响" class="headerlink" title="2 、NoSQL对传统数据库设计思维的影响"></a>2 、NoSQL对传统数据库设计思维的影响</h2><h3 id="1-预设计模式与动态模式"><a href="#1-预设计模式与动态模式" class="headerlink" title="1.预设计模式与动态模式"></a>1.预设计模式与动态模式</h3><p>传统数据库设计思维中，项目的设计阶段需要对数据库表中的字段名称、字段类型、进行规定，如果尝试插入不符合设计的数据，数据库不会接受这条数据以保证数据的完整性。</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">--</span>数据库字段<span class="selector-pseudo">:NAME</span>, <span class="selector-tag">SONGINSERT</span> <span class="selector-tag">INTO</span> <span class="selector-tag">T_INFO</span> <span class="selector-tag">VALUES</span>(<span class="string">'John'</span>,<span class="string">'Come Together'</span>);  <span class="selector-tag">--</span>成功<span class="selector-tag">INSERT</span> <span class="selector-tag">INTO</span> <span class="selector-tag">T_INFO</span> <span class="selector-tag">VALUES</span>(<span class="string">'小明'</span>, <span class="number">20</span>, <span class="string">'xiaoming@111.com'</span>);  <span class="selector-tag">--</span>失败</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--数据库字段:NAME, SONGINSERT INTO T_INFO VALUES(&apos;John&apos;,&apos;Come Together&apos;);  --成功INSERT INTO T_INFO VALUES(&apos;小明&apos;, 20, &apos;xiaoming@111.com&apos;);  --失败</span><br></pre></td></tr></table></figure>
 <p>NoSQL采用的是对集合（类似”表”）中的文档（类似于”行”）进行动态追加，在创建集合之初不会对数据类型进行限定，任何文档都可以追加到任何集合中去，例如我们可以将这样两条文档添加到一个集合中去：</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">"name"</span> : <span class="string">"John"</span>, <span class="attr">"song"</span> : <span class="string">"Come Together"</span>&#125;&#123;<span class="attr">"name"</span> : <span class="string">"小明"</span>,  <span class="attr">"age"</span>:<span class="string">"20"</span>, <span class="attr">"email"</span> : <span class="string">"xiaoming@111.com"</span>&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;&quot;name&quot; : &quot;John&quot;, &quot;song&quot; : &quot;Come Together&quot;&#125;&#123;&quot;name&quot; : &quot;小明&quot;,  &quot;age&quot;:&quot;20&quot;, &quot;email&quot; : &quot;xiaoming@111.com&quot;&#125;</span><br></pre></td></tr></table></figure>
 <p>MongoDB中文档的格式类似于我们常见的JSON，由此可见，我们第一个拥有”name”、”song”两个字段，而第二个拥有”name”、”age”、”email”三个字段，这在预设计模式中的数据库是不可能插入成功的，但在MongoDB的动态模式是可以的，这样做的优势是我们不必为一些数量很少，但种类很多的字段单独设计一张表，可以将他们集中在单独一张表进行存储，但这样做的弊病也是显而易见的，我们在获取数据时需要对同一张表的不同文档进行区分，增加了开发上的代码量。所以在设计之初需要权衡动态模式的优劣来选择表中的数据类型。  </p>
 <h3 id="2-范式化与反范式化"><a href="#2-范式化与反范式化" class="headerlink" title="2.范式化与反范式化"></a>2.范式化与反范式化</h3><p><strong>范式化（normalization）</strong> 是关系模型的发明者埃德加·科德于1970年提出这一概念，范式化会将数据分散到不同的表中，利用关系模型进行关联，由此带来的优点是，在后期进行修改时，不会影响到与其关联的数据，仅对自身修改即可完成。</p>
 <p><strong>反范式化（denormalization）</strong> 是针对范式化提出的相反理念，反范式化会将当前文档的数据集中存放在本表中，而不会采用拆分的方式进行存储。</p>
@@ -844,7 +844,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1267,7 +1267,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">497k</span>
+    <span title="站点总字数">515k</span>
   
 
   
@@ -1278,7 +1278,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">10:22</span>
+    <span title="站点阅读时长">10:44</span>
   
   
   <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>

@@ -568,7 +568,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.6k</span>
+                <span title="本文字数">1.7k</span>
               
 
               
@@ -607,15 +607,15 @@
         <p><span><br><a id="more"></a><br>起因Swiftype现在收费了，也没有免费版本。Local Search搜索体验不好，微搜索Next官网上描述太少！所以选择Algolia。 注：Algolia搜索在版本<strong> 5.1.0 </strong>中引入，要使用此功能请确保所使用的 NexT 版本在此之后</span></p>
 <h2 id="首先注册Algolia账户"><a href="#首先注册Algolia账户" class="headerlink" title="首先注册Algolia账户"></a>首先注册Algolia账户</h2><p><a href="https://link.juejin.im?target=https%3A%2F%2Fwww.algolia.com%2Fusers%2Fsign_in" target="_blank" rel="noopener">Algolia 登陆页面https://www.algolia.com/users/sign_in</a> ，可以使用 GitHub 或者 Google 账户直接登录，也可以注册一个新账户。我直接用谷歌账户登陆了，注册后的 14 天内拥有所有功能（包括收费类别的）。之后若未续费会自动降级为免费账户，免费账户 总共有 10,000 条记录，每月有 100,000 的可以操作数。</p>
 <p>注册完成后，创建一个新的 Index，这个 index name 之后会用到<br><img src="https://upload-images.jianshu.io/upload_images/3899681-c00f0825ef763c9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/700" alt=""></p>
-<p>Index 创建完成后，此时这个 Index 里未包含任何数据。 接下来需要安装 Hexo Algolia 扩展， 这个扩展的功能是搜集站点的内容并通过 API 发送给 Algolia。前往站点根目录，执行命令安装：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-algolia --save  <span class="comment"># 目前最新版本是1.2.5，下面的操作都是基于这个版本的文档</span></span><br></pre></td></tr></table></figure></p>
+<p>Index 创建完成后，此时这个 Index 里未包含任何数据。 接下来需要安装 Hexo Algolia 扩展， 这个扩展的功能是搜集站点的内容并通过 API 发送给 Algolia。前往站点根目录，执行命令安装：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-algolia --save  # 目前最新版本是1.2.5，下面的操作都是基于这个版本的文档</span><br></pre></td></tr></table></figure></p>
 <h2 id="获取-Key，更新站点根目录配置"><a href="#获取-Key，更新站点根目录配置" class="headerlink" title="获取 Key，更新站点根目录配置"></a>获取 Key，更新站点根目录配置</h2><p><img src="http://www.qingpingshan.com/uploads/allimg/180511/1440043942-0.png" alt=""></p>
-<p>前往站点根目录打开_config.yml添加以下代码<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Algolia Search API Key</span></span><br><span class="line"><span class="attr">algolia:</span></span><br><span class="line"><span class="attr">  applicationID:</span> <span class="string">'你的Application ID'</span></span><br><span class="line"><span class="attr">  apiKey:</span> <span class="string">'你的Search-Only API Key'</span></span><br><span class="line"><span class="attr">  adminApiKey:</span> <span class="string">'你的Admin API Key'</span></span><br><span class="line"><span class="attr">  indexName:</span> <span class="string">'输入刚才创建index name'</span></span><br><span class="line"><span class="attr">  chunkSize:</span> <span class="number">5000</span></span><br></pre></td></tr></table></figure></p>
+<p>前往站点根目录打开_config.yml添加以下代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Algolia Search API Key</span><br><span class="line">algolia:</span><br><span class="line">  applicationID: &apos;你的Application ID&apos;</span><br><span class="line">  apiKey: &apos;你的Search-Only API Key&apos;</span><br><span class="line">  adminApiKey: &apos;你的Admin API Key&apos;</span><br><span class="line">  indexName: &apos;输入刚才创建index name&apos;</span><br><span class="line">  chunkSize: 5000</span><br></pre></td></tr></table></figure></p>
 <h2 id="修改Algolia搜索ACL（访问控制列表）"><a href="#修改Algolia搜索ACL（访问控制列表）" class="headerlink" title="修改Algolia搜索ACL（访问控制列表）"></a>修改Algolia搜索ACL（访问控制列表）</h2><p><img src="http://www.qingpingshan.com/uploads/allimg/180511/1440041313-1.png" alt=""></p>
 <p>选中后保存。</p>
-<h2 id="操作完成后去你的博客跟路径执行命令"><a href="#操作完成后去你的博客跟路径执行命令" class="headerlink" title="操作完成后去你的博客跟路径执行命令"></a>操作完成后去你的博客跟路径执行命令</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">set</span> <span class="attribute">HEXO_ALGOLIA_INDEXING_KEY</span>=你的Search-Only API Key</span><br></pre></td></tr></table></figure>
-<p>查看是否设置成功如果没有值就设置失败<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo clean</span></span><br><span class="line"><span class="attribute">hexo algolia</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="操作完成后去你的博客跟路径执行命令"><a href="#操作完成后去你的博客跟路径执行命令" class="headerlink" title="操作完成后去你的博客跟路径执行命令"></a>操作完成后去你的博客跟路径执行命令</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set HEXO_ALGOLIA_INDEXING_KEY=你的Search-Only API Key</span><br></pre></td></tr></table></figure>
+<p>查看是否设置成功如果没有值就设置失败<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo algolia</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/algolia02.png" alt=""></p>
-<h2 id="成功后修改Next主题配置文件"><a href="#成功后修改Next主题配置文件" class="headerlink" title="成功后修改Next主题配置文件"></a>成功后修改Next主题配置文件</h2><p>更改Next主题配置文件，找到 Algolia Search 配置部分：<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Algolia Search</span></span><br><span class="line"><span class="symbol">algolia_search:</span></span><br><span class="line"><span class="symbol">  enable:</span> true</span><br><span class="line"><span class="symbol">  hits:</span></span><br><span class="line"><span class="symbol">    per_page:</span> <span class="number">10</span></span><br><span class="line"><span class="symbol">  labels:</span></span><br><span class="line"><span class="symbol">    input_placeholder:</span> 输入关键字</span><br><span class="line"><span class="symbol">    hits_empty:</span> <span class="string">"没有找到与 $&#123;query&#125; 相关的内容"</span></span><br><span class="line"><span class="symbol">    hits_stats:</span> <span class="string">"$&#123;hits&#125;条相关记录，共耗时$&#123;time&#125; ms"</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="成功后修改Next主题配置文件"><a href="#成功后修改Next主题配置文件" class="headerlink" title="成功后修改Next主题配置文件"></a>成功后修改Next主题配置文件</h2><p>更改Next主题配置文件，找到 Algolia Search 配置部分：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># Algolia Search</span><br><span class="line">algolia_search:</span><br><span class="line">  enable: true</span><br><span class="line">  hits:</span><br><span class="line">    per_page: 10</span><br><span class="line">  labels:</span><br><span class="line">    input_placeholder: 输入关键字</span><br><span class="line">    hits_empty: &quot;没有找到与 $&#123;query&#125; 相关的内容&quot;</span><br><span class="line">    hits_stats: &quot;$&#123;hits&#125;条相关记录，共耗时$&#123;time&#125; ms&quot;</span><br></pre></td></tr></table></figure></p>
 <p>将 enable 改为 true 即可，根据需要你可以调整 labels 中的文本。这个是我修改的文本。</p>
 <p>最终效果</p>
 <p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/algolia01.png" alt=""></p>
@@ -822,7 +822,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1245,7 +1245,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">497k</span>
+    <span title="站点总字数">515k</span>
   
 
   
@@ -1256,7 +1256,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">10:22</span>
+    <span title="站点阅读时长">10:44</span>
   
   
   <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>

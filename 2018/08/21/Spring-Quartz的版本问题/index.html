@@ -594,7 +594,7 @@
       
 
       
-        <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java<span class="selector-class">.lang</span><span class="selector-class">.IncompatibleClassChangeError</span>: class org<span class="selector-class">.springframework</span><span class="selector-class">.scheduling</span><span class="selector-class">.quartz</span><span class="selector-class">.CronTriggerBean</span> has interface org<span class="selector-class">.quartz</span><span class="selector-class">.CronTrigger</span> as superclass</span><br></pre></td></tr></table></figure>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Caused by: java.lang.IncompatibleClassChangeError: class org.springframework.scheduling.quartz.CronTriggerBean has interface org.quartz.CronTrigger as superclass</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>原因是Spring 3.0版本中内置的Quartz版本是&lt;2.0的，在使用最新的Quartz包(&gt;2.0)之后，接口不兼容。</p>
 <p>解决办法有三种：</p>
@@ -784,7 +784,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1191,7 +1191,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">497k</span>
+    <span title="站点总字数">515k</span>
   
 
   
@@ -1202,7 +1202,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">10:22</span>
+    <span title="站点阅读时长">10:44</span>
   
   
   <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>

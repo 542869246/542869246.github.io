@@ -620,22 +620,22 @@
 <p>访问<a href="http://localhost:15672" target="_blank" rel="noopener">http://localhost:15672</a><br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM%E6%88%AA%E5%9B%BE20181126195657.png" alt=""></p>
 <p>默认账号密码都是guest,登录即可<br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM%E6%88%AA%E5%9B%BE20181126195722.png" alt=""></p>
 <h2 id="RabbitMQ用户创建、密码、绑定角色、修改密码等"><a href="#RabbitMQ用户创建、密码、绑定角色、修改密码等" class="headerlink" title="RabbitMQ用户创建、密码、绑定角色、修改密码等"></a>RabbitMQ用户创建、密码、绑定角色、修改密码等</h2><p>cmd进入<code>D:\RabbitMQ Server\rabbitmq_server-3.7.9\sbin</code></p>
-<p>查看已有用户及用户的角色：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl<span class="selector-class">.bat</span> list_users</span><br></pre></td></tr></table></figure></p>
-<p>新增一个用户：<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl.<span class="keyword">bat </span><span class="keyword">add_user </span>username password</span><br></pre></td></tr></table></figure></p>
-<p>给用户添加角色<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl<span class="selector-class">.bat</span> set_user_tags username administrator</span><br></pre></td></tr></table></figure></p>
+<p>查看已有用户及用户的角色：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl.bat list_users</span><br></pre></td></tr></table></figure></p>
+<p>新增一个用户：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl.bat add_user username password</span><br></pre></td></tr></table></figure></p>
+<p>给用户添加角色<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl.bat set_user_tags username administrator</span><br></pre></td></tr></table></figure></p>
 <p>rabbitmq用户角色可分为五类：超级管理员, 监控者, 策略制定者, 普通管理者以及其他。<br>(1) 超级管理员(administrator)<br>可登陆管理控制台(启用management plugin的情况下)，可查看所有的信息，并且可以对用户，策略(policy)进行操作。<br>(2) 监控者(monitoring)<br>可登陆管理控制台(启用management plugin的情况下)，同时可以查看rabbitmq节点的相关信息(进程数，内存使用情况，磁盘使用情况等)<br>(3) 策略制定者(policymaker)<br>可登陆管理控制台(启用management plugin的情况下), 同时可以对policy进行管理。<br>(4) 普通管理者(management)<br>仅可登陆管理控制台(启用management plugin的情况下)，无法看到节点信息，也无法对策略进行管理。<br>(5) 其他的<br>无法登陆管理控制台，通常就是普通的生产者和消费者。</p>
-<p>用户也可以同时具有多个角色,设置方式:<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl.bat  <span class="keyword">set</span>_user_tags  username tag1 tag2 <span class="string">...</span></span><br></pre></td></tr></table></figure></p>
-<p>更改密码:<br><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl change_password userName <span class="keyword">new</span><span class="type">Password</span></span><br></pre></td></tr></table></figure></p>
-<p>删除用户：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl<span class="selector-class">.bat</span> delete_user username</span><br></pre></td></tr></table></figure></p>
+<p>用户也可以同时具有多个角色,设置方式:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl.bat  set_user_tags  username tag1 tag2 ...</span><br></pre></td></tr></table></figure></p>
+<p>更改密码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl change_password userName newPassword</span><br></pre></td></tr></table></figure></p>
+<p>删除用户：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rabbitmqctl.bat delete_user username</span><br></pre></td></tr></table></figure></p>
 <p>当然，不想敲命令的话可以进管理页面直接操作：<br><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/TIM%E6%88%AA%E5%9B%BE20181126200654.png" alt=""></p>
 <h2 id="Spring-Boot整合"><a href="#Spring-Boot整合" class="headerlink" title="Spring Boot整合"></a>Spring Boot整合</h2><p>下面，我们通过在Spring Boot应用中整合RabbitMQ，并实现一个简单的发送、接收消息的例子来对RabbitMQ有一个直观的感受和理解。</p>
 <p>在Spring Boot中整合RabbitMQ是一件非常容易的事，因为之前我们已经介绍过Starter POMs，其中的AMQP模块就可以很好的支持RabbitMQ，下面我们就来详细说说整合过程：</p>
 <ul>
 <li><p>在<code>pom.xml</code>中引入如下依赖内容，其中<code>spring-boot-starter-amqp</code>用于支持RabbitMQ。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-amqp<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-amqp&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>在<code>application.properties</code>中配置关于RabbitMQ的连接和用户信息，用户可以回到上面的安装内容，在管理页面中创建用户。</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring<span class="selector-class">.rabbitmq</span><span class="selector-class">.host</span>=<span class="number">127.0</span>.<span class="number">0.1</span></span><br><span class="line">spring<span class="selector-class">.rabbitmq</span><span class="selector-class">.port</span>=<span class="number">5672</span></span><br><span class="line">spring<span class="selector-class">.rabbitmq</span><span class="selector-class">.username</span>=felix</span><br><span class="line">spring<span class="selector-class">.rabbitmq</span><span class="selector-class">.password</span>=<span class="number">123456</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring.rabbitmq.host=127.0.0.1</span><br><span class="line">spring.rabbitmq.port=5672</span><br><span class="line">spring.rabbitmq.username=felix</span><br><span class="line">spring.rabbitmq.password=123456</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>创建消息生产者<code>Sender</code>。通过注入<code>AmqpTemplate</code>接口的实例来实现消息的发送，<code>AmqpTemplate</code>接口定义了一套针对AMQP协议的基础操作。在Spring Boot中会根据配置来注入其具体实现。在该生产者，我们会产生一个字符串，并发送到名为<code>hello</code>的队列中。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Sender</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> AmqpTemplate rabbitTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">send</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String context = <span class="string">"hello "</span> + <span class="keyword">new</span> Date();</span><br><span class="line">        System.out.println(<span class="string">"Sender : "</span> + context);</span><br><span class="line">        <span class="keyword">this</span>.rabbitTemplate.convertAndSend(<span class="string">"hello"</span>, context);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -860,7 +860,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1283,7 +1283,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">497k</span>
+    <span title="站点总字数">515k</span>
   
 
   
@@ -1294,7 +1294,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">10:22</span>
+    <span title="站点阅读时长">10:44</span>
   
   
   <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>

@@ -630,7 +630,7 @@
 </ul>
 <p><img src="http://7xs5l8.com1.z0.glb.clouddn.com/0.jpg" alt="命令窗口"></p>
 <ul>
-<li>安装完成后，还需要最后一步设置，在命令行输入<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git<span class="built_in"> config </span>--global user.name <span class="string">"Your Name"</span></span><br><span class="line">$ git<span class="built_in"> config </span>--global user.email <span class="string">"email@example.com"</span></span><br></pre></td></tr></table></figure>
+<li>安装完成后，还需要最后一步设置，在命令行输入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;Your Name&quot;</span><br><span class="line">$ git config --global user.email &quot;email@example.com&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>因为Git是分布式版本控制系统，所以，每个机器都必须自报家门：你的名字和Email地址。</p>
@@ -646,15 +646,15 @@
 <h4 id="配置SHH"><a href="#配置SHH" class="headerlink" title="配置SHH"></a>配置SHH</h4><p>配置shh key是让本地git项目与远程的github建立联系  </p>
 <ul>
 <li><p>检查是否已经有SSH Key，打开Git Bash，输入</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~<span class="string">/.ssh</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果没有.ssh这个目录，则生成一个新的SSH，输入</p>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> rsa -C <span class="string">"your e-mail"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your e-mail&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>注意1: 此处的邮箱地址，你可以输入自己的邮箱地址；注意2: 此处的「-C」的是大写的「C」  </p>
 <ul>
-<li>接下来几步都直接按回车键,然后系统会要你输入密码<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty <span class="keyword">for</span> no passphrase):<span class="xml"><span class="tag">&lt;<span class="name">输入加密串</span>&gt;</span></span></span><br><span class="line"><span class="xml">Enter same passphrase again:<span class="tag">&lt;<span class="name">再次输入加密串</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<li>接下来几步都直接按回车键,然后系统会要你输入密码<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase (empty for no passphrase):&lt;输入加密串&gt;</span><br><span class="line">Enter same passphrase again:&lt;再次输入加密串&gt;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>这个密码会在你提交项目时使用，如果为空的话提交项目时则不用输入。这个设置是防止别人往你的项目里提交内容。<br>注意：输入密码的时候没有*字样的，你直接输入就可以了。  </p>
@@ -663,11 +663,11 @@
 </ul>
 <h4 id="添加-SSH-Key-到-GitHub和Coding"><a href="#添加-SSH-Key-到-GitHub和Coding" class="headerlink" title="添加 SSH Key 到 GitHub和Coding"></a>添加 SSH Key 到 GitHub和Coding</h4><ul>
 <li><p>打开Git Bash，然后输入</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~<span class="string">/.ssh</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>进入到.shh文件夹中再输入ls，查看是否有id_rsa.pub文件<br><img src="http://7xs5l8.com1.z0.glb.clouddn.com/wangzhan%E6%88%AA%E5%9B%BE05.png" alt=""></p>
 </li>
-<li>输入cat命令，打开id_rsa.pub文件<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">cat</span> <span class="selector-tag">id_rsa</span><span class="selector-class">.pub</span></span><br></pre></td></tr></table></figure>
+<li>输入cat命令，打开id_rsa.pub文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat id_rsa.pub</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><img src="http://7xs5l8.com1.z0.glb.clouddn.com/wangzhan%E6%88%AA%E5%9B%BE06.png" alt="">  </p>
@@ -677,16 +677,16 @@
 </ul>
 <h4 id="测试SSH是否配置成功"><a href="#测试SSH是否配置成功" class="headerlink" title="测试SSH是否配置成功"></a>测试SSH是否配置成功</h4><ul>
 <li><p>打开Git Bash，然后输入</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">-T</span> <span class="selector-tag">git</span>@<span class="keyword">github</span>.<span class="keyword">com</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如配置了密码则要输入密码,输完按回车<br>如果显示以下内容，则说明Github中的ssh配置成功。</p>
-<figure class="highlight irpf90"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi username<span class="comment">! You've successfully authenticated, but GitHub does not</span></span><br><span class="line"><span class="keyword">provide</span> shell <span class="keyword">access</span>.</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Hi username! You&apos;ve successfully authenticated, but GitHub does not</span><br><span class="line">provide shell access.</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>再输入</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">ssh</span> <span class="selector-tag">-T</span> <span class="selector-tag">git</span>@<span class="keyword">git</span>.<span class="keyword">coding</span>.<span class="keyword">net</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@git.coding.net</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>如果显示以下则说明coding中的ssh配置成功<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello username You've connected <span class="keyword">to</span> Coding.net <span class="keyword">by</span> SSH successfully!</span><br></pre></td></tr></table></figure></p>
+<p>如果显示以下则说明coding中的ssh配置成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello username You&apos;ve connected to Coding.net by SSH successfully!</span><br></pre></td></tr></table></figure></p>
 <h4 id="创建Github-Pages和Coding-Pages-服务"><a href="#创建Github-Pages和Coding-Pages-服务" class="headerlink" title="创建Github Pages和Coding Pages 服务"></a>创建Github Pages和Coding Pages 服务</h4><ul>
 <li>GitHub Pages分两种，一种是你的GitHub用户名建立的username.github.io这样的用户&amp;组织页（站），另一种是依附项目的pages。想建立个人博客是用的第一种，形如cnfeat.github.io这样的可访问的站，每个用户名下面只能建立一个。<a href="https://help.github.com/articles/user-organization-and-project-pages/" target="_blank" rel="noopener">更多</a></li>
 <li>官网点击代码再点击Coding Pages 服务开启。分支和github分支写一样，填写master<br><img src="http://7xs5l8.com1.z0.glb.clouddn.com/wangzhan%E6%88%AA%E5%9B%BE13.png" alt=""></li>
@@ -694,23 +694,23 @@
 <h4 id="将博客网站上传到GitHub和Coding中"><a href="#将博客网站上传到GitHub和Coding中" class="headerlink" title="将博客网站上传到GitHub和Coding中"></a>将博客网站上传到GitHub和Coding中</h4><ul>
 <li>打开D:\blog文件夹中的_config.yml文件，找到如下位置，填写</li>
 </ul>
-<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Deployment</span></span><br><span class="line"><span class="meta">## Docs: https:<span class="comment">//hexo.io/docs/deployment.html</span></span></span><br><span class="line"><span class="symbol">deploy:</span></span><br><span class="line"><span class="symbol">  type:</span> git</span><br><span class="line"><span class="symbol">  repo:</span></span><br><span class="line"><span class="symbol">      github:</span> git@github.com:yourname/yourname.github.io.git,master</span><br><span class="line"><span class="symbol">      coding:</span> git@git.coding.net:yourname/yourname.git,master</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo:</span><br><span class="line">      github: git@github.com:yourname/yourname.github.io.git,master</span><br><span class="line">      coding: git@git.coding.net:yourname/yourname.git,master</span><br></pre></td></tr></table></figure>
 <p><strong>注：</strong> (1) 其中yourname替换成你的Github账户名;(2)注意在yml文件中，:后面都是要带空格的。<br><img src="http://7xs5l8.com1.z0.glb.clouddn.com/wangzhan%E6%88%AA%E5%9B%BE14.png" alt="">  </p>
 <ul>
-<li>在<strong>blog文件夹</strong>中空白处右击打开Git Bash输入<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git <span class="comment">--save</span></span><br><span class="line">hexo g <span class="comment">#生成静态网页</span></span><br><span class="line">hexo d <span class="comment">#开始部署</span></span><br></pre></td></tr></table></figure>
+<li>在<strong>blog文件夹</strong>中空白处右击打开Git Bash输入<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br><span class="line">hexo g #生成静态网页</span><br><span class="line">hexo d #开始部署</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>此时，通过访问<a href="http://yourname.github.io" target="_blank" rel="noopener">http://yourname.github.io</a>和<a href="http://yourname.coding.me可以看到默认的Hexo首页面（与之前本地测试时一样）。" target="_blank" rel="noopener">http://yourname.coding.me可以看到默认的Hexo首页面（与之前本地测试时一样）。</a></p>
 <h4 id="更换Hexo主题"><a href="#更换Hexo主题" class="headerlink" title="更换Hexo主题"></a>更换Hexo主题</h4><p>本网站使用的是Next主题。该主题简洁易用，在移动端也表现不错。  </p>
 <ul>
 <li><p>下载主题<br>在<strong>blog文件夹</strong>中空白处右击打开Git Bash输入</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone http<span class="variable">s:</span>//github.<span class="keyword">com</span>/iissnan/hexo-theme-<span class="keyword">next</span> themes/<span class="keyword">next</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改网站的主题为Next<br>打开D:\blog下的_config.yml文件，找到theme字段，将其修改为next</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> Extensions</span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Plugins: http://hexo.io/plugins/</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="comment"># Themes: http://hexo.io/themes/</span></span></span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: http://hexo.io/plugins/</span><br><span class="line">## Themes: http://hexo.io/themes/</span><br><span class="line">theme: next</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>验证主题是否可用<br>输入</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo</span> s <span class="comment">#启动服务，调试用</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s #启动服务，调试用</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>再在浏览器输入<a href="http://localhost:4000/" target="_blank" rel="noopener">http://localhost:4000/</a>确认网站主题是否切换为Next.  </p>
@@ -934,7 +934,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1357,7 +1357,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">497k</span>
+    <span title="站点总字数">515k</span>
   
 
   
@@ -1368,7 +1368,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">10:22</span>
+    <span title="站点阅读时长">10:44</span>
   
   
   <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>

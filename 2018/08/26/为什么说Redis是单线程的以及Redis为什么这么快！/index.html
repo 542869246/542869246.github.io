@@ -630,7 +630,7 @@
 <p>ps命令的“-T”参数表示显示线程（Show threads, possibly with SPID column.）“SID”栏表示线程ID，而“CMD”栏则显示了线程名称。</p>
 <p><strong>警告2</strong>：在上图中FAQ中的最后一段，表述了从Redis 4.0版本开始会支持多线程的方式，但是，只是在某一些操作上进行多线程的操作！所以该篇文章在以后的版本中是否还是单线程的方式需要读者考证！</p>
 <h2 id="六、注意点"><a href="#六、注意点" class="headerlink" title="六、注意点"></a>六、注意点</h2><p>1、我们知道Redis是用”单线程-多路复用IO模型”来实现高性能的内存数据服务的，这种机制避免了使用锁，但是同时这种机制在进行sunion之类的比较耗时的命令时会使redis的并发下降。因为是单一线程，所以同一时刻只有一个操作在进行，所以，耗时的命令会导致并发的下降，不只是读并发，写并发也会下降。而单一线程也只能用到一个CPU核心，所以可以在同一个多核的服务器中，可以启动多个实例，组成master-master或者master-slave的形式，耗时的读命令可以完全在slave进行。</p>
-<p>需要改的redis.conf项：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pidfile /var/run/redis/redis_6377.pid  #pidfile要加上端口号</span><br><span class="line">port 6377  #这个是必须改的</span><br><span class="line">logfile /var/log/redis/redis_6377.log #logfile的名称也加上端口号</span><br><span class="line">dbfilename dump_6377.rdb  #rdbfile也加上端口号</span><br></pre></td></tr></table></figure></p>
+<p>需要改的redis.conf项：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pidfile /var/run/redis/redis_6377.pid  #pidfile要加上端口号</span><br><span class="line">port 6377  #这个是必须改的</span><br><span class="line">logfile /var/log/redis/redis_6377.log #logfile的名称也加上端口号</span><br><span class="line">dbfilename dump_6377.rdb  #rdbfile也加上端口号</span><br></pre></td></tr></table></figure></p>
 <p>2、“我们不能任由操作系统负载均衡，因为我们自己更了解自己的程序，所以，我们可以手动地为其分配CPU核，而不会过多地占用CPU，或是让我们关键进程和一堆别的进程挤在一起。”。<br>CPU 是一个重要的影响因素，由于是单线程模型，Redis 更喜欢大缓存快速 CPU， 而不是多核</p>
 <p>在多核 CPU 服务器上面，Redis 的性能还依赖NUMA 配置和处理器绑定位置。最明显的影响是 redis-benchmark 会随机使用CPU内核。为了获得精准的结果，需要使用固定处理器工具（在 Linux 上可以使用 taskset）。最有效的办法是将客户端和服务端分离到两个不同的 CPU 来高校使用三级缓存。</p>
 <h2 id="七、扩展"><a href="#七、扩展" class="headerlink" title="七、扩展"></a>七、扩展</h2><p>&nbsp;&nbsp;&nbsp;&nbsp;以下也是你应该知道的几种模型，祝你的面试一臂之力！</p>
@@ -834,7 +834,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1257,7 +1257,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">497k</span>
+    <span title="站点总字数">515k</span>
   
 
   
@@ -1268,7 +1268,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">10:22</span>
+    <span title="站点阅读时长">10:44</span>
   
   
   <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>

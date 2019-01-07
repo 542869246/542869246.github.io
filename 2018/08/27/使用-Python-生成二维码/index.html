@@ -565,7 +565,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">3.1k</span>
+                <span title="本文字数">3.2k</span>
               
 
               
@@ -656,12 +656,12 @@
 <p><strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">qrcode</strong> 运行在 Python 3 版本上，它可以玩出很多花样。例如能生成以下三种二维码图片：普通二维码、带图片的艺术二维码（黑白与彩色）、动态二维码（黑白与彩色）。它比较适合直接用于生成二维码图片的场景。</p>
 <p style="margin-top: 1.5em;margin-bottom: 1.5em;max-width: 100%;min-height: 1em;color: rgb(89, 89, 89);">安装 qrcode 库可以使用 pip 方式。但是该库依赖&nbsp;<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">pillow</strong>、<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">numpy</strong>&nbsp;和&nbsp;<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">imageio</strong>。因此，我们需要先安装依赖库，再安装 qrcode。最后的安装命令如下：</p>
 
-<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 逐一安装</span></span><br><span class="line">pip <span class="keyword">install</span> pillow</span><br><span class="line">pip <span class="keyword">install</span> numpy</span><br><span class="line">pip <span class="keyword">install</span> imageio</span><br><span class="line">pip <span class="keyword">install</span> myqr</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 逐一安装</span><br><span class="line">pip install pillow</span><br><span class="line">pip install numpy</span><br><span class="line">pip install imageio</span><br><span class="line">pip install myqr</span><br></pre></td></tr></table></figure>
 <p>该库生成带图片的艺术二维码算是一大亮点，具体用法如下:</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myqr <span class="string">https:</span><span class="comment">//github.com -p github.jpg -c</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myqr https://github.com -p github.jpg -c</span><br></pre></td></tr></table></figure>
 <p>上述命令作用是将 github 主页写到彩色二维码中。  </p>
 <p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/642.webp" alt=""></p>
-<p>该库还支持生成 gif 的彩色二维码图片，具体用法如下：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myqr http<span class="variable">s:</span>//github.<span class="keyword">com</span> -<span class="keyword">p</span> github.gif -<span class="keyword">c</span> -<span class="keyword">con</span> <span class="number">1.5</span> -bri <span class="number">1.6</span></span><br></pre></td></tr></table></figure></p>
+<p>该库还支持生成 gif 的彩色二维码图片，具体用法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">myqr https://github.com -p github.gif -c -con 1.5 -bri 1.6</span><br></pre></td></tr></table></figure></p>
 <p>效果图如下：  </p>
 <p><img src="https://yfzhou.oss-cn-beijing.aliyuncs.com/blog/img/640.gif" alt=""></p>
 <p>最后补上该库的 Github 地址：<a href="https://github.com/sylnsfar/qrcode" target="_blank" rel="noopener">https://github.com/sylnsfar/qrcode</a></p>
@@ -670,9 +670,9 @@
 </ul>
 <p style="margin-top: 1.5em;margin-bottom: 1.5em;max-width: 100%;min-height: 1em;color: rgb(89, 89, 89);"><strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">python-qrcode</strong>&nbsp;相比&nbsp;<strong style="max-width: 100%;color: rgb(255, 107, 123);box-sizing: border-box !important;overflow-wrap: break-word !important;">qrcode</strong>&nbsp;要稍微逊色一点。不过它也有自己的特色。它支持生成矢量图，而且比较适合在代码中生成二维码的场景。</p>
 
-<p>安装 python-qrcode 同样建议使用 pip 方式，安装命令如下：<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip <span class="keyword">install</span> qrcode</span><br></pre></td></tr></table></figure></p>
-<p>在 Python 代码中，最简单的用法是这样。<br><figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> qrcodeimg = qrcode.make('https://github.com')</span><br></pre></td></tr></table></figure></p>
-<p>它也支持自定义二维码的信息，具体用法如下：<br><figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">import</span> qrcode</span><br><span class="line"><span class="attr">qr</span> = qrcode.QRCode(</span><br><span class="line">    <span class="attr">version=1,</span></span><br><span class="line">    <span class="attr">error_correction=qrcode.constants.ERROR_CORRECT_L,</span></span><br><span class="line">    <span class="attr">box_size=10,</span></span><br><span class="line">    <span class="attr">border=4,</span></span><br><span class="line">)</span><br><span class="line">qr.add_data('https://github.com')</span><br><span class="line">qr.make(<span class="attr">fit=True)</span></span><br><span class="line"></span><br><span class="line"><span class="attr">img</span> = qr.make_image(<span class="attr">fill_color="black",</span> <span class="attr">back_color="white")</span></span><br></pre></td></tr></table></figure></p>
+<p>安装 python-qrcode 同样建议使用 pip 方式，安装命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install qrcode</span><br></pre></td></tr></table></figure></p>
+<p>在 Python 代码中，最简单的用法是这样。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import qrcodeimg = qrcode.make(&apos;https://github.com&apos;)</span><br></pre></td></tr></table></figure></p>
+<p>它也支持自定义二维码的信息，具体用法如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import qrcode</span><br><span class="line">qr = qrcode.QRCode(</span><br><span class="line">    version=1,</span><br><span class="line">    error_correction=qrcode.constants.ERROR_CORRECT_L,</span><br><span class="line">    box_size=10,</span><br><span class="line">    border=4,</span><br><span class="line">)</span><br><span class="line">qr.add_data(&apos;https://github.com&apos;)</span><br><span class="line">qr.make(fit=True)</span><br><span class="line"></span><br><span class="line">img = qr.make_image(fill_color=&quot;black&quot;, back_color=&quot;white&quot;)</span><br></pre></td></tr></table></figure></p>
 <p>如果你想深入了解该库，可以到 Github 仓库阅读相关的文档。<br>Github 地址是：<a href="https://github.com/lincolnloop/python-qrcode" target="_blank" rel="noopener">https://github.com/lincolnloop/python-qrcode</a></p>
 <p><br></p>
 <p><center><br>此文摘自微信公众号【Python中文社区】<br>微信扫一扫<br>关注该公众号<br></center><br><img src="https://mp.weixin.qq.com/mp/qrcode?scene=10000005&amp;size=102&amp;__biz=MzAxMjUyNDQ5OA==&amp;mid=2653557161&amp;idx=1&amp;sn=e6b0e7656e7e700e41a33a7142cf38b6&amp;send_time=" alt="Python中文社区"></p>
@@ -864,7 +864,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">90</span>
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1287,7 +1287,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点总字数：</span>
     
-    <span title="站点总字数">497k</span>
+    <span title="站点总字数">515k</span>
   
 
   
@@ -1298,7 +1298,7 @@ show_date_time();
     
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
     
-    <span title="站点阅读时长">10:22</span>
+    <span title="站点阅读时长">10:44</span>
   
   
   <div style="background-image:linear-gradient(90deg,#6dba82 0,#07b39b 15%,#1098ad 30%,#5073b8 44%,#a166ab 58%,#ef4e7b 72%,#f37055 86%,#f79533 100%);background-size:cover;-webkit-background-clip:text;-webkit-text-fill-color:transparent;user-select:none"><i>Tip: 本站电脑访问体验更佳耶&nbsp;<i class="fa fa-angellist" style="display:inline"></i></i></div>
